@@ -31,7 +31,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        String curProcessName = getProcessName(this);
+        String curProcessName =getProcessName(this);
         if (!curProcessName.equals(getPackageName())) {
             return;
         }
