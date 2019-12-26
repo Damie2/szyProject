@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.mvvn;
+package com.smh.szyproject.test.mvvm;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.databinding.DataBindingUtil;
 
-import com.bumptech.glide.Glide;
 import com.smh.szyproject.R;
 import com.smh.szyproject.databinding.ActivityMvvmBinding;
 

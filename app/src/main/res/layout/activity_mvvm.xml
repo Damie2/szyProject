@@ -3,7 +3,7 @@
     <data>
         <variable
             name="User"
-            type="com.smh.szyproject.test.mvvn.User" />
+            type="com.smh.szyproject.test.mvvm.User" />
     </data>
 
     <RelativeLayout xmlns:tools="http://schemas.android.com/tools"

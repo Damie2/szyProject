@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.mvvn;
+package com.smh.szyproject.test.mvvm;
 
 public class User {
     private String UserName;
