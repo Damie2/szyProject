@@ -3,7 +3,7 @@ package com.smh.szyproject.test.SubjectTon;
 import com.smh.szyproject.utils.L;
 
 /**
- * 代理类
+ * 静态代理类
  */
 public class Proxy implements Subject{
     private SuperMan superMan;
