@@ -42,6 +42,7 @@
 #-renamesourcefileattribute SourceFile
 
 
+-keep class com.hjq.permissions.** {*;}
 -dontwarn com.bqs.**
 
 -keep class com.linkface.** { *; }
@@ -86,10 +87,10 @@
 -keep class top.zibin.luban.** {*;}
 -dontwarn  top.zibin.luban.**
 
- -keep class com.nine.swkj.** {*;}
+ -keep class com.smh.szyproject.** {*;}
 
 
--keep public class com.nine.swkj.spb4.R$*{
+-keep public class com.smh.szyproject.R$*{
     public static final int *;
  }
 

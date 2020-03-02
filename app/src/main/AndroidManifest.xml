@@ -42,16 +42,6 @@
             android:name="design_height_in_dp"
             android:value="640" />
 
-
-<!--        <activity android:name=".Test.PremissionTest">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
-
-
         <activity android:name=".test.proxy.dynamicProxy.SubJectTest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
