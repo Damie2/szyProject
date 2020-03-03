@@ -32,7 +32,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        String curProcessName =getProcessName(this);
+        String curProcessName = getProcessName(this);
         if (!curProcessName.equals(getPackageName())) {
             return;
         }
@@ -88,16 +88,14 @@ public class MyApplication extends Application {
 
             @Override
             public void onActivityResumed(Activity activity) {
-                L.e("onActivityResumed了啊");
                 if (background || flag) {
                     background = false;
                     flag = false;
                     sAppState = STATE_BACK_TO_FRONT;
                     backToFrontTime = System.currentTimeMillis();
-                    L.e("onResume: STATE_BACK_TO_FRONT");
                     if (canShowAd()) {
 //                        ShowADActivity.show(activity);
-                        L.e("展示广告页面");
+//                        L.e("展示广告页面");
                     }
                 } else {
                     sAppState = STATE_NORMAL;
@@ -184,7 +182,6 @@ public class MyApplication extends Application {
     }
 
 
-
     /**
      * 进入后台间隔10分钟以后可以再次显示广告
      *
@@ -193,7 +190,7 @@ public class MyApplication extends Application {
     public static boolean canShowAd() {
         return sAppState == STATE_BACK_TO_FRONT &&
 //                (backToFrontTime - frontToBackTime) > 10 * 60 * 1000;
-                (backToFrontTime - frontToBackTime) >   10 *1000;
+                (backToFrontTime - frontToBackTime) > 10 * 1000;
     }
 
 
