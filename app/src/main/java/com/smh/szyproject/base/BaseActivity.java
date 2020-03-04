@@ -46,7 +46,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         init(savedInstanceState);
         // 电量状态栏的颜色
         StatusBarCompat.setStatusBarColor(this, getStatusBarColor(), true);
-        System.out.println();
     }
 
     //调登录，如果没有登录就走登录，登录了就直接走要走的那个页面

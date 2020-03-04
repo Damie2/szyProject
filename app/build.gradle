@@ -140,6 +140,9 @@ dependencies {
     //viewpager2
     implementation 'androidx.viewpager2:viewpager2:1.0.0-alpha01'
 
+    //support:design  TabLayout 换成这个
+    //https://github.com/hackware1993/MagicIndicator   或者换成这个
+    implementation 'com.google.android.material:material:1.0.0'
 
 
      //多任务文件并行下载 工具，好使
