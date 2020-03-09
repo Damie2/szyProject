@@ -46,7 +46,6 @@ public abstract class BaseFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
         AutoUtils.auto(view);
         ButterKnife.bind(this, view);
-//        ActionBarHelper.setStatusBarFullTransparent(getActivity());
         //灰色状态栏设置为透明色
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             try {

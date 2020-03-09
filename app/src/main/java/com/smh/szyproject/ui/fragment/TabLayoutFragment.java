@@ -3,6 +3,7 @@ package com.smh.szyproject.ui.fragment;
 import android.widget.TextView;
 
 import com.smh.szyproject.R;
+import com.smh.szyproject.Rx.databus.RxBus;
 import com.smh.szyproject.base.BaseFragment;
 
 import butterknife.BindView;

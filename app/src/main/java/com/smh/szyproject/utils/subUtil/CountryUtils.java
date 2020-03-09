@@ -272,7 +272,7 @@ public class CountryUtils {
             countryCodeMap.put("TO", "+676");
             countryCodeMap.put("TC", "+1");
             countryCodeMap.put("TA", "+290");
-            countryCodeMap.put("TT", "+1");
+            countryCodeMap.put("AA", "+1");
             countryCodeMap.put("TN", "+216");
             countryCodeMap.put("TV", "+688");
             countryCodeMap.put("TR", "+90");
