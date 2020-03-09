@@ -1,5 +1,7 @@
 package com.smh.szyproject.base;
 
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +13,8 @@ import androidx.fragment.app.Fragment;
 
 import com.smh.szyproject.utils.ActionBarHelper;
 import com.zhy.autolayout.utils.AutoUtils;
+
+import java.lang.reflect.Field;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -42,7 +46,20 @@ public abstract class BaseFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
         AutoUtils.auto(view);
         ButterKnife.bind(this, view);
-        ActionBarHelper.setStatusBarFullTransparent(getActivity());
+//        ActionBarHelper.setStatusBarFullTransparent(getActivity());
+        //灰色状态栏设置为透明色
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            try {
+                Class decorViewClazz = Class.forName("com.android.internal.policy.DecorView");
+                Field field = decorViewClazz.getDeclaredField("mSemiTransparentStatusBarColor");
+                field.setAccessible(true);
+                field.setInt(getActivity().getWindow().getDecorView(), Color.TRANSPARENT);  //改为透明
+            } catch (Exception e) {
+            }
+        }
+
+
+
         return view;
     }
 
