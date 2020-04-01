@@ -2,10 +2,12 @@ package com.smh.szyproject.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 
@@ -35,6 +37,19 @@ public class AppUtils {
             return "";
         }
         return verName;
+    }
+
+    public static boolean checkApkExist(Context context, String packageName) {
+        if (TextUtils.isEmpty(packageName))
+            return false;
+        try {
+            ApplicationInfo info = context.getPackageManager()
+                    .getApplicationInfo(packageName,
+                            PackageManager.GET_UNINSTALLED_PACKAGES);
+            return true;
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
     }
 
 

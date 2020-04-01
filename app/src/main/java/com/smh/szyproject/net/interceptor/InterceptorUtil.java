@@ -14,6 +14,8 @@ public class InterceptorUtil {
 //                Log.w(MainUtil.logger, "log: " + message);
 //                L.d("日志是："+message);
             }
-        }).setLevel(HttpLoggingInterceptor.Level.BODY);//设置打印数据的级别
+            //设置打印数据的级别
+        }).setLevel(HttpLoggingInterceptor.Level.BODY);
     }
 }
+

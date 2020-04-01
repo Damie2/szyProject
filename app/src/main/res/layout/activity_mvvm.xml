@@ -12,12 +12,14 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:layout_centerInParent="true"
             android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{User.userName}" />
 
         <TextView
+            android:layout_below="@id/userName"
             android:id="@+id/userSex"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

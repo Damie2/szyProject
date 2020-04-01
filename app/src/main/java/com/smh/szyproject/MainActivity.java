@@ -1,9 +1,13 @@
 package com.smh.szyproject;
 
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,6 +52,20 @@ public class MainActivity extends BaseActivity {
 
 
     private void initView(Bundle savedInstanceState) {
+
+        String deviceId = "";
+
+        if (Build.VERSION.SDK_INT < 29) {
+            TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+            deviceId = tm.getDeviceId();
+        }else{
+            deviceId = Settings.System.getString(getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
+        }
+
+        L.e("deviceId:"+deviceId);
+
+
 
         fh = new FragmentHelp(getSupportFragmentManager());
         if (savedInstanceState == null) {
