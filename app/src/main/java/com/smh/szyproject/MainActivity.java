@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.smh.szyproject.Rx.databus.RxBus;
 import com.smh.szyproject.common.image.ImageLoader;
+import com.smh.szyproject.helper.ActivityStackManager;
 import com.smh.szyproject.helper.DoubleClickHelper;
 import com.smh.szyproject.helper.PopupWindowHelper;
 import com.smh.szyproject.other.HintLayout;
@@ -27,6 +28,7 @@ import com.smh.szyproject.ui.fragment.UserFragment;
 import com.smh.szyproject.ui.view.ViewHelp;
 import com.smh.szyproject.utils.FragmentHelp;
 import com.smh.szyproject.utils.L;
+import com.smh.szyproject.utils.ToastUtils;
 
 import butterknife.BindView;
 
@@ -145,4 +147,24 @@ public class MainActivity extends BaseActivity {
         super.onDestroy();
         RxBus.getInstance().unRegister(this);
     }
+
+    @Override
+    public void onBackPressed() {
+        if (DoubleClickHelper.isOnDoubleClick()) {
+            // 移动到上一个任务栈，避免侧滑引起的不良反应
+            moveTaskToBack(false);
+            layout.postDelayed(() -> {
+
+                // 进行内存优化，销毁掉所有的界面
+                ActivityStackManager.getInstance().finishAllActivities();
+                // 销毁进程（注意：调用此 API 可能导致当前 Activity onDestroy 方法无法正常回调）
+                // System.exit(0);
+
+            }, 300);
+        } else {
+            ToastUtils.showToastForText(this,"再按一次退出");
+        }
+    }
+
+
 }

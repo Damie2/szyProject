@@ -14,15 +14,16 @@ import android.view.Window;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.githang.statusbar.StatusBarCompat;
-import com.smh.szyproject.R;
+import com.gyf.immersionbar.ImmersionBar;
+import com.hjq.bar.TitleBar;
+import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.other.StatusManager;
 import com.smh.szyproject.utils.ActionBarHelper;
-import com.smh.szyproject.utils.ActionBarHelper;
-import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.utils.L;
 import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
@@ -33,10 +34,29 @@ import butterknife.ButterKnife;
  * Created by zm on 2018/10/6.
  */
 
-public abstract class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends AppCompatActivity implements TitleBarAction {
     private static final String LAYOUT_LINEARLAYOUT = "LinearLayout";
     private static final String LAYOUT_FRAMELAYOUT = "FrameLayout";
     private static final String LAYOUT_RELATIVELAYOUT = "RelativeLayout";
+
+    /**
+     * 标题栏对象
+     */
+    private TitleBar mTitleBar;
+    /**
+     * 状态栏沉浸
+     */
+    private ImmersionBar mImmersionBar;
+
+    /**
+     * 加载对话框
+     */
+    private BaseDialog mDialog;
+    /**
+     * 对话框数量
+     */
+    private int mDialogTotal;
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +65,15 @@ public abstract class BaseActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         init(savedInstanceState);
         // 电量状态栏的颜色
-        StatusBarCompat.setStatusBarColor(this, getStatusBarColor(), true);
+//        StatusBarCompat.setStatusBarColor(this, getStatusBarColor(), true);
+
+        //字体默认白底黑字
+//        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        if (getTitleBar() != null) {
+            getTitleBar().setOnTitleBarListener(this);
+        }
+        initImmersion();
     }
 
     //调登录，如果没有登录就走登录，登录了就直接走要走的那个页面
@@ -61,6 +89,97 @@ public abstract class BaseActivity extends AppCompatActivity {
 //        }
 //    }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // 重新初始化状态栏
+
+    }
+
+
+    /**
+     * 初始化沉浸式
+     */
+    protected void initImmersion() {
+        // 初始化沉浸式状态栏
+        if (isStatusBarEnabled()) {
+            createStatusBarConfig().init();
+            // 设置标题栏沉浸
+            if (mTitleBar != null) {
+                //这里设置titleBar的高度
+                ImmersionBar.setTitleBar(this, mTitleBar);
+            }
+        }
+    }
+
+    /**
+     * 是否使用沉浸式状态栏
+     */
+    protected boolean isStatusBarEnabled() {
+        return true;
+    }
+
+    /**
+     * 状态栏字体深色模式
+     */
+    protected boolean isStatusBarDarkFont() {
+        return true;
+    }
+
+    /**
+     * 初始化沉浸式状态栏
+     */
+    protected ImmersionBar createStatusBarConfig() {
+        // 在BaseActivity里初始化
+        mImmersionBar = ImmersionBar.with(this)
+                // 默认状态栏字体颜色为黑色
+                .statusBarDarkFont(isStatusBarDarkFont());
+        return mImmersionBar;
+    }
+
+    /**
+     * 获取状态栏沉浸的配置对象
+     */
+    @Nullable
+    public ImmersionBar getStatusBarConfig() {
+        return mImmersionBar;
+    }
+
+    /**
+     * 设置标题栏的标题
+     */
+    @Override
+    public void setTitle(@StringRes int id) {
+        setTitle(getString(id));
+    }
+
+    /**
+     * 设置标题栏的标题
+     */
+    @Override
+    public void setTitle(CharSequence title) {
+        super.setTitle(title);
+        if (mTitleBar != null) {
+            mTitleBar.setTitle(title);
+        }
+    }
+
+
+    @Override
+    @Nullable
+    public TitleBar getTitleBar() {
+        if (mTitleBar == null) {
+            mTitleBar = findTitleBar(getContentView());
+        }
+        return mTitleBar;
+    }
+
+
+    @Override
+    public void onLeftClick(View v) {
+        onBackPressed();
+    }
 
 
     @Override

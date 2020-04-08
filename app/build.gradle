@@ -39,25 +39,50 @@ android {
     }
 
 
-    buildTypes {
-        release {
-            // 移除无用的资源文件
-            shrinkResources true
-            // ZipAlign 优化
-            zipAlignEnabled true
-            // 设置混淆
-            minifyEnabled true
-        }
-        debug {
-            // 移除无用的资源文件
-            shrinkResources false
-            // ZipAlign 优化
-            zipAlignEnabled false
-            // 设置混淆
-            minifyEnabled false
-
+    signingConfigs {
+        mySign {
+            keyAlias 'VirtualApp'
+            keyPassword 'swkj666!'
+            storeFile file('D:\\Virtualkey.jks')
+            storePassword 'swkj666!'
         }
     }
+
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            signingConfig signingConfigs.mySign
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+            signingConfig signingConfigs.mySign
+            minifyEnabled false
+            debuggable true
+        }
+    }
+
+
+//    buildTypes {
+//        release {
+//            // 移除无用的资源文件
+//            shrinkResources true
+//            // ZipAlign 优化
+//            zipAlignEnabled true
+//            // 设置混淆
+//            minifyEnabled true
+//        }
+//        debug {
+//            // 移除无用的资源文件
+//            shrinkResources false
+//            // ZipAlign 优化
+//            zipAlignEnabled false
+//            // 设置混淆
+//            minifyEnabled false
+//
+//        }
+//    }
     //使用mvvm需要这玩意
     dataBinding {
         enabled true
@@ -68,6 +93,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.navigation:navigation-fragment:2.2.1'
+    implementation 'androidx.navigation:navigation-ui:2.2.1'
+
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
@@ -157,13 +186,36 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
     implementation 'com.github.hackware1993:MagicIndicator:1.5.0'
 
-    //下面四个是据说好用的 TabLayout，标签啥的
+    //好用的 TabLayout，标签下标
     implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 
+    // 动画解析库：https://github.com/airbnb/lottie-android
+    // 动画资源：https://lottiefiles.com/
+    implementation 'com.airbnb.android:lottie:3.2.0'
 
+    // 状态栏沉浸：https://github.com/gyf-dev/ImmersionBar
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'
+    // 标题栏框架：https://github.com/getActivity/TitleBar
+    implementation 'com.hjq:titlebar:6.0'
+
+
+    // 网络请求框架：https://github.com/getActivity/EasyHttp
+    implementation 'com.hjq:http:5.0'
+
+
+    //图片选择器，记得混淆
+//    https://github.com/LuckSiege/PictureSelector
+//    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.1'
 
     //多任务文件并行下载 工具，好使
 //    https://github.com/AriaLyy/Aria
+
+
+
+
+
+
+
 
     //LeakCanary 内存泄漏检测工具
     // debug 版本依赖

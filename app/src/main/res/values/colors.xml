@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+<!--    <color name="colorPrimary">#3F51B5</color>-->
+<!--    <color name="colorPrimaryDark">#303F9F</color>-->
+<!--    <color name="colorAccent">#FF4081</color>-->
 
     <color name="titleColor" tools:ignore="MissingDefaultResource">#FFFFFF</color>
     <color name="red">#DC143C</color>
@@ -40,5 +40,16 @@
     <color name="qa_bg">#f6f7ff</color>
 
     <color name="qa_red_text_color">#ec2135</color>
+    <color name="black60">#99000000</color>
+
+    <!-- App 样式中引用的颜色 -->
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/black</color>
+    <color name="colorAccent">#5A8DDF</color>
+    <color name="windowBackground">#F4F4F4</color>
+    <color name="textColor">#333333</color>
+    <color name="textColorHint">#757575</color>
+    <color name="black">#FF000000</color>
+
 
 </resources>

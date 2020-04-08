@@ -37,7 +37,7 @@ public class SimpleHomeActivity extends AppCompatActivity {
         });
 
         setContentView(lv);
-        lv.setPadding(lv.getPaddingLeft(), AppUtils.getStateBarHeight(this), lv.getPaddingRight(), lv.getPaddingBottom());
+//        lv.setPadding(lv.getPaddingLeft(), AppUtils.getStateBarHeight(this), lv.getPaddingRight(), lv.getPaddingBottom());
 
     }
 }

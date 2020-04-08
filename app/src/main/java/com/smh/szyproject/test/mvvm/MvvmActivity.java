@@ -26,9 +26,7 @@ public class MvvmActivity extends AppCompatActivity {
         ActivityMvvmBinding activityMvvmBinding = DataBindingUtil.setContentView(this, R.layout.activity_mvvm);
         User user = new User("321", "123");
         activityMvvmBinding.setUser(user);
-
     }
-
 }
 
 

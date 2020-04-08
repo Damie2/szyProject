@@ -11,7 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.gyf.immersionbar.ImmersionBar;
+import com.hjq.bar.TitleBar;
+import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.utils.ActionBarHelper;
+import com.smh.szyproject.utils.L;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.lang.reflect.Field;
@@ -23,21 +27,93 @@ import butterknife.Unbinder;
  * Created by android on 2018/7/3.
  */
 
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment  implements TitleBarAction {
     private View view;
     Unbinder unbinder;
+
+    /** 状态栏沉浸 */
+    private ImmersionBar mImmersionBar;
 
     public View getRootView() {
         return view;
     }
 
     private boolean isFrist = true;
+    /** 标题栏对象 */
+    private TitleBar mTitleBar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
+
     }
+
+
+
+    /**
+     * 初始化沉浸式
+     */
+    protected void initImmersion() {
+        // 初始化沉浸式状态栏
+        if (isStatusBarEnabled()) {
+            statusBarConfig().init();
+            // 设置标题栏沉浸
+            if (mTitleBar != null) {
+//                L.e("mTitleBar不为空");
+                ImmersionBar.setTitleBar(this, mTitleBar);
+            }else{
+//                L.e("mTitleBar是空的");
+            }
+        }
+    }
+
+    @Override
+    @Nullable
+    public TitleBar getTitleBar() {
+        if (mTitleBar == null) {
+            L.e("mTitleBar空");
+            mTitleBar = findTitleBar((ViewGroup) getRootView());
+        }
+        return mTitleBar;
+    }
+
+    /**
+     * 初始化沉浸式
+     */
+    private ImmersionBar statusBarConfig() {
+        //在BaseActivity里初始化
+        mImmersionBar = ImmersionBar.with(this)
+                // 默认状态栏字体颜色为黑色
+                .statusBarDarkFont(statusBarDarkFont())
+                // 解决软键盘与底部输入框冲突问题，默认为false，还有一个重载方法，可以指定软键盘mode
+                .keyboardEnable(true);
+        return mImmersionBar;
+    }
+
+    /**
+     * 获取状态栏字体颜色
+     */
+    protected boolean statusBarDarkFont() {
+        // 返回真表示黑色字体
+        return true;
+    }
+
+
+    /**
+     * 是否在Fragment使用沉浸式
+     */
+    public boolean isStatusBarEnabled() {
+        return false;
+    }
+
+    /**
+     * 获取状态栏沉浸的配置对象
+     */
+    protected ImmersionBar getStatusBarConfig() {
+        return mImmersionBar;
+    }
+
 
     @Nullable
     @Override
@@ -57,10 +133,24 @@ public abstract class BaseFragment extends Fragment {
             }
         }
 
-
+        if (getTitleBar() != null) {
+            getTitleBar().setOnTitleBarListener(this);
+        }
+        initImmersion();
+        //字体默认白底黑字
+//        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         return view;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        // 重新初始化状态栏
+        statusBarConfig().init();
+    }
+
+
 
     protected abstract void init();
 

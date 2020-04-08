@@ -10,6 +10,10 @@ public class ApiAddress {
     public final static String sendVersion = "upfile";
 
 
+    //1.安装APP后发送请求
+    public final static String sendParameter = "/v1/app/device";
+
+
 
 }
 

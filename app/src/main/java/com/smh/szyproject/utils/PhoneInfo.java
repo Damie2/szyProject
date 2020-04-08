@@ -110,4 +110,23 @@ public class PhoneInfo {
 
         return imsi;
     }
+    public static String getOperator(Context context) {
+        String ProvidersName = "";
+        TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        String IMSI = telephonyManager.getSubscriberId();
+        if (IMSI != null) {
+            if (IMSI.startsWith("46000") || IMSI.startsWith("46002") || IMSI.startsWith("46007")) {
+                ProvidersName = "中国移动";
+            } else if (IMSI.startsWith("46001")  || IMSI.startsWith("46006")) {
+                ProvidersName = "中国联通";
+            } else if (IMSI.startsWith("46003")) {
+                ProvidersName = "中国电信";
+            }
+            return ProvidersName;
+        } else {
+            return "没有获取到sim卡信息";
+        }
+    }
+
+
 }
