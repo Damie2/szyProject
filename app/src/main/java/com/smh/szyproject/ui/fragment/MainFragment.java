@@ -18,6 +18,7 @@ import com.smh.szyproject.Rx.databus.RxBus;
 import com.smh.szyproject.base.BaseFragment;
 import com.smh.szyproject.ui.adapter.ViewPagerAdapter;
 import com.smh.szyproject.utils.AppUtils;
+import com.smh.szyproject.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,17 +64,12 @@ public class MainFragment extends BaseFragment {
         TabLayoutFragment[] fragments = new TabLayoutFragment[this.fragments.size()];
         vp_content.setAdapter(new ViewPagerAdapter(getFragmentManager(), this.fragments.toArray(fragments), title));
         vp_content.setOffscreenPageLimit(this.fragments.size() - 1);
-
+        //设置默认的tab样式
+        setTextCustomView( mTablayout.getTabAt(0));
         mTablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                TextView textView = new TextView(getActivity());
-                float selectedSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 20, getResources().getDisplayMetrics());
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, selectedSize);
-                textView.setTextColor(getResources().getColor(R.color.red));
-                textView.setText(tab.getText());
-                textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                tab.setCustomView(textView);
+                setTextCustomView(tab);
             }
 
             @Override
@@ -108,4 +104,16 @@ public class MainFragment extends BaseFragment {
             getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         }
     }
+
+    private void setTextCustomView(TabLayout.Tab tab){
+        TextView textView = new TextView(getActivity());
+        float selectedSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 35, getResources().getDisplayMetrics());
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, selectedSize);
+        textView.setTextColor(getResources().getColor(R.color.red));
+        textView.setText(tab.getText());
+        textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        tab.setCustomView(textView);
+
+    }
+
 }
