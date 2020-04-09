@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.bar.TitleBar;
 import com.smh.szyproject.action.TitleBarAction;
-import com.smh.szyproject.utils.ActionBarHelper;
 import com.smh.szyproject.utils.L;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -27,11 +26,13 @@ import butterknife.Unbinder;
  * Created by android on 2018/7/3.
  */
 
-public abstract class BaseFragment extends Fragment  implements TitleBarAction {
+public abstract class BaseFragment extends Fragment implements TitleBarAction {
     private View view;
     Unbinder unbinder;
 
-    /** 状态栏沉浸 */
+    /**
+     * 状态栏沉浸
+     */
     private ImmersionBar mImmersionBar;
 
     public View getRootView() {
@@ -39,17 +40,16 @@ public abstract class BaseFragment extends Fragment  implements TitleBarAction {
     }
 
     private boolean isFrist = true;
-    /** 标题栏对象 */
+    /**
+     * 标题栏对象
+     */
     private TitleBar mTitleBar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
-
     }
-
-
 
     /**
      * 初始化沉浸式
@@ -60,10 +60,7 @@ public abstract class BaseFragment extends Fragment  implements TitleBarAction {
             statusBarConfig().init();
             // 设置标题栏沉浸
             if (mTitleBar != null) {
-//                L.e("mTitleBar不为空");
                 ImmersionBar.setTitleBar(this, mTitleBar);
-            }else{
-//                L.e("mTitleBar是空的");
             }
         }
     }
@@ -72,7 +69,6 @@ public abstract class BaseFragment extends Fragment  implements TitleBarAction {
     @Nullable
     public TitleBar getTitleBar() {
         if (mTitleBar == null) {
-            L.e("mTitleBar空");
             mTitleBar = findTitleBar((ViewGroup) getRootView());
         }
         return mTitleBar;
@@ -151,7 +147,6 @@ public abstract class BaseFragment extends Fragment  implements TitleBarAction {
     }
 
 
-
     protected abstract void init();
 
     protected abstract int getLayoutId();
@@ -164,6 +159,16 @@ public abstract class BaseFragment extends Fragment  implements TitleBarAction {
             init();
         }
     }
+
+//    @Override
+//    public void onHiddenChanged(boolean hidden) {
+//        super.onHiddenChanged(hidden);
+//        if(hidden&&isVisible()&&isFrist){
+//            isFrist = false;
+//            init(); // 加载数据的方法
+//        }
+//    }
+
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {

@@ -211,10 +211,8 @@ dependencies {
 //    https://github.com/AriaLyy/Aria
 
 
-
-
-
-
+//    // 不小心的蓝牙  https://github.com/aicareles/Android-BLE
+//    implementation 'cn.com.superLei:blelibrary:latestVersion'
 
 
     //LeakCanary 内存泄漏检测工具

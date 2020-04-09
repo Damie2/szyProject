@@ -55,20 +55,6 @@ public class MainActivity extends BaseActivity {
 
     private void initView(Bundle savedInstanceState) {
 
-        String deviceId = "";
-
-        if (Build.VERSION.SDK_INT < 29) {
-            TelephonyManager tm = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-            deviceId = tm.getDeviceId();
-        }else{
-            deviceId = Settings.System.getString(getContentResolver(),
-                    Settings.Secure.ANDROID_ID);
-        }
-
-        L.e("deviceId:"+deviceId);
-
-
-
         fh = new FragmentHelp(getSupportFragmentManager());
         if (savedInstanceState == null) {
             fragments[0] = new MainFragment();

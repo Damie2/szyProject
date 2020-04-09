@@ -1,38 +1,57 @@
 package com.smh.szyproject.ui.fragment;
 
+import android.os.Bundle;
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.flyco.tablayout.SlidingTabLayout;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+import com.gyf.immersionbar.ImmersionBar;
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseFragment;
+import com.smh.szyproject.test.tablayoutsamples.ui.SimpleCardFragment;
+import com.smh.szyproject.test.tablayoutsamples.ui.SlidingTabActivity;
+import com.smh.szyproject.test.tablayoutsamples.utils.ViewFindUtils;
+import com.smh.szyproject.ui.adapter.ViewPagerAdapter;
 import com.smh.szyproject.utils.ToastUtils;
+
+import java.util.ArrayList;
+
+import butterknife.BindView;
 
 /**
  * author : smh
  * date   : 2020/4/2 11:43
  * desc   :
  */
-public class TestFragment1 extends BaseFragment {
+public class TestFragment1 extends BaseFragment implements OnTabSelectListener {
 
+    private final String[] mTitles = {
+            "热门", "iOS", "Android"
+            , "前端", "后端", "设计", "工具资源"
+    };
+    private ArrayList<SimpleCardFragment> mFragments = new ArrayList<>();
+
+    private MyPagerAdapter mAdapter;
+
+    @BindView(R.id.tl_2)
+    public SlidingTabLayout mTablayout;
+    @BindView(R.id.vp)
+    public ViewPager vp;
 
     @Override
     protected void init() {
-
-        // 给这个 ToolBar 设置顶部内边距，才能和 TitleBar 进行对齐
-//        ImmersionBar.setTitleBar(getActivity(), textView);//这个就相当于paddingbar的内边距
-        //设置状态栏字体颜色深色还是浅色,true是浅色
-        getStatusBarConfig().statusBarDarkFont(false).init();
-        setRightTitle("客服");
-        setLeftTitle("返回");
-    }
-
-    @Override
-    public void onLeftClick(View v) {
-        getActivity().finish();
-    }
-
-    @Override
-    public void onRightClick(View v) {
-        ToastUtils.showToastForText(getContext(), "我是客服");
+        ImmersionBar.setTitleBar(this, mTablayout);
+        for (String title : mTitles) {
+            mFragments.add(SimpleCardFragment.getInstance(title));
+        }
+        mAdapter = new MyPagerAdapter(getActivity().getSupportFragmentManager());
+        vp.setAdapter(mAdapter);
+        mTablayout.setViewPager(vp);
     }
 
     @Override
@@ -46,5 +65,34 @@ public class TestFragment1 extends BaseFragment {
         return !super.isStatusBarEnabled();
     }
 
+    @Override
+    public void onTabSelect(int position) {
 
+    }
+
+    @Override
+    public void onTabReselect(int position) {
+
+    }
+
+    private class MyPagerAdapter extends FragmentPagerAdapter {
+        public MyPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragments.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mTitles[position];
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragments.get(position);
+        }
+    }
 }
