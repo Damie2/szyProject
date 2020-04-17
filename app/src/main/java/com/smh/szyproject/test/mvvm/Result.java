@@ -74,7 +74,7 @@ public class Result extends BaseObservable {
         this.imgUrl = imgUrl;
     }
 
-    @BindingAdapter("bind:img")
+    @BindingAdapter(value = {"bind:img"}, requireAll = false)
     public static void setIamgeUrl(ImageView iv, String url) {
         ImageLoader.with(iv.getContext()).load(url).into(iv);
     }

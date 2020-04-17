@@ -22,5 +22,4 @@ public class TestFragment2 extends BaseFragment {
         // 使用沉浸式状态栏
         return !super.isStatusBarEnabled();
     }
-
 }

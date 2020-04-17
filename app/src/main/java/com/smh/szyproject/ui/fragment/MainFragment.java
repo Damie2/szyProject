@@ -46,11 +46,11 @@ public class MainFragment extends BaseFragment {
         mTablayout.setPadding(mTablayout.getPaddingLeft(), AppUtils.getStateBarHeight(getContext()), mTablayout.getPaddingRight(), mTablayout.getPaddingBottom());
         mTablayout.setSelectedTabIndicatorColor(Color.RED);
         mTablayout.setupWithViewPager(vp_content);
-        list.add("1");
-        list.add("2");
-        list.add("3");
-        list.add("4");
-        list.add("5");
+        list.add("北京");
+        list.add("河北");
+        list.add("河南");
+        list.add("上海");
+        list.add("广州");
         for (int i = 0; i < list.size(); i++) {
             TabLayout.Tab tab = mTablayout.newTab().setText(list.get(i));
             mTablayout.addTab(tab);
@@ -107,13 +107,11 @@ public class MainFragment extends BaseFragment {
 
     private void setTextCustomView(TabLayout.Tab tab){
         TextView textView = new TextView(getActivity());
-        float selectedSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 35, getResources().getDisplayMetrics());
+        float selectedSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 20, getResources().getDisplayMetrics());
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, selectedSize);
         textView.setTextColor(getResources().getColor(R.color.red));
         textView.setText(tab.getText());
         textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         tab.setCustomView(textView);
-
     }
-
 }

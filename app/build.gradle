@@ -202,6 +202,12 @@ dependencies {
     // 网络请求框架：https://github.com/getActivity/EasyHttp
     implementation 'com.hjq:http:5.0'
 
+    //友盟隔离
+    implementation project(path: ':umeng')
+
+    //版本更新 https://github.com/azhon/AppUpdate
+    implementation 'com.azhon:appupdateX:2.9.0'
+
 
     //图片选择器，记得混淆
 //    https://github.com/LuckSiege/PictureSelector

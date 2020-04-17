@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':umeng'
 rootProject.name='SzyProject'

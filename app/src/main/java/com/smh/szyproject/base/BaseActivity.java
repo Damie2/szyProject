@@ -23,7 +23,6 @@ import com.hjq.bar.TitleBar;
 import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.other.StatusManager;
 import com.smh.szyproject.utils.ActionBarHelper;
-import com.smh.szyproject.utils.L;
 import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
@@ -34,7 +33,7 @@ import butterknife.ButterKnife;
  * Created by zm on 2018/10/6.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements TitleBarAction {
+public abstract class BaseActivity extends AppCompatActivity implements TitleBarAction  {
     private static final String LAYOUT_LINEARLAYOUT = "LinearLayout";
     private static final String LAYOUT_FRAMELAYOUT = "FrameLayout";
     private static final String LAYOUT_RELATIVELAYOUT = "RelativeLayout";

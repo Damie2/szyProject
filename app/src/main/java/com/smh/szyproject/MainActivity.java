@@ -14,8 +14,13 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.azhon.appupdate.config.UpdateConfiguration;
+import com.azhon.appupdate.listener.OnButtonClickListener;
+import com.azhon.appupdate.listener.OnDownloadListener;
+import com.azhon.appupdate.manager.DownloadManager;
 import com.bumptech.glide.Glide;
 import com.smh.szyproject.Rx.databus.RxBus;
+import com.smh.szyproject.bean.VersionResult;
 import com.smh.szyproject.common.image.ImageLoader;
 import com.smh.szyproject.helper.ActivityStackManager;
 import com.smh.szyproject.helper.DoubleClickHelper;
@@ -30,13 +35,15 @@ import com.smh.szyproject.utils.FragmentHelp;
 import com.smh.szyproject.utils.L;
 import com.smh.szyproject.utils.ToastUtils;
 
+import java.io.File;
+
 import butterknife.BindView;
 
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnButtonClickListener , OnDownloadListener {
     @BindView(R.id.layout)
     HintLayout layout;
-
+    private DownloadManager manager;
     private View currentSelectView;
     private int defaultColor = Color.parseColor("#a6a6a6");
     private int[] defaultIds = {R.drawable.article_1, R.drawable.wallet_1};
@@ -151,6 +158,78 @@ public class MainActivity extends BaseActivity {
             ToastUtils.showToastForText(this,"再按一次退出");
         }
     }
+    private void startUpdate3(VersionResult result) {
+        /*
+         * 整个库允许配置的内容
+         * 非必选
+         */
+        UpdateConfiguration configuration = new UpdateConfiguration()
+                //输出错误日志
+                .setEnableLog(true)
+                //设置自定义的下载
+                //.setHttpManager()
+                //下载完成自动跳动安装页面
+                .setJumpInstallPage(true)
+                //设置对话框背景图片 (图片规范参照demo中的示例图)
+                //.setDialogImage(R.drawable.ic_dialog)
+                //设置按钮的颜色
+                //.setDialogButtonColor(Color.parseColor("#E743DA"))
+                //设置对话框强制更新时进度条和文字的颜色
+                //.setDialogProgressBarColor(Color.parseColor("#E743DA"))
+                //设置按钮的文字颜色
+                .setDialogButtonTextColor(Color.WHITE)
+                //设置是否显示通知栏进度
+                .setShowNotification(true)
+                //设置是否提示后台下载toast
+                .setShowBgdToast(false)
+                //设置强制更新
+                .setForcedUpgrade(true)
+                //设置对话框按钮的点击监听
+                .setButtonClickListener(this)
+                //设置下载过程的监听
+                .setOnDownloadListener(this);
 
+        manager = DownloadManager.getInstance(this);
+        manager.setApkName("ESFileExplorer.apk")
+                .setApkUrl(result.getData().getPath())
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setShowNewerToast(true)
+                .setConfiguration(configuration)
+                .setApkVersionCode(2)
+                .setApkVersionName("2.1.8")
+                .setApkSize("20.4")
+                .setApkDescription("我是描述")
+//                .setApkMD5("DC501F04BBAA458C9DC33008EFED5E7F")
+                .download();
+    }
 
+    @Override
+    public void onButtonClick(int id) {
+
+    }
+
+    @Override
+    public void start() {
+
+    }
+
+    @Override
+    public void downloading(int max, int progress) {
+
+    }
+
+    @Override
+    public void done(File apk) {
+
+    }
+
+    @Override
+    public void cancel() {
+
+    }
+
+    @Override
+    public void error(Exception e) {
+
+    }
 }
