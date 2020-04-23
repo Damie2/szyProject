@@ -78,6 +78,8 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
 //        setOnClickListener(R.id.tv_login_forget, R.id.btn_login_commit, R.id.iv_login_qq, R.id.iv_login_wx);
 
         initData();
+
+
     }
 
     protected void initData() {
