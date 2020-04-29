@@ -126,6 +126,7 @@ public class ZMactivity extends BaseActivity implements View.OnClickListener, Zm
                     }
                     adapter.refresh(list);
                 } else {
+                    if (list == null) return;
                     list.clear();
                     list = DBHelper.getInstance().findAll(ZmContact.class);
                     adapter.refresh(list);
