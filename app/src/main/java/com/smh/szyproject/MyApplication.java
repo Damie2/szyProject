@@ -19,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import me.jessyan.autosize.AutoSizeConfig;
+import me.jessyan.autosize.unit.Subunits;
 import okhttp3.OkHttpClient;
 
 public class MyApplication extends Application {
@@ -44,6 +46,7 @@ public class MyApplication extends Application {
         initXutil();
         initOKHttp();
         initActivityLife();
+        initAutoSize();
         //内存检测
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            // This process is dedicated to LeakCanary for heap analysis.
@@ -51,6 +54,10 @@ public class MyApplication extends Application {
 //            return;
 //        }
 //        LeakCanary.install(this);
+    }
+
+    private void initAutoSize() {
+        AutoSizeConfig.getInstance().getUnitsManager().setSupportDP(true).setSupportSubunits(Subunits.MM);
     }
 
 

@@ -3,7 +3,10 @@ package com.smh.szyproject.db;
 import android.database.Cursor;
 import android.os.Environment;
 
+import com.smh.szyproject.bean.ZmContact;
+
 import org.xutils.DbManager;
+import org.xutils.db.Selector;
 import org.xutils.db.sqlite.WhereBuilder;
 import org.xutils.ex.DbException;
 import org.xutils.x;
@@ -131,6 +134,16 @@ public class DBHelper {
         return null;
     }
 
+    public <T> T findByLike(Class<T> t, String id, String value) {
+        try {
+            DbManager db = x.getDb(daoConfig);
+            return (T) db.selector(t).where(id, "LIKE", value + "%").findAll();
+
+        } catch (DbException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
     public void updateTable(DbManager db, Class<?> tClass) {

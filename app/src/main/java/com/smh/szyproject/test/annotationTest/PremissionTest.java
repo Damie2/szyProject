@@ -1,4 +1,4 @@
-package com.smh.szyproject.test;
+package com.smh.szyproject.test.annotationTest;
 
 import android.os.Bundle;
 import android.widget.ImageView;

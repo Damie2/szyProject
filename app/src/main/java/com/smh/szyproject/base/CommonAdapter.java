@@ -19,9 +19,14 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
     private List<T> datas;
     protected Context context;
     private OnItemClickLinster linster;
+    private OnItemLongClickLinster longClicklinster;
 
     public void setOnClickLinster(OnItemClickLinster linster) {
         this.linster = linster;
+    }
+
+    public void setOnLongClickLinster(OnItemLongClickLinster linster) {
+        this.longClicklinster = linster;
     }
 
     public List<T> getDatas() {
@@ -64,6 +69,17 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
                     linster.onItemClick(position, v);
             }
         });
+        holder.getView().setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (longClicklinster != null) {
+                    longClicklinster.onItemClick(position, v);
+                    return true;
+                }
+                return false;
+
+            }
+        });
         if (getItem(position) != null)
             showItemContent(holder, position, getItem(position));
     }
@@ -97,4 +113,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
         void onItemClick(int position, View view);
     }
 
+    public interface OnItemLongClickLinster {
+        void onItemClick(int position, View view);
+    }
 }

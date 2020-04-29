@@ -7,11 +7,17 @@ import android.os.Bundle;
 import com.airbnb.lottie.LottieAnimationView;
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
+import com.hjq.permissions.OnPermission;
+import com.hjq.permissions.Permission;
+import com.hjq.permissions.XXPermissions;
+import com.nostra13.universalimageloader.utils.L;
 import com.smh.szyproject.HomeActivity;
 import com.smh.szyproject.MainActivity;
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseActivity;
 import com.smh.szyproject.test.tablayoutsamples.ui.SimpleHomeActivity;
+
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -43,10 +49,42 @@ public class SplashActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                startActivity(HomeActivity.class);
-                finish();
+//                startActivity(HomeActivity.class);
+
+                initPermission();
+
             }
         });
+    }
+
+    private void initPermission() {
+        XXPermissions.with(this)
+                // 可设置被拒绝后继续申请，直到用户授权或者永久拒绝
+                //.constantRequest()
+                // 支持请求6.0悬浮窗权限8.0请求安装权限
+                //.permission(Permission.SYSTEM_ALERT_WINDOW, Permission.REQUEST_INSTALL_PACKAGES)
+                // 不指定权限则自动获取清单中的危险权限
+                .permission(Permission.WRITE_EXTERNAL_STORAGE)
+                .request(new OnPermission() {
+
+                    @Override
+                    public void hasPermission(List<String> granted, boolean isAll) {
+                        if (isAll) {
+                            L.e("成功获取权限");
+                            startActivity(ZMactivity.class);
+                            finish();
+                        }
+                    }
+
+                    @Override
+                    public void noPermission(List<String> denied, boolean quick) {
+                        if (quick) {
+                            //如果是被永久拒绝就跳转到应用权限系统设置页面
+                            XXPermissions.gotoPermissionSettings(SplashActivity.this);
+                        } else {
+                        }
+                    }
+                });
     }
 
     private void initDate() {
@@ -73,6 +111,4 @@ public class SplashActivity extends BaseActivity {
                 // 透明导航栏，不写默认黑色(设置此方法，fullScreen()方法自动为true)
                 .transparentNavigationBar();
     }
-
-
 }

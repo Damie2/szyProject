@@ -18,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.githang.statusbar.StatusBarCompat;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.bar.TitleBar;
 import com.smh.szyproject.action.TitleBarAction;
@@ -123,7 +124,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      * 状态栏字体深色模式
      */
     protected boolean isStatusBarDarkFont() {
-        return true;
+        return false;
     }
 
     /**

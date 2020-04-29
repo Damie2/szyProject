@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <LinearLayout
+        android:id="@+id/ll_head"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="华仪新气"
+            android:textColor="#383838"
+            android:textSize="30px" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5px"
+            android:text="13681200783"
+            android:textColor="#666666"
+            android:textSize="24px" />
+        <TextView
+            android:layout_marginTop="5px"
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/ll_head"
+            android:layout_toRightOf="@id/ll_head"
+            android:text="北京市丰台区角门南站南华小区14号楼"
+            android:textColor="#666666"
+            android:textSize="24px" />
+
+
+    </LinearLayout>
+
+<!--    <TextView-->
+<!--        android:id="@+id/tv_address"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignBottom="@id/ll_head"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_toRightOf="@id/ll_head"-->
+<!--        android:text="北京市丰台区角门南站南华小区14号楼"-->
+<!--        android:textColor="#666666"-->
+<!--        android:textSize="24px" />-->
+
+    <TextView
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"
+        android:text="编辑"
+        android:textColor="@color/Gray"
+        android:textSize="13sp" />
+
+    <View
+        android:id="@+id/view_1_referral_code"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/user_background_G" />
+
+
+</RelativeLayout>
+

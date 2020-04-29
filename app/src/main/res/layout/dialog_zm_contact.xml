@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_group"
+        android:layout_width="598px"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_write">
+
+        <TextView
+            android:id="@+id/tv_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="26px"
+            android:text="删除"
+            android:textColor="@color/red" />
+
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="40px"
+            android:layout_height="40px"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="54px"
+            android:layout_marginTop="26px"
+            android:layout_marginRight="26px"
+            android:src="@drawable/clearet" />
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="86px"
+            android:text="填写用户信息"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_desc"
+            android:layout_alignLeft="@id/tv_desc"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_invitation_code"
+            android:hint="用户姓名" />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_name"
+            android:layout_alignLeft="@id/tv_desc"
+            android:layout_marginTop="10dp"
+            android:maxLength="13"
+            android:background="@drawable/edittext_invitation_code"
+            android:hint="电话" />
+
+        <EditText
+            android:id="@+id/et_address"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_phone"
+            android:layout_alignLeft="@id/tv_desc"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_invitation_code"
+            android:gravity="top"
+            android:hint="地址"
+            android:maxLength="200"
+            android:textCursorDrawable="@null"
+            android:textSize="15sp" />
+
+
+        <Button
+            android:id="@+id/btn_comment"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_below="@id/et_address"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="54px"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/button_login"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="@color/white"
+            android:textSize="30px" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
+

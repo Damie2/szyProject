@@ -36,7 +36,10 @@
     </style>
 
 
-
+    <style name="dialog_style">
+        <item name="android:windowBackground">#7f000000</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
 
     <!-- 对话框默认样式 -->
     <style name="BaseDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert"><!-- @android:style/Theme.Dialog -->
@@ -53,8 +56,8 @@
         <!-- 无标题 -->
         <item name="android:windowNoTitle">true</item>
         <!-- 动画效果 -->
-        <item name="android:windowEnterAnimation">@anim/dialog_scale_in</item>
-        <item name="android:windowExitAnimation">@anim/dialog_scale_out</item>
+        <item name="android:windowEnterAnimation">@anim/window_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/window_scale_out</item>
         <!-- Base.Theme.AppCompat.Light.Dialog.Alert 特有的属性，用于指定默认宽度，这里需要禁用 -->
         <item name="android:windowMinWidthMajor">0dp</item>
         <item name="android:windowMinWidthMinor">0dp</item>
@@ -71,7 +74,6 @@
         <!-- Dialog 全屏显示 -->
         <!--<item name="android:windowFullscreen">true</item>-->
     </style>
-
     <!-- 缩放动画 -->
     <style name="ScaleAnimStyle" parent="android:Animation">
         <item name="android:windowEnterAnimation">@anim/dialog_scale_in</item>

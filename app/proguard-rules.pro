@@ -194,7 +194,8 @@
     public <init>(android.content.Context, android.util.AttributeSet);
     public <init>(android.content.Context, android.util.AttributeSet, int);
 }
-
+-keep class me.jessyan.autosize.** { *; }
+ -keep interface me.jessyan.autosize.** { *; }
 
 # 保留枚举类不被混淆
 -keepclassmembers enum * {
