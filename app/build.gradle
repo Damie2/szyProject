@@ -26,7 +26,7 @@ android {
             // armeabi：已经淘汰（0%）
             // armeabi-v7a：曾经主流的架构平台（20%）
             // arm64-v8a：目前主流架构平台（80%）
-            abiFilters "armeabi-v7a", "arm64-v8a"
+            abiFilters "armeabi-v7a", "arm64-v8a", 'x86'
         }
     }
     //将Eclipse项目导入到Android studio 中 很多点9图出现问题解决方法,用来关闭Android Studio的PNG合法性检查的，直接不让它检查。
