@@ -5,6 +5,7 @@ import androidx.annotation.Keep;
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.XXPermissions;
 import com.smh.szyproject.MyApplication;
+import com.smh.szyproject.helper.ActivityStackManager;
 import com.smh.szyproject.utils.ToastUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -32,7 +33,7 @@ public class PermissionsAspect {
     @Keep
     @Around("method() && @annotation(permissions)")
     public void aroundJoinPoint(final ProceedingJoinPoint joinPoint, Permissions permissions) {
-        XXPermissions.with(MyApplication.getTopActivity())
+        XXPermissions.with(ActivityStackManager.getInstance().getTopActivity())
                 .permission(permissions.value())
                 .request(new OnPermission() {
 
@@ -52,7 +53,7 @@ public class PermissionsAspect {
                     public void noPermission(List<String> denied, boolean quick) {
                         if (quick) {
                             ToastUtils.showToastForText(MyApplication.getContext(),"授权失败，请手动授予权限");
-                            XXPermissions.gotoPermissionSettings(MyApplication.getTopActivity(), false);
+                            XXPermissions.gotoPermissionSettings(ActivityStackManager.getInstance().getTopActivity(), false);
                         } else {
                             ToastUtils.showToastForText(MyApplication.getContext(),"请先授予权限");
                         }

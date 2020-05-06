@@ -1,7 +1,9 @@
 package com.smh.szyproject.ui.activity;
 
+import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -136,6 +138,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     }
 
 
+
     @Override
     public void onRightClick(View v) {
         // 跳转到注册界面
@@ -145,6 +148,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     @OnClick(R.id.btn_login_commit)
     public void login_commit() {
         ToastUtils.showToastForText(this, "登录提交");
+        loginSuccess();
     }
 
     @OnClick(R.id.iv_login_qq)
@@ -155,5 +159,17 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     @OnClick(R.id.iv_login_wx)
     public void iv_login_wx() {
         ToastUtils.showToastForText(this, "微信登录");
+    }
+
+    public void loginSuccess(){
+        String className =  getIntent().getStringExtra("className");
+        if(!TextUtils.isEmpty(className)){
+            ComponentName componentName = new ComponentName(this, className);
+            Intent intent = new Intent();
+            intent.setComponent(componentName);
+            intent.putExtras(getIntent().getExtras());
+            startActivity(intent);
+        }
+        finish();
     }
 }
