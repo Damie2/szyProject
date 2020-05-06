@@ -54,8 +54,6 @@ public class LoginJectAspect {
                     context = (Context) object;
                 }else if (object instanceof Fragment) {
                     context = ((Fragment) object).getActivity();
-                }else if(object instanceof Activity){
-                    context = (Context) object;
                 }
                 if (context == null ){
                     return;
