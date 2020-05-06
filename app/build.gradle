@@ -209,6 +209,10 @@ dependencies {
     implementation 'com.azhon:appupdateX:2.9.0'
     //谷歌的下拉刷新
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    //KProgressHUD dialog
+    implementation 'com.kaopiz:kprogresshud:1.2.0'
+
+
 
     //图片选择器，记得混淆
 //    https://github.com/LuckSiege/PictureSelector

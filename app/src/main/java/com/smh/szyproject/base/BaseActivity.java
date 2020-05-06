@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ImageView;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -18,12 +20,13 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.githang.statusbar.StatusBarCompat;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.bar.TitleBar;
+import com.kaopiz.kprogresshud.KProgressHUD;
+import com.smh.szyproject.R;
 import com.smh.szyproject.action.TitleBarAction;
-import com.smh.szyproject.other.StatusManager;
 import com.smh.szyproject.utils.ActionBarHelper;
+import com.smh.szyproject.utils.L;
 import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
@@ -34,7 +37,7 @@ import butterknife.ButterKnife;
  * Created by zm on 2018/10/6.
  */
 
-public abstract class BaseActivity extends AppCompatActivity implements TitleBarAction  {
+public abstract class BaseActivity extends AppCompatActivity implements TitleBarAction {
     private static final String LAYOUT_LINEARLAYOUT = "LinearLayout";
     private static final String LAYOUT_FRAMELAYOUT = "FrameLayout";
     private static final String LAYOUT_RELATIVELAYOUT = "RelativeLayout";
@@ -57,6 +60,8 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      */
     private int mDialogTotal;
 
+    public KProgressHUD kProgressHUD;
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +79,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
             getTitleBar().setOnTitleBarListener(this);
         }
         initImmersion();
+        kProgressHUD = KProgressHUD.create(this);
     }
 
     //调登录，如果没有登录就走登录，登录了就直接走要走的那个页面
@@ -89,12 +95,46 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
 //        }
 //    }
 
+    //    showCustomHUD(R.drawable.anim_png_xml,"我是自定义异常");
+    public void showCustomHUD(int resid, String message) {
+        if (!kProgressHUD.isShowing()) {
+            ImageView imageView = new ImageView(this);
+            imageView.setBackgroundResource(resid);
+            AnimationDrawable drawable = (AnimationDrawable) imageView.getBackground();
+            drawable.start();
+
+            kProgressHUD.setCustomView(imageView)
+                    .setLabel(message)
+                    .show();
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.currentThread().sleep(1000);//毫秒
+                        kProgressHUD.dismiss();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+    }
+
+    public void showProgressHUD() {
+        if (!kProgressHUD.isShowing()) {
+            kProgressHUD.setStyle(KProgressHUD.Style.SPIN_INDETERMINATE).show();
+        }
+    }
+
+    public void dismissProgressHUD() {
+        kProgressHUD.dismiss();
+    }
 
     @Override
     public void onResume() {
         super.onResume();
         // 重新初始化状态栏
-
     }
 
 
@@ -124,7 +164,8 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      * 状态栏字体深色模式
      */
     protected boolean isStatusBarDarkFont() {
-        return false;
+        // 返回真表示黑色字体
+        return true;
     }
 
     /**
@@ -143,7 +184,10 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      */
     @Nullable
     public ImmersionBar getStatusBarConfig() {
-        return mImmersionBar;
+        if (mImmersionBar != null) {
+            return mImmersionBar;
+        }
+        return null;
     }
 
     /**
@@ -243,56 +287,6 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     public void startActivityFinish(Intent intent) {
         startActivity(intent);
         finish();
-    }
-
-
-    private final StatusManager mStatusManager = new StatusManager();
-
-    /**
-     * 显示加载中
-     */
-    public void showLoading() {
-        mStatusManager.showLoading(this);
-    }
-
-    public void showLoading(@StringRes int id) {
-        mStatusManager.showLoading(this, getString(id));
-    }
-
-    public void showLoading(CharSequence text) {
-        mStatusManager.showLoading(this, text);
-    }
-
-    /**
-     * 显示加载完成
-     */
-    public void showComplete() {
-        mStatusManager.showComplete();
-    }
-
-    /**
-     * 显示空提示
-     */
-    public void showEmpty() {
-        mStatusManager.showEmpty(getContentView());
-    }
-
-    /**
-     * 显示错误提示
-     */
-    public void showError() {
-        mStatusManager.showError(getContentView());
-    }
-
-    /**
-     * 显示自定义提示
-     */
-    public void showLayout(@DrawableRes int drawableId, @StringRes int stringId) {
-        mStatusManager.showLayout(getContentView(), drawableId, stringId);
-    }
-
-    public void showLayout(Drawable drawable, CharSequence hint) {
-        mStatusManager.showLayout(getContentView(), drawable, hint);
     }
 
     /**

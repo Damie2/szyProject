@@ -135,7 +135,6 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
         initImmersion();
         //字体默认白底黑字
 //        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
         return view;
     }
 

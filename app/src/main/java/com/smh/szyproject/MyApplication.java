@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.smh.szyproject.common.image.ImageLoader;
+import com.smh.szyproject.helper.ActivityStackManager;
 import com.smh.szyproject.net.interceptor.CookieReadInterceptor;
 import com.smh.szyproject.net.interceptor.CookiesSaveInterceptor;
 import com.smh.szyproject.net.interceptor.InterceptorUtil;
@@ -25,7 +26,7 @@ import okhttp3.OkHttpClient;
 
 public class MyApplication extends Application {
 
-    public List<Activity> activities = new ArrayList<>();
+    public static List<Activity> activities = new ArrayList<>();
     private static MyApplication application;
     private static Context context;
     private static OkHttpClient mOkHttpClient;
@@ -54,6 +55,14 @@ public class MyApplication extends Application {
 //            return;
 //        }
 //        LeakCanary.install(this);
+
+        // Activity 栈管理初始化
+        ActivityStackManager.getInstance().init(application);
+    }
+
+
+    public static Activity getTopActivity() {
+        return activities.get(0);
     }
 
     private void initAutoSize() {
@@ -143,6 +152,7 @@ public class MyApplication extends Application {
         });
 
     }
+
 
     @Override
     public void onTrimMemory(int level) {

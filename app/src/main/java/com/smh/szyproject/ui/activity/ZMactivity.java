@@ -14,7 +14,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.azhon.appupdate.utils.NotificationUtil;
 import com.smh.szyproject.R;
+import com.smh.szyproject.aop.CheckNet;
+import com.smh.szyproject.aop.SingleClick;
 import com.smh.szyproject.db.DBHelper;
 import com.smh.szyproject.ui.adapter.ZmContactAdapter;
 import com.smh.szyproject.base.BaseActivity;
@@ -24,6 +27,7 @@ import com.smh.szyproject.ui.dialog.ZMAddContactDialog;
 import com.smh.szyproject.utils.GsonUtils;
 import com.smh.szyproject.utils.L;
 import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.utils.utilCode.NotificationUtils;
 
 import java.util.List;
 
@@ -108,6 +112,8 @@ public class ZMactivity extends BaseActivity implements View.OnClickListener, Zm
         });
     }
 
+    @CheckNet
+    @SingleClick
     @OnClick({R.id.iv_test_search, R.id.tv_add})
     @Override
     public void onClick(View v) {

@@ -15,9 +15,11 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RawRes;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.SimpleLayout;
 import com.smh.szyproject.utils.L;
@@ -28,24 +30,27 @@ import com.smh.szyproject.utils.L;
  *    desc   : 状态布局（网络错误，异常错误，空数据）
  */
 public final class HintLayout extends SimpleLayout {
-
     /** 提示布局 */
     private ViewGroup mMainLayout;
     /** 提示图标 */
-    private ImageView mImageView;
+    private LottieAnimationView mImageView;
     /** 提示文本 */
     private TextView mTextView;
 
     public HintLayout(@NonNull Context context) {
-        super(context);
+        this(context, null);
     }
 
     public HintLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs, 0);
     }
 
     public HintLayout(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        setClickable(true);
+        setFocusable(true);
+        setFocusableInTouchMode(true);
     }
 
     /**
@@ -96,6 +101,13 @@ public final class HintLayout extends SimpleLayout {
     }
 
     /**
+     * 设置提示动画
+     */
+    public void setAnim(@RawRes int id) {
+        mImageView.setAnimation(id);
+    }
+
+    /**
      * 设置提示文本，请在show方法之后调用
      */
     public void setHint(@StringRes int id) {
@@ -121,11 +133,7 @@ public final class HintLayout extends SimpleLayout {
         if (mMainLayout.getBackground() == null) {
             // 默认使用 windowBackground 作为背景
             TypedArray ta = getContext().obtainStyledAttributes(new int[]{android.R.attr.windowBackground});
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-                mMainLayout.setBackground(ta.getDrawable(0));
-            } else {
-                mMainLayout.setBackgroundDrawable(ta.getDrawable(0));
-            }
+            mMainLayout.setBackground(ta.getDrawable(0));
             ta.recycle();
         }
 
@@ -133,11 +141,11 @@ public final class HintLayout extends SimpleLayout {
     }
 
     @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
+    public void setOnClickListener(@Nullable OnClickListener l) {
         if (isShow()) {
-            // 拦截布局中的触摸事件，拦截事件，防止传递
-            return true;
+            mMainLayout.setOnClickListener(l);
+        } else {
+            super.setOnClickListener(l);
         }
-        return super.onInterceptTouchEvent(ev);
     }
 }
