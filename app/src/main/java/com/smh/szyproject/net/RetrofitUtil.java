@@ -1,6 +1,7 @@
 package com.smh.szyproject.net;
 
 import com.smh.szyproject.MyApplication;
+import com.smh.szyproject.net.factory.JsonConverterFactory;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
@@ -18,7 +19,7 @@ public class RetrofitUtil {
     private AllApi allApi;
 
 
-    public static RetrofitUtil getmInstance(){
+    public static RetrofitUtil getmInstance() {
         if (mInstance == null) {
             synchronized (RetrofitUtil.class) {
                 if (mInstance == null) {
@@ -36,7 +37,7 @@ public class RetrofitUtil {
                     // 设置请求的域名
                     .baseUrl(ApiAddress.api)
                     // 设置解析转换工厂，用自己定义的
-//                    .addConverterFactory(new NullOnEmptyConverterFactory())
+//                    .addConverterFactory(JsonConverterFactory.create())//加密，解密工厂
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
@@ -45,20 +46,5 @@ public class RetrofitUtil {
         return allApi;
     }
 
-
-    public class NullOnEmptyConverterFactory extends Converter.Factory {
-
-        @Override
-        public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-            final Converter<ResponseBody, ?> delegate = retrofit.nextResponseBodyConverter(this, type, annotations);
-            return new Converter<ResponseBody, Object>() {
-                @Override
-                public Object convert(ResponseBody body) throws IOException {
-                    if (body.contentLength() == 0) return null;
-                    return delegate.convert(body);
-                }
-            };
-        }
-    }
 
 }
