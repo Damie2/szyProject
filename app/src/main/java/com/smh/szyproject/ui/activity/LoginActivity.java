@@ -16,8 +16,7 @@ import com.hjq.umeng.UmengLogin;
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseActivity;
 import com.smh.szyproject.helper.InputTextHelper;
-import com.smh.szyproject.other.IntentKey;
-import com.smh.szyproject.other.KeyboardWatcher;
+import com.smh.szyproject.widget.other.KeyboardWatcher;
 import com.smh.szyproject.utils.ToastUtils;
 
 import butterknife.BindView;

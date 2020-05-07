@@ -2,18 +2,12 @@ package com.smh.szyproject.test.interfaceTest;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
 
-import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
 import com.smh.szyproject.action.StatusAction;
 import com.smh.szyproject.aop.Login;
-import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.other.HintLayout;
-import com.smh.szyproject.ui.activity.AboutActivity;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.widget.other.HintLayout;
 import com.smh.szyproject.utils.SPUtil;
 
 import butterknife.BindView;

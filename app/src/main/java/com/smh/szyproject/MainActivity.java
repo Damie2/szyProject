@@ -1,15 +1,10 @@
 package com.smh.szyproject;
 
 
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -18,21 +13,16 @@ import com.azhon.appupdate.config.UpdateConfiguration;
 import com.azhon.appupdate.listener.OnButtonClickListener;
 import com.azhon.appupdate.listener.OnDownloadListener;
 import com.azhon.appupdate.manager.DownloadManager;
-import com.bumptech.glide.Glide;
 import com.smh.szyproject.Rx.databus.RxBus;
 import com.smh.szyproject.bean.VersionResult;
-import com.smh.szyproject.common.image.ImageLoader;
 import com.smh.szyproject.helper.ActivityStackManager;
 import com.smh.szyproject.helper.DoubleClickHelper;
-import com.smh.szyproject.helper.PopupWindowHelper;
-import com.smh.szyproject.other.HintLayout;
-import com.smh.szyproject.test.DesignPattern.Factory.FactoryTonA;
+import com.smh.szyproject.widget.other.HintLayout;
 import com.smh.szyproject.base.BaseActivity;
 import com.smh.szyproject.ui.fragment.MainFragment;
 import com.smh.szyproject.ui.fragment.UserFragment;
 import com.smh.szyproject.ui.view.ViewHelp;
 import com.smh.szyproject.utils.FragmentHelp;
-import com.smh.szyproject.utils.L;
 import com.smh.szyproject.utils.ToastUtils;
 
 import java.io.File;

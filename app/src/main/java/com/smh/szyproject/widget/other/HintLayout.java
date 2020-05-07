@@ -1,4 +1,4 @@
-package com.smh.szyproject.other;
+package com.smh.szyproject.widget.other;
 
 import android.content.Context;
 import android.content.res.TypedArray;

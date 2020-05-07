@@ -1,6 +1,5 @@
 package com.smh.szyproject.action;
 
-import android.app.Activity;
 import android.app.Application;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
@@ -13,10 +12,9 @@ import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 
 
-import com.kaopiz.kprogresshud.KProgressHUD;
 import com.smh.szyproject.R;
 import com.smh.szyproject.helper.ActivityStackManager;
-import com.smh.szyproject.other.HintLayout;
+import com.smh.szyproject.widget.other.HintLayout;
 
 public interface StatusAction {
 

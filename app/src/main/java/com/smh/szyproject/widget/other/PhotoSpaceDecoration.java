@@ -1,4 +1,4 @@
-package com.smh.szyproject.other;
+package com.smh.szyproject.widget.other;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
