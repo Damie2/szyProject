@@ -12,6 +12,7 @@ import com.smh.szyproject.helper.ActivityStackManager;
 import com.smh.szyproject.net.interceptor.CookieReadInterceptor;
 import com.smh.szyproject.net.interceptor.CookiesSaveInterceptor;
 import com.smh.szyproject.net.interceptor.InterceptorUtil;
+import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.L;
 
 import org.xutils.x;
@@ -42,12 +43,9 @@ public class MyApplication extends Application {
 
         application = this;
         context = getApplicationContext();
-        // 图片加载器
-        ImageLoader.init(this);
-        initXutil();
         initOKHttp();
         initActivityLife();
-        initAutoSize();
+        initSDK();
         //内存检测
 //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            // This process is dedicated to LeakCanary for heap analysis.
@@ -60,14 +58,24 @@ public class MyApplication extends Application {
         ActivityStackManager.getInstance().init(application);
     }
 
+    private void initSDK() {
+        // 友盟统计、登录、分享 SDK
+        UmengClient.init(application);
+        //xtuil
+        x.Ext.init(this);
+        x.Ext.setDebug(true);
+        // 图片加载器
+        ImageLoader.init(this);
+        //autosize
+        AutoSizeConfig.getInstance().getUnitsManager().setSupportDP(true).setSupportSubunits(Subunits.MM);
+    }
+
 
     public static Activity getTopActivity() {
         return activities.get(0);
     }
 
-    private void initAutoSize() {
-        AutoSizeConfig.getInstance().getUnitsManager().setSupportDP(true).setSupportSubunits(Subunits.MM);
-    }
+
 
 
     //测试后台返回前台后展示广告
@@ -227,10 +235,7 @@ public class MyApplication extends Application {
         return mOkHttpClient;
     }
 
-    private void initXutil() {
-        x.Ext.init(this);
-        x.Ext.setDebug(true);
-    }
+
 
     public static Context getContext() {
         return context;

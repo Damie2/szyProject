@@ -25,6 +25,7 @@ import com.hjq.bar.TitleBar;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.smh.szyproject.R;
 import com.smh.szyproject.action.TitleBarAction;
+import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.ActionBarHelper;
 import com.smh.szyproject.utils.L;
 import com.zhy.autolayout.AutoFrameLayout;
@@ -135,8 +136,12 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     public void onResume() {
         super.onResume();
         // 重新初始化状态栏
+        UmengClient.onResume(this);
     }
-
+    protected void onPause() {
+        UmengClient.onPause(this);
+        super.onPause();
+    }
 
     /**
      * 初始化沉浸式

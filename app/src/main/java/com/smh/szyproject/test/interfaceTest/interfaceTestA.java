@@ -50,8 +50,7 @@ public class interfaceTestA extends BaseActivity implements StatusAction {
         return layout;
     }
 
-    //    @Login()
-    @Login(className = "com.smh.szyproject.ui.activity.AboutActivity")
     public void tv_next(View view) {
+
     }
 }

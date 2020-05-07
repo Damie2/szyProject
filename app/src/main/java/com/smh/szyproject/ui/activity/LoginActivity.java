@@ -10,12 +10,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.hjq.umeng.Platform;
-import com.hjq.umeng.UmengClient;
-import com.hjq.umeng.UmengLogin;
+
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseActivity;
 import com.smh.szyproject.helper.InputTextHelper;
+import com.smh.szyproject.umeng.Platform;
+import com.smh.szyproject.umeng.UmengClient;
+import com.smh.szyproject.umeng.UmengLogin;
+import com.smh.szyproject.utils.L;
 import com.smh.szyproject.widget.other.KeyboardWatcher;
 import com.smh.szyproject.utils.ToastUtils;
 
@@ -126,7 +128,10 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
 
     @Override
     public void onSucceed(Platform platform, UmengLogin.LoginData data) {
-
+        L.e("SUCCESS");
+        if (data != null) {
+            L.e("登录成功，昵称是:" + data.getName());
+        }
     }
 
     @OnClick(R.id.tv_login_forget)
@@ -147,17 +152,23 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     @OnClick(R.id.btn_login_commit)
     public void login_commit() {
         ToastUtils.showToastForText(this, "登录提交");
-        loginSuccess();
+//        loginSuccess();
+
+
     }
 
     @OnClick(R.id.iv_login_qq)
     public void iv_login_qq() {
         ToastUtils.showToastForText(this, "QQ登录");
+        Platform platform = Platform.QQ;
+        UmengClient.login(this, platform, this);
     }
 
     @OnClick(R.id.iv_login_wx)
     public void iv_login_wx() {
         ToastUtils.showToastForText(this, "微信登录");
+        Platform platform = Platform.WECHAT;
+        UmengClient.login(this, platform, this);
     }
 
     public void loginSuccess(){
