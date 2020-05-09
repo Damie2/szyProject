@@ -12,8 +12,11 @@ import com.smh.szyproject.helper.ActivityStackManager;
 import com.smh.szyproject.net.interceptor.CookieReadInterceptor;
 import com.smh.szyproject.net.interceptor.CookiesSaveInterceptor;
 import com.smh.szyproject.net.interceptor.InterceptorUtil;
-import com.smh.szyproject.umeng.UmengClient;
+
 import com.smh.szyproject.utils.L;
+import com.umeng.commonsdk.UMConfigure;
+import com.umeng.message.IUmengRegisterCallback;
+import com.umeng.message.PushAgent;
 
 import org.xutils.x;
 
@@ -36,31 +39,42 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        String curProcessName = getProcessName(this);
-        if (!curProcessName.equals(getPackageName())) {
-            return;
-        }
-
         application = this;
         context = getApplicationContext();
+        initSDK();
         initOKHttp();
         initActivityLife();
-        initSDK();
-        //内存检测
-//        if (LeakCanary.isInAnalyzerProcess(this)) {
-//            // This process is dedicated to LeakCanary for heap analysis.
-//            // You should not init your app in this process.
-//            return;
-//        }
-//        LeakCanary.install(this);
-
-        // Activity 栈管理初始化
         ActivityStackManager.getInstance().init(application);
     }
 
     private void initSDK() {
         // 友盟统计、登录、分享 SDK
-        UmengClient.init(application);
+        UMConfigure.init(this, Constants.UM.UM_APPKEY, "Umeng", UMConfigure.DEVICE_TYPE_PHONE, Constants.UM.UMENG_MESSAGE_SECRET);
+        UMConfigure.setLogEnabled(true);
+        PushAgent.getInstance(this).register(new IUmengRegisterCallback() {
+            @Override
+            public void onSuccess(String s) {
+                L.e("注册成功:" + s);
+            }
+
+            @Override
+            public void onFailure(String s, String s1) {
+                L.e("失败:"+s+","+s1);
+            }
+        });
+//        PushAgent agent = PushAgent.getInstance(this);
+//        agent.register(new IUmengRegisterCallback() {
+//            @Override
+//            public void onSuccess(String s) {
+//                L.e("deviceToken:"+s);
+//            }
+//
+//            @Override
+//            public void onFailure(String s, String s1) {
+//                L.e("注册失败：" + s + ",s1:" + s1);
+//            }
+//        });
+
         //xtuil
         x.Ext.init(this);
         x.Ext.setDebug(true);
@@ -74,8 +88,6 @@ public class MyApplication extends Application {
     public static Activity getTopActivity() {
         return activities.get(0);
     }
-
-
 
 
     //测试后台返回前台后展示广告
@@ -234,7 +246,6 @@ public class MyApplication extends Application {
         }
         return mOkHttpClient;
     }
-
 
 
     public static Context getContext() {

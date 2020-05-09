@@ -4,8 +4,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.hjq.http.EasyHttp;
-import com.hjq.http.listener.HttpCallback;
+
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseActivity;
 import com.smh.szyproject.helper.InputTextHelper;

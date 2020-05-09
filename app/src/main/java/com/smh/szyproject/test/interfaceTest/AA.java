@@ -10,6 +10,6 @@ import com.smh.szyproject.utils.L;
 public class AA implements InterfaceA {
     @Override
     public void test() {
-        L.e("1111111");
+
     }
 }

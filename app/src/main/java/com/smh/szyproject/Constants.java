@@ -23,5 +23,12 @@ public class Constants {
 
     }
 
-
+    public class UM {
+        public static final String UM_APPKEY = "5eb4ed8e978eea078b7e94c9";  //文章
+        public static final String UMENG_MESSAGE_SECRET = "26b32110efff9c98bfbf5d2f7145a4e1";  //文章
+        public static final String WX_APPID = "video";  //微信的appid
+        public static final String WX_APPKEY = "video";  //微信的appkey
+        public static final String QQ_APPID = "video";  //qq的appid
+        public static final String QQ_APPKEY = "video";  //qq的appkey
+    }
 }

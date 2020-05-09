@@ -5,6 +5,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
         maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
     }
     dependencies {
@@ -23,6 +24,7 @@ allprojects {
         mavenCentral()
         google()
         jcenter()
+        maven { url 'https://dl.bintray.com/umsdk/release' }
         maven { url 'https://jitpack.io' }
     }
 }

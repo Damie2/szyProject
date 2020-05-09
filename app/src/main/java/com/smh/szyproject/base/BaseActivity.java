@@ -25,9 +25,9 @@ import com.hjq.bar.TitleBar;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.smh.szyproject.R;
 import com.smh.szyproject.action.TitleBarAction;
-import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.ActionBarHelper;
 import com.smh.szyproject.utils.L;
+import com.umeng.message.PushAgent;
 import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoLinearLayout;
 import com.zhy.autolayout.AutoRelativeLayout;
@@ -70,6 +70,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
         setContentView(getLayoutId());
         ButterKnife.bind(this);
         init(savedInstanceState);
+        PushAgent.getInstance(this).onAppStart();
         // 电量状态栏的颜色
 //        StatusBarCompat.setStatusBarColor(this, getStatusBarColor(), true);
 
@@ -136,10 +137,8 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     public void onResume() {
         super.onResume();
         // 重新初始化状态栏
-        UmengClient.onResume(this);
     }
     protected void onPause() {
-        UmengClient.onPause(this);
         super.onPause();
     }
 

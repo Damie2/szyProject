@@ -6,8 +6,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.gyf.immersionbar.ImmersionBar;
-import com.hjq.http.EasyHttp;
-import com.hjq.http.listener.HttpCallback;
+
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseActivity;
 import com.smh.szyproject.helper.InputTextHelper;
