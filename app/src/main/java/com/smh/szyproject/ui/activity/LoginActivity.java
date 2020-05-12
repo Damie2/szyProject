@@ -15,6 +15,9 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseActivity;
 import com.smh.szyproject.helper.InputTextHelper;
 
+import com.smh.szyproject.umeng.Platform;
+import com.smh.szyproject.umeng.UmengClient;
+import com.smh.szyproject.umeng.UmengLogin;
 import com.smh.szyproject.utils.L;
 import com.smh.szyproject.widget.other.KeyboardWatcher;
 import com.smh.szyproject.utils.ToastUtils;
@@ -22,12 +25,14 @@ import com.smh.szyproject.utils.ToastUtils;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+//HYHpvRqZK3IbXcq/xxd70w==
+
 /**
  * author : smh
  * date   : 2020/4/9 13:59
  * desc   :
  */
-public class LoginActivity extends BaseActivity implements
+public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginListener,
         KeyboardWatcher.SoftKeyboardStateListener {
     @BindView(R.id.iv_login_logo)
     ImageView mLogoView;
@@ -95,6 +100,15 @@ public class LoginActivity extends BaseActivity implements
         }, 500);
 
 
+        // 判断用户当前有没有安装 QQ
+        if (!UmengClient.isAppInstalled(this, Platform.QQ)) {
+            mQQView.setVisibility(View.GONE);
+        }
+
+        // 判断用户当前有没有安装微信
+        if (!UmengClient.isAppInstalled(this, Platform.WECHAT)) {
+            mWeChatView.setVisibility(View.GONE);
+        }
 
         // 如果这两个都没有安装就隐藏提示
         if (mQQView.getVisibility() == View.GONE && mWeChatView.getVisibility() == View.GONE) {
@@ -117,14 +131,12 @@ public class LoginActivity extends BaseActivity implements
     }
 
 
-
     @OnClick(R.id.tv_login_forget)
     public void forget() {
         startActivity(PasswordForgetActivity.class);
 
 //        startActivity(PasswordResetActivity.class);
     }
-
 
 
     @Override
@@ -144,18 +156,20 @@ public class LoginActivity extends BaseActivity implements
     @OnClick(R.id.iv_login_qq)
     public void iv_login_qq() {
         ToastUtils.showToastForText(this, "QQ登录");
-
+        Platform platform  = Platform.QQ;
+        UmengClient.login(this, platform, this);
     }
 
     @OnClick(R.id.iv_login_wx)
     public void iv_login_wx() {
         ToastUtils.showToastForText(this, "微信登录");
-
+        Platform platform  = Platform.WECHAT;
+        UmengClient.login(this, platform, this);
     }
 
-    public void loginSuccess(){
-        String className =  getIntent().getStringExtra("className");
-        if(!TextUtils.isEmpty(className)){
+    public void loginSuccess() {
+        String className = getIntent().getStringExtra("className");
+        if (!TextUtils.isEmpty(className)) {
             ComponentName componentName = new ComponentName(this, className);
             Intent intent = new Intent();
             intent.setComponent(componentName);
@@ -163,5 +177,10 @@ public class LoginActivity extends BaseActivity implements
             startActivity(intent);
         }
         finish();
+    }
+
+    @Override
+    public void onSucceed(Platform platform, UmengLogin.LoginData data) {
+        L.e("第三方登录成功" + data.getName());
     }
 }

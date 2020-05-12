@@ -2,9 +2,13 @@ package com.smh.szyproject.net.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
+import com.smh.szyproject.bean.Test;
 import com.smh.szyproject.utils.L;
 
+import org.json.JSONObject;
+
 import java.io.IOException;
+import java.lang.reflect.Type;
 
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
@@ -17,23 +21,49 @@ import retrofit2.Converter;
 public class JsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
     private final Gson mGson;//gson对象
     private final TypeAdapter<T> adapter;
+    private Type mType;
 
     /**
      * 构造器
      */
-    public JsonResponseBodyConverter(Gson gson, TypeAdapter<T> adapter) {
+    public JsonResponseBodyConverter(Gson gson, TypeAdapter<T> adapter, Type mType) {
         this.mGson = gson;
         this.adapter = adapter;
+        this.mType = mType;
     }
 
     @Override
-    public T convert(ResponseBody responseBody) throws IOException {
-        L.e("响应的的串是:" + responseBody.string());
-        return null;
+    public T convert(ResponseBody value) throws IOException {
+
+        try {
+            String body = value.string();
+            L.e("" + body);
+            JSONObject json = new JSONObject(body);
+
+
+            String code = json.getString("resultCode");
+            String msg = json.getString("resultInfo");
+            if (code.equals("0000")) {
+                return mGson.fromJson(body, mType);
+            } else {
+                Test test = mGson.fromJson(body, Test.class);
+                return (T) test;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        } finally {
+            value.close();
+        }
     }
 
+//    @Override
+//    public T convert(ResponseBody responseBody) throws IOException {
+//        L.e("响应的的串是:" + responseBody.string());
+//        return null;
+//    }
+
 //    /**
-//     * 转换
+//     * 转换   这个是解密过程
 //     *
 //     * @param responseBody
 //     * @return

@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.bar.TitleBar;
 import com.smh.szyproject.action.TitleBarAction;
+import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.L;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -143,10 +144,12 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
         super.onResume();
         // 重新初始化状态栏
         statusBarConfig().init();
+        UmengClient.onResume(this);
     }
 
     @Override
     public void onPause() {
+        UmengClient.onPause(this);
         super.onPause();
     }
     protected abstract void init();

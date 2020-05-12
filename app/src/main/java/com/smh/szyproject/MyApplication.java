@@ -13,6 +13,7 @@ import com.smh.szyproject.net.interceptor.CookieReadInterceptor;
 import com.smh.szyproject.net.interceptor.CookiesSaveInterceptor;
 import com.smh.szyproject.net.interceptor.InterceptorUtil;
 
+import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.L;
 import com.umeng.commonsdk.UMConfigure;
 import com.umeng.message.IUmengRegisterCallback;
@@ -48,34 +49,9 @@ public class MyApplication extends Application {
     }
 
     private void initSDK() {
-        // 友盟统计、登录、分享 SDK
-        UMConfigure.init(this, Constants.UM.UM_APPKEY, "Umeng", UMConfigure.DEVICE_TYPE_PHONE, Constants.UM.UMENG_MESSAGE_SECRET);
-        UMConfigure.setLogEnabled(true);
-        PushAgent.getInstance(this).register(new IUmengRegisterCallback() {
-            @Override
-            public void onSuccess(String s) {
-                L.e("注册成功:" + s);
-            }
-
-            @Override
-            public void onFailure(String s, String s1) {
-                L.e("失败:"+s+","+s1);
-            }
-        });
-//        PushAgent agent = PushAgent.getInstance(this);
-//        agent.register(new IUmengRegisterCallback() {
-//            @Override
-//            public void onSuccess(String s) {
-//                L.e("deviceToken:"+s);
-//            }
-//
-//            @Override
-//            public void onFailure(String s, String s1) {
-//                L.e("注册失败：" + s + ",s1:" + s1);
-//            }
-//        });
-
-        //xtuil
+        // 友盟统计、登录、分享、推送 SDK 初始化
+        UmengClient.init(this);
+        //xutils
         x.Ext.init(this);
         x.Ext.setDebug(true);
         // 图片加载器

@@ -30,5 +30,9 @@ public class Constants {
         public static final String WX_APPKEY = "video";  //微信的appkey
         public static final String QQ_APPID = "video";  //qq的appid
         public static final String QQ_APPKEY = "video";  //qq的appkey
+
+
+        public static final String XIAOMI_APPID = "2882303761518396738";  //小米的appid
+        public static final String XIAOMI_APPKEY = "5871839634738";  //小米的appkey
     }
 }

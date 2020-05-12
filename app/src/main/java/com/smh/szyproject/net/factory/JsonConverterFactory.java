@@ -40,7 +40,7 @@ public class JsonConverterFactory extends Converter.Factory {
                                                             Retrofit retrofit) {
 
         TypeAdapter<?> adapter = gson.getAdapter(TypeToken.get(type));
-        return new JsonResponseBodyConverter<>(gson, adapter); //响应
+        return new JsonResponseBodyConverter<>(gson, adapter,type); //响应
     }
 
     @Override
