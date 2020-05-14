@@ -62,7 +62,6 @@ public class invokeActivity extends BaseActivity {
                 m.invoke(o,field.get(o));
             }
         }
-
     }
 
     /**

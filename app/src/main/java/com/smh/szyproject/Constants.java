@@ -28,8 +28,8 @@ public class Constants {
         public static final String UMENG_MESSAGE_SECRET = "26b32110efff9c98bfbf5d2f7145a4e1";  //文章
         public static final String WX_APPID = "video";  //微信的appid
         public static final String WX_APPKEY = "video";  //微信的appkey
-        public static final String QQ_APPID = "video";  //qq的appid
-        public static final String QQ_APPKEY = "video";  //qq的appkey
+        public static final String QQ_APPID = "101872925";  //qq的appid
+        public static final String QQ_APPKEY = "fef18d95abe9b8fd6554c2652cc8b265";  //qq的appkey
 
 
         public static final String XIAOMI_APPID = "2882303761518396738";  //小米的appid

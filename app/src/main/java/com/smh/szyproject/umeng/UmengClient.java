@@ -38,8 +38,8 @@ public final class UmengClient {
 
         try {
             UMConfigure.init(application, Constants.UM.UM_APPKEY, "Umeng", UMConfigure.DEVICE_TYPE_PHONE, Constants.UM.UMENG_MESSAGE_SECRET);
-//            PlatformConfig.setWeixin(Constants.UM.QQ_APPID, Constants.UM.QQ_APPKEY);
-//            PlatformConfig.setQQZone(Constants.UM.WX_APPID, Constants.UM.WX_APPKEY);
+            PlatformConfig.setQQZone(Constants.UM.QQ_APPID, Constants.UM.QQ_APPKEY);
+//              PlatformConfig.setWeixin(String.valueOf(metaData.get("WX_APPID")), String.valueOf(metaData.get("WX_APPKEY")));
             UMConfigure.setLogEnabled(true);
             //小米开放平台申请到的推送初始化
             MiPushRegistar.register(application,Constants.UM.XIAOMI_APPID, Constants.UM.XIAOMI_APPKEY); // 小米开放平台申请到的 APPID 和 APPKEY

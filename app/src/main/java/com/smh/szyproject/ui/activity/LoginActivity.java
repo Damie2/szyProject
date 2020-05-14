@@ -11,22 +11,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 
+import androidx.annotation.Nullable;
+
+import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
+import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.bean.ShareBean;
 import com.smh.szyproject.helper.InputTextHelper;
 
 import com.smh.szyproject.umeng.Platform;
 import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.umeng.UmengLogin;
+import com.smh.szyproject.umeng.UmengShare;
 import com.smh.szyproject.utils.L;
 import com.smh.szyproject.widget.other.KeyboardWatcher;
 import com.smh.szyproject.utils.ToastUtils;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-
-//HYHpvRqZK3IbXcq/xxd70w==
-
 /**
  * author : smh
  * date   : 2020/4/9 13:59
@@ -153,18 +156,37 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
 
     }
 
+    @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
     @OnClick(R.id.iv_login_qq)
     public void iv_login_qq() {
         ToastUtils.showToastForText(this, "QQ登录");
-        Platform platform  = Platform.QQ;
+        Platform platform = Platform.QQ;
         UmengClient.login(this, platform, this);
     }
 
+    @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
     @OnClick(R.id.iv_login_wx)
     public void iv_login_wx() {
         ToastUtils.showToastForText(this, "微信登录");
-        Platform platform  = Platform.WECHAT;
-        UmengClient.login(this, platform, this);
+//        Platform platform  = Platform.WECHAT;
+//        UmengClient.login(this, platform, this);
+        L.e("先搞成分享分享");
+        UmengShare.ShareData mData = new UmengShare.ShareData(this);
+        mData.setShareTitle("我是title");
+        mData.setShareUrl("https://github.com/getActivity/AndroidProject");
+        mData.setShareDescription("描述");
+        mData.setShareLogo("https://avatars1.githubusercontent.com/u/28616817?s=460&v=4");
+        UmengClient.share(this, Platform.QQ, mData, new UmengShare.OnShareListener() {
+            @Override
+            public void onSucceed(Platform platform) {
+                L.e("分享成功");
+            }
+
+            @Override
+            public void onError(Platform platform, Throwable t) {
+                L.e("失败，"+t.getMessage());
+            }
+        });
     }
 
     public void loginSuccess() {
@@ -182,5 +204,12 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     @Override
     public void onSucceed(Platform platform, UmengLogin.LoginData data) {
         L.e("第三方登录成功" + data.getName());
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // 友盟登录回调
+        UmengClient.onActivityResult(this, requestCode, resultCode, data);
     }
 }
