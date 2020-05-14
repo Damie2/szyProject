@@ -52,10 +52,10 @@ public class PermissionsAspect {
                     @Override
                     public void noPermission(List<String> denied, boolean quick) {
                         if (quick) {
-                            ToastUtils.showToastForText(MyApplication.getContext(),"授权失败，请手动授予权限");
+                            ToastUtils.showToastForText(ActivityStackManager.getInstance().getTopActivity(),"授权失败，请手动授予权限");
                             XXPermissions.gotoPermissionSettings(ActivityStackManager.getInstance().getTopActivity(), false);
                         } else {
-                            ToastUtils.showToastForText(MyApplication.getContext(),"请先授予权限");
+                            ToastUtils.showToastForText(ActivityStackManager.getInstance().getTopActivity(),"请先授予权限");
                         }
                     }
                 });
