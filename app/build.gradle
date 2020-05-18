@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-//apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android'
 
 android {
     sourceSets {
@@ -209,7 +209,7 @@ dependencies {
     //小米推送
     implementation 'com.umeng.umsdk:xiaomi-push:3.7.0'
     implementation 'com.umeng.umsdk:xiaomi-umengaccs:1.1.4'
-    //上面是友盟
+
 
     //图片选择器，记得混淆
 //    https://github.com/LuckSiege/PictureSelector

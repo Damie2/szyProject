@@ -24,6 +24,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.bar.TitleBar;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.smh.szyproject.R;
+import com.smh.szyproject.Rx.databus.RxBus;
 import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.ActionBarHelper;
@@ -70,6 +71,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
         ActionBarHelper.setHalfTransparent(this);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
+        RxBus.getInstance().register(this);
         init(savedInstanceState);
         PushAgent.getInstance(this).onAppStart();//友盟推送
         // 电量状态栏的颜色
@@ -138,11 +140,11 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     public void onResume() {
         super.onResume();
         // 重新初始化状态栏
-        UmengClient.onResume(this);
+//        UmengClient.onResume(this);
     }
     protected void onPause() {
+//        UmengClient.onPause(this);
         super.onPause();
-        UmengClient.onPause(this);
     }
 
     /**
@@ -266,6 +268,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        RxBus.getInstance().unRegister(this);
     }
 
     @Override

@@ -23,12 +23,6 @@ import com.umeng.socialize.UMShareAPI;
 
 import org.android.agoo.xiaomi.MiPushRegistar;
 
-/**
- * author : Android 轮子哥
- * github : https://github.com/getActivity/AndroidProject
- * time   : 2019/04/03
- * desc   : 友盟客户端
- */
 public final class UmengClient {
 
     /**
@@ -46,7 +40,7 @@ public final class UmengClient {
             PushAgent.getInstance(application).register(new IUmengRegisterCallback() {
                 @Override
                 public void onSuccess(String s) {
-                    L.e("注册成功:" + s);
+//                    L.e("注册成功:" + s);
                 }
 
                 @Override

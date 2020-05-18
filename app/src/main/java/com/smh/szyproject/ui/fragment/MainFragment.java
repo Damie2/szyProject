@@ -50,7 +50,6 @@ public class MainFragment extends BaseFragment {
         list.add("河北");
         list.add("河南");
         list.add("上海");
-        list.add("广州");
         for (int i = 0; i < list.size(); i++) {
             TabLayout.Tab tab = mTablayout.newTab().setText(list.get(i));
             mTablayout.addTab(tab);

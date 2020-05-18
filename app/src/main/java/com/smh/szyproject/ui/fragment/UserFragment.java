@@ -30,7 +30,6 @@ public class UserFragment extends BaseFragment {
     @BindView(R.id.tl_1)
     SlidingTabLayout layout;
 
-
     private ArrayList<Fragment> mFragments = new ArrayList<>();
     private final String[] mTitles = {
             "热门", "iOS", "Android"

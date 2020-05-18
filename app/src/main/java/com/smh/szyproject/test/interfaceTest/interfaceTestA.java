@@ -2,6 +2,7 @@ package com.smh.szyproject.test.interfaceTest;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.action.StatusAction;
@@ -34,6 +35,13 @@ public class interfaceTestA extends BaseActivity implements StatusAction {
         SPUtil.clear(this);
         InterfaceA inter = new AA();
         inter.test();
+
+
+        ViewGroup group = getContentView();
+        if(group!=null){
+
+        }
+
 //        getStatusBarConfig().statusBarDarkFont(true).init();
 
 //        textView.setOnClickListener(new OnClickListener() {
