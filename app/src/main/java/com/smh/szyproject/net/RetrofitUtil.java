@@ -37,14 +37,12 @@ public class RetrofitUtil {
                     // 设置请求的域名
                     .baseUrl(ApiAddress.api)
                     // 设置解析转换工厂，用自己定义的
-//                    .addConverterFactory(JsonConverterFactory.create())//加密，解密工厂
-                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(JsonConverterFactory.create())//加密，解密工厂
+//                    .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
             allApi = mRetrofit.create(AllApi.class);
         }
         return allApi;
     }
-
-
 }

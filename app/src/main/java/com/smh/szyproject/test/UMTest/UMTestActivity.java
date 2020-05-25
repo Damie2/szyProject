@@ -8,7 +8,7 @@ import com.smh.szyproject.base.BaseActivity;
 /**
  * author : smh
  * date   : 2020/5/8 13:20
- * desc   :
+ * desc   : 推送的地址要写起始页
  */
 public class UMTestActivity extends BaseActivity {
     @Override

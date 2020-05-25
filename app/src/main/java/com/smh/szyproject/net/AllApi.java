@@ -4,8 +4,12 @@ package com.smh.szyproject.net;
 import com.google.gson.JsonObject;
 import com.smh.szyproject.bean.Test;
 import com.smh.szyproject.bean.TestBean;
+import com.smh.szyproject.bean.getStatus;
+import com.smh.szyproject.bean.testStatus;
 import com.smh.szyproject.test.mvvm.PhoneParameter;
 import com.smh.szyproject.test.mvvm.Result;
+
+import org.json.JSONObject;
 
 import java.util.HashMap;
 
@@ -26,8 +30,11 @@ public interface AllApi {
     Observable<TestBean> test2(@FieldMap HashMap<String, Object> map);
 
     @POST(ApiAddress.sendVersion)
-    Observable<JsonObject> test(@Body Test parameter);
+    Observable<JSONObject> test(@Body Test parameter);
 
+
+    @POST(ApiAddress.getStatus)
+    Observable<JSONObject> testStatus(@Body testStatus parameter);
 
     //1.安装APP后发送请求
     @POST(ApiAddress.sendParameter)

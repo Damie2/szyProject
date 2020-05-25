@@ -8,6 +8,7 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.action.StatusAction;
 import com.smh.szyproject.aop.Login;
 import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.helper.PopupWindowHelper;
 import com.smh.szyproject.widget.other.HintLayout;
 import com.smh.szyproject.utils.SPUtil;
 
@@ -59,6 +60,7 @@ public class interfaceTestA extends BaseActivity implements StatusAction {
     }
 
     public void tv_next(View view) {
-
+        PopupWindowHelper helper = new PopupWindowHelper(this,R.layout.popwin_demo);
+        helper.show(view);
     }
 }

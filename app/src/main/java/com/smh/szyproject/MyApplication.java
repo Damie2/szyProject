@@ -31,7 +31,6 @@ import okhttp3.OkHttpClient;
 
 public class MyApplication extends Application {
 
-    public static List<Activity> activities = new ArrayList<>();
     private static MyApplication application;
     private static Context context;
     private static OkHttpClient mOkHttpClient;
@@ -61,9 +60,6 @@ public class MyApplication extends Application {
     }
 
 
-    public static Activity getTopActivity() {
-        return activities.get(0);
-    }
 
 
     //测试后台返回前台后展示广告
@@ -91,7 +87,6 @@ public class MyApplication extends Application {
         registerActivityLifecycleCallbacks(new ActivityLifecycleCallbacks() {
             @Override
             public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-                activities.add(activity);
             }
 
             @Override
@@ -112,7 +107,6 @@ public class MyApplication extends Application {
                 } else {
                     sAppState = STATE_NORMAL;
                 }
-
             }
 
             @Override
@@ -142,7 +136,6 @@ public class MyApplication extends Application {
 
             @Override
             public void onActivityDestroyed(Activity activity) {
-                activities.remove(activity);
             }
 
         });

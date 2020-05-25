@@ -72,7 +72,7 @@ public class ThreadTest extends BaseActivity {
 //        scheduledExecutorService.schedule(new Runnable() {
 //            @Override
 //            public void run() {
-//                L.e("当前线程名：" + Thread.currentThread().getName());
+//                L.e("当前线程名：" + IOThread.currentThread().getName());
 //            }
 //        },3,TimeUnit.SECONDS);
 

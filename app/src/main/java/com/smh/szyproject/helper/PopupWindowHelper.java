@@ -19,6 +19,12 @@ import androidx.annotation.Nullable;
  */
 public final class PopupWindowHelper implements PopupWindow.OnDismissListener {
 
+
+
+//    PopupWindowHelper helper = new PopupWindowHelper(this,R.layout.popwin_demo);
+//        helper.show(view);
+
+
     /** PopupWindow 对象 */
     private PopupWindow mPopupWindow;
     /** PopupWindow 显示的 View */

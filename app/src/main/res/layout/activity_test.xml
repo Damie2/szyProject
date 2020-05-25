@@ -12,11 +12,17 @@
 
         <TextView
            android:onClick="tv_next"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="点我跳转到下一页" />
+
+
+        <RelativeLayout
+
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="200px"/>
 
     </RelativeLayout>
 </com.smh.szyproject.widget.other.HintLayout>

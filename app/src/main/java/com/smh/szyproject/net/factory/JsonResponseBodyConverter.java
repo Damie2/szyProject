@@ -1,8 +1,11 @@
 package com.smh.szyproject.net.factory;
 
+import android.text.TextUtils;
+
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
 import com.smh.szyproject.bean.Test;
+import com.smh.szyproject.bean.getStatusResult;
 import com.smh.szyproject.utils.L;
 
 import org.json.JSONObject;
@@ -36,19 +39,29 @@ public class JsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
     public T convert(ResponseBody value) throws IOException {
 
         try {
+            //参考HandleFuc
             String body = value.string();
-            L.e("" + body);
             JSONObject json = new JSONObject(body);
-
-
-            String code = json.getString("resultCode");
-            String msg = json.getString("resultInfo");
-            if (code.equals("0000")) {
-                return mGson.fromJson(body, mType);
+            String code = json.optString("code");
+            if (TextUtils.equals(code,"200")) {
+//                getStatusResult test = mGson.fromJson(body, getStatusResult.class);
+                //返回共用的，然后那边用Object接收
+                return (T) json;
             } else {
-                Test test = mGson.fromJson(body, Test.class);
-                return (T) test;
+                return mGson.fromJson(body, mType);
             }
+
+
+//            String code = json.getString("resultCode");
+//            String msg = json.getString("resultInfo");
+//            if (code.equals("0000")) {
+//                return mGson.fromJson(body, mType);
+//            } else {
+//                Test test = mGson.fromJson(body, Test.class);
+//                return (T) test;
+//            }
+
+
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         } finally {

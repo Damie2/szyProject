@@ -2,7 +2,6 @@ package com.smh.szyproject.net.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
-import com.smh.szyproject.utils.GsonUtils;
 import com.smh.szyproject.utils.L;
 
 import java.io.IOException;
@@ -31,12 +30,17 @@ public class JsonRequestBodyConverter<T> implements Converter<T, RequestBody> {
         this.adapter = adapter;
     }
 
+    //    @Override
+//    public RequestBody convert(T value) throws IOException {
+//        L.e("request中传递的json数据：" + GsonUtils.getGson().toJson(value));
+//        return null;
+//    }
     @Override
     public RequestBody convert(T value) throws IOException {
-        L.e("request中传递的json数据：" + GsonUtils.getGson().toJson(value));
-        return null;
+        String postBody = gson.toJson(value); //对象转化成json
+        L.e("请求的数据：" + postBody);
+        return RequestBody.create(MEDIA_TYPE, postBody);
     }
-
 //
 //    @Override
 //    public RequestBody convert(T value) throws IOException {

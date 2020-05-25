@@ -6,7 +6,12 @@ import android.widget.ImageView;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.bean.getStatus;
+import com.smh.szyproject.bean.testStatus;
 import com.smh.szyproject.common.image.ImageLoader;
+import com.smh.szyproject.mvp.module.TestContract;
+import com.smh.szyproject.mvp.presenter.TestPresenter;
+import com.smh.szyproject.utils.L;
 
 import butterknife.BindView;
 
@@ -15,8 +20,9 @@ import butterknife.BindView;
  * date   : 2020/3/9 14:01
  * desc   :
  */
-public class TestActivity extends BaseActivity {
+public class TestActivity extends BaseActivity implements TestContract.View {
     ImageView iv;
+    TestPresenter presenter;
 
     @Override
     public int getLayoutId() {
@@ -25,6 +31,19 @@ public class TestActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        ImageLoader.with(this).load("http://img14.360buyimg.com/n1/jfs/t28306/211/882124028/609313/1947379a/5bffa0a4N1903d27d.png").circle().into(iv);
+        presenter = new TestPresenter(this, this);
+        testStatus status = new testStatus();
+        status.setStatus(0);
+        presenter.sendStatusResult(status);
+    }
+
+    @Override
+    public void setContent(String content) {
+
+    }
+
+    @Override
+    public void sendRequest(getStatus o) {
+        L.e(""+o.getMessage());
     }
 }

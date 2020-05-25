@@ -6,5 +6,5 @@ package com.smh.szyproject.bean;
  * desc   :
  */
 public class Refund {
-
+    
 }
