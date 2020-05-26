@@ -21,9 +21,7 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 
 @Aspect
-@Keep
 public class LoginJectAspect {
-    @Keep
     @Pointcut("execution(@com.smh.szyproject.aop.Login * *(..))")
     public void methodAnnotatedWithBehaviorTrace() {
     }
@@ -38,7 +36,6 @@ public class LoginJectAspect {
 //    public void tv_next(View view) {
 //    }
 
-    @Keep
     @Around("methodAnnotatedWithBehaviorTrace()")
     public void weaveJoinPoint(ProceedingJoinPoint point)throws Throwable  {
         MethodSignature methodSignature = (MethodSignature) point.getSignature();

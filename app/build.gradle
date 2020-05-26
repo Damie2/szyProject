@@ -55,17 +55,28 @@ android {
 
 
     buildTypes {
-        release {
-            minifyEnabled true
-//            signingConfig signingConfigs.mySign
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-        }
         debug {
-//            signingConfig signingConfigs.mySign
+
+            // ZipAlign 优化
+            zipAlignEnabled false
+            // 移除无用的资源文件
+            shrinkResources false
+            // 设置混淆
             minifyEnabled false
             debuggable true
         }
+        release {
+            // ZipAlign 优化
+            zipAlignEnabled true
+            // 移除无用的资源文件
+            shrinkResources true
+            // 设置混淆
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+
     }
 
 //    buildTypes {
@@ -144,8 +155,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     //鲁班图片压缩
     implementation 'top.zibin:Luban:1.1.8'
-    //rxpermissions
-    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4@aar'
     //jsbridge
     implementation 'com.github.lzyzsd:jsbridge:1.0.4'
     //生命周期

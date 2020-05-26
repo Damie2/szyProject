@@ -23,13 +23,11 @@ import org.aspectj.lang.annotation.Pointcut;
  * desc   :
  */
 @Aspect
-@Keep
 public class CheckNetAspect {
 
     /**
      * 方法切入点
      */
-    @Keep
     @Pointcut("execution(@com.smh.szyproject.aop.CheckNet * *(..))")
     public void method() {
     }
@@ -37,7 +35,6 @@ public class CheckNetAspect {
     /**
      * 在连接点进行方法替换
      */
-    @Keep
     @Around("method() && @annotation(checkNet)")
     public void aroundJoinPoint(ProceedingJoinPoint joinPoint, CheckNet checkNet) throws Throwable {
         Application application = ActivityStackManager.getInstance().getApplication();

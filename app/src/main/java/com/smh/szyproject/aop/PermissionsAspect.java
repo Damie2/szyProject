@@ -21,16 +21,13 @@ import java.util.List;
  * desc   :
  */
 @Aspect
-@Keep
 public class PermissionsAspect {
     /**
      * 方法切入点
      */
-    @Keep
     @Pointcut("execution(@com.smh.szyproject.aop.Permissions * *(..))")
     public void method() {}
 
-    @Keep
     @Around("method() && @annotation(permissions)")
     public void aroundJoinPoint(final ProceedingJoinPoint joinPoint, Permissions permissions) {
         XXPermissions.with(ActivityStackManager.getInstance().getTopActivity())

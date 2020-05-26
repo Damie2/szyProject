@@ -20,7 +20,6 @@ import java.util.Calendar;
  * desc   :
  */
 @Aspect
-@Keep
 public class SingleClickAspect {
     /**
      * 最近一次点击的时间
@@ -34,11 +33,9 @@ public class SingleClickAspect {
     /**
      * 方法切入点
      */
-    @Keep
     @Pointcut("execution(@com.smh.szyproject.aop.SingleClick * *(..))")
     public void method() {
     }
-    @Keep
     @Around("method() && @annotation(singleClick)")
     public void aroundJoinPoint(ProceedingJoinPoint joinPoint, SingleClick singleClick) throws Throwable {
         View view = null;

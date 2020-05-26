@@ -48,6 +48,7 @@
 #----------------------------------------------------
 # 保持哪些类不被混淆
 #继承activity,application,service,broadcastReceiver,contentprovider....不进行混淆
+-keep public class * extends android.app.Fragment
 -keep public class * extends android.app.Activity
 -keep public class * extends android.app.Application
 -keep public class * extends android.support.multidex.MultiDexApplication
@@ -117,9 +118,9 @@
   public static final android.os.Parcelable$Creator *;
 }
 
-#-keepnames class * implements android.os.Parcelable {
-#      public static final ** CREATOR;
-#  }
+-keepnames class * implements android.os.Parcelable {
+      public static final ** CREATOR;
+  }
 # 这指定了继承Serizalizable的类的如下成员不被移除混淆
 -keepclassmembers class * implements java.io.Serializable {
     static final long serialVersionUID;
@@ -216,6 +217,12 @@
 #    public static final int *;
 # }
 
+# 保护 Bean 类不被混淆（请注意修改包名路径）
+-keepclassmembernames class com.hjq.demo.http.response.** {
+    <fields>;
+}
+
+
 
 #Gson
 -dontwarn com.google.gson.**
@@ -254,6 +261,18 @@
  -keep class com.ta.**{*;}
  -keep public class **.R$*{ public static final int *; }
 
+# 友盟社会化
+-dontshrink
+-dontwarn com.google.android.maps.**
+-dontwarn android.webkit.WebView
+-dontwarn com.tencent.weibo.sdk.**
+-dontwarn com.facebook.**
+-keep public class javax.**
+-keep public class android.webkit.**
+-keep enum com.facebook.**
+-keepattributes Exceptions,InnerClasses,Signature
+
+
 
 #微信混淆
 -dontwarn com.tencent.mm.**
@@ -282,7 +301,6 @@
 }
 
 
-
 #JSONObject
 -keepclassmembers class * {
     public <init> (org.json.JSONObject);
@@ -308,5 +326,22 @@
 -keep class com.google.gson.** {*;}
 
 
+# Bugly
+-dontwarn com.tencent.bugly.**
+-keep public class com.tencent.bugly.**{*;}
 
+# AOP
+-adaptclassstrings
+-keepattributes InnerClasses, EnclosingMethod, Signature, *Annotation*
 
+-keepnames @org.aspectj.lang.annotation.Aspect class * {
+    ajc* <methods>;
+}
+
+# OkHttp3
+-keepattributes Signature
+-keepattributes *Annotation*
+-keep class okhttp3.** { *; }
+-keep interface okhttp3.** { *; }
+-dontwarn okhttp3.**
+-dontwarn okio.**
