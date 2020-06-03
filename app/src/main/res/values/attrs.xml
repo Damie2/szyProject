@@ -70,5 +70,11 @@
         </attr>
     </declare-styleable>
 
+    <!-- 这个是用surfaceView画图片用的-->
+    <declare-styleable name="DrawableSurfaceView">
+        <attr name="src" format="reference"/>
+    </declare-styleable>
+
+
 
 </resources>

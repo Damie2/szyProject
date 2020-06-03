@@ -13,8 +13,4 @@ public class RealSubject implements Subject{
         L.e("sayGoodBye");
     }
 
-    @Override
-    public void sayHello(String msg) {
-        L.e("sayHello"+msg);
-    }
 }

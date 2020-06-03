@@ -10,6 +10,5 @@ public interface Subject {
 
     public void sayGoodBye();
 
-    public void sayHello(String msg);
 
 }

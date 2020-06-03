@@ -218,7 +218,7 @@
 # }
 
 # 保护 Bean 类不被混淆（请注意修改包名路径）
--keepclassmembernames class com.hjq.demo.http.response.** {
+-keepclassmembernames class com.smh.szyproject.bean.** {
     <fields>;
 }
 
@@ -345,3 +345,17 @@
 -keep interface okhttp3.** { *; }
 -dontwarn okhttp3.**
 -dontwarn okio.**
+
+
+#Aria 多任务下载的混淆
+-dontwarn com.arialyy.aria.**
+-keep class com.arialyy.aria.**{*;}
+-keep class **$$DownloadListenerProxy{ *; }
+-keep class **$$UploadListenerProxy{ *; }
+-keep class **$$DownloadGroupListenerProxy{ *; }
+-keep class **$$DGSubListenerProxy{ *; }
+-keepclasseswithmembernames class * {
+    @Download.* <methods>;
+    @Upload.* <methods>;
+    @DownloadGroup.* <methods>;
+}

@@ -74,30 +74,9 @@ android {
             // 设置混淆
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
         }
-
     }
 
-//    buildTypes {
-//        release {
-//            // 移除无用的资源文件
-//            shrinkResources true
-//            // ZipAlign 优化
-//            zipAlignEnabled true
-//            // 设置混淆
-//            minifyEnabled true
-//        }
-//        debug {
-//            // 移除无用的资源文件
-//            shrinkResources false
-//            // ZipAlign 优化
-//            zipAlignEnabled false
-//            // 设置混淆
-//            minifyEnabled false
-//
-//        }
-//    }
     //使用mvvm需要这玩意
     dataBinding {
         enabled true
@@ -115,6 +94,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.navigation:navigation-fragment:2.2.1'
     implementation 'androidx.navigation:navigation-ui:2.2.1'
+    implementation 'androidx.preference:preference:1.1.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
@@ -148,7 +128,7 @@ dependencies {
     implementation 'com.githang:status-bar-compat:latest.integration'
     implementation 'cc.cloudist.acplibrary:library:1.2.1'
     //Xutils
-    implementation 'org.xutils:xutils:3.7.6'
+    implementation 'org.xutils:xutils:3.8.9'
     //下拉刷新
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
     // 日志的拦截器，也可以自行选择
@@ -217,6 +197,13 @@ dependencies {
     //小米推送
     implementation 'com.umeng.umsdk:xiaomi-push:3.7.0'
     implementation 'com.umeng.umsdk:xiaomi-umengaccs:1.1.4'
+
+//    多任务文件并行下载
+    //    https://github.com/AriaLyy/Aria
+    implementation 'com.arialyy.aria:core:3.8.7'
+    annotationProcessor 'com.arialyy.aria:compiler:3.8.7'
+
+
 
 
     //图片选择器，记得混淆

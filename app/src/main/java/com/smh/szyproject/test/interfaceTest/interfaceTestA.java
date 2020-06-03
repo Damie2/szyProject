@@ -9,6 +9,7 @@ import com.smh.szyproject.action.StatusAction;
 import com.smh.szyproject.aop.Login;
 import com.smh.szyproject.base.BaseActivity;
 import com.smh.szyproject.helper.PopupWindowHelper;
+import com.smh.szyproject.utils.SoftHideKeyBoardUtil;
 import com.smh.szyproject.widget.other.HintLayout;
 import com.smh.szyproject.utils.SPUtil;
 
@@ -33,6 +34,9 @@ public class interfaceTestA extends BaseActivity implements StatusAction {
     @Override
     public void init(Bundle savedInstanceState) {
 //        SPUtil.putString("token","123",this);
+        //输入法自动往上抬
+        SoftHideKeyBoardUtil.assistActivity(this);
+
         SPUtil.clear(this);
         InterfaceA inter = new AA();
         inter.test();

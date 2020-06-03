@@ -25,6 +25,7 @@ import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.umeng.UmengLogin;
 import com.smh.szyproject.umeng.UmengShare;
 import com.smh.szyproject.utils.L;
+import com.smh.szyproject.utils.SoftHideKeyBoardUtil;
 import com.smh.szyproject.widget.other.KeyboardWatcher;
 import com.smh.szyproject.utils.ToastUtils;
 
@@ -76,6 +77,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
 
     @Override
     public void init(Bundle savedInstanceState) {
+//        SoftHideKeyBoardUtil.assistActivity(this);
         InputTextHelper.with(this)
                 .addView(mPhoneView)
                 .addView(mPasswordView)
