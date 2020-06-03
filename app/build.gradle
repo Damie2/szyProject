@@ -1,5 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+//腾讯VasDolly多渠道打包插件
+//apply plugin: 'channel'
 
 android {
     sourceSets {
@@ -52,12 +54,44 @@ android {
             storePassword 'swkj666!'
         }
     }
+    //==============友盟多渠道配置===============
+   flavorDimensions "default"    // 默认渠道名
+    // 配置多渠道包支持
+    productFlavors {
+        Tencent {
+            // 投放应用宝市场
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "应用宝"]
+            versionCode 2
+            versionName "2.0"
 
+        }
+        xiaomi {
+            // 投放小米市场
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "小米"]
+            versionCode 1
+            versionName "1.1"
+        }
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    //================友盟多渠道配置============
+
+    // Apk 输出配置
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            outputFileName = rootProject.getName() + '_v' + variant.versionName + '_' + variant.buildType.name
+            if (variant.buildType.name == buildTypes.release.getName()) {
+                outputFileName += '_' + new Date().format("yyyyMMdd")
+            }
+            outputFileName += '.apk'
+        }
+    }
 
     buildTypes {
-
         debug {
-
+            jniDebuggable true
             // ZipAlign 优化
             zipAlignEnabled false
             // 移除无用的资源文件
@@ -67,6 +101,7 @@ android {
             debuggable true
         }
         release {
+            jniDebuggable false
             // ZipAlign 优化
             zipAlignEnabled true
             // 移除无用的资源文件
@@ -74,6 +109,7 @@ android {
             // 设置混淆
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.mySign
         }
     }
 
@@ -202,8 +238,8 @@ dependencies {
     //    https://github.com/AriaLyy/Aria
     implementation 'com.arialyy.aria:core:3.8.7'
     annotationProcessor 'com.arialyy.aria:compiler:3.8.7'
-
-
+    //腾讯VasDolly多渠道打包
+//    api 'com.leon.channel:helper:2.0.3'
 
 
     //图片选择器，记得混淆

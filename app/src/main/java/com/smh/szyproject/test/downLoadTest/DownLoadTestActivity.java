@@ -61,7 +61,7 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v.getId() == R.id.tv_down_load) {
             L.e("点击下载");
-            downLoad();
+//            downLoad();
         }
     }
 
