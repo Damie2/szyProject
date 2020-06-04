@@ -23,8 +23,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
+        //由于在Android Studio pluing 3.0.+以上，如果项目中用到注解，必须显示的声明注释处理器。
         javaCompileOptions {
             annotationProcessorOptions {
                 includeCompileClasspath = true
@@ -36,26 +37,24 @@ android {
             // arm64-v8a：目前主流架构平台（80%）
             abiFilters "armeabi-v7a", "arm64-v8a", 'x86'
         }
+
+
     }
+
     //将Eclipse项目导入到Android studio 中 很多点9图出现问题解决方法,用来关闭Android Studio的PNG合法性检查的，直接不让它检查。
     aaptOptions {
         cruncherEnabled = false
         useNewCruncher = false
     }
+//    lint检查
     lintOptions {
+        // true--错误发生后停止gradle构建
         abortOnError false
     }
 
-    signingConfigs {
-        mySign {
-            keyAlias 'VirtualApp'
-            keyPassword 'swkj666!'
-            storeFile file('D:\\Virtualkey.jks')
-            storePassword 'swkj666!'
-        }
-    }
+
     //==============友盟多渠道配置===============
-   flavorDimensions "default"    // 默认渠道名
+    flavorDimensions "default"    // 默认渠道名
     // 配置多渠道包支持
     productFlavors {
         Tencent {
@@ -88,6 +87,15 @@ android {
             outputFileName += '.apk'
         }
     }
+    //打包配置
+    signingConfigs {
+        mySign {
+            keyAlias 'VirtualApp'
+            keyPassword 'swkj666!'
+            storeFile file('D:\\Virtualkey.jks')
+            storePassword 'swkj666!'
+        }
+    }
 
     buildTypes {
         debug {
@@ -108,7 +116,8 @@ android {
             shrinkResources true
             // 设置混淆
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //  proguard-android.txt和proguard-android-optimize.txt区别是optimize开启了Proguard optimize的选项，前者是没有optimize的
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.mySign
         }
     }
@@ -118,6 +127,7 @@ android {
         enabled true
     }
 }
+//lib中引入aar文件
 repositories {
     flatDir {
         dirs '../app/libs'
