@@ -38,9 +38,20 @@ android {
             abiFilters "armeabi-v7a", "arm64-v8a", 'x86'
         }
 
-
+        //NDK开发第一步
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
     }
-
+    //NDK开发第二步
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+            version "3.10.2"
+        }
+    }
     //将Eclipse项目导入到Android studio 中 很多点9图出现问题解决方法,用来关闭Android Studio的PNG合法性检查的，直接不让它检查。
     aaptOptions {
         cruncherEnabled = false
