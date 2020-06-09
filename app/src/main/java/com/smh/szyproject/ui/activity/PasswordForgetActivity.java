@@ -48,12 +48,12 @@ public class PasswordForgetActivity extends BaseActivity {
     @OnClick(R.id.cv_password_forget_countdown)
     public void countdown() {
         if (mPhoneView.getText().toString().length() != 11) {
-            ToastUtils.showToastForText(this, "手机号输入不正确");
+            showToast("手机号输入不正确");
             return;
         }
 
         if (true) {
-            ToastUtils.showToastForText(this, "验证码已发送，请注意查收");
+            showToast("验证码已发送，请注意查收");
             mCountdownView.start();
             return;
         }
@@ -78,7 +78,7 @@ public class PasswordForgetActivity extends BaseActivity {
     @OnClick(R.id.btn_password_forget_commit)
     public void commit() {
 //        if (true) {
-            ToastUtils.showToastForText(this, "进入重置密码页面");
+            showToast("进入重置密码页面");
             startActivity(PasswordResetActivity.class);
             finish();
 //            return;

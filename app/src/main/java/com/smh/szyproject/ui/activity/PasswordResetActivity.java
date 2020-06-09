@@ -48,7 +48,7 @@ public class PasswordResetActivity extends BaseActivity {
 
     @OnClick(R.id.btn_password_reset_commit)
     public void commit(){
-        ToastUtils.showToastForText(this,"重置成功");
+        showToast("重置成功");
         finish();
     }
 

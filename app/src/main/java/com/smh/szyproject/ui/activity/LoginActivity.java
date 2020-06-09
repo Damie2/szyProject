@@ -152,7 +152,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
 
     @OnClick(R.id.btn_login_commit)
     public void login_commit() {
-        ToastUtils.showToastForText(this, "登录提交");
+        showToast("登录提交");
 //        loginSuccess();
 
 
@@ -161,7 +161,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
     @OnClick(R.id.iv_login_qq)
     public void iv_login_qq() {
-        ToastUtils.showToastForText(this, "QQ登录");
+        showToast("QQ登录");
         Platform platform = Platform.QQ;
         UmengClient.login(this, platform, this);
     }
@@ -169,7 +169,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
     @OnClick(R.id.iv_login_wx)
     public void iv_login_wx() {
-        ToastUtils.showToastForText(this, "微信登录");
+        showToast("微信登录");
 //        Platform platform  = Platform.WECHAT;
 //        UmengClient.login(this, platform, this);
         L.e("先搞成分享分享");

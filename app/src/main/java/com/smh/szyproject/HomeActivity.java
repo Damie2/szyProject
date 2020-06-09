@@ -76,7 +76,7 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
 
             }, 300);
         } else {
-            ToastUtils.showToastForText(this, "再按一次退出");
+            showToast("再按一次退出");
         }
     }
 

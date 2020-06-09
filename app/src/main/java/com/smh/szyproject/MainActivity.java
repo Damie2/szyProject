@@ -145,7 +145,7 @@ public class MainActivity extends BaseActivity implements OnButtonClickListener 
 
             }, 300);
         } else {
-            ToastUtils.showToastForText(this,"再按一次退出");
+            showToast("再按一次退出");
         }
     }
     private void startUpdate3(VersionResult result) {

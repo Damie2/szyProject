@@ -211,6 +211,10 @@
 # ----------------------------- 第三方 -----------------------------
 #
 
+
+#-keep  保留某个包下面的类以及子包
+#-dontwarn    com.twitter.sdk.**  意思是关闭twitter的警告
+
 #自己本项目的
 #-keep class com.smh.szyproject.** {*;}
 #-keep public class com.smh.szyproject.R$*{

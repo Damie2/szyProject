@@ -73,12 +73,12 @@ public class RegisterActivity extends BaseActivity {
     public void registerCountdown(){
         // 获取验证码
         if (mPhoneView.getText().toString().length() != 11) {
-            ToastUtils.showToastForText(this,"手机号输入不正确");
+            showToast("手机号输入不正确");
             return;
         }
 
         if (true) {
-            ToastUtils.showToastForText(this,"验证码已发送，请注意查收");
+            showToast("验证码已发送，请注意查收");
             mCountdownView.start();
             return;
         }

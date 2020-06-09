@@ -31,7 +31,7 @@ public class TestFragment3 extends BaseFragment {
 
     @Override
     public void onRightClick(View v) {
-        ToastUtils.showToastForText(getContext(), "我是客服");
+        showToast("我是客服");
     }
 
     @Override

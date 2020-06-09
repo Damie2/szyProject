@@ -29,6 +29,7 @@ import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.ActionBarHelper;
 import com.smh.szyproject.utils.L;
+import com.smh.szyproject.utils.ToastUtils;
 import com.umeng.message.PushAgent;
 import com.zhy.autolayout.AutoFrameLayout;
 import com.zhy.autolayout.AutoLinearLayout;
@@ -124,6 +125,10 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
                 }
             }).start();
         }
+    }
+
+    public void showToast(String msg){
+        ToastUtils.showToastForText(this,msg);
     }
 
     public void showProgressHUD() {

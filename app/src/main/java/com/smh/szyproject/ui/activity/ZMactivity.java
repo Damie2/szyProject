@@ -85,7 +85,7 @@ public class ZMactivity extends BaseActivity implements View.OnClickListener, Zm
                 ClipboardManager myClipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
                 myClip = ClipData.newPlainText("text", text);
                 myClipboard.setPrimaryClip(myClip);
-                ToastUtils.showToastForText(ZMactivity.this, "复制成功");
+                showToast("复制成功");
 
             }
         });

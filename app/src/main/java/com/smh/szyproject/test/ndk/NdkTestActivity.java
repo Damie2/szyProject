@@ -48,6 +48,8 @@ public class NdkTestActivity extends BaseActivity {
      *
      */
 
+
+//    蓝牙和aidl
     @Override
     public int getLayoutId() {
         return R.layout.activity_test;
@@ -55,10 +57,12 @@ public class NdkTestActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        L.e("jni调用的值是:" + stringFromJNI());
+        L.e("jni调用的值是:" + stringFromJNITwo());
     }
 
     public native String stringFromJNI();
+
+    public native  String stringFromJNITwo();
 
     static {
         System.loadLibrary("native-lib");

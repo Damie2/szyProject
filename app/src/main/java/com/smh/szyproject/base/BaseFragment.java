@@ -17,6 +17,7 @@ import com.smh.szyproject.Rx.databus.RxBus;
 import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.L;
+import com.smh.szyproject.utils.ToastUtils;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import java.lang.reflect.Field;
@@ -97,6 +98,9 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
         return true;
     }
 
+    public void showToast(String msg){
+        ToastUtils.showToastForText(getContext(),msg);
+    }
 
     /**
      * 是否在Fragment使用沉浸式
