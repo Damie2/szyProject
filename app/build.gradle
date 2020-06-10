@@ -262,6 +262,26 @@ dependencies {
     //腾讯VasDolly多渠道打包
 //    api 'com.leon.channel:helper:2.0.3'
 
+    //直播需要的库
+    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    //armeabi-v7a
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+    //armeabi下的so库
+    implementation 'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8'
+    //arm64-v8a下的so库
+    implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8'
+    //x86下的so库
+    implementation 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.8'
+//    x86_64下的so库
+    implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'
+//      exo是谷歌下的IjkExoMediaPlayer，如果需要使用的话可以添加
+    implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
+    //上面是直播库
+//    烈焰弹幕使
+    implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
+    implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
+
+
 
     //图片选择器，记得混淆
 //    https://github.com/LuckSiege/PictureSelector
