@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.test.lanmbda.LanmbdaActivity;
 import com.smh.szyproject.utils.L;
 
 /**
@@ -26,5 +27,20 @@ public class interfaceTestC extends BaseActivity {
                 L.e("这里啊：" + Code);
             }
         });
+
+        //其他的
+        new cc().hi("sssss");
     }
+
+    public class cc implements presenter {
+        @Override
+        public void hi(String msg) {
+            L.e(msg);
+        }
+    }
+
+    public interface presenter {
+        void hi(String msg);
+    }
+
 }

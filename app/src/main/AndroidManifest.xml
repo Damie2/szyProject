@@ -55,7 +55,7 @@
         <!-- </intent-filter> -->
         <!-- </activity> -->
         <activity
-            android:name=".test.livebroadcast.danmu.MainActivity"
+            android:name=".test.observer.activity.FirstActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -63,7 +63,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- <activity -->
+        </activity>
+
+        <activity  android:name=".test.observer.activity.SecondActivity"/>
+        <activity  android:name=".test.observer.activity.ThirdActivity"/>
+
+        <!-- <activity -->
+        <!-- android:name=".test.observer.activity.FirstActivity" -->
+        <!-- android:name=".test.observer.activity.FirstActivity" -->
         <!-- android:name=".ui.activity.ZMactivity" -->
         <!-- android:label="@string/app_name" -->
         <!-- android:theme="@style/AppTheme"> -->
