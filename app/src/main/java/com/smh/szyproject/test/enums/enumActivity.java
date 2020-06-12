@@ -21,7 +21,4 @@ public class enumActivity extends BaseActivity {
     public void init(Bundle savedInstanceState) {
 
     }
-
-   
-
 }

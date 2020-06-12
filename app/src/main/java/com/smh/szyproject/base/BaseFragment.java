@@ -18,7 +18,7 @@ import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.umeng.UmengClient;
 import com.smh.szyproject.utils.L;
 import com.smh.szyproject.utils.ToastUtils;
-import com.zhy.autolayout.utils.AutoUtils;
+//import com.zhy.autolayout.utils.AutoUtils;
 
 import java.lang.reflect.Field;
 
@@ -122,7 +122,7 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(getLayoutId(), container, false);
         unbinder = ButterKnife.bind(this, view);
-        AutoUtils.auto(view);
+        // AutoUtils.auto(view);
         ButterKnife.bind(this, view);
         //灰色状态栏设置为透明色
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {

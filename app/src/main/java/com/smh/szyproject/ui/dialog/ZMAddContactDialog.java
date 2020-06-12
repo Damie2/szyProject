@@ -17,7 +17,7 @@ import androidx.annotation.NonNull;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.bean.ZmContact;
-import com.zhy.autolayout.utils.AutoUtils;
+//import com.zhy.autolayout.utils.AutoUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,7 +61,7 @@ public class ZMAddContactDialog extends Dialog implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AutoUtils.auto(viewGroup);
+//        AutoUtils.auto(viewGroup);
         setContentView(viewGroup);
     }
 

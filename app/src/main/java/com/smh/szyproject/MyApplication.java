@@ -61,7 +61,7 @@ public class MyApplication extends Application {
         // 图片加载器
         ImageLoader.init(this);
         //autosize
-        AutoSizeConfig.getInstance().getUnitsManager().setSupportDP(true).setSupportSubunits(Subunits.MM);
+        AutoSizeConfig.getInstance().getUnitsManager().setSupportDP(true).setSupportSubunits(Subunits.PT);
     }
 
 

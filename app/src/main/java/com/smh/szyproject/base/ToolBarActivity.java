@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.utils.ToolBarHelper;
-import com.zhy.autolayout.utils.AutoUtils;
+//import com.zhy.autolayout.utils.AutoUtils;
 
 /**
  * Created by android on 2018/6/4.
@@ -40,7 +40,7 @@ public abstract class ToolBarActivity extends BaseActivity {
             mToolBarHelper.getRight().addView(rightView);
         }
         //返回帧布局视图
-        AutoUtils.auto(mToolBarHelper.getContentView());
+//        AutoUtils.auto(mToolBarHelper.getContentView());
         setContentView(mToolBarHelper.getContentView());
     }
 

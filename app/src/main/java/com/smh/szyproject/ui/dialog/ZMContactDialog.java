@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import com.smh.szyproject.R;
 import com.smh.szyproject.bean.ZmContact;
 import com.smh.szyproject.db.DBHelper;
-import com.zhy.autolayout.utils.AutoUtils;
+//import com.zhy.autolayout.utils.AutoUtils;
 
 import org.xutils.db.table.DbBase;
 
@@ -75,7 +75,7 @@ public class ZMContactDialog extends Dialog implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AutoUtils.auto(viewGroup);
+//        AutoUtils.auto(viewGroup);
         setContentView(viewGroup);
     }
 
