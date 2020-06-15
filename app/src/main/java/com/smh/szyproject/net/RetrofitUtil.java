@@ -19,7 +19,7 @@ public class RetrofitUtil {
     private AllApi allApi;
 
 
-    public static RetrofitUtil getmInstance() {
+    public static RetrofitUtil getInstance() {
         if (mInstance == null) {
             synchronized (RetrofitUtil.class) {
                 if (mInstance == null) {

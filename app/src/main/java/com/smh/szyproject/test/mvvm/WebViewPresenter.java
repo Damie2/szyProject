@@ -24,7 +24,7 @@ public class WebViewPresenter implements WebViewContract.presenter {
 
     @Override
     public void sendParameter(PhoneParameter parameter) {
-        RetrofitUtil.getmInstance().initRetrofit().sendParameter(parameter)
+        RetrofitUtil.getInstance().initRetrofit().sendParameter(parameter)
                 .subscribeOn(Schedulers.io())//指定线程中去调上游的subscribe方法
                 .observeOn(AndroidSchedulers.mainThread())//收到数据后在指定的线程中调用下游的回调方法
                 .subscribe(new BaseObserver<Result>() {

@@ -34,7 +34,7 @@ public class TestPresenter implements TestContract.presenter {
     public void getValue() {
         Map<String, String> map = new HashMap<>();
         map.put("id", "1021615516688609282");
-        RetrofitUtil.getmInstance().initRetrofit().test(null)
+        RetrofitUtil.getInstance().initRetrofit().test(null)
                 .subscribeOn(Schedulers.io())//在线程中请求数据，这个就是相当于new一个线程了
                 .observeOn(AndroidSchedulers.mainThread())//在主线程中处理结果
                 .subscribe(new BaseObserver<JSONObject>() {
@@ -62,7 +62,7 @@ public class TestPresenter implements TestContract.presenter {
     @Override
     public void sendStatusResult(testStatus testStatus) {
 
-        RetrofitUtil.getmInstance().initRetrofit().testStatus(testStatus)
+        RetrofitUtil.getInstance().initRetrofit().testStatus(testStatus)
                 .subscribeOn(Schedulers.io())//在线程中请求数据，这个就是相当于new一个线程了
                 .observeOn(AndroidSchedulers.mainThread())//在主线程中处理结果
                 .subscribe(new BaseObserver<JSONObject>() {

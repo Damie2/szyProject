@@ -2,14 +2,23 @@ package com.smh.szyproject.utils;
 
 import android.util.Log;
 
+import com.smh.szyproject.BuildConfig;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 
-/**
- * Created by Administrator on 2016/4/15 0015.
- */
+
 public class L {
+
+    /**
+     * 当前是否为 Debug 模式
+     */
+    public static boolean isDebug() {
+        return BuildConfig.DEBUG;
+    }
+
+
     public static String TAG = "-- LXbao --";
 
     public static void i(String str) {
@@ -35,13 +44,16 @@ public class L {
     }
 
     public static void e(String str) {
-        Log.e(TAG, str);
-//        DBHelper.getInstance().save(new ErrorLog(System.currentTimeMillis(), str));
+        if (isDebug()) {
+            Log.e(TAG, str);
+        }
     }
 
     public static String e(Throwable e) {
         String message = getErrorMessage(e);
-        Log.e(TAG, message);
+        if (isDebug()) {
+            Log.e(TAG, message);
+        }
         return message;
     }
 
