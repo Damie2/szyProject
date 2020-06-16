@@ -26,9 +26,9 @@ import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.other.utils.ActionBarHelper;
 import com.smh.szyproject.other.utils.ToastUtils;
 import com.umeng.message.PushAgent;
-import com.zhy.autolayout.AutoFrameLayout;
-import com.zhy.autolayout.AutoLinearLayout;
-import com.zhy.autolayout.AutoRelativeLayout;
+//import com.zhy.autolayout.AutoFrameLayout;
+//import com.zhy.autolayout.AutoLinearLayout;
+//import com.zhy.autolayout.AutoRelativeLayout;
 
 import butterknife.ButterKnife;
 
@@ -37,9 +37,9 @@ import butterknife.ButterKnife;
  */
 
 public abstract class BaseActivity extends AppCompatActivity implements TitleBarAction {
-    private static final String LAYOUT_LINEARLAYOUT = "LinearLayout";
-    private static final String LAYOUT_FRAMELAYOUT = "FrameLayout";
-    private static final String LAYOUT_RELATIVELAYOUT = "RelativeLayout";
+//    private static final String LAYOUT_LINEARLAYOUT = "LinearLayout";
+//    private static final String LAYOUT_FRAMELAYOUT = "FrameLayout";
+//    private static final String LAYOUT_RELATIVELAYOUT = "RelativeLayout";
 
     /**
      * 标题栏对象
@@ -246,24 +246,24 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
         return 0;
     }
 
-    @Override
-    public View onCreateView(String name, Context context, AttributeSet attrs) {
-        View view = null;
-        if (name.equals(LAYOUT_FRAMELAYOUT)) {
-            view = new AutoFrameLayout(context, attrs);
-        }
-
-        if (name.equals(LAYOUT_LINEARLAYOUT)) {
-            view = new AutoLinearLayout(context, attrs);
-        }
-
-        if (name.equals(LAYOUT_RELATIVELAYOUT)) {
-            view = new AutoRelativeLayout(context, attrs);
-        }
-        if (view != null) return view;
-
-        return super.onCreateView(name, context, attrs);
-    }
+//    @Override
+//    public View onCreateView(String name, Context context, AttributeSet attrs) {
+//        View view = null;
+//        if (name.equals(LAYOUT_FRAMELAYOUT)) {
+//            view = new AutoFrameLayout(context, attrs);
+//        }
+//
+//        if (name.equals(LAYOUT_LINEARLAYOUT)) {
+//            view = new AutoLinearLayout(context, attrs);
+//        }
+//
+//        if (name.equals(LAYOUT_RELATIVELAYOUT)) {
+//            view = new AutoRelativeLayout(context, attrs);
+//        }
+//        if (view != null) return view;
+//
+//        return super.onCreateView(name, context, attrs);
+//    }
 
     @Override
     protected void onDestroy() {

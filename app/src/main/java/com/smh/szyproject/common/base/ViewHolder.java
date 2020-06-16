@@ -5,7 +5,7 @@ import android.view.View;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.zhy.autolayout.utils.AutoUtils;
+//import com.zhy.autolayout.utils.AutoUtils;
 
 /**
  * Created by android on 2018/5/25.
@@ -26,7 +26,7 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         this.vieType = vieType;
         Views = new SparseArray<>();
         this.itemView = itemView;
-        AutoUtils.auto(itemView);
+//        AutoUtils.auto(itemView);
     }
 
     public <T extends View> T findViewById(int id) {

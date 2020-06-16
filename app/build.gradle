@@ -160,8 +160,8 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     //butterknife
-    implementation 'com.jakewharton:butterknife:10.1.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     //imageloader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     //gson
@@ -188,21 +188,32 @@ dependencies {
     implementation 'com.githang:status-bar-compat:latest.integration'
     implementation 'cc.cloudist.acplibrary:library:1.2.1'
     //Xutils
-    implementation 'org.xutils:xutils:3.8.9'
+    implementation 'org.xutils:xutils:3.8.10'
     //下拉刷新
-    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+//    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+//    https://github.com/scwang90/SmartRefreshLayout
+    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    implementation  'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+    implementation  'com.scwang.smart:refresh-header-radar:2.0.1'       //雷达刷新头
+    implementation  'com.scwang.smart:refresh-header-falsify:2.0.1'     //虚拟刷新头
+    implementation  'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
+    implementation  'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
+    implementation  'com.scwang.smart:refresh-footer-ball:2.0.1'        //球脉冲加载
+    implementation  'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+
     // 日志的拦截器，也可以自行选择
     implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
     //鲁班图片压缩
-    implementation 'top.zibin:Luban:1.1.8'
+//    implementation 'top.zibin:Luban:1.1.8'
     //jsbridge
     implementation 'com.github.lzyzsd:jsbridge:1.0.4'
     //生命周期
     implementation 'com.trello.rxlifecycle2:rxlifecycle-android-lifecycle:2.2.2'
     // autolayout适配
-    implementation 'com.zhy:autolayout:1.4.5'
+//    https://github.com/hongyangAndroid/AndroidAutoLayout
+//    implementation 'com.zhy:autolayout:1.4.5'
     //今日头条适配
-    implementation 'me.jessyan:autosize:1.1.2'
+    implementation 'me.jessyan:autosize:1.2.1'
     //glide图片
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
@@ -284,6 +295,9 @@ dependencies {
     implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
     implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
 
+
+//    https://github.com/pinguo-zhouwei/MZBannerView  魅族的banner
+//    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
 
 
     //图片选择器，记得混淆
