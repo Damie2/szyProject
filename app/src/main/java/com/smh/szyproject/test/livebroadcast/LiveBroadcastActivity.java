@@ -50,7 +50,7 @@ public class LiveBroadcastActivity extends BaseActivity {
             mPlayer = new IjkMediaPlayer();
             mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             try {
-                mPlayer.setDataSource("http://stream.vipniu.com/live/xunshi.m3u8");
+                mPlayer.setDataSource("http://stream.jiaoliu168.com/live/test.m3u8");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -59,7 +59,6 @@ public class LiveBroadcastActivity extends BaseActivity {
     }
     private void release() {
         if (mPlayer != null) {
-            L.e("????????");
             mPlayer.stop();
             mPlayer.release();
             mPlayer = null;
