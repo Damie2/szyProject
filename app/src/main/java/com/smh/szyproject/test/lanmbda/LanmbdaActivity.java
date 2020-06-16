@@ -1,16 +1,11 @@
 package com.smh.szyproject.test.lanmbda;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.base.BasePresenter;
-import com.smh.szyproject.bean.testStatus;
-import com.smh.szyproject.test.interfaceTest2.CC;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
 
 import butterknife.BindView;
 

@@ -3,8 +3,7 @@ package com.smh.szyproject.test.proxy.dynamicProxy;
 import android.os.Bundle;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.test.proxy.staticProxy.ProxySubject;
+import com.smh.szyproject.common.base.BaseActivity;
 
 import java.lang.reflect.Proxy;
 

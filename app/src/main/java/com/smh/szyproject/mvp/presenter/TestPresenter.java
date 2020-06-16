@@ -3,15 +3,12 @@ package com.smh.szyproject.mvp.presenter;
 import android.content.Context;
 
 
-import com.google.gson.JsonObject;
-import com.smh.szyproject.Rx.ExceptionHandle;
-import com.smh.szyproject.base.BaseObserver;
-import com.smh.szyproject.bean.getStatus;
-import com.smh.szyproject.bean.testStatus;
+import com.smh.szyproject.other.Rx.ExceptionHandle;
+import com.smh.szyproject.common.base.BaseObserver;
+import com.smh.szyproject.mvp.bean.testStatus;
 import com.smh.szyproject.mvp.module.TestContract;
 import com.smh.szyproject.net.RetrofitUtil;
-import com.smh.szyproject.utils.GsonUtils;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 import org.json.JSONObject;
 

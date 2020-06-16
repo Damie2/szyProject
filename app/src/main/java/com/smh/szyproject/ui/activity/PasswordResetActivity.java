@@ -5,9 +5,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.helper.InputTextHelper;
-import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.helper.InputTextHelper;
 
 import butterknife.BindView;
 import butterknife.OnClick;

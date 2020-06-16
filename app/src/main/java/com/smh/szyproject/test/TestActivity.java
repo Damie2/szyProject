@@ -1,19 +1,15 @@
 package com.smh.szyproject.test;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.bean.getStatus;
-import com.smh.szyproject.bean.testStatus;
-import com.smh.szyproject.common.image.ImageLoader;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.mvp.bean.getStatus;
+import com.smh.szyproject.mvp.bean.testStatus;
 import com.smh.szyproject.mvp.module.TestContract;
 import com.smh.szyproject.mvp.presenter.TestPresenter;
-import com.smh.szyproject.utils.L;
-
-import butterknife.BindView;
+import com.smh.szyproject.other.utils.L;
 
 /**
  * author : smh

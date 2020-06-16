@@ -3,8 +3,8 @@ package com.smh.szyproject.test.dagger2.module;
 import android.os.Bundle;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
 
 import javax.inject.Inject;
 

@@ -2,7 +2,7 @@ package com.smh.szyproject.net.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 import java.io.IOException;
 

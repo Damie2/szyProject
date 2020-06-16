@@ -3,9 +3,8 @@ package com.smh.szyproject.test.interfaceTest2;
 import android.os.Bundle;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.test.lanmbda.LanmbdaActivity;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
 
 /**
  * author : smh

@@ -1,6 +1,6 @@
 package com.smh.szyproject.test.proxy.dynamicProxy;
 
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

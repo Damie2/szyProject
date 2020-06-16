@@ -16,18 +16,15 @@ import androidx.annotation.Nullable;
 import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.bean.ShareBean;
-import com.smh.szyproject.helper.InputTextHelper;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.helper.InputTextHelper;
 
-import com.smh.szyproject.umeng.Platform;
-import com.smh.szyproject.umeng.UmengClient;
-import com.smh.szyproject.umeng.UmengLogin;
-import com.smh.szyproject.umeng.UmengShare;
-import com.smh.szyproject.utils.L;
-import com.smh.szyproject.utils.SoftHideKeyBoardUtil;
-import com.smh.szyproject.widget.other.KeyboardWatcher;
-import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.other.umeng.Platform;
+import com.smh.szyproject.other.umeng.UmengClient;
+import com.smh.szyproject.other.umeng.UmengLogin;
+import com.smh.szyproject.other.umeng.UmengShare;
+import com.smh.szyproject.other.utils.L;
+import com.smh.szyproject.other.widget.other.KeyboardWatcher;
 
 import butterknife.BindView;
 import butterknife.OnClick;

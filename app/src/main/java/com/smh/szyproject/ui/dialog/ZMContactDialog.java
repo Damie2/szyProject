@@ -16,11 +16,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.bean.ZmContact;
-import com.smh.szyproject.db.DBHelper;
+import com.smh.szyproject.mvp.bean.ZmContact;
+import com.smh.szyproject.other.db.DBHelper;
 import com.zhy.autolayout.utils.AutoUtils;
-
-import org.xutils.db.table.DbBase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

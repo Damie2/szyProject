@@ -9,7 +9,7 @@ import android.widget.LinearLayout;
 import androidx.viewpager.widget.ViewPager;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.test.MagicIndicator.navigator.ScaleCircleNavigator;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;

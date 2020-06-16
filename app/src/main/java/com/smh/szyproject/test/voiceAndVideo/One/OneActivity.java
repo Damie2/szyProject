@@ -3,7 +3,7 @@ package com.smh.szyproject.test.voiceAndVideo.One;
 import android.os.Bundle;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.common.base.BaseActivity;
 
 /**
  * author : smh

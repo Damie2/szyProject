@@ -2,7 +2,7 @@ package com.smh.szyproject.net.interceptor;
 
 
 import com.smh.szyproject.MyApplication;
-import com.smh.szyproject.utils.SPUtil;
+import com.smh.szyproject.other.utils.SPUtil;
 
 import java.io.IOException;
 

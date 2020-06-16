@@ -3,7 +3,7 @@ package com.smh.szyproject.test.SubjectTon;
 import android.os.Bundle;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.common.base.BaseActivity;
 
 public class SubJectTest extends BaseActivity {
     @Override

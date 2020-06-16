@@ -7,7 +7,7 @@ import android.view.View;
 import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
-import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.common.base.BaseActivity;
 
 import butterknife.BindView;
 

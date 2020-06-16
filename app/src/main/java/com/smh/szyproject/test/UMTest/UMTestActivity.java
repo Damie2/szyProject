@@ -1,12 +1,11 @@
 package com.smh.szyproject.test.UMTest;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
 
 import butterknife.BindView;
 

@@ -8,8 +8,8 @@ import androidx.fragment.app.FragmentActivity;
 
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseDialog;
-import com.smh.szyproject.base.MyDialogFragment;
+import com.smh.szyproject.common.base.BaseDialog;
+import com.smh.szyproject.common.base.MyDialogFragment;
 
 /**
 

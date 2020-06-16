@@ -1,11 +1,8 @@
 package com.smh.szyproject.aop;
 
-import android.util.Log;
 import android.view.View;
 
-import androidx.annotation.Keep;
-
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

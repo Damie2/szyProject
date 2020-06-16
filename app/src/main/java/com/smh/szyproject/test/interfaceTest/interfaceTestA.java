@@ -6,12 +6,11 @@ import android.view.ViewGroup;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.action.StatusAction;
-import com.smh.szyproject.aop.Login;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.helper.PopupWindowHelper;
-import com.smh.szyproject.utils.SoftHideKeyBoardUtil;
-import com.smh.szyproject.widget.other.HintLayout;
-import com.smh.szyproject.utils.SPUtil;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.helper.PopupWindowHelper;
+import com.smh.szyproject.other.utils.SoftHideKeyBoardUtil;
+import com.smh.szyproject.other.widget.other.HintLayout;
+import com.smh.szyproject.other.utils.SPUtil;
 
 import butterknife.BindView;
 

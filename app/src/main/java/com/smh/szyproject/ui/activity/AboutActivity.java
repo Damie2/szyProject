@@ -1,12 +1,9 @@
 package com.smh.szyproject.ui.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 
-import com.githang.statusbar.StatusBarCompat;
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.common.base.BaseActivity;
 
 /**
  * author : smh

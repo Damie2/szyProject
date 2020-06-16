@@ -1,6 +1,6 @@
 package com.smh.szyproject.test.interfaceAdapter;
 
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 public abstract class Adapter implements A{
 

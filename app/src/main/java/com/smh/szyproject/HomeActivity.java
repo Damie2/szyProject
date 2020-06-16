@@ -7,18 +7,15 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.base.BaseFragment;
-import com.smh.szyproject.base.BaseFragmentAdapter;
-import com.smh.szyproject.helper.ActivityStackManager;
-import com.smh.szyproject.helper.DoubleClickHelper;
-import com.smh.szyproject.ui.fragment.MainFragment;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.common.base.BaseFragment;
+import com.smh.szyproject.common.base.BaseFragmentAdapter;
+import com.smh.szyproject.other.helper.ActivityStackManager;
+import com.smh.szyproject.other.helper.DoubleClickHelper;
 import com.smh.szyproject.ui.fragment.TestFragment1;
 import com.smh.szyproject.ui.fragment.TestFragment2;
 import com.smh.szyproject.ui.fragment.TestFragment3;
 import com.smh.szyproject.ui.fragment.TestFragment4;
-import com.smh.szyproject.ui.fragment.UserFragment;
-import com.smh.szyproject.utils.ToastUtils;
 
 import butterknife.BindView;
 

@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
 
-                <com.smh.szyproject.widget.RegexEditText
+                <com.smh.szyproject.other.widget.RegexEditText
                     android:id="@+id/et_register_phone"
                     style="@style/EditTextStyle"
                     android:layout_width="match_parent"
@@ -63,7 +63,7 @@
                     android:layout_gravity="bottom" />
             </FrameLayout>
 
-            <com.smh.szyproject.widget.CountdownView
+            <com.smh.szyproject.other.widget.CountdownView
                 android:id="@+id/cv_register_countdown"
                 style="@style/CountdownViewStyle" />
         </LinearLayout>
@@ -81,7 +81,7 @@
 
         <View style="@style/HorizontalLineStyle" />
 
-        <com.smh.szyproject.widget.PasswordEditText
+        <com.smh.szyproject.other.widget.PasswordEditText
             android:id="@+id/et_register_password1"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"
@@ -93,7 +93,7 @@
 
         <View style="@style/HorizontalLineStyle" />
 
-        <com.smh.szyproject.widget.PasswordEditText
+        <com.smh.szyproject.other.widget.PasswordEditText
             android:id="@+id/et_register_password2"
             style="@style/EditTextStyle"
             android:layout_width="match_parent"

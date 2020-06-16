@@ -222,7 +222,7 @@
 # }
 
 # 保护 Bean 类不被混淆（请注意修改包名路径）
--keepclassmembernames class com.smh.szyproject.bean.** {
+-keepclassmembernames class com.smh.szyproject.mvp.bean.** {
     <fields>;
 }
 

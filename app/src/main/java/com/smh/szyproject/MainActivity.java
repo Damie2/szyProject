@@ -13,17 +13,16 @@ import com.azhon.appupdate.config.UpdateConfiguration;
 import com.azhon.appupdate.listener.OnButtonClickListener;
 import com.azhon.appupdate.listener.OnDownloadListener;
 import com.azhon.appupdate.manager.DownloadManager;
-import com.smh.szyproject.Rx.databus.RxBus;
-import com.smh.szyproject.bean.VersionResult;
-import com.smh.szyproject.helper.ActivityStackManager;
-import com.smh.szyproject.helper.DoubleClickHelper;
-import com.smh.szyproject.widget.other.HintLayout;
-import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.other.Rx.databus.RxBus;
+import com.smh.szyproject.mvp.bean.VersionResult;
+import com.smh.szyproject.other.helper.ActivityStackManager;
+import com.smh.szyproject.other.helper.DoubleClickHelper;
+import com.smh.szyproject.other.widget.other.HintLayout;
+import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.ui.fragment.MainFragment;
 import com.smh.szyproject.ui.fragment.UserFragment;
 import com.smh.szyproject.ui.view.ViewHelp;
-import com.smh.szyproject.utils.FragmentHelp;
-import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.other.utils.FragmentHelp;
 
 import java.io.File;
 

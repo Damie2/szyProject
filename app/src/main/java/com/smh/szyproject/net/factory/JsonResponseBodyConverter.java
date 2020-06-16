@@ -4,9 +4,6 @@ import android.text.TextUtils;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
-import com.smh.szyproject.bean.Test;
-import com.smh.szyproject.bean.getStatusResult;
-import com.smh.szyproject.utils.L;
 
 import org.json.JSONObject;
 

@@ -3,7 +3,7 @@ package com.smh.szyproject.test.kotlin
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.smh.szyproject.R
-import com.smh.szyproject.utils.L
+import com.smh.szyproject.other.utils.L
 import java.lang.Exception
 
 /**

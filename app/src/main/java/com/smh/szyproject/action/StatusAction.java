@@ -13,8 +13,8 @@ import androidx.core.content.ContextCompat;
 
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.helper.ActivityStackManager;
-import com.smh.szyproject.widget.other.HintLayout;
+import com.smh.szyproject.other.helper.ActivityStackManager;
+import com.smh.szyproject.other.widget.other.HintLayout;
 
 public interface StatusAction {
 

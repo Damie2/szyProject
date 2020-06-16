@@ -1,7 +1,7 @@
 package com.smh.szyproject.test.mvvm;
 
-import com.smh.szyproject.base.BasePresenter;
-import com.smh.szyproject.base.BaseView;
+import com.smh.szyproject.common.base.BasePresenter;
+import com.smh.szyproject.common.base.BaseView;
 
 /**
  * main下面的接口

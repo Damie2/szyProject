@@ -4,10 +4,10 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.test.observer.listener.ObserverListener;
 import com.smh.szyproject.test.observer.listener.ObserverManager;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 import butterknife.BindView;
 

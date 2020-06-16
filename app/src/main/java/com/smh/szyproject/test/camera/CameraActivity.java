@@ -11,8 +11,8 @@ import androidx.annotation.Nullable;
 import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
 
 import butterknife.BindView;
 

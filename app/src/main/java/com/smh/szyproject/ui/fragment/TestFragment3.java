@@ -3,8 +3,7 @@ package com.smh.szyproject.ui.fragment;
 import android.view.View;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseFragment;
-import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.common.base.BaseFragment;
 
 /**
  * author : smh

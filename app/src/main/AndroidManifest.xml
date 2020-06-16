@@ -145,7 +145,7 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" /> <!-- 友盟集成的小米推送那些 -->
         <activity
-            android:name=".umeng.PushActivcity"
+            android:name=".other.umeng.PushActivcity"
             android:exported="true"
             android:launchMode="singleTask" /> <!-- 以下为基本配置信息，需要自行添加至您的AndroidManifest文件中  友盟推送要注册下面的东西 start -->
         <service

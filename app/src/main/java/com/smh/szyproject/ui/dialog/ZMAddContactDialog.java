@@ -11,12 +11,11 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.bean.ZmContact;
+import com.smh.szyproject.mvp.bean.ZmContact;
 import com.zhy.autolayout.utils.AutoUtils;
 
 import butterknife.BindView;

@@ -1,14 +1,12 @@
 package com.smh.szyproject.test.ExecutorsPool;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

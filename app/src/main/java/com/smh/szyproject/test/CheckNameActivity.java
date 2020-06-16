@@ -8,10 +8,9 @@ import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.utils.L;
-import com.smh.szyproject.utils.ToastUtils;
-import com.smh.szyproject.utils.utilCode.CollectionUtils;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
+import com.smh.szyproject.other.utils.utilCode.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -21,7 +20,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import butterknife.BindView;

@@ -1,6 +1,6 @@
 package com.smh.szyproject.test.DesignPattern.Factory;
 
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 public class ProductA extends Product{
     @Override

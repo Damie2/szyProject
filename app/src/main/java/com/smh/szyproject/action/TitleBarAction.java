@@ -9,7 +9,7 @@ import androidx.annotation.StringRes;
 
 import com.hjq.bar.OnTitleBarListener;
 import com.hjq.bar.TitleBar;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 /**
  * author : Android 轮子哥

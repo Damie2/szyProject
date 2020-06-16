@@ -1,6 +1,5 @@
 package com.smh.szyproject.test.downLoadTest;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -13,10 +12,9 @@ import com.hjq.permissions.Permission;
 import com.smh.szyproject.MyApplication;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.utils.FileUtil;
-import com.smh.szyproject.utils.L;
-import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.FileUtil;
+import com.smh.szyproject.other.utils.L;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;

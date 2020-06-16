@@ -14,20 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.azhon.appupdate.utils.NotificationUtil;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.CheckNet;
 import com.smh.szyproject.aop.SingleClick;
-import com.smh.szyproject.db.DBHelper;
+import com.smh.szyproject.other.db.DBHelper;
 import com.smh.szyproject.ui.adapter.ZmContactAdapter;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.base.CommonAdapter;
-import com.smh.szyproject.bean.ZmContact;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.common.base.CommonAdapter;
+import com.smh.szyproject.mvp.bean.ZmContact;
 import com.smh.szyproject.ui.dialog.ZMAddContactDialog;
-import com.smh.szyproject.utils.GsonUtils;
-import com.smh.szyproject.utils.L;
-import com.smh.szyproject.utils.ToastUtils;
-import com.smh.szyproject.utils.utilCode.NotificationUtils;
+import com.smh.szyproject.other.utils.L;
 
 import java.util.List;
 

@@ -7,18 +7,10 @@ import android.os.Bundle;
 import com.airbnb.lottie.LottieAnimationView;
 import com.gyf.immersionbar.BarHide;
 import com.gyf.immersionbar.ImmersionBar;
-import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
-import com.hjq.permissions.XXPermissions;
-import com.nostra13.universalimageloader.utils.L;
-import com.smh.szyproject.HomeActivity;
-import com.smh.szyproject.MainActivity;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.test.tablayoutsamples.ui.SimpleHomeActivity;
-
-import java.util.List;
+import com.smh.szyproject.common.base.BaseActivity;
 
 import butterknife.BindView;
 

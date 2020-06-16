@@ -1,6 +1,6 @@
 package com.smh.szyproject.test.SubjectTon;
 
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 /**
  * 第三,代理也实现了这个方法

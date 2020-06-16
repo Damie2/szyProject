@@ -1,10 +1,8 @@
 package com.smh.szyproject.test.mvvm;
 
-import android.Manifest;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.text.TextUtils;
 
 
 import androidx.databinding.DataBindingUtil;
@@ -12,12 +10,12 @@ import androidx.databinding.DataBindingUtil;
 import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
-import com.smh.szyproject.base.BaseActivity;
+import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.databinding.ActivityNewMvvmBinding;
-import com.smh.szyproject.utils.L;
-import com.smh.szyproject.utils.PhoneInfo;
-import com.smh.szyproject.utils.SPUtil;
-import com.smh.szyproject.utils.utilCode.GsonUtils;
+import com.smh.szyproject.other.utils.L;
+import com.smh.szyproject.other.utils.PhoneInfo;
+import com.smh.szyproject.other.utils.SPUtil;
+import com.smh.szyproject.other.utils.utilCode.GsonUtils;
 
 /**
  * 看这个啊啊啊啊啊啊啊  https://www.jianshu.com/p/4f28ef25c8f6

@@ -8,10 +8,9 @@ import android.widget.TextView;
 import com.gyf.immersionbar.ImmersionBar;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.helper.InputTextHelper;
-import com.smh.szyproject.utils.ToastUtils;
-import com.smh.szyproject.widget.CountdownView;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.helper.InputTextHelper;
+import com.smh.szyproject.other.widget.CountdownView;
 
 import butterknife.BindView;
 import butterknife.OnClick;

@@ -1,6 +1,6 @@
 package com.smh.szyproject.test.adapterTon;
 
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 public class UserAdapter1  implements Ps2{
     @Override

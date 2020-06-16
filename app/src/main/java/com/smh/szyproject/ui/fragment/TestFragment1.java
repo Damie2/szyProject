@@ -1,8 +1,5 @@
 package com.smh.szyproject.ui.fragment;
 
-import android.os.Bundle;
-import android.view.View;
-
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -12,12 +9,8 @@ import com.flyco.tablayout.SlidingTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.gyf.immersionbar.ImmersionBar;
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseFragment;
+import com.smh.szyproject.common.base.BaseFragment;
 import com.smh.szyproject.test.tablayoutsamples.ui.SimpleCardFragment;
-import com.smh.szyproject.test.tablayoutsamples.ui.SlidingTabActivity;
-import com.smh.szyproject.test.tablayoutsamples.utils.ViewFindUtils;
-import com.smh.szyproject.ui.adapter.ViewPagerAdapter;
-import com.smh.szyproject.utils.ToastUtils;
 
 import java.util.ArrayList;
 

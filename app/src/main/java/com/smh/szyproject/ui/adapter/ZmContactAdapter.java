@@ -8,11 +8,11 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.CommonAdapter;
-import com.smh.szyproject.base.ViewHolder;
-import com.smh.szyproject.bean.ZmContact;
+import com.smh.szyproject.common.base.CommonAdapter;
+import com.smh.szyproject.common.base.ViewHolder;
+import com.smh.szyproject.mvp.bean.ZmContact;
 import com.smh.szyproject.ui.dialog.ZMContactDialog;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 import java.util.List;
 

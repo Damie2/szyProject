@@ -1,12 +1,9 @@
 package com.smh.szyproject.aop;
 
-import androidx.annotation.Keep;
-
 import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.XXPermissions;
-import com.smh.szyproject.MyApplication;
-import com.smh.szyproject.helper.ActivityStackManager;
-import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.other.helper.ActivityStackManager;
+import com.smh.szyproject.other.utils.ToastUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

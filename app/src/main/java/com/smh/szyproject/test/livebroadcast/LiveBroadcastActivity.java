@@ -1,17 +1,14 @@
 package com.smh.szyproject.test.livebroadcast;
 
-import android.graphics.SurfaceTexture;
 import android.media.AudioManager;
 import android.os.Bundle;
-import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.TextureView;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseActivity;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
 
 import java.io.IOException;
 

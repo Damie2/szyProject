@@ -11,7 +11,6 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.smh.szyproject.test.tablayoutsamples.adapter.SimpleHomeAdapter;
-import com.smh.szyproject.utils.AppUtils;
 
 
 public class SimpleHomeActivity extends AppCompatActivity {

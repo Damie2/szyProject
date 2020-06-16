@@ -1,7 +1,7 @@
 package com.smh.szyproject.ui.fragment;
 
 import com.smh.szyproject.R;
-import com.smh.szyproject.base.BaseFragment;
+import com.smh.szyproject.common.base.BaseFragment;
 
 /**
  * author : smh

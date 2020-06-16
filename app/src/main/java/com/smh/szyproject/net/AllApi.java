@@ -1,11 +1,9 @@
 package com.smh.szyproject.net;
 
 
-import com.google.gson.JsonObject;
-import com.smh.szyproject.bean.Test;
-import com.smh.szyproject.bean.TestBean;
-import com.smh.szyproject.bean.getStatus;
-import com.smh.szyproject.bean.testStatus;
+import com.smh.szyproject.mvp.bean.Test;
+import com.smh.szyproject.mvp.bean.TestBean;
+import com.smh.szyproject.mvp.bean.testStatus;
 import com.smh.szyproject.test.mvvm.PhoneParameter;
 import com.smh.szyproject.test.mvvm.Result;
 

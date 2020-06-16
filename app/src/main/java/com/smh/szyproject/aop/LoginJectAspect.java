@@ -1,18 +1,14 @@
 package com.smh.szyproject.aop;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import android.view.View;
 
-import androidx.annotation.Keep;
 import androidx.fragment.app.Fragment;
 
 import com.smh.szyproject.MyApplication;
 import com.smh.szyproject.ui.activity.LoginActivity;
-import com.smh.szyproject.utils.L;
-import com.smh.szyproject.utils.SPUtil;
+import com.smh.szyproject.other.utils.SPUtil;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

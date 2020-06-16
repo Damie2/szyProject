@@ -1,28 +1,21 @@
 package com.smh.szyproject;
 
-import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.smh.szyproject.common.image.ImageLoader;
-import com.smh.szyproject.helper.ActivityStackManager;
+import com.smh.szyproject.other.helper.ActivityStackManager;
 import com.smh.szyproject.net.interceptor.CookieReadInterceptor;
 import com.smh.szyproject.net.interceptor.CookiesSaveInterceptor;
 import com.smh.szyproject.net.interceptor.InterceptorUtil;
 
-import com.smh.szyproject.umeng.UmengClient;
-import com.smh.szyproject.utils.CrashHandler;
-import com.smh.szyproject.utils.L;
-import com.umeng.commonsdk.UMConfigure;
-import com.umeng.message.IUmengRegisterCallback;
-import com.umeng.message.PushAgent;
+import com.smh.szyproject.other.umeng.UmengClient;
+import com.smh.szyproject.other.utils.CrashHandler;
 
 import org.xutils.x;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 

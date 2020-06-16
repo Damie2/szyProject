@@ -7,18 +7,16 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.smh.szyproject.R;
-import com.smh.szyproject.Rx.databus.RxBus;
-import com.smh.szyproject.base.BaseFragment;
+import com.smh.szyproject.other.Rx.databus.RxBus;
+import com.smh.szyproject.common.base.BaseFragment;
 import com.smh.szyproject.ui.adapter.ViewPagerAdapter;
-import com.smh.szyproject.utils.AppUtils;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.AppUtils;
 
 import java.util.ArrayList;
 import java.util.List;

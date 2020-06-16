@@ -4,13 +4,12 @@ import android.app.Application;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import androidx.annotation.Keep;
 import androidx.core.content.ContextCompat;
 
 import com.smh.szyproject.MyApplication;
-import com.smh.szyproject.helper.ActivityStackManager;
-import com.smh.szyproject.utils.L;
-import com.smh.szyproject.utils.ToastUtils;
+import com.smh.szyproject.other.helper.ActivityStackManager;
+import com.smh.szyproject.other.utils.L;
+import com.smh.szyproject.other.utils.ToastUtils;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

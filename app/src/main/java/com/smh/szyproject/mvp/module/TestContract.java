@@ -1,11 +1,10 @@
 package com.smh.szyproject.mvp.module;
 
 
-import com.smh.szyproject.base.BasePresenter;
-import com.smh.szyproject.base.BaseView;
-import com.smh.szyproject.bean.getStatus;
-import com.smh.szyproject.bean.getStatusResult;
-import com.smh.szyproject.bean.testStatus;
+import com.smh.szyproject.common.base.BasePresenter;
+import com.smh.szyproject.common.base.BaseView;
+import com.smh.szyproject.mvp.bean.getStatus;
+import com.smh.szyproject.mvp.bean.testStatus;
 
 public interface TestContract {
     interface View extends BaseView<presenter> {

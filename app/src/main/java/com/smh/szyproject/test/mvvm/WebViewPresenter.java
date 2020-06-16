@@ -3,10 +3,10 @@ package com.smh.szyproject.test.mvvm;
 import android.content.Context;
 
 
-import com.smh.szyproject.Rx.ExceptionHandle;
-import com.smh.szyproject.base.BaseObserver;
+import com.smh.szyproject.other.Rx.ExceptionHandle;
+import com.smh.szyproject.common.base.BaseObserver;
 import com.smh.szyproject.net.RetrofitUtil;
-import com.smh.szyproject.utils.L;
+import com.smh.szyproject.other.utils.L;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
