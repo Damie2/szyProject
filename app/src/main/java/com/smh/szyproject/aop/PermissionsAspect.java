@@ -29,7 +29,7 @@ public class PermissionsAspect {
     public void aroundJoinPoint(final ProceedingJoinPoint joinPoint, Permissions permissions) {
         XXPermissions.with(ActivityStackManager.getInstance().getTopActivity())
                 // 可设置被拒绝后继续申请，直到用户授权或者永久拒绝
-                .constantRequest()
+//                .constantRequest()
                 // 支持请求6.0悬浮窗权限8.0请求安装权限
                 .permission(permissions.value())
                 .request(new OnPermission() {
