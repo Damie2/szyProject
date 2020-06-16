@@ -28,6 +28,9 @@ public class PermissionsAspect {
     @Around("method() && @annotation(permissions)")
     public void aroundJoinPoint(final ProceedingJoinPoint joinPoint, Permissions permissions) {
         XXPermissions.with(ActivityStackManager.getInstance().getTopActivity())
+                // 可设置被拒绝后继续申请，直到用户授权或者永久拒绝
+                .constantRequest()
+                // 支持请求6.0悬浮窗权限8.0请求安装权限
                 .permission(permissions.value())
                 .request(new OnPermission() {
 
@@ -47,7 +50,7 @@ public class PermissionsAspect {
                     public void noPermission(List<String> denied, boolean quick) {
                         if (quick) {
                             ToastUtils.showToastForText(ActivityStackManager.getInstance().getTopActivity(),"授权失败，请手动授予权限");
-                            XXPermissions.gotoPermissionSettings(ActivityStackManager.getInstance().getTopActivity(), false);
+                            XXPermissions.startPermissionActivity(ActivityStackManager.getInstance().getTopActivity(), false);
                         } else {
                             ToastUtils.showToastForText(ActivityStackManager.getInstance().getTopActivity(),"请先授予权限");
                         }
