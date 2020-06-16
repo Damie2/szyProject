@@ -1,9 +1,12 @@
 package com.smh.szyproject.test.observer.activity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
+import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
+import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.test.observer.listener.ObserverListener;
 import com.smh.szyproject.test.observer.listener.ObserverManager;
@@ -37,14 +40,22 @@ public class FirstActivity extends BaseActivity implements ObserverListener {
         return R.layout.activity_test;
     }
 
+
     @Override
     public void init(Bundle savedInstanceState) {
         //注册当前的Observer
         ObserverManager.getInstance().add(this);
-        textView.setOnClickListener(v -> {
-            startActivity(SecondActivity.class);
+//        textView.setOnClickListener(v -> {
+//            startActivity(SecondActivity.class);
+//        });
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Permissions(Permission.CAMERA)
+            @Override
+            public void onClick(View v) {
+
+            }
         });
-        int a = 10/0;
+//        int a = 10/0;
     }
 
 
