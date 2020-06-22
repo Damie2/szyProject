@@ -54,6 +54,7 @@ android {
 //        implementation 'com.android.support:multidex:1.0.3'
 
         //NDK开发第一步
+        //https://www.jianshu.com/p/921a5142ae12
         externalNativeBuild {
             cmake {
                 cppFlags ""

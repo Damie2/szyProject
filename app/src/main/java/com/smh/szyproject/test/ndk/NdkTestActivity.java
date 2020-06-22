@@ -57,15 +57,52 @@ public class NdkTestActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        L.e("jni调用的值是:" + stringFromJNITwo());
+//        L.e("jni调用的值是:" + stringFromJNITwo());
+        changeJavaStaticField();
+        L.e("新啊："+sMake);
     }
 
     public native String stringFromJNI();
 
     public native  String stringFromJNITwo();
 
-    static {
-        System.loadLibrary("native-lib");
+    /**
+     * java普通方法调用C
+     * @param text
+     * @return
+     */
+    public native String stringFromJNIThree(String text);
+    //这个是C++调用的当前方法
+    public void callJavaMethod(String text){
+        L.e("被调用了:"+text);
     }
+    public static native String stringFromJNIFour(String text);
+
+    /**
+     * java静态方法调用C
+     * @param text
+     */
+    public static void staticJNIFour(String text){
+        L.e("我是静态方法被调用了:"+text);
+    }
+
+    /**
+     * 修改String值
+     */
+    private String name = "我是对象字段";
+
+    public native void changeJavaField();
+    /**
+     * 修改Int值
+     */
+    private static int sMake = 0;
+
+    public native void changeJavaStaticField();
+
+
+    static {
+        System.loadLibrary("native-jni-lib");
+    }
+
 
 }
