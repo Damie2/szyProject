@@ -46,6 +46,25 @@ public class LanmbdaActivity extends BaseActivity {
 
 //        Lanmbda1();
         Lanmbda2();
+//        两个参数的
+        LanmbdaTwo();
+    }
+
+    private void LanmbdaTwo() {
+        testTwo testTwo = new testTwo() {
+            @Override
+            public void test(int x, int y) {
+                L.e(x + y + "");
+            }
+        };
+        testTwo.test(2, 3);
+        testTwo testTwo1 = (int x, int y) -> {
+            L.e(x + y + "");
+        };
+        testTwo1.test(1, 2);
+        
+        testTwo testTwo2 = (int x, int y) -> L.e(x + y + "");
+        testTwo2.test(1, 2);
     }
 
     //有返回值的
@@ -56,7 +75,7 @@ public class LanmbdaActivity extends BaseActivity {
         hi1(new MyInterface1() {
             @Override
             public void lMethod1(String msg) {
-                L.e("收到的值是1:"+msg);
+                L.e("收到的值是1:" + msg);
             }
         });
     }
@@ -89,5 +108,9 @@ public class LanmbdaActivity extends BaseActivity {
 
     interface MyInterface {
         void lMethod();
+    }
+
+    interface testTwo {
+        void test(int x, int y);
     }
 }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">邵梓渊</string>
+    <string name="app_name">视频播放器</string>
     <string name="common_loading">加载中&#8230;</string>
 
 
@@ -59,4 +59,34 @@
 
     <string name="release">release</string>
     <string name="rotate">旋转屏幕</string>
+
+
+    <string-array name="messages_array">
+        <item>How are you</item>
+        <item>Fine. And you?</item>
+        <item>Me, too. Is there any news today?</item>
+        <item>Yep! I got a news here: boom! Tomorrow is the end of The Walking Dead!</item>
+        <item>Are you kidding me?</item>
+        <item>Absolutely not!</item>
+        <item>Jesus, that\'s crazy</item>
+        <item>I thought no one would gonna to make it</item>
+        <item>That\'s cruel, I don\'t like it, maybe there is a favourable turn</item>
+        <item>Hope so</item>
+    </string-array>
+    <string-array name="conversation">
+        <item>test</item>
+        <item>History message 1</item>
+        <item>History message 2</item>
+        <item>History message 3</item>
+        <item>History message 4</item>
+        <item>History message 5</item>
+        <item>History message 6</item>
+        <item>History message 7</item>
+        <item>History message 8</item>
+        <item>History message 9</item>
+        <item>History message 10</item>
+    </string-array>
+    <string name="message_click_hint">Message click event</string>
+    <string name="message_long_click_hint">Message long press event</string>
+    <string name="avatar_click_hint">Avatar click event</string>
 </resources>

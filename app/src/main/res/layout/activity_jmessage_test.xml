@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smh.szyproject.other.widget.other.HintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.smh.szyproject.test.im.ChatListView
+            android:layout_above="@id/ll_1"
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_above="@id/ll"
+            android:weightSum="6">
+
+            <EditText
+                android:id="@+id/et_msg"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="5" />
+
+            <Button
+                android:id="@+id/btn_send"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/et_msg"
+                android:layout_weight="1"
+                android:text="发送" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/tv_regiter"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="注册"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/tv_login"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="登录"
+                android:textSize="20sp" />
+
+
+            <Button
+                android:id="@+id/tv_login_out"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="登出"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</com.smh.szyproject.other.widget.other.HintLayout>

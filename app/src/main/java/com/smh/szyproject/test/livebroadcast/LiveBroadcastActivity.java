@@ -30,6 +30,8 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
  * https://blog.csdn.net/y331271939/article/details/83217507
  */
 public class LiveBroadcastActivity extends BaseActivity {
+    private String url = "http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
+//    "http://stream.jiaoliu168.com/live/test.m3u8"
 
     @BindView(R.id.surface_view)
     SurfaceView surfaceView;
@@ -50,7 +52,7 @@ public class LiveBroadcastActivity extends BaseActivity {
             mPlayer = new IjkMediaPlayer();
             mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             try {
-                mPlayer.setDataSource("http://stream.jiaoliu168.com/live/test.m3u8");
+                mPlayer.setDataSource(url);
             } catch (IOException e) {
                 e.printStackTrace();
             }

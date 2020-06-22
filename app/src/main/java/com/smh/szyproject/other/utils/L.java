@@ -15,7 +15,8 @@ public class L {
      * 当前是否为 Debug 模式
      */
     public static boolean isDebug() {
-        return BuildConfig.DEBUG;
+//        return BuildConfig.DEBUG;
+        return true;
     }
 
 

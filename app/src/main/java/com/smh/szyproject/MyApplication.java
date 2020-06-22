@@ -19,6 +19,7 @@ import org.xutils.x;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import cn.jpush.im.android.api.JMessageClient;
 import me.jessyan.autosize.AutoSizeConfig;
 import me.jessyan.autosize.unit.Subunits;
 import okhttp3.OkHttpClient;
@@ -55,6 +56,9 @@ public class MyApplication extends Application {
         ImageLoader.init(this);
         //autosize
         AutoSizeConfig.getInstance().getUnitsManager().setSupportDP(true).setSupportSubunits(Subunits.PT);
+        //极光im第六步
+        JMessageClient.setDebugMode(true);
+        JMessageClient.init(this);
     }
 
 
