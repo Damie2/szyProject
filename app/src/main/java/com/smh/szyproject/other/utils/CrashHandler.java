@@ -9,6 +9,7 @@ import android.os.Looper;
 import android.util.Log;
 
 import com.smh.szyproject.MyApplication;
+import com.smh.szyproject.other.helper.ActivityStackManager;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -115,6 +116,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 				Looper.prepare();
 				ToastUtils.showToastForText(mContext,"程序出错啦,我们会尽快修改");
 				L.e(""+msg);
+				ActivityStackManager.getInstance().finishAllActivities();
 				Looper.loop();
 			}
 		}.start();

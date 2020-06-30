@@ -20,8 +20,8 @@ android {
         applicationId "com.smh.szyproject"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 50
+        versionName "5.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // 仅保留中文语种的资源
         resConfig 'zh'
@@ -164,7 +164,7 @@ dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.navigation:navigation-fragment:2.2.1'
     implementation 'androidx.navigation:navigation-ui:2.2.1'
@@ -317,7 +317,10 @@ dependencies {
 
     //饺子播放器
     implementation 'cn.jzvd:jiaozivideoplayer:7.4.1'
-
+//    WsManager socket
+    implementation 'com.rabtman.wsmanager:wsmanager:1.0.2'
+//WebSocket
+    implementation "org.java-websocket:Java-WebSocket:1.5.1"
 //    https://github.com/pinguo-zhouwei/MZBannerView  魅族的banner
 //    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
 

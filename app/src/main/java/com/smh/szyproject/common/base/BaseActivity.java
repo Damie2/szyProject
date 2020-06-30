@@ -238,11 +238,6 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     }
 
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    }
-
     @SuppressLint("ResourceType")
     protected int getStatusBarColor() {
 //        return getResources().getColor(R.color.red);

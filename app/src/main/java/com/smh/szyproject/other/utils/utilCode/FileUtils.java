@@ -1,10 +1,14 @@
 package com.smh.szyproject.other.utils.utilCode;
 
+import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.MediaStore;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -79,6 +83,20 @@ public final class FileUtils {
             return true;
         }
     }
+
+    /**
+     * 把uri转为File对象
+     */
+    public static File uri2File(Activity aty, Uri uri) {
+        String[] projection = {MediaStore.Images.Media.DATA};
+        CursorLoader loader = new CursorLoader(aty, uri, projection, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        cursor.moveToFirst();
+        return new File(cursor.getString(column_index));
+    }
+    
+
 
     /**
      * Return whether the file exists.

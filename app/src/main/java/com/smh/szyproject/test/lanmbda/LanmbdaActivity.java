@@ -1,6 +1,7 @@
 package com.smh.szyproject.test.lanmbda;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.TextView;
 
 import com.smh.szyproject.R;
@@ -65,6 +66,16 @@ public class LanmbdaActivity extends BaseActivity {
         
         testTwo testTwo2 = (int x, int y) -> L.e(x + y + "");
         testTwo2.test(1, 2);
+
+
+        Handler   mMainHandler=new Handler(msg -> {
+            switch (msg.what) {
+                case 0:
+
+                    break;
+            }
+            return true;
+        });
     }
 
     //有返回值的
