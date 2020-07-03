@@ -20,8 +20,8 @@ android {
         applicationId "com.smh.szyproject"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 50
-        versionName "5.0"
+        versionCode 100
+        versionName "50.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // 仅保留中文语种的资源
         resConfig 'zh'
@@ -80,29 +80,46 @@ android {
     }
 
 
-    //==============友盟多渠道配置===============
-//    flavorDimensions "default"    // 默认渠道名
-//    // 配置多渠道包支持
-//    productFlavors {
-//        Tencent {
-//            // 投放应用宝市场
-//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "应用宝"]
-//            versionCode 2
-//            versionName "2.0"
-//
-//        }
-//        xiaomi {
-//            // 投放小米市场
-//            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "小米"]
-//            versionCode 1
-//            versionName "1.1"
+    //==============友盟多渠道配置方式一===============
+    // 默认渠道名
+//    flavorDimensions "default"
+//    // 友盟多渠道打包
+//    android.productFlavors {
+//        tencent {}  // 应用宝
+//        baidu {}    // 百度
+//        xiaomi {}   // 小米
+//        huawei {}   // 华为
+//        heiheihei {}   // 华为
+//        productFlavors.all { flavor ->
+//            flavor.manifestPlaceholders = [channel: name]
 //        }
 //    }
-//
-//    productFlavors.all {
-//        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-//    }
-    //================友盟多渠道配置============
+
+    //==============友盟多渠道配置方式一===============
+
+    //==============友盟多渠道配置方式二===============
+    flavorDimensions "default"    // 默认渠道名
+    // 配置多渠道包支持
+    productFlavors {
+        Tencent {
+            // 投放应用宝市场
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "应用宝"]
+            versionCode 2
+            versionName "2.0"
+
+        }
+        xiaomi {
+            // 投放小米市场
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "小米"]
+            versionCode 1
+            versionName "1.1"
+        }
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+    //================友盟多渠道配置方式二============
 
     // Apk 输出配置
 //    applicationVariants.all { variant ->
@@ -121,6 +138,7 @@ android {
             keyPassword 'swkj666!'
             storeFile file('D:\\Virtualkey.jks')
             storePassword 'swkj666!'
+
         }
     }
 
@@ -179,26 +197,26 @@ dependencies {
     //imageloader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
     //gson
-    implementation 'com.google.code.gson:gson:2.8.0'
-    implementation 'com.google.code.gson:gson-parent:2.8.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.google.code.gson:gson-parent:2.8.6'
     //recyclerview
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     //retrofit2
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.squareup.retrofit2:converter-scalars:2.4.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     //okhttp3
-    implementation 'com.squareup.okhttp3:okhttp:4.4.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
     implementation 'com.lzy.net:okgo:3.0.4'
-    implementation 'com.qianwen:okhttp-utils:3.8.0'
+    implementation 'com.qianwen:okhttp-utils:3.9.5'
     //改变状态栏颜色
 //    implementation 'com.githang:status-bar-compat:0.7'
 
     //rxjava
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.14'
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    implementation 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.1'
     implementation 'com.githang:status-bar-compat:latest.integration'
     implementation 'cc.cloudist.acplibrary:library:1.2.1'
     //Xutils

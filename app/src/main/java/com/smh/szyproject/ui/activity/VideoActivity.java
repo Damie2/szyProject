@@ -21,7 +21,7 @@ import cn.jzvd.Jzvd;
 public class VideoActivity extends BaseActivity {
     @BindView(R.id.jz_video)
     MyJzvdStd myJzvdStd;
-    private String url;
+    private String url = "http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
     @Override
     public int getLayoutId() {
         return R.layout.activity_jiaozi_video;
@@ -30,17 +30,17 @@ public class VideoActivity extends BaseActivity {
     @Override
     public void init(Bundle savedInstanceState) {
         ImmersionBar.setTitleBar(this, myJzvdStd);
-        String  extra = getIntent().getStringExtra("extra");
-        switch (extra){
-            case "video1":
-                url = "http://stream.vipniu.com/live/xunshi.m3u8";
-                break;
-            case "video2":
-                url="http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
-                break;
-            default:
-                break;
-        }
+//        String  extra = getIntent().getStringExtra("extra");
+//        switch (extra){
+//            case "video1":
+//                url = "http://stream.vipniu.com/live/xunshi.m3u8";
+//                break;
+//            case "video2":
+//                url="http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
+//                break;
+//            default:
+//                break;
+//        }
 
         myJzvdStd.setUp(url
                 , "");

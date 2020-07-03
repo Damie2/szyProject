@@ -7,5 +7,5 @@
     <com.smh.szyproject.other.widget.MyJzvdStd
         android:id="@+id/jz_video"
         android:layout_width="match_parent"
-        android:layout_height="200dp" />
+        android:layout_height="300dp" />
 </LinearLayout>

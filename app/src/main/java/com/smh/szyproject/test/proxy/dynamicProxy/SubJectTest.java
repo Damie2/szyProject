@@ -25,8 +25,4 @@ public class SubJectTest extends BaseActivity {
         subject.sayGoodBye();
     }
 
-    private void test() {
-
-
-    }
 }

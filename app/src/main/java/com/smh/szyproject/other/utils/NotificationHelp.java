@@ -11,6 +11,8 @@ import android.os.Build;
 
 import androidx.core.app.NotificationCompat;
 
+import com.smh.szyproject.net.RetrofitUtil;
+
 import java.util.List;
 
 import static android.app.Notification.VISIBILITY_SECRET;
@@ -26,11 +28,20 @@ public class NotificationHelp {
     private Context context;
     private int id;
 
-    public static void init(Context context) {
+    public static NotificationHelp getInstance(Context context) {
+
         if (ourInstance == null) {
-            ourInstance = new NotificationHelp(context);
+            synchronized (NotificationHelp.class) {
+                if (ourInstance == null) {
+                    ourInstance = new NotificationHelp(context);
+                }
+            }
         }
+        return ourInstance;
     }
+
+
+
 
     public static NotificationHelp getInstance() {
         return ourInstance;
@@ -41,10 +52,12 @@ public class NotificationHelp {
     }
 
     public void createNotification(Context context, String title, String content, Intent intent, int iconID) {
-        boolean isPush = SPUtil.getBoolean("isPush", true, context);
-        if (!isPush) {
-            return;
-        }
+//        boolean isPush = SPUtil.getBoolean("isPush", true, context);
+//        if (!isPush) {
+//            return;
+//        }
+
+
 //        Notification notification = null;
 //        NotificationManager notificationManager = (NotificationManager) context.getSystemService
 //                (NOTIFICATION_SERVICE);
