@@ -24,6 +24,7 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 import com.smh.szyproject.other.Rx.databus.RxBus;
 import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.other.utils.ActionBarHelper;
+import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.ToastUtils;
 import com.umeng.message.PushAgent;
 import com.zhy.autolayout.AutoFrameLayout;
@@ -177,6 +178,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      */
     protected boolean isStatusBarDarkFont() {
         // 返回真表示黑色字体
+        L.e("activity");
         return true;
     }
 

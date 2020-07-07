@@ -11,6 +11,7 @@ import com.smh.szyproject.MyApplication;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.helper.ActivityStackManager;
+import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.NotificationHelp;
 import com.smh.szyproject.other.utils.NotificationUtils;
 
@@ -34,7 +35,6 @@ public class NotificationActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-
         //仅仅只是展示出来，必须调用cancelNotification才能取消
 //        first();
 //        second();

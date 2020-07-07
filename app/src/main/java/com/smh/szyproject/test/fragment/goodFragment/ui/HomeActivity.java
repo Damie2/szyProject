@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.tablayoutsamples.ui;
+package com.smh.szyproject.test.fragment.goodFragment.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,10 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.smh.szyproject.test.tablayoutsamples.adapter.SimpleHomeAdapter;
+import com.smh.szyproject.test.fragment.goodFragment.adapter.SimpleHomeAdapter;
 
 
-public class SimpleHomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
     private Context mContext = this;
     private final String[] mItems = {"SlidingTabLayout", "CommonTabLayout", "SegmentTabLayout"};
     private final Class<?>[] mClasses = {SlidingTabActivity.class, CommonTabActivity.class,

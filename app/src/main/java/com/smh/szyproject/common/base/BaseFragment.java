@@ -15,6 +15,7 @@ import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.bar.TitleBar;
 import com.smh.szyproject.other.Rx.databus.RxBus;
 import com.smh.szyproject.action.TitleBarAction;
+import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.ToastUtils;
 import com.zhy.autolayout.utils.AutoUtils;
 
@@ -82,7 +83,7 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
         //在BaseActivity里初始化
         mImmersionBar = ImmersionBar.with(this)
                 // 默认状态栏字体颜色为黑色
-                .statusBarDarkFont(statusBarDarkFont())
+//                .statusBarDarkFont(statusBarDarkFont())
                 // 解决软键盘与底部输入框冲突问题，默认为false，还有一个重载方法，可以指定软键盘mode
                 .keyboardEnable(true);
         return mImmersionBar;
@@ -93,6 +94,7 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
      */
     protected boolean statusBarDarkFont() {
         // 返回真表示黑色字体
+        L.e("fragment");
         return true;
     }
 
@@ -110,7 +112,7 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
     /**
      * 获取状态栏沉浸的配置对象
      */
-    protected ImmersionBar getStatusBarConfig() {
+    public ImmersionBar getStatusBarConfig() {
         return mImmersionBar;
     }
 

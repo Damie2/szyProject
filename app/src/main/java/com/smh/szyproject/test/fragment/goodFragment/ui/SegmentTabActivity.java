@@ -1,8 +1,7 @@
-package com.smh.szyproject.test.tablayoutsamples.ui;
+package com.smh.szyproject.test.fragment.goodFragment.ui;
 
 import android.graphics.Color;
 import android.os.Bundle;
-
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +14,7 @@ import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.flyco.tablayout.widget.MsgView;
 import com.smh.szyproject.R;
-import com.smh.szyproject.test.tablayoutsamples.utils.ViewFindUtils;
-
+import com.smh.szyproject.test.fragment.goodFragment.utils.ViewFindUtils;
 
 import java.util.ArrayList;
 

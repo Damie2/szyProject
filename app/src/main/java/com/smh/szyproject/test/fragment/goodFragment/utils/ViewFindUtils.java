@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.tablayoutsamples.utils;
+package com.smh.szyproject.test.fragment.goodFragment.utils;
 
 import android.util.SparseArray;
 import android.view.View;

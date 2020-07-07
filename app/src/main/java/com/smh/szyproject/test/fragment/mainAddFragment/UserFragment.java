@@ -1,4 +1,4 @@
-package com.smh.szyproject.ui.fragment;
+package com.smh.szyproject.test.fragment.mainAddFragment;
 
 
 import android.os.Build;
@@ -12,11 +12,11 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.flyco.tablayout.SlidingTabLayout;
 import com.smh.szyproject.R;
+import com.smh.szyproject.common.base.BaseFragment;
 import com.smh.szyproject.other.Rx.databus.RegisterRxBus;
 import com.smh.szyproject.other.Rx.databus.RxBus;
-import com.smh.szyproject.common.base.BaseFragment;
-import com.smh.szyproject.test.tablayoutsamples.ui.SimpleCardFragment;
-import com.smh.szyproject.test.tablayoutsamples.utils.ViewFindUtils;
+import com.smh.szyproject.test.fragment.goodFragment.ui.SimpleCardFragment;
+import com.smh.szyproject.test.fragment.goodFragment.utils.ViewFindUtils;
 
 import java.util.ArrayList;
 

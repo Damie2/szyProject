@@ -10,28 +10,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <TextView
-            android:id="@+id/tv_next"
-           android:onClick="tv_next"
+            android:textSize="20px"
+            android:layout_marginBottom="50dp"
+            android:layout_above="@id/tv_next"
+            android:id="@+id/tv_test"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
+            android:text="我是测试" />
+
+
+        <TextView
+            android:id="@+id/tv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:onClick="tv_next"
             android:text="点我跳转到下一页" />
 
         <EditText
-            android:hint="我是输入框"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/tv_next"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_next"
+            android:layout_centerHorizontal="true"
+            android:hint="我是输入框" />
 
         <RelativeLayout
-            android:layout_centerHorizontal="true"
-            android:gravity="bottom"
-            android:background="@color/blue"
-            android:layout_alignParentBottom="true"
             android:layout_width="360pt"
-            android:layout_height="200pt"/>
+            android:layout_height="200pt"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/blue"
+            android:gravity="bottom" />
 
     </RelativeLayout>
 </com.smh.szyproject.other.widget.other.HintLayout>

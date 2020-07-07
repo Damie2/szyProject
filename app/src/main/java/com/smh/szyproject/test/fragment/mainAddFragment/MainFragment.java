@@ -1,4 +1,4 @@
-package com.smh.szyproject.ui.fragment;
+package com.smh.szyproject.test.fragment.mainAddFragment;
 
 import android.graphics.Color;
 import android.os.Build;
@@ -13,10 +13,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.smh.szyproject.R;
-import com.smh.szyproject.other.Rx.databus.RxBus;
 import com.smh.szyproject.common.base.BaseFragment;
-import com.smh.szyproject.ui.adapter.ViewPagerAdapter;
+import com.smh.szyproject.other.Rx.databus.RxBus;
 import com.smh.szyproject.other.utils.AppUtils;
+import com.smh.szyproject.ui.adapter.ViewPagerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

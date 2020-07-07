@@ -1,4 +1,4 @@
-package com.smh.szyproject.ui.fragment;
+package com.smh.szyproject.test.fragment.homeViewPagerFragment;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseFragment;
@@ -8,18 +8,21 @@ import com.smh.szyproject.common.base.BaseFragment;
  * date   : 2020/4/2 11:43
  * desc   :
  */
-public class TestFragment2 extends BaseFragment {
+public class TestFragment4 extends BaseFragment {
     @Override
     protected void init() {
     }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_test2;
+        return R.layout.fragment_test4;
     }
+
+
     @Override
     public boolean isStatusBarEnabled() {
         // 使用沉浸式状态栏
         return !super.isStatusBarEnabled();
     }
+
 }

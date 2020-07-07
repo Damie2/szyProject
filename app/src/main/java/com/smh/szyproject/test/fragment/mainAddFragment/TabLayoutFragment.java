@@ -1,9 +1,11 @@
-package com.smh.szyproject.ui.fragment;
+package com.smh.szyproject.test.fragment.mainAddFragment;
 
+import android.content.Intent;
 import android.widget.TextView;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseFragment;
+import com.smh.szyproject.test.fragment.repace.MyRepaceActivity;
 
 import butterknife.BindView;
 
@@ -16,9 +18,16 @@ public class TabLayoutFragment extends BaseFragment {
     @BindView(R.id.tv_center)
     TextView textView;
 
+    @BindView(R.id.tv_mgzx)
+    TextView help;
+
     @Override
     protected void init() {
         textView.setText(getArguments().getString("name"));
+
+        help.setOnClickListener((view)->{
+            startActivity(new Intent(getContext(), MyRepaceActivity.class));
+        });
     }
 
     @Override

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="96px"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:id="@+id/rl_answered"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_answered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="已回答"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/v_answered"
+                android:layout_width="64px"
+                android:layout_height="4px"
+                android:layout_above="@id/v1"
+                android:layout_centerHorizontal="true"
+                android:background="@color/user_red" />
+
+            <View
+                android:id="@+id/v1"
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/user_division_line_E" />
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_to_be_answered"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/tv_to_be_answered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="待回答"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/v_to_be_answered"
+                android:layout_width="64px"
+                android:layout_height="4px"
+                android:layout_above="@id/v3"
+                android:layout_centerHorizontal="true"
+                android:background="@color/user_red"
+                android:visibility="gone" />
+
+            <View
+                android:id="@+id/v3"
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_alignParentBottom="true"
+                android:background="@color/user_division_line_E" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/ll_title"
+        android:background="@drawable/vpi__tab_unselected_holo" />
+
+</RelativeLayout>

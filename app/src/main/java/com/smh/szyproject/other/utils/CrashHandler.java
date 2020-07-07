@@ -124,7 +124,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 		// 收集设备信息
 		collectCrashDeviceInfo(mContext);
 		// 使用友盟SDK将错误报告保存到文件中，待下次应用程序重启时上传log
-		String crashFileName = saveCrashInfoToFile(ex);
+//		String crashFileName = saveCrashInfoToFile(ex);
 		// 发送错误报告到服务器
 		// 已经使用了友盟SDK上传，故此处注掉
 		// sendCrashReportsToServer(mContext);

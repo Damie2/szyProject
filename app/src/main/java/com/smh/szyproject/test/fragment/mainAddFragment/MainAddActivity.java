@@ -1,4 +1,4 @@
-package com.smh.szyproject;
+package com.smh.szyproject.test.fragment.mainAddFragment;
 
 
 import android.graphics.Color;
@@ -13,23 +13,23 @@ import com.azhon.appupdate.config.UpdateConfiguration;
 import com.azhon.appupdate.listener.OnButtonClickListener;
 import com.azhon.appupdate.listener.OnDownloadListener;
 import com.azhon.appupdate.manager.DownloadManager;
-import com.smh.szyproject.other.Rx.databus.RxBus;
+import com.smh.szyproject.Constants;
+import com.smh.szyproject.R;
+import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.mvp.bean.VersionResult;
+import com.smh.szyproject.other.Rx.databus.RxBus;
 import com.smh.szyproject.other.helper.ActivityStackManager;
 import com.smh.szyproject.other.helper.DoubleClickHelper;
-import com.smh.szyproject.other.widget.other.HintLayout;
-import com.smh.szyproject.common.base.BaseActivity;
-import com.smh.szyproject.ui.fragment.MainFragment;
-import com.smh.szyproject.ui.fragment.UserFragment;
-import com.smh.szyproject.ui.view.ViewHelp;
 import com.smh.szyproject.other.utils.FragmentHelp;
+import com.smh.szyproject.other.widget.other.HintLayout;
+import com.smh.szyproject.ui.view.ViewHelp;
 
 import java.io.File;
 
 import butterknife.BindView;
 
 
-public class MainActivity extends BaseActivity implements OnButtonClickListener , OnDownloadListener {
+public class MainAddActivity extends BaseActivity implements OnButtonClickListener , OnDownloadListener {
     @BindView(R.id.layout)
     HintLayout layout;
     private DownloadManager manager;

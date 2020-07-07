@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.tablayoutsamples.ui;
+package com.smh.szyproject.test.fragment.goodFragment.ui;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

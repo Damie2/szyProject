@@ -1,4 +1,4 @@
-package com.smh.szyproject;
+package com.smh.szyproject.test.fragment.homeViewPagerFragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,15 +7,12 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.common.base.BaseFragment;
 import com.smh.szyproject.common.base.BaseFragmentAdapter;
 import com.smh.szyproject.other.helper.ActivityStackManager;
 import com.smh.szyproject.other.helper.DoubleClickHelper;
-import com.smh.szyproject.ui.fragment.TestFragment1;
-import com.smh.szyproject.ui.fragment.TestFragment2;
-import com.smh.szyproject.ui.fragment.TestFragment3;
-import com.smh.szyproject.ui.fragment.TestFragment4;
 
 import butterknife.BindView;
 
@@ -26,6 +23,7 @@ import butterknife.BindView;
  */
 public class HomeActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    //禁止左右滑动在NoScrollViewPager 的onTouchEvent 方法里
     @BindView(R.id.vp_home_pager)
     ViewPager mViewPager;
     @BindView(R.id.bv_home_navigation)
@@ -105,7 +103,4 @@ public class HomeActivity extends BaseActivity implements BottomNavigationView.O
         mBottomNavigationView.setOnNavigationItemSelectedListener(null);
         super.onDestroy();
     }
-
-
-
 }

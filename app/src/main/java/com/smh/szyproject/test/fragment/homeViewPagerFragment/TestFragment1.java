@@ -1,4 +1,4 @@
-package com.smh.szyproject.ui.fragment;
+package com.smh.szyproject.test.fragment.homeViewPagerFragment;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,7 +10,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.gyf.immersionbar.ImmersionBar;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseFragment;
-import com.smh.szyproject.test.tablayoutsamples.ui.SimpleCardFragment;
+import com.smh.szyproject.test.fragment.goodFragment.ui.SimpleCardFragment;
 
 import java.util.ArrayList;
 
@@ -38,6 +38,11 @@ public class TestFragment1 extends BaseFragment implements OnTabSelectListener {
 
     @Override
     protected void init() {
+
+//        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//        BarUtils.setStatusBarLightMode(getActivity(),false);
+
+        getStatusBarConfig().statusBarDarkFont(false);
         ImmersionBar.setTitleBar(this, mTablayout);
         for (String title : mTitles) {
             mFragments.add(SimpleCardFragment.getInstance(title));
@@ -46,6 +51,7 @@ public class TestFragment1 extends BaseFragment implements OnTabSelectListener {
         vp.setAdapter(mAdapter);
         mTablayout.setViewPager(vp);
     }
+
 
     @Override
     protected int getLayoutId() {
