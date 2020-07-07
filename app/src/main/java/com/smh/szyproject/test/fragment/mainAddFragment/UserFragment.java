@@ -61,7 +61,7 @@ public class UserFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.user_fragment;
+        return R.layout.test_user_fragment;
     }
 
     public void onHiddenChanged(boolean hidden) {

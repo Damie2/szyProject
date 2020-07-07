@@ -11,16 +11,7 @@ import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft_6455;
 import org.java_websocket.handshake.ServerHandshake;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.net.Socket;
 import java.net.URI;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 import butterknife.OnClick;
 
@@ -36,7 +27,7 @@ public class SocketActivityTwo extends BaseActivity implements View.OnClickListe
     private String json = "{\"action\":\"registry\",\"userId\":\"108554\",\"memberId\":\"1382\",\"name\":\"用户250\",\"ua\":\"PC\"}";
     @Override
     public int getLayoutId() {
-        return R.layout.activity_socket_test;
+        return R.layout.test_activity_socket_test;
     }
 
     @Override

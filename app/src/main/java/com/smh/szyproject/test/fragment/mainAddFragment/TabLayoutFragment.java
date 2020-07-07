@@ -32,6 +32,6 @@ public class TabLayoutFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_tab_layout;
+        return R.layout.test_fragment_tab_layout;
     }
 }

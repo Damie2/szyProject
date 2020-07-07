@@ -67,7 +67,7 @@
             android:value="640" />
 
         <activity
-            android:name=".test.fragment.homeViewPagerFragment.HomeActivity"
+            android:name=".test.MagicIndicator.MagicIndicatorActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>

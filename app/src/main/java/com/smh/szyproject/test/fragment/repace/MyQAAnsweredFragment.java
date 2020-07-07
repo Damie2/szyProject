@@ -13,7 +13,7 @@ public class MyQAAnsweredFragment extends BaseFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.my_qa_answed_fragment;
+        return R.layout.test_my_qa_answed_fragment;
     }
 
 

@@ -13,7 +13,7 @@ import com.smh.szyproject.other.utils.L
 class First : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test)
+        setContentView(R.layout.test_activity_test)
 //        L.e("加法:"+sum(1,2).toString())//加法
 //        arrays(1,2,3)//可变长函数
 //        sumLandba()//Landba表达式

@@ -14,7 +14,7 @@ import com.smh.szyproject.common.base.BaseActivity;
 public class DesActivity extends BaseActivity {
     @Override
     public int getLayoutId() {
-        return R.layout.activity_voice_des;
+        return R.layout.test_activity_voice_des;
     }
 
     @Override

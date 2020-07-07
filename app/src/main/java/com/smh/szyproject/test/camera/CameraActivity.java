@@ -34,7 +34,7 @@ public class CameraActivity extends BaseActivity {
     private int REQ_CODE = 0;
     @Override
     public int getLayoutId() {
-        return R.layout.activity_camera_test;
+        return R.layout.test_activity_camera_test;
     }
 
     @Override

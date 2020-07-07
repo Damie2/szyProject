@@ -1,10 +1,7 @@
 package com.smh.szyproject.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 
-import com.bumptech.glide.Glide;
 import com.gyf.immersionbar.ImmersionBar;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
@@ -24,7 +21,7 @@ public class VideoActivity extends BaseActivity {
     private String url = "http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
     @Override
     public int getLayoutId() {
-        return R.layout.activity_jiaozi_video;
+        return R.layout.test_activity_jiaozi_video;
     }
 
     @Override

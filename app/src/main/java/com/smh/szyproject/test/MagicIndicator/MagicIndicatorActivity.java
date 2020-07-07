@@ -49,7 +49,7 @@ public class MagicIndicatorActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_magicindicator;
+        return R.layout.test_activity_magicindicator;
     }
 
     @Override

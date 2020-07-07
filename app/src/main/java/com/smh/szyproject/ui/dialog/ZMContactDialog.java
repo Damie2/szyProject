@@ -54,7 +54,7 @@ public class ZMContactDialog extends Dialog implements View.OnClickListener {
     public ZMContactDialog(@NonNull Context context, int themeResId, InvitationListener mListener, int myPosition, ZmContact zmContact) {
         super(context, themeResId);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_zm_contact, null);
+        viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.test_dialog_zm_contact, null);
         ButterKnife.bind(this, viewGroup);
         btnComment.setOnClickListener(this);
         ivClose.setOnClickListener(this);

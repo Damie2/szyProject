@@ -22,7 +22,7 @@ public class TestActivity extends BaseActivity implements TestContract.View {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_mvvm;
+        return R.layout.test_activity_mvvm;
     }
 
     @Override

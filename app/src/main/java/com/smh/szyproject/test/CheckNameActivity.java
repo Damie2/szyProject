@@ -38,7 +38,7 @@ public class CheckNameActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_name;
+        return R.layout.test_activity_name;
     }
 
     @Override

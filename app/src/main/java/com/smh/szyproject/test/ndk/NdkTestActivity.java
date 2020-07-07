@@ -52,7 +52,7 @@ public class NdkTestActivity extends BaseActivity {
 //    蓝牙和aidl
     @Override
     public int getLayoutId() {
-        return R.layout.activity_test;
+        return R.layout.test_activity_test;
     }
 
     @Override

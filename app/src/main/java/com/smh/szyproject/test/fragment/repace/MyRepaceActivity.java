@@ -71,7 +71,7 @@ public class MyRepaceActivity extends ToolBarActivity implements View.OnClickLis
 
     @Override
     public int getLayoutId() {
-        return R.layout.my_qa_fragment;
+        return R.layout.test_my_qa_fragment;
     }
 
 

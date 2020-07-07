@@ -1,7 +1,6 @@
 package com.smh.szyproject.test.im.messages;
 
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -40,7 +39,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.hjq.permissions.Permission;
-import com.hjq.permissions.XXPermissions;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.test.im.models.DefaultUser;
@@ -98,7 +96,7 @@ public class MessageListActivity extends Activity implements View.OnTouchListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat);
+        setContentView(R.layout.test_activity_chat);
         this.mImm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         mWindow = getWindow();
         registerProximitySensorListener();

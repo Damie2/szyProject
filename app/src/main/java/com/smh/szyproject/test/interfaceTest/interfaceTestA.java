@@ -27,7 +27,7 @@ public class interfaceTestA extends BaseActivity implements StatusAction {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_test;
+        return R.layout.test_activity_test;
     }
 
     @Override
@@ -63,7 +63,7 @@ public class interfaceTestA extends BaseActivity implements StatusAction {
     }
 
     public void tv_next(View view) {
-        PopupWindowHelper helper = new PopupWindowHelper(this,R.layout.popwin_demo);
+        PopupWindowHelper helper = new PopupWindowHelper(this,R.layout.test_popwin_demo);
         helper.show(view);
     }
 }

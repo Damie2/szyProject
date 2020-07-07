@@ -14,7 +14,7 @@ import java.lang.Exception
 class HelloWord : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test)
+        setContentView(R.layout.test_activity_test)
         varDecal()
         BooleanTest()
         createFun()

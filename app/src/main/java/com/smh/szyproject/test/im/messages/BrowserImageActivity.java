@@ -37,7 +37,7 @@ public class BrowserImageActivity extends Activity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_image_browser);
+        setContentView(R.layout.test_activity_image_browser);
         mPathList = getIntent().getStringArrayListExtra("pathList");
         mMsgIdList = getIntent().getStringArrayListExtra("idList");
         mViewPager = (ImgBrowserViewPager) findViewById(R.id.img_browser_viewpager);

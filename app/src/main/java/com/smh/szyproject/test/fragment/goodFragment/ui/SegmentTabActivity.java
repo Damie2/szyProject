@@ -31,7 +31,7 @@ public class SegmentTabActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_segment_tab);
+        setContentView(R.layout.test_activity_segment_tab);
 
         for (String title : mTitles_3) {
             mFragments.add(SimpleCardFragment.getInstance("Switch ViewPager " + title));

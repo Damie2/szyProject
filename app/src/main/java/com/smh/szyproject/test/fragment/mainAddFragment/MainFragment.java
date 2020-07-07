@@ -82,7 +82,7 @@ public class MainFragment extends BaseFragment {
     }
 
     public int getLayoutId() {
-        return R.layout.fragment_main;
+        return R.layout.test_fragment_main;
     }
 
 

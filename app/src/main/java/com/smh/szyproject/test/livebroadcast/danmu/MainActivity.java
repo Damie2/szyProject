@@ -161,7 +161,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_danmu_main);
+        setContentView(R.layout.test_activity_danmu_main);
         findViews();
     }
 

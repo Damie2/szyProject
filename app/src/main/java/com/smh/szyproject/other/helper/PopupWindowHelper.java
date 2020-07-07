@@ -21,7 +21,7 @@ public final class PopupWindowHelper implements PopupWindow.OnDismissListener {
 
 
 
-//    PopupWindowHelper helper = new PopupWindowHelper(this,R.layout.popwin_demo);
+//    PopupWindowHelper helper = new PopupWindowHelper(this,R.layout.test_popwin_demo);
 //        helper.show(view);
 
 

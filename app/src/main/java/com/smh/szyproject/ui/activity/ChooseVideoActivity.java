@@ -22,7 +22,7 @@ public class ChooseVideoActivity extends BaseActivity implements View.OnClickLis
     EditText editText;
     @Override
     public int getLayoutId() {
-        return R.layout.activity_choose_activity;
+        return R.layout.test_activity_choose_activity;
     }
 
     @Override

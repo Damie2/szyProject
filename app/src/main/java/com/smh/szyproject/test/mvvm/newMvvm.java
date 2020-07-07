@@ -30,14 +30,14 @@ public class newMvvm extends BaseActivity implements WebViewContract.View {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_new_mvvm;
+        return R.layout.test_activity_new_mvvm;
     }
 
     @Override
     public void init(Bundle savedInstanceState) {
         presenter = new WebViewPresenter(this, this);
         initPermissions();
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_new_mvvm);
+        binding = DataBindingUtil.setContentView(this, R.layout.test_activity_new_mvvm);
 
     }
     @Permissions(Permission.READ_PHONE_STATE)

@@ -39,7 +39,7 @@ public class LiveBroadcastActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_live_broadcast;
+        return R.layout.test_activity_live_broadcast;
     }
 
     @Override

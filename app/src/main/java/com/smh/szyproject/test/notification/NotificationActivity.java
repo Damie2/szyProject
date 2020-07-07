@@ -1,19 +1,14 @@
 package com.smh.szyproject.test.notification;
 
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.azhon.appupdate.utils.NotificationUtil;
-import com.smh.szyproject.MyApplication;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
-import com.smh.szyproject.other.helper.ActivityStackManager;
-import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.NotificationHelp;
-import com.smh.szyproject.other.utils.NotificationUtils;
 
 import butterknife.BindView;
 
@@ -29,7 +24,7 @@ public class NotificationActivity extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_test;
+        return R.layout.test_activity_test;
     }
 
 

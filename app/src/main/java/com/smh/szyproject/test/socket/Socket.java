@@ -15,7 +15,7 @@ public class Socket extends BaseActivity implements View.OnClickListener {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_socket_test;
+        return R.layout.test_activity_socket_test;
     }
 
     @Override

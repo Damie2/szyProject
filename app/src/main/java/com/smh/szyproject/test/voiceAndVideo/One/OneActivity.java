@@ -13,7 +13,7 @@ import com.smh.szyproject.common.base.BaseActivity;
 public class OneActivity extends BaseActivity {
     @Override
     public int getLayoutId() {
-        return R.layout.activity_voice_one_;
+        return R.layout.test_activity_voice_one_;
     }
 
     @Override

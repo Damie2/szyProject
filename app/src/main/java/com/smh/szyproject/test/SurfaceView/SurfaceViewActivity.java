@@ -21,7 +21,7 @@ public class SurfaceViewActivity extends BaseActivity implements View.OnClickLis
     SurfaceView surfaceView;
     @Override
     public int getLayoutId() {
-        return R.layout.activity_surfaceview_test;
+        return R.layout.test_activity_surfaceview;
     }
 
     @Override

@@ -94,7 +94,7 @@ public class ChatView extends RelativeLayout {
 
         // add Custom Menu View
         MenuManager menuManager = mChatInput.getMenuManager();
-        menuManager.addCustomMenu("MY_CUSTOM",R.layout.menu_text_item,R.layout.menu_text_feature);
+        menuManager.addCustomMenu("MY_CUSTOM",R.layout.menu_text_item,R.layout.test_menu_text_feature);
 
         // Custom menu order
         menuManager.setMenu(Menu.newBuilder().

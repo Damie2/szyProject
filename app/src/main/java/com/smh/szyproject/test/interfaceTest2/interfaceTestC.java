@@ -15,7 +15,7 @@ public class interfaceTestC extends BaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_test;
+        return R.layout.test_activity_test;
     }
 
     @Override

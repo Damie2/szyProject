@@ -20,7 +20,7 @@ public class VideoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video);
+        setContentView(R.layout.test_activity_video);
 
         String videoPath = getIntent().getStringExtra(VIDEO_PATH);
 

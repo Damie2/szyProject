@@ -323,7 +323,7 @@ public class UglyViewCacheStufferSampleActivity extends Activity implements View
                     @Override
                     public MyViewHolder onCreateViewHolder(int viewType) {
                         Log.e("DFM", "onCreateViewHolder:" + viewType);
-                        return new MyViewHolder(View.inflate(getApplicationContext(), R.layout.activity_danmu_view_cache, null));
+                        return new MyViewHolder(View.inflate(getApplicationContext(), R.layout.test_activity_danmu_view_cache, null));
                     }
 
                     @Override

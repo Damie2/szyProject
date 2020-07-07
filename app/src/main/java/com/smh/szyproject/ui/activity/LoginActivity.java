@@ -82,16 +82,10 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
                 .setListener(helper -> mPhoneView.getText().toString().length() == 11 &&
                         mPasswordView.getText().toString().length() >= 6)
                 .build();
-
-//        setOnClickListener(R.id.tv_login_forget, R.id.btn_login_commit, R.id.iv_login_qq, R.id.iv_login_wx);
-
         initData();
-
-
     }
 
     protected void initData() {
-
         mBodyLayout.postDelayed(() -> {
             // 因为在小屏幕手机上面，因为计算规则的因素会导致动画效果特别夸张，所以不在小屏幕手机上面展示这个动画效果
             if (mBlankView.getHeight() > mBodyLayout.getHeight()) {
@@ -151,8 +145,6 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     public void login_commit() {
         showToast("登录提交");
 //        loginSuccess();
-
-
     }
 
     @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
@@ -169,13 +161,14 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
         showToast("微信登录");
 //        Platform platform  = Platform.WECHAT;
 //        UmengClient.login(this, platform, this);
-        L.e("先搞成分享分享");
+
+        L.e("先搞分享");
         UmengShare.ShareData mData = new UmengShare.ShareData(this);
         mData.setShareTitle("我是title");
         mData.setShareUrl("https://github.com/getActivity/AndroidProject");
         mData.setShareDescription("描述");
         mData.setShareLogo("https://avatars1.githubusercontent.com/u/28616817?s=460&v=4");
-        UmengClient.share(this, Platform.QQ, mData, new UmengShare.OnShareListener() {
+        UmengClient.share(this, Platform.QZONE, mData, new UmengShare.OnShareListener() {
             @Override
             public void onSucceed(Platform platform) {
                 L.e("分享成功");

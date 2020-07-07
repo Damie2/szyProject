@@ -13,7 +13,7 @@ import com.smh.szyproject.other.utils.L
 class weituo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test)
+        setContentView(R.layout.test_activity_test)
 
         //类委托，就是把一个类交给另外一个类，通过by沟通，然后执行方法
 

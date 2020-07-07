@@ -8,7 +8,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context=".MainActivity" >
+     >
 
 
 
@@ -27,6 +27,6 @@
     <include android:id="@+id/media_controller"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        layout="@layout/activity_danmu_media_controller" />
+        layout="@layout/test_activity_danmu_media_controller" />
 
 </FrameLayout>

@@ -38,7 +38,7 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_down_load_test;
+        return R.layout.test_activity_down_load_test;
     }
 
     @Override

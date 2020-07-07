@@ -50,7 +50,7 @@ public class CommonTabActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_common_tab);
+        setContentView(R.layout.test_activity_common_tab);
 
         for (String title : mTitles) {
             mFragments.add(SimpleCardFragment.getInstance("Switch ViewPager " + title));

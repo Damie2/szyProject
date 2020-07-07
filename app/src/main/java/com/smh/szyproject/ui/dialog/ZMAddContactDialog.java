@@ -49,7 +49,7 @@ public class ZMAddContactDialog extends Dialog implements View.OnClickListener {
     public ZMAddContactDialog(@NonNull Context context, int themeResId, addListener mListener) {
         super(context, themeResId);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_zm_add_contact, null);
+        viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.test_dialog_zm_add_contact, null);
         ButterKnife.bind(this, viewGroup);
         btnComment.setOnClickListener(this);
         ivClose.setOnClickListener(this);

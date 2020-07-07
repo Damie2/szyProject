@@ -2,7 +2,6 @@ package com.smh.szyproject.test.camera;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -20,7 +19,6 @@ import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.utilCode.FileUtils;
 
 import java.io.File;
-import java.util.Date;
 
 import butterknife.BindView;
 
@@ -40,7 +38,7 @@ public class CameraActivityTwo extends BaseActivity {
     private int REQ_CODE = 0;
     @Override
     public int getLayoutId() {
-        return R.layout.activity_camera_test;
+        return R.layout.test_activity_camera_test;
     }
 
     @Override

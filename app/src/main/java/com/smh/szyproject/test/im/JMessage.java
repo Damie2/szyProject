@@ -10,8 +10,6 @@ import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.SoftHideKeyBoardUtil;
 
-import java.util.List;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.jpush.im.android.api.ChatRoomManager;
@@ -39,7 +37,7 @@ public class JMessage extends BaseActivity implements View.OnClickListener {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_jmessage_test;
+        return R.layout.test_activity_jmessage_test;
     }
 
     @Override
