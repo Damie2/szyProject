@@ -67,7 +67,7 @@
             android:value="640" />
 
         <activity
-            android:name=".test.MagicIndicator.MagicIndicatorActivity"
+            android:name=".test.fragment.allTablayoutFragment.ui.HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -137,13 +137,13 @@
         <!--         android:name=".test.tablayoutsamples.ui.SimpleHomeActivity"-->
         <!--         android:screenOrientation="portrait" />-->
         <activity
-            android:name=".test.fragment.goodFragment.ui.CommonTabActivity"
+            android:name=".test.fragment.allTablayoutFragment.ui.CommonTabActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".test.fragment.goodFragment.ui.SlidingTabActivity"
+            android:name=".test.fragment.allTablayoutFragment.ui.SlidingTabActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".test.fragment.goodFragment.ui.SegmentTabActivity"
+            android:name=".test.fragment.allTablayoutFragment.ui.SegmentTabActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.AboutActivity"

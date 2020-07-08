@@ -11,8 +11,8 @@ public class FragmentHelp {
 
     public void setCurrentFragment(String tag, Fragment defaultFragment) {
         this.currentFragment = fragmentManager.findFragmentByTag(tag);
-        if (currentFragment==null)
-            currentFragment=defaultFragment;
+        if (currentFragment == null)
+            currentFragment = defaultFragment;
     }
 
     public FragmentHelp(FragmentManager fragmentManager) {
@@ -20,23 +20,22 @@ public class FragmentHelp {
     }
 
     public void add(Fragment fragment, int id, String tag) {
-
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         //优先检查，fragment是否存在，避免重叠
         Fragment tempFragment = fragmentManager.findFragmentByTag(tag);
-
         if (null != tempFragment) {
             fragment = tempFragment;
         }
-        if (fragment.isAdded()) {
-            addOrShowFragment(fragmentTransaction, fragment, id, tag);
-        } else {
+        if (!fragment.isAdded() && fragmentManager.findFragmentByTag(tag) == null) {
             if (currentFragment != null && currentFragment.isAdded()) {
-                fragmentTransaction.hide(currentFragment).add(id, fragment, tag).commit();
+                fragmentTransaction.hide(currentFragment).add(id, fragment, tag).commitAllowingStateLoss();
+
             } else {
                 fragmentTransaction.add(id, fragment, tag).commit();
             }
             currentFragment = fragment;
+        } else {
+            addOrShowFragment(fragmentTransaction, fragment, id, tag);
         }
     }
 
@@ -49,7 +48,7 @@ public class FragmentHelp {
         if (currentFragment == fragment || currentFragment == null) {
             return;
         }
-        if (!fragment.isAdded()||fragment.isDetached()) { // 如果当前fragment未被添加，则添加到Fragment管理器中
+        if (!fragment.isAdded() || fragment.isDetached()) { // 如果当前fragment未被添加，则添加到Fragment管理器中
             transaction.hide(currentFragment).add(id, fragment, tag).commit();
         } else {
             transaction.hide(currentFragment).show(fragment).commit();

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".test.fragment.homeViewPagerFragment.HomeActivity">
+    tools:context=".test.fragment.lunzihomeViewPager.HomeActivity">
 
     <com.smh.szyproject.other.widget.NoScrollViewPager
         android:id="@+id/vp_home_pager"

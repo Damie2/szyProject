@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.fragment.mainAddFragment;
+package com.smh.szyproject.test.fragment.RYmainAddFragment;
 
 
 import android.graphics.Color;

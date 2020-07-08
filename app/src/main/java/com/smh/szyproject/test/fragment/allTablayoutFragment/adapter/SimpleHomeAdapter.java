@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.fragment.goodFragment.adapter;
+package com.smh.szyproject.test.fragment.allTablayoutFragment.adapter;
 
 import android.app.Activity;
 import android.content.Context;

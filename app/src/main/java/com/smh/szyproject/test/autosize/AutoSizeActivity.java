@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
 
 /**
  * author : smh
@@ -16,8 +17,10 @@ public class AutoSizeActivity extends BaseActivity {
         return R.layout.test_activity_test;
     }
 
+    int i = 0;
+
     @Override
     public void init(Bundle savedInstanceState) {
-
+       new Thread(()->{  }).start();
     }
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/ns"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <FrameLayout
+                android:id="@+id/fl_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="118px"
+                    android:gravity="center|bottom"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_invite_friend"
+                        android:layout_width="362px"
+                        android:layout_height="107px"
+                        android:gravity="center"
+                        android:text="邀请好友"
+                        android:textColor="#b8670e"
+                        android:textSize="30px" />
+
+                    <TextView
+                        android:id="@+id/tv_my_apprentice"
+                        android:layout_width="362px"
+                        android:layout_height="107px"
+                        android:gravity="center"
+                        android:text="我的徒弟"
+                        android:textColor="#36373d"
+                        android:textSize="30px" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tv_code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fl_top"
+                android:gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textSize="30px" />
+
+            <FrameLayout
+                android:id="@+id/rl_rv"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_below="@+id/tv_code"
+              />
+
+
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

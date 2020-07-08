@@ -383,5 +383,6 @@ public void onEvent*(**);
 
 }
 
-
-
+#immersionbar
+-keep class com.gyf.immersionbar.* {*;}
+ -dontwarn com.gyf.immersionbar.**

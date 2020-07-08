@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.fragment.mainAddFragment;
+package com.smh.szyproject.test.fragment.RYmainAddFragment;
 
 
 import android.os.Build;
@@ -15,8 +15,8 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseFragment;
 import com.smh.szyproject.other.Rx.databus.RegisterRxBus;
 import com.smh.szyproject.other.Rx.databus.RxBus;
-import com.smh.szyproject.test.fragment.goodFragment.ui.SimpleCardFragment;
-import com.smh.szyproject.test.fragment.goodFragment.utils.ViewFindUtils;
+import com.smh.szyproject.test.fragment.allTablayoutFragment.ui.SimpleCardFragment;
+import com.smh.szyproject.test.fragment.allTablayoutFragment.utils.ViewFindUtils;
 
 import java.util.ArrayList;
 

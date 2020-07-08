@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.fragment.goodFragment.ui;
+package com.smh.szyproject.test.fragment.allTablayoutFragment.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.smh.szyproject.test.fragment.goodFragment.adapter.SimpleHomeAdapter;
+import com.smh.szyproject.test.fragment.allTablayoutFragment.adapter.SimpleHomeAdapter;
 
 
 public class HomeActivity extends AppCompatActivity {

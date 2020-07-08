@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.fragment.homeViewPagerFragment;
+package com.smh.szyproject.test.fragment.lunzihomeViewPager;
 
 import android.view.View;
 

@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.fragment.homeViewPagerFragment;
+package com.smh.szyproject.test.fragment.lunzihomeViewPager;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -10,7 +10,7 @@ import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.gyf.immersionbar.ImmersionBar;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseFragment;
-import com.smh.szyproject.test.fragment.goodFragment.ui.SimpleCardFragment;
+import com.smh.szyproject.test.fragment.allTablayoutFragment.ui.SimpleCardFragment;
 
 import java.util.ArrayList;
 

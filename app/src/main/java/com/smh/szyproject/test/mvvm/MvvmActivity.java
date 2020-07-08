@@ -20,7 +20,7 @@ public class MvvmActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMvvmBinding activityMvvmBinding = DataBindingUtil.setContentView(this, R.layout.test_activity_mvvm);
+        ActivityMvvmBinding activityMvvmBinding = DataBindingUtil.setContentView(this, R.layout.activity_mvvm);
         User user = new User("321", "123");
         activityMvvmBinding.setUser(user);
     }

@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.fragment.goodFragment.entity;
+package com.smh.szyproject.test.fragment.allTablayoutFragment.entity;
 
 import com.flyco.tablayout.listener.CustomTabEntity;
 
