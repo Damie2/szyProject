@@ -62,11 +62,11 @@ public class RegisterActivity extends BaseActivity {
                 .build();
 
     }
-    @Override
-    public ImmersionBar createStatusBarConfig() {
-        // 不要把整个布局顶上去
-        return super.createStatusBarConfig().keyboardEnable(true);
-    }
+//    @Override
+//    public ImmersionBar createStatusBarConfig() {
+//        // 不要把整个布局顶上去
+//        return super.createStatusBarConfig().keyboardEnable(true);
+//    }
 
     @OnClick(R.id.cv_register_countdown)
     public void registerCountdown(){

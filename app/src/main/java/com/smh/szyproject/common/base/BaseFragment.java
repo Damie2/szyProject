@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.hjq.bar.TitleBar;
+import com.smh.szyproject.R;
 import com.smh.szyproject.other.Rx.databus.RxBus;
 import com.smh.szyproject.action.TitleBarAction;
 import com.smh.szyproject.other.utils.L;
@@ -31,12 +32,8 @@ import butterknife.Unbinder;
 public abstract class BaseFragment extends Fragment implements TitleBarAction {
     private View view;
     Unbinder unbinder;
-
-    /**
-     * 状态栏沉浸
-     */
+    /** 状态栏沉浸 */
     private ImmersionBar mImmersionBar;
-
     public View getRootView() {
         return view;
     }
@@ -53,19 +50,6 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
         setRetainInstance(true);
     }
 
-    /**
-     * 初始化沉浸式
-     */
-    protected void initImmersion() {
-        // 初始化沉浸式状态栏
-        if (isStatusBarEnabled()) {
-            statusBarConfig().init();
-            // 设置标题栏沉浸
-            if (mTitleBar != null) {
-                ImmersionBar.setTitleBar(this, mTitleBar);
-            }
-        }
-    }
 
     @Override
     @Nullable
@@ -76,44 +60,9 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
         return mTitleBar;
     }
 
-    /**
-     * 初始化沉浸式
-     */
-    private ImmersionBar statusBarConfig() {
-        //在BaseActivity里初始化
-        mImmersionBar = ImmersionBar.with(this)
-                // 默认状态栏字体颜色为黑色
-//                .statusBarDarkFont(statusBarDarkFont())
-                // 解决软键盘与底部输入框冲突问题，默认为false，还有一个重载方法，可以指定软键盘mode
-                .keyboardEnable(true);
-        return mImmersionBar;
-    }
-
-    /**
-     * 获取状态栏字体颜色
-     */
-    protected boolean statusBarDarkFont() {
-        // 返回真表示黑色字体
-        L.e("fragment");
-        return true;
-    }
 
     public void showToast(String msg){
         ToastUtils.showToastForText(getContext(),msg);
-    }
-
-    /**
-     * 是否在Fragment使用沉浸式
-     */
-    public boolean isStatusBarEnabled() {
-        return false;
-    }
-
-    /**
-     * 获取状态栏沉浸的配置对象
-     */
-    public ImmersionBar getStatusBarConfig() {
-        return mImmersionBar;
     }
 
 
@@ -139,17 +88,54 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
             getTitleBar().setOnTitleBarListener(this);
         }
         RxBus.getInstance().register(this);
-        initImmersion();
         //字体默认白底黑字
 //        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        //初始化沉浸式
         return view;
     }
+
+
+
+    /**
+     * 初始化沉浸式
+     * Init immersion bar.
+     */
+    protected void initImmersionBar() {
+        // 初始化沉浸式状态栏
+        createStatusBarConfig().init();
+        // 设置标题栏沉浸
+        if (mTitleBar != null) {
+            ImmersionBar.setTitleBar(this, mTitleBar);
+        }
+    }
+    /**
+     * 初始化沉浸式状态栏
+     */
+    protected ImmersionBar createStatusBarConfig() {
+        // 在BaseActivity里初始化
+        mImmersionBar = ImmersionBar.with(this);
+        return mImmersionBar;
+    }
+    /**
+     * 状态栏字体深色模式
+     */
+    protected boolean isStatusBarDarkFont() {
+        return true;
+    }
+
+    /**
+     * 获取状态栏沉浸的配置对象
+     */
+    @Nullable
+    public ImmersionBar getStatusBarConfig() {
+        return mImmersionBar;
+    }
+
 
     @Override
     public void onResume() {
         super.onResume();
         // 重新初始化状态栏
-        statusBarConfig().init();
 //        UmengClient.onResume(this);
     }
 
@@ -167,18 +153,10 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
         super.onActivityCreated(savedInstanceState);
         if ((getUserVisibleHint() && isFrist) || savedInstanceState != null) {
             isFrist = false;
+            initImmersionBar();
             init();
         }
     }
-
-//    @Override
-//    public void onHiddenChanged(boolean hidden) {
-//        super.onHiddenChanged(hidden);
-//        if(hidden&&isVisible()&&isFrist){
-//            isFrist = false;
-//            init(); // 加载数据的方法
-//        }
-//    }
 
 
     @Override

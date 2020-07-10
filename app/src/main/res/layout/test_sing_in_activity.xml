@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/user_background_F">
+
+    <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/rl_name_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/user_blue_A"
+        android:paddingTop="30px">
+
+
+        <RelativeLayout
+            android:id="@+id/rl_iv"
+            android:layout_width="88px"
+            android:layout_height="88px"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15px">
+
+            <ImageView
+                android:id="@+id/iv_user_club_icon"
+                android:layout_width="88px"
+                android:layout_height="88px" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34px"
+            android:layout_toRightOf="@id/rl_iv"
+            android:freezesText="true"
+            android:text="章建平"
+            android:textColor="@color/white"
+            android:textSize="30px" />
+
+        <RelativeLayout
+            android:id="@+id/rl_medal"
+            android:layout_width="wrap_content"
+            android:layout_height="40px"
+            android:layout_alignLeft="@id/tv_user_name"
+            android:layout_below="@id/tv_user_name"
+            android:layout_marginTop="20px"
+            android:background="@drawable/test_user_clob_value">
+
+            <ImageView
+                android:id="@+id/iv_medal"
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/copper" />
+
+            <TextView
+
+                android:id="@+id/iv_growth_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15px"
+                android:layout_toRightOf="@id/iv_medal"
+                android:paddingRight="26px"
+                android:text="成长值: 2000"
+                android:textColor="@color/user_gary_D"
+                android:textSize="24px" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/rl_club_sign"
+            android:layout_width="150px"
+            android:layout_height="60px"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30px"
+            android:background="@drawable/test_member_club">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12px"
+                android:gravity="center"
+                android:text="签到+5"
+                android:textColor="@color/white"
+                android:textSize="28px" />
+
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_member_card"
+            android:layout_width="match_parent"
+            android:layout_height="278px"
+            android:layout_below="@id/rl_medal"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="50px"
+            android:layout_marginTop="50px">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_member_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_name_iv">
+
+        <ImageView
+            android:id="@+id/iv_member_radian"
+            android:layout_width="match_parent"
+            android:layout_height="10px"
+            android:layout_alignParentTop="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/test_iv_member_radian" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_member_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_member_radian" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_member_list">
+
+        <TextView
+            android:id="@+id/czzsm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30px"
+            android:layout_marginTop="30px"
+            android:textColor="@color/user_gary_D"
+            android:textSize="30px"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/czzsm1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/czzsm"
+            android:layout_below="@id/czzsm"
+            android:layout_marginTop="24px"
+            android:textColor="@color/user_gary_D"
+            android:textSize="28px" />
+
+        <TextView
+            android:id="@+id/czzsm2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/czzsm1"
+            android:layout_below="@id/czzsm1"
+            android:textColor="@color/user_gary_D"
+            android:textSize="28px" />
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
+
+
+

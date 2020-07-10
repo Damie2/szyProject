@@ -1,35 +1,78 @@
+
 package com.smh.szyproject.other.utils;
-
-
+import android.content.ContentResolver;
 import android.content.Context;
-import android.util.Base64;
-import android.util.Log;
+import android.content.Intent;
+import android.content.res.AssetManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Typeface;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.webkit.MimeTypeMap;
+import android.widget.TextView;
 
+import com.smh.szyproject.MyApplication;
+
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.OutputStream;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
-/**
- * Created by Administrator on 2015/12/31 0031.
- */
 public class FileUtil {
+    //格式化的模板
+    private static final String TIME_FORMAT = "_yyyyMMdd_HHmmss";
+
+    private static final String SDCARD_DIR =
+            Environment.getExternalStorageDirectory().getPath();
+
+    //默认本地上传图片目录
+    public static final String UPLOAD_PHOTO_DIR =
+            Environment.getExternalStorageDirectory().getPath() + "/a_upload_photos/";
+
+    //网页缓存地址
+    public static final String WEB_CACHE_DIR =
+            Environment.getExternalStorageDirectory().getPath() + "/app_web_cache/";
+
+    //系统相机目录
+    public static final String CAMERA_PHOTO_DIR =
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath() + "/Camera/";
+
+    private static String getTimeFormatName(String timeFormatHeader) {
+        final Date date = new Date(System.currentTimeMillis());
+        //必须要加上单引号
+        final SimpleDateFormat dateFormat = new SimpleDateFormat("'" + timeFormatHeader + "'" + TIME_FORMAT, Locale.getDefault());
+        return dateFormat.format(date);
+    }
+
     /**
-     * 删除单个文件
+     * @param timeFormatHeader 格式化的头(除去时间部分)
+     * @param extension        后缀名
+     * @return 返回时间格式化后的文件名
+     */
+    public static String getFileNameByTime(String timeFormatHeader, String extension) {
+        return getTimeFormatName(timeFormatHeader) + "." + extension;
+    }
+
+    /**
+     * 删除文件
      *
-     * @param sPath 被删除文件的文件名
-     * @return 单个文件删除成功返回true，否则返回false
+     * @param sPath
      */
     public static void deleteFile(String sPath) {
-        Log.i("Xposed","要删除的文件： " + sPath);
         File file = new File(sPath);
         // 路径为文件且不为空则进行删除
         if (file.isFile() && file.exists()) {
@@ -37,36 +80,119 @@ public class FileUtil {
         }
     }
 
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    private static File createDir(String sdcardDirName) {
+        //拼接成SD卡中完整的dir
+        final String dir = SDCARD_DIR + "/" + sdcardDirName + "/";
+        final File fileDir = new File(dir);
+        if (!fileDir.exists()) {
+            fileDir.mkdirs();
+        }
+        return fileDir;
+    }
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    public static File createFile(String sdcardDirName, String fileName) {
+        return new File(createDir(sdcardDirName), fileName);
+    }
+
+    private static File createFileByTime(String sdcardDirName, String timeFormatHeader, String extension) {
+        final String fileName = getFileNameByTime(timeFormatHeader, extension);
+        return createFile(sdcardDirName, fileName);
+    }
+
+    //获取文件的MIME
+    public static String getMimeType(String filePath) {
+        final String extension = getExtension(filePath);
+        return MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
+    }
+
+    //获取文件的后缀名
+    public static String getExtension(String filePath) {
+        String suffix = "";
+        final File file = new File(filePath);
+        final String name = file.getName();
+        final int idx = name.lastIndexOf('.');
+        if (idx > 0) {
+            suffix = name.substring(idx + 1);
+        }
+        return suffix;
+    }
+
     /**
-     * 删除目录（文件夹）以及目录下的文件
-     *
-     * @param sPath 被删除目录的文件路径
-     * @return 目录删除成功返回true，否则返回false
+     * 流转字符串
      */
-    public static void deleteDirectory(String sPath) {
-        //如果sPath不以文件分隔符结尾，自动添加文件分隔符
-        if (!sPath.endsWith(File.separator)) {
-            sPath = sPath + File.separator;
-        }
-        File dirFile = new File(sPath);
-        //如果dir对应的文件不存在，或者不是一个目录，则退出
-        if (!dirFile.exists() || !dirFile.isDirectory()) {
-            return;
-        }
-        //删除文件夹下的所有文件(包括子目录)
-        File[] files = dirFile.listFiles();
-        for (int i = 0; i < files.length; i++) {
-            //删除子文件
-            if (files[i].isFile()) {
-                deleteFile(files[i].getAbsolutePath());
-            } //删除子目录
-            else {
-                deleteDirectory(files[i].getAbsolutePath());
+    public static String getStreamString(InputStream tInputStream) {
+        if (tInputStream != null) {
+
+            try {
+                BufferedReader tBufferedReader = new BufferedReader(new InputStreamReader(tInputStream));
+                StringBuffer tStringBuffer = new StringBuffer();
+                String sTempOneLine = new String("");
+                while ((sTempOneLine = tBufferedReader.readLine()) != null) {
+                    tStringBuffer.append(sTempOneLine);
+                }
+                return tStringBuffer.toString();
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
         }
-        //删除当前目录
-        dirFile.delete();
+        return null;
     }
+
+    /**
+     * 获取缓存大小
+     *
+     * @param context
+     * @return
+     * @throws Exception
+     */
+    public static String getTotalCacheSize(Context context) {
+        long cacheSize = 0;
+        try {
+            cacheSize = getFolderSize(context.getCacheDir());
+            if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+                cacheSize += getFolderSize(context.getExternalCacheDir());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return getFormatSize(cacheSize);
+    }
+
+    /**
+     * 清除缓存
+     *
+     * @param context
+     */
+    public static void clearAllCache(Context context) {
+        deleteDir(context.getCacheDir());
+        if (Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
+            deleteDir(context.getExternalCacheDir());
+        }
+    }
+
+    private static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
+    }
+
+    /**
+     * 格式化单位
+     *
+     * @param size
+     * @return
+     */
     public static String getFormatSize(double size) {
         double kiloByte = size / 1024;
         if (kiloByte < 1) {
@@ -98,102 +224,198 @@ public class FileUtil {
         return result4.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString()
                 + "TB";
     }
-    /**
-     * 复制文件
-     */
-    public static boolean copyFile(InputStream in, OutputStream out) {
+
+    // 获取文件大小
+    //Context.getExternalFilesDir() --> SDCard/Android/data/你的应用的包名/files/ 目录，一般放一些长时间保存的数据
+    //Context.getExternalCacheDir() --> SDCard/Android/data/你的应用包名/cache/目录，一般存放临时缓存数据
+    public static long getFolderSize(File file) throws Exception {
+        long size = 0;
         try {
-            byte[] buffer = new byte[1024];
-            int i = -1;
-            while ((i = in.read(buffer)) > 0) {
-                out.write(buffer, 0, i);
-                out.flush();
+            File[] fileList = file.listFiles();
+            for (int i = 0; i < fileList.length; i++) {
+                // 如果下面还有文件
+                if (fileList[i].isDirectory()) {
+                    size = size + getFolderSize(fileList[i]);
+                } else {
+                    size = size + fileList[i].length();
+                }
             }
         } catch (Exception e) {
-        } finally {
-            try {
-                out.close();
-                in.close();
-            } catch (IOException e) {
-                L.e(e);
-            }
-        }
-        return true;
-    }
-
-    public static void mkDir(String path) {
-        File file = new File(path);
-        if (!file.exists()) {
-            file.mkdirs();
-        }
-    }
-
-    public static void copyAssetsFile(Context context, String outDir, String assetsName) {
-        try {
-            InputStream open = context.getAssets().open(assetsName);
-            File file = new File(outDir);
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream out = new FileOutputStream(file);
-            copyFile(open, out);
-        } catch (IOException e) {
-            L.e(e);
-        }
-    }
-
-    public static boolean saveString(String str, String filePath) {
-
-        if (isFileExist(filePath))
-            new File(filePath).delete();
-
-        FileWriter writer = null;
-        try {
-            writer = new FileWriter(filePath);
-            writer.write(str);
-            writer.flush();
-            return true;
-        } catch (IOException e) {
             e.printStackTrace();
-            L.e(e);
-            if (isFileExist(filePath))
-                new File(filePath).delete();
+        }
+        return size;
+    }
+
+    /**
+     * 保存Bitmap到SD卡中
+     *
+     * @param dir      目录名,只需要写自己的相对目录名即可
+     * @param compress 压缩比例 100是不压缩,值约小压缩率越高
+     * @return 返回该文件
+     */
+    public static File saveBitmap(Bitmap mBitmap, String dir, int compress) {
+
+        final String sdStatus = Environment.getExternalStorageState();
+        // 检测sd是否可用
+        if (!sdStatus.equals(Environment.MEDIA_MOUNTED)) {
+            return null;
+        }
+        FileOutputStream fos = null;
+        BufferedOutputStream bos = null;
+        File fileName = createFileByTime(dir, "DOWN_LOAD", "jpg");
+        try {
+            fos = new FileOutputStream(fileName);
+            bos = new BufferedOutputStream(fos);
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, compress, bos);// 把数据写入文件
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } finally {
             try {
-                if (writer != null)
-                    writer.close();
+
+                if (bos != null) {
+                    bos.flush();
+                }
+                if (bos != null) {
+                    bos.close();
+                }
+                //关闭流
+                if (fos != null) {
+                    fos.flush();
+                }
+                if (fos != null) {
+                    fos.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        return false;
+        refreshDCIM();
+
+        return fileName;
     }
 
-    public static String readString(String filePath) {
-        if (!isFileExist(filePath)) {
-            return null;
-        }
 
-        String content = "";
-        BufferedReader reader = null;
+
+    /**
+     * 通知系统刷新系统相册，使照片展现出来
+     */
+    private static void refreshDCIM() {
+        if (Build.VERSION.SDK_INT >= 19) {
+            //兼容android4.4版本，只扫描存放照片的目录
+            MediaScannerConnection.scanFile(MyApplication.getApplication(),
+                    new String[]{Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath()},
+                    null, null);
+        } else {
+            //扫描整个SD卡来更新系统图库，当文件很多时用户体验不佳，且不适合4.4以上版本
+            MyApplication.getApplication().sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://" +
+                    Environment.getExternalStorageDirectory())));
+        }
+    }
+
+    /**
+     * 读取raw目录中的文件,并返回为字符串
+     */
+    public static String getRawFile(int id) {
+        final InputStream is = MyApplication.getApplication().getResources().openRawResource(id);
+        final BufferedInputStream bis = new BufferedInputStream(is);
+        final InputStreamReader isr = new InputStreamReader(bis);
+        final BufferedReader br = new BufferedReader(isr);
+        final StringBuilder stringBuilder = new StringBuilder();
+        String str;
         try {
-            reader = new BufferedReader(new FileReader(filePath));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content += line;
+            while ((str = br.readLine()) != null) {
+                stringBuilder.append(str);
             }
-        } catch (Exception e) {
-            L.e(e);
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (reader != null)
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                br.close();
+                isr.close();
+                bis.close();
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        return content;
+        return stringBuilder.toString();
+    }
+
+
+    public static void setIconFont(String path, TextView textView) {
+        final Typeface typeface = Typeface.createFromAsset(MyApplication.getApplication().getAssets(), path);
+        textView.setTypeface(typeface);
+    }
+
+    /**
+     * 读取assets目录下的文件,并返回字符串
+     */
+    public static String getAssetsFile(String name) {
+        InputStream is = null;
+        BufferedInputStream bis = null;
+        InputStreamReader isr = null;
+        BufferedReader br = null;
+        StringBuilder stringBuilder = null;
+        final AssetManager assetManager = MyApplication.getApplication().getAssets();
+        try {
+            is = assetManager.open(name);
+            bis = new BufferedInputStream(is);
+            isr = new InputStreamReader(bis);
+            br = new BufferedReader(isr);
+            stringBuilder = new StringBuilder();
+            String str;
+            while ((str = br.readLine()) != null) {
+                stringBuilder.append(str);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if (isr != null) {
+                    isr.close();
+                }
+                if (bis != null) {
+                    bis.close();
+                }
+                if (is != null) {
+                    is.close();
+                }
+                assetManager.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (stringBuilder != null) {
+            return stringBuilder.toString();
+        } else {
+            return null;
+        }
+    }
+
+    public static String getRealFilePath(final Context context, final Uri uri) {
+        if (null == uri) return null;
+        final String scheme = uri.getScheme();
+        String data = null;
+        if (scheme == null)
+            data = uri.getPath();
+        else if (ContentResolver.SCHEME_FILE.equals(scheme)) {
+            data = uri.getPath();
+        } else if (ContentResolver.SCHEME_CONTENT.equals(scheme)) {
+            final Cursor cursor = context.getContentResolver().query(uri, new String[]{MediaStore.Images.ImageColumns.DATA}, null, null, null);
+            if (null != cursor) {
+                if (cursor.moveToFirst()) {
+                    final int index = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA);
+                    if (index > -1) {
+                        data = cursor.getString(index);
+                    }
+                }
+                cursor.close();
+            }
+        }
+        return data;
     }
 
     /**
@@ -204,72 +426,5 @@ public class FileUtil {
     public static boolean isFileExist(String filePath) {
         File data = new File(filePath);
         return data.exists();
-    }
-
-    public static Object readObjectFromFile(String filePath) {
-
-        if (!isFileExist(filePath))
-            return null;
-
-        FileInputStream fis = null;
-        ObjectInputStream ois = null;
-        try {
-            fis = new FileInputStream(filePath);
-            ois = new ObjectInputStream(fis);
-            return ois.readObject();
-        } catch (Exception e) {
-            L.e(e);
-        } finally {
-            try {
-                if (fis != null)
-                    fis.close();
-                if (ois != null)
-                    ois.close();
-            } catch (IOException e) {
-                L.e(e);
-            }
-        }
-        return null;
-    }
-
-    public static boolean writeObjectToFile(Object object, String filePath) {
-
-        if (isFileExist(filePath))
-            new File(filePath).delete();
-
-        FileOutputStream fos = null;
-        ObjectOutputStream oos = null;
-        try {
-            fos = new FileOutputStream(filePath);
-            oos = new ObjectOutputStream(fos);
-            oos.writeObject(object);
-            oos.flush();
-            return true;
-        } catch (Exception e) {
-            L.e(e);
-        } finally {
-            try {
-                if (fos != null)
-                    fos.close();
-                if (oos != null)
-                    oos.close();
-            } catch (IOException e) {
-                L.e(e);
-            }
-        }
-        return false;
-    }
-
-    public static String getFileBase64Str(File file) {
-        try {
-            InputStream in = new FileInputStream(file);
-            byte[] data = new byte[in.available()];
-            in.read(data);
-            in.close();
-            return new String(Base64.encodeToString(data, Base64.DEFAULT));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 }

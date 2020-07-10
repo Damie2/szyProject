@@ -18,11 +18,7 @@ public class TestFragment2 extends BaseFragment {
     protected int getLayoutId() {
         return R.layout.fragment_test2;
     }
-    @Override
-    public boolean isStatusBarEnabled() {
-        // 使用沉浸式状态栏
-        return !super.isStatusBarEnabled();
-    }
+
 
 
 }

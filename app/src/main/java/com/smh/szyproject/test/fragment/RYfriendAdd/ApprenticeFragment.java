@@ -37,7 +37,6 @@ public class ApprenticeFragment extends BaseFragment implements View.OnClickList
 
 
 
-        getStatusBarConfig().statusBarDarkFont(false);
     }
 
 //    @Override
@@ -52,11 +51,7 @@ public class ApprenticeFragment extends BaseFragment implements View.OnClickList
 //        }
 //    }
 
-    @Override
-    public boolean isStatusBarEnabled() {
-        // 使用沉浸式状态栏
-        return !super.isStatusBarEnabled();
-    }
+
 
     @Override
     protected int getLayoutId() {

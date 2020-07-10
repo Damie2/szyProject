@@ -49,10 +49,10 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      * 标题栏对象
      */
     private TitleBar mTitleBar;
-    /**
-     * 状态栏沉浸
-     */
+
+    /** 状态栏沉浸 */
     private ImmersionBar mImmersionBar;
+
 
     /**
      * 加载对话框
@@ -72,7 +72,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
         setContentView(getLayoutId());
         ButterKnife.bind(this);
         RxBus.getInstance().register(this);
-        init(savedInstanceState);
+
         PushAgent.getInstance(this).onAppStart();//友盟推送
         // 电量状态栏的颜色
 //        StatusBarCompat.setStatusBarColor(this, getStatusBarColor(), true);
@@ -83,9 +83,49 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
         if (getTitleBar() != null) {
             getTitleBar().setOnTitleBarListener(this);
         }
-        initImmersion();
         kProgressHUD = KProgressHUD.create(this);
+        initImmersionBar();
+        init(savedInstanceState);
     }
+
+    /**
+     * 初始化沉浸式
+     * Init immersion bar.
+     */
+    protected void initImmersionBar() {
+        // 初始化沉浸式状态栏
+            createStatusBarConfig().init();
+            // 设置标题栏沉浸
+            if (mTitleBar != null) {
+                ImmersionBar.setTitleBar(this, mTitleBar);
+            }
+    }
+    /**
+     * 初始化沉浸式状态栏
+     */
+    protected ImmersionBar createStatusBarConfig() {
+        // 在BaseActivity里初始化
+        mImmersionBar = ImmersionBar.with(this);
+        // 默认状态栏字体颜色为黑色
+//                .statusBarDarkFont(isStatusBarDarkFont());
+//        https://github.com/gyf-dev/ImmersionBar
+        return mImmersionBar;
+    }
+    /**
+     * 状态栏字体深色模式
+     */
+    protected boolean isStatusBarDarkFont() {
+        return true;
+    }
+
+    /**
+     * 获取状态栏沉浸的配置对象
+     */
+    @Nullable
+    public ImmersionBar getStatusBarConfig() {
+        return mImmersionBar;
+    }
+
 
     //调登录，如果没有登录就走登录，登录了就直接走要走的那个页面
 //    public void startActivityAfterLogin(Intent intent) {
@@ -151,58 +191,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
         super.onPause();
     }
 
-    /**
-     * 初始化沉浸式
-     */
-    protected void initImmersion() {
-        // 初始化沉浸式状态栏
-        if (isStatusBarEnabled()) {
-            createStatusBarConfig().init();
-            // 设置标题栏沉浸
-            if (mTitleBar != null) {
-                //这里设置titleBar的高度
-                ImmersionBar.setTitleBar(this, mTitleBar);
-            }
-        }
-    }
 
-    /**
-     * 是否使用沉浸式状态栏
-     */
-    protected boolean isStatusBarEnabled() {
-        return true;
-    }
-
-    /**
-     * 状态栏字体深色模式
-     */
-    protected boolean isStatusBarDarkFont() {
-        // 返回真表示黑色字体
-        L.e("activity");
-        return true;
-    }
-
-    /**
-     * 初始化沉浸式状态栏
-     */
-    protected ImmersionBar createStatusBarConfig() {
-        // 在BaseActivity里初始化
-        mImmersionBar = ImmersionBar.with(this)
-                // 默认状态栏字体颜色为黑色
-                .statusBarDarkFont(isStatusBarDarkFont());
-        return mImmersionBar;
-    }
-
-    /**
-     * 获取状态栏沉浸的配置对象
-     */
-    @Nullable
-    public ImmersionBar getStatusBarConfig() {
-        if (mImmersionBar != null) {
-            return mImmersionBar;
-        }
-        return null;
-    }
 
     /**
      * 设置标题栏的标题

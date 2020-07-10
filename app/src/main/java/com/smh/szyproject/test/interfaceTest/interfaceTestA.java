@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.gyf.immersionbar.OnKeyboardListener;
 import com.smh.szyproject.R;
 import com.smh.szyproject.action.StatusAction;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.helper.PopupWindowHelper;
+import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.SoftHideKeyBoardUtil;
 import com.smh.szyproject.other.widget.other.HintLayout;
 import com.smh.szyproject.other.utils.SPUtil;
@@ -34,8 +36,15 @@ public class interfaceTestA extends BaseActivity implements StatusAction {
     public void init(Bundle savedInstanceState) {
 //        SPUtil.putString("token","123",this);
         //输入法自动往上抬
-        SoftHideKeyBoardUtil.assistActivity(this);
-
+//        SoftHideKeyBoardUtil.assistActivity(this);
+        //输入法，软键盘 输入框 很好很强大
+        getStatusBarConfig().keyboardEnable(true).init();
+        getStatusBarConfig().keyboardEnable(true).setOnKeyboardListener(new OnKeyboardListener() {
+            @Override
+            public void onKeyboardChange(boolean isPopup, int keyboardHeight) {
+                L.e("软键盘弹出了");
+            }
+        }).init();
         SPUtil.clear(this);
         InterfaceA inter = new AA();
         inter.test();

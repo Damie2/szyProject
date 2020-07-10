@@ -15,6 +15,7 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseFragment;
 import com.smh.szyproject.other.Rx.databus.RegisterRxBus;
 import com.smh.szyproject.other.Rx.databus.RxBus;
+import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.test.fragment.allTablayoutFragment.ui.SimpleCardFragment;
 import com.smh.szyproject.test.fragment.allTablayoutFragment.utils.ViewFindUtils;
 
@@ -34,14 +35,16 @@ public class UserFragment extends BaseFragment {
     };
 
     private MyPagerAdapter mAdapter;
+
     @Override
     protected void init() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // 透明状态栏
-            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
-        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        RxBus.getInstance().register(this);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            // 透明状态栏
+//            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//        }
+//        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getStatusBarConfig().statusBarDarkFont(true).init();
+        L.e("UserFragment init");
         initView();
     }
 
@@ -67,24 +70,19 @@ public class UserFragment extends BaseFragment {
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!hidden) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                // 透明状态栏
-                getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            }
-            getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
+            L.e("UserFragment 展示");
+            getStatusBarConfig().statusBarDarkFont(true).init();
+        }else{
+            L.e("UserFragment 隐藏");
         }
     }
+
 
     @RegisterRxBus(1)
     public void getMsg(String push, int tag) {
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        RxBus.getInstance().unRegister(this);
-    }
+
     private class MyPagerAdapter extends FragmentPagerAdapter {
         public MyPagerAdapter(FragmentManager fm) {
             super(fm);

@@ -217,7 +217,7 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
     implementation 'com.jakewharton.rxrelay2:rxrelay:2.1.1'
-    implementation 'com.githang:status-bar-compat:latest.integration'
+//    implementation 'com.githang:status-bar-compat:latest.integration'
     implementation 'cc.cloudist.acplibrary:library:1.2.1'
     //Xutils
     implementation 'org.xutils:xutils:3.8.10'
@@ -341,6 +341,14 @@ dependencies {
     implementation 'com.rabtman.wsmanager:wsmanager:1.0.2'
 //WebSocket
     implementation "org.java-websocket:Java-WebSocket:1.5.1"
+
+    //阴影效果
+    implementation 'com.github.JuHonggang:ShadowDrawable:0.1'
+
+    //bannerViewPager
+    implementation 'com.bigkoo:convenientbanner:2.1.5'//地址变小写了，额。。。
+
+
 //    https://github.com/pinguo-zhouwei/MZBannerView  魅族的banner
 //    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
 

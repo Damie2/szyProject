@@ -35,6 +35,13 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void initView() {
+        ImmersionBar.with(this).fullScreen(true)
+                // 隐藏状态栏
+                .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
+                // 透明导航栏，不写默认黑色(设置此方法，fullScreen()方法自动为true)
+                .transparentNavigationBar().init();
+
+
         // 设置动画监听
         mLottieView.addAnimatorListener(new AnimatorListenerAdapter() {
 
@@ -50,19 +57,19 @@ public class SplashActivity extends BaseActivity {
 
     @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
     private void initPermission() {
-        startActivity(ZMactivity.class);
-        finish();
+//        startActivity(ZMactivity.class);
+//        finish();
     }
 
-    //隐藏状态栏
-    @Override
-    public ImmersionBar createStatusBarConfig() {
-        return super.createStatusBarConfig()
-                // 有导航栏的情况下，activity全屏显示，也就是activity最下面被导航栏覆盖，不写默认非全屏
-                .fullScreen(true)
-                // 隐藏状态栏
-                .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
-                // 透明导航栏，不写默认黑色(设置此方法，fullScreen()方法自动为true)
-                .transparentNavigationBar();
-    }
+//    //隐藏状态栏
+//    @Override
+//    public ImmersionBar createStatusBarConfig() {
+//        return super.createStatusBarConfig()
+//                // 有导航栏的情况下，activity全屏显示，也就是activity最下面被导航栏覆盖，不写默认非全屏
+//                .fullScreen(true)
+//                // 隐藏状态栏
+//                .hideBar(BarHide.FLAG_HIDE_STATUS_BAR)
+//                // 透明导航栏，不写默认黑色(设置此方法，fullScreen()方法自动为true)
+//                .transparentNavigationBar();
+//    }
 }

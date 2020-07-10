@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.MagicIndicator;
+package com.smh.szyproject.test.fragment.MagicIndicator;
 
 import android.graphics.Color;
 import android.view.Gravity;

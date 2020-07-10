@@ -16,7 +16,6 @@ public class TestFragment3 extends BaseFragment {
         // 给这个 ToolBar 设置顶部内边距，才能和 TitleBar 进行对齐
 //        ImmersionBar.setTitleBar(getActivity(), textView);//这个就相当于paddingbar的内边距
         //设置状态栏字体颜色深色还是浅色,true是浅色
-        getStatusBarConfig().statusBarDarkFont(false).init();
         setRightTitle("客服");
         setLeftTitle("返回");
 
@@ -38,11 +37,5 @@ public class TestFragment3 extends BaseFragment {
         return R.layout.fragment_test3;
     }
 
-
-    @Override
-    public boolean isStatusBarEnabled() {
-        // 使用沉浸式状态栏
-        return !super.isStatusBarEnabled();
-    }
 
 }

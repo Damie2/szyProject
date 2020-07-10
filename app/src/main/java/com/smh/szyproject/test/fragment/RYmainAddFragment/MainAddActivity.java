@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import com.azhon.appupdate.config.UpdateConfiguration;
 import com.azhon.appupdate.listener.OnButtonClickListener;
 import com.azhon.appupdate.listener.OnDownloadListener;
 import com.azhon.appupdate.manager.DownloadManager;
+import com.gyf.immersionbar.ImmersionBar;
 import com.smh.szyproject.Constants;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
@@ -76,9 +78,6 @@ public class MainAddActivity extends BaseActivity implements OnButtonClickListen
     }
 
     public void init(Bundle paramBundle) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            getWindow().getDecorView().setSystemUiVisibility( View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-        }
         RxBus.getInstance().register(this);
         if (paramBundle != null) {
             viewId = paramBundle.getInt("viewId");

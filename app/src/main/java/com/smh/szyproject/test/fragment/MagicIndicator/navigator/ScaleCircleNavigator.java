@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.MagicIndicator.navigator;
+package com.smh.szyproject.test.fragment.MagicIndicator.navigator;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -45,9 +45,5 @@ public class InviteFragment extends BaseFragment implements View.OnClickListener
 //        }
 //    }
 
-    @Override
-    public boolean isStatusBarEnabled() {
-        // 使用沉浸式状态栏
-        return !super.isStatusBarEnabled();
-    }
+
 }

@@ -43,7 +43,7 @@
     <color name="black60">#99000000</color>
 
     <!-- App 样式中引用的颜色 -->
-    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">@color/black</color>
     <color name="colorAccent">#5A8DDF</color>
     <color name="windowBackground">#F4F4F4</color>

@@ -42,7 +42,6 @@ public class TestFragment1 extends BaseFragment implements OnTabSelectListener {
 //        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 //        BarUtils.setStatusBarLightMode(getActivity(),false);
 
-        getStatusBarConfig().statusBarDarkFont(false);
         ImmersionBar.setTitleBar(this, mTablayout);
         for (String title : mTitles) {
             mFragments.add(SimpleCardFragment.getInstance(title));
@@ -58,11 +57,7 @@ public class TestFragment1 extends BaseFragment implements OnTabSelectListener {
         return R.layout.fragment_test1;
     }
 
-    @Override
-    public boolean isStatusBarEnabled() {
-        // 使用沉浸式状态栏
-        return !super.isStatusBarEnabled();
-    }
+
 
     @Override
     public void onTabSelect(int position) {

@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.MagicIndicator;
+package com.smh.szyproject.test.fragment.MagicIndicator;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,7 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
-import com.smh.szyproject.test.MagicIndicator.navigator.ScaleCircleNavigator;
+import com.smh.szyproject.test.fragment.MagicIndicator.navigator.ScaleCircleNavigator;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
@@ -56,8 +56,8 @@ public class MagicIndicatorActivity extends BaseActivity {
     public void init(Bundle savedInstanceState) {
         mViewPager.setAdapter(mExamplePagerAdapter);
 //        initMagicIndicator1();
-//        initMagicIndicator2();
-        initMagicIndicator3();
+        initMagicIndicator2();
+//        initMagicIndicator3();
     }
     private void initMagicIndicator1() {
         CommonNavigator commonNavigator = new CommonNavigator(this);

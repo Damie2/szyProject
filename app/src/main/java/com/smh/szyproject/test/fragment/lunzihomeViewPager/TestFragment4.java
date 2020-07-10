@@ -19,10 +19,5 @@ public class TestFragment4 extends BaseFragment {
     }
 
 
-    @Override
-    public boolean isStatusBarEnabled() {
-        // 使用沉浸式状态栏
-        return !super.isStatusBarEnabled();
-    }
 
 }

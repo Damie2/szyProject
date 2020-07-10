@@ -16,6 +16,7 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseFragment;
 import com.smh.szyproject.other.Rx.databus.RxBus;
 import com.smh.szyproject.other.utils.AppUtils;
+import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.ui.adapter.ViewPagerAdapter;
 
 import java.util.ArrayList;
@@ -36,11 +37,14 @@ public class MainFragment extends BaseFragment {
 
     @Override
     protected void init() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // 透明状态栏
-            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
-        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            // 透明状态栏
+//            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//        }
+//        getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+
+        getStatusBarConfig().statusBarDarkFont(false).init();
+        L.e("MainFragment init");
         mTablayout.setPadding(mTablayout.getPaddingLeft(), AppUtils.getStateBarHeight(getContext()), mTablayout.getPaddingRight(), mTablayout.getPaddingBottom());
         mTablayout.setSelectedTabIndicatorColor(Color.RED);
         mTablayout.setupWithViewPager(vp_content);
@@ -62,7 +66,7 @@ public class MainFragment extends BaseFragment {
         vp_content.setAdapter(new ViewPagerAdapter(getFragmentManager(), this.fragments.toArray(fragments), title));
         vp_content.setOffscreenPageLimit(this.fragments.size() - 1);
         //设置默认的tab样式
-        setTextCustomView( mTablayout.getTabAt(0));
+        setTextCustomView(mTablayout.getTabAt(0));
         mTablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -94,15 +98,26 @@ public class MainFragment extends BaseFragment {
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!hidden) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                // 透明状态栏
-                getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            }
-            getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            L.e("MainFragment 展示");
+            getStatusBarConfig().statusBarDarkFont(false).init();
+        }else{
+            L.e("MainFragment 隐藏");
         }
     }
 
-    private void setTextCustomView(TabLayout.Tab tab){
+
+//    public void onHiddenChanged(boolean hidden) {
+//        super.onHiddenChanged(hidden);
+//        if (!hidden) {
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                // 透明状态栏
+//                getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            }
+//            getActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+//        }
+//    }
+
+    private void setTextCustomView(TabLayout.Tab tab) {
         TextView textView = new TextView(getActivity());
         float selectedSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, 20, getResources().getDisplayMetrics());
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, selectedSize);
