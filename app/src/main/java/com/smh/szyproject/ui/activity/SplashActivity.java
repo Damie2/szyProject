@@ -11,6 +11,8 @@ import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
+import com.smh.szyproject.other.utils.L;
+import com.smh.szyproject.test.imTwo.activity.ChatActivity;
 
 import butterknife.BindView;
 
@@ -28,12 +30,11 @@ public class SplashActivity extends BaseActivity {
     public int getLayoutId() {
         return R.layout.activity_splash;
     }
-
+//    @Permissions({Permission.WRITE_EXTERNAL_STORAGE,Permission.READ_EXTERNAL_STORAGE,Permission.CAMERA,Permission.RECORD_AUDIO})
     @Override
     public void init(Bundle savedInstanceState) {
         initView();
     }
-
     private void initView() {
         ImmersionBar.with(this).fullScreen(true)
                 // 隐藏状态栏
@@ -41,24 +42,23 @@ public class SplashActivity extends BaseActivity {
                 // 透明导航栏，不写默认黑色(设置此方法，fullScreen()方法自动为true)
                 .transparentNavigationBar().init();
 
-
         // 设置动画监听
         mLottieView.addAnimatorListener(new AnimatorListenerAdapter() {
 
             @Override
             public void onAnimationEnd(Animator animation) {
 //                startActivity(HomeActivity.class);
-
+                L.e("???");
                 initPermission();
 
             }
         });
     }
 
-    @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
-    private void initPermission() {
-//        startActivity(ZMactivity.class);
-//        finish();
+    @Permissions({Permission.WRITE_EXTERNAL_STORAGE,Permission.READ_EXTERNAL_STORAGE,Permission.CAMERA,Permission.RECORD_AUDIO})
+    public void initPermission() {
+        L.e("开始跳了");
+        startActivityFinish(ChatActivity.class);
     }
 
 //    //隐藏状态栏

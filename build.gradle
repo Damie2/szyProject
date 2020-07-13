@@ -32,6 +32,7 @@ allprojects {
         jcenter()
         maven { url 'https://dl.bintray.com/umsdk/release' }
         maven { url 'https://jitpack.io' }
+        maven {url  "http://dl.bintray.com/lukaville/maven"}
     }
 }
 
