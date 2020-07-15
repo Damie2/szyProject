@@ -77,7 +77,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".test.imTwo.activity.ChatActivity"
+        <activity android:name=".test.zm.PickUpActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">

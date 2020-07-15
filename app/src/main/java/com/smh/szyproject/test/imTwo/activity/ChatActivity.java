@@ -8,22 +8,18 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
-
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.entity.LocalMedia;
 import com.nbsp.materialfilepicker.ui.FilePickerActivity;
@@ -44,13 +40,11 @@ import com.smh.szyproject.test.imTwo.util.PictureFileUtil;
 import com.smh.szyproject.test.imTwo.widget.MediaManager;
 import com.smh.szyproject.test.imTwo.widget.RecordButton;
 import com.smh.szyproject.test.imTwo.widget.StateButton;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -89,14 +83,12 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
      public static final int       REQUEST_CODE_VEDIO=1111;
      public static final int       REQUEST_CODE_FILE=2222;
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_im2_activity_chat);
         initContent();
     }
-
 
     private ImageView ivAudio;
 
@@ -146,16 +138,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }
             }
         });
-
      }
-
-
-
-
-
-
-
-
 
     @Override
     public void onRefresh() {
@@ -183,9 +166,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
           mAdapter.addData(0,mReceiveMsgList);
           mSwipeRefresh.setRefreshing(false);
     }
-
-
-
 
     private void initChatUi(){
         //mBtnAudio
@@ -264,9 +244,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
 
-
-
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -298,8 +275,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
 
-
-
     //文本消息
     private void sendTextMsg(String hello)  {
         final Message mMessgae=getBaseSendMessage(MsgType.TEXT);
@@ -312,8 +287,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
         updateMsg(mMessgae);
     }
 
-
-
     //图片消息
     private void sendImageMessage(final LocalMedia media) {
         final Message mMessgae=getBaseSendMessage(MsgType.IMAGE);
@@ -325,7 +298,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
         //模拟两秒后发送成功
         updateMsg(mMessgae);
     }
-
 
     //视频消息
     private void sendVedioMessage(final LocalMedia media) {
@@ -430,9 +402,5 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
                 mAdapter.notifyItemChanged(position);
             }
         }, 2000);
-
     }
-
-
-
 }

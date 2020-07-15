@@ -13,6 +13,7 @@ import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.test.imTwo.activity.ChatActivity;
+import com.smh.szyproject.test.zm.PickUpActivity;
 
 import butterknife.BindView;
 
@@ -55,10 +56,10 @@ public class SplashActivity extends BaseActivity {
         });
     }
 
-    @Permissions({Permission.WRITE_EXTERNAL_STORAGE,Permission.READ_EXTERNAL_STORAGE,Permission.CAMERA,Permission.RECORD_AUDIO})
+    @Permissions({Permission.WRITE_EXTERNAL_STORAGE})
     public void initPermission() {
         L.e("开始跳了");
-        startActivityFinish(ChatActivity.class);
+        startActivityFinish(PickUpActivity.class);
     }
 
 //    //隐藏状态栏

@@ -348,10 +348,14 @@ dependencies {
     //bannerViewPager
     implementation 'com.bigkoo:convenientbanner:2.1.5'//地址变小写了，额。。。
     //im 自定义UI
-    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.1'
+    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.8'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-
     implementation 'com.nbsp:library:1.8'
+    //常用 Dialog    https://github.com/afollestad/material-dialogs
+    //高版本kotlin 暂时不要更新
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+
+    
 //    https://github.com/pinguo-zhouwei/MZBannerView  魅族的banner
 //    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
 

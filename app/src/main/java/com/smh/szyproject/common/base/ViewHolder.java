@@ -39,12 +39,15 @@ public class ViewHolder extends RecyclerView.ViewHolder {
 
         return view;
     }
-    public void  putView(int id, View view){
+
+    public void putView(int id, View view) {
         Views.put(id, view);
     }
-    public String toString(){
+
+    public String toString() {
         return Views.toString();
     }
+
     public View getView() {
         return itemView;
     }

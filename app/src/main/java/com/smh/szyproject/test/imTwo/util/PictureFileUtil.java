@@ -27,8 +27,11 @@ public class PictureFileUtil {
         PictureSelector.create(mContext)
                 .openGallery(PictureMimeType.ofImage())// 全部.PictureMimeType.ofAll()、图片.ofImage()、视频.ofVideo()、音频.ofAudio()
                 .theme(R.style.picture_my_style)// 主题样式设置 具体参考 values/styles   用法：R.style.picture.white.style
-                .maxSelectNum(6)// 最大图片选择数量
-                .minSelectNum(1)// 最小选择数量
+                .maxSelectNum(4)// 最大图片选择数量
+                .minSelectNum(4)// 最小选择数量
+//                .maxSelectNum(6)// 最大图片选择数量
+//                .minSelectNum(1)// 最小选择数量
+
                 .imageSpanCount(3)// 每行显示个数
                 .selectionMode(6 > 1 ?
                         PictureConfig.MULTIPLE : PictureConfig.SINGLE)// 多选 or 单选

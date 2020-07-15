@@ -53,16 +53,6 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     /** 状态栏沉浸 */
     private ImmersionBar mImmersionBar;
 
-
-    /**
-     * 加载对话框
-     */
-    private BaseDialog mDialog;
-    /**
-     * 对话框数量
-     */
-    private int mDialogTotal;
-
     public KProgressHUD kProgressHUD;
 
 

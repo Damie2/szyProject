@@ -61,10 +61,8 @@ public class EmojiDao {
             L.e("message:"+e.getMessage());
             e.printStackTrace();
         }
-
         return emojiBeanList;
     }
-
 
     /**
      * 将assets目录下的文件拷贝到database中
