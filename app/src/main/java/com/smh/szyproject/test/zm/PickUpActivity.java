@@ -69,7 +69,6 @@ public class PickUpActivity extends BaseActivity implements View.OnClickListener
     @BindView(R.id.rl_picture)
     RelativeLayout rl_picture;
 
-
     private PictureCropParameterStyle mCropParameterStyle;
 
     private PictureParameterStyle mPictureParameterStyle;
@@ -159,7 +158,6 @@ public class PickUpActivity extends BaseActivity implements View.OnClickListener
     }
 
 
-
     //自定义dialog 自定义输入框
     private void setMessage() {
         MaterialDialog materialDialog = new MaterialDialog.Builder(this)
@@ -187,8 +185,6 @@ public class PickUpActivity extends BaseActivity implements View.OnClickListener
             materialDialog.dismiss();
         });
     }
-
-
 
 
     @Override
