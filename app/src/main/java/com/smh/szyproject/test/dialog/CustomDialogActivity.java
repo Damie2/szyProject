@@ -56,10 +56,11 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
         dialog = new CustomDialog(this,R.style.dialog_style)
                 .setTitle("我是标题")
 //                .setViewContent(view)
-                .setContent("我是内容")//这俩互斥
+                .setContent("嘿嘿嘿啊啊啊啊啊我是内容啊")//这俩互斥
                 .setRightBtnText("确定")
                 .setLeftBtnText("取消")
                 .setRightBtnColor(Color.RED)
+
                 .setLeftLinster(new OnLeftLinster() {
                     @Override
                     public void onClick(IDialogView view) {
