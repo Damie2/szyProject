@@ -77,7 +77,7 @@ public class PickUpActivity extends BaseActivity implements View.OnClickListener
     RecyclerView rv_data;
 
     @BindView(R.id.rl_center)
-    LinearLayout rl_center;
+    RelativeLayout rl_center;
 
     List list = new ArrayList();
 
@@ -141,6 +141,7 @@ public class PickUpActivity extends BaseActivity implements View.OnClickListener
         if (file.exists()) {
             L.d("路径是" + file.getAbsolutePath());
             showToast("保存成功");
+            //通知系统刷新相册
             Intent mediaScanIntent = new Intent(
                     Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
             Uri contentUri = Uri.fromFile(file);

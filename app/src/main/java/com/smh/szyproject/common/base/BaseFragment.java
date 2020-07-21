@@ -1,5 +1,7 @@
 package com.smh.szyproject.common.base;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -60,7 +62,9 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
         return mTitleBar;
     }
 
-
+    public void startActivity(Class<? extends Activity> cls) {
+        startActivity(new Intent(getActivity(), cls));
+    }
     public void showToast(String msg){
         ToastUtils.showToastForText(getContext(),msg);
     }
@@ -113,7 +117,7 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
      */
     protected ImmersionBar createStatusBarConfig() {
         // 在BaseActivity里初始化
-        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar = ImmersionBar.with(this).statusBarDarkFont(isStatusBarDarkFont());;
         return mImmersionBar;
     }
     /**

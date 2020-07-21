@@ -239,9 +239,14 @@
 -keep class com.google.gson.examples.android.model.** { *; }
 -keep class com.google.gson.* { *;}
 
+#轮子的
 #   XXPermissions
 -keep class com.hjq.permissions.** {*;}
 
+# 不混淆这个包下的字段名 easyHttp
+-keepclassmembernames class com.hjq.http.demo.http.** {
+    <fields>;
+}
 
 #友盟混淆
 -dontwarn com.umeng.**
@@ -275,7 +280,6 @@
 -keep public class android.webkit.**
 -keep enum com.facebook.**
 -keepattributes Exceptions,InnerClasses,Signature
-
 
 
 #微信混淆

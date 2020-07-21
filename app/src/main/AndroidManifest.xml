@@ -68,7 +68,7 @@
 
 
         <activity
-            android:name=".test.dialog.CustomDialogActivity"
+            android:name=".ui.activity.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -77,12 +77,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".test.zm.PickUpActivity"
+        <activity
+            android:name=".test.zmdatamanager.DataManagerHomeActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
 
         </activity>
+
+        <activity android:name=".test.zmdatamanager.activity.DetailActivity" />
+        <activity android:name=".test.zmdatamanager.activity.OrderActivity"/>
 
 
         <!--        <activity-->
@@ -105,7 +109,7 @@
         <activity android:name=".test.observer.activity.SecondActivity" />
         <activity android:name=".test.observer.activity.ThirdActivity" />
 
-        <activity android:name=".test.fragment.repace.MyRepaceActivity"/>
+        <activity android:name=".test.fragment.repace.MyRepaceActivity" />
         <!-- <activity -->
         <!-- android:name=".test.observer.activity.FirstActivity" -->
         <!-- android:name=".test.observer.activity.FirstActivity" -->

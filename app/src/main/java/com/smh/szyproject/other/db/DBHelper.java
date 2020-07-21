@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class DBHelper {
 
-    public static final String DB_NAME = "szy.db";
+    public static final String DB_NAME = "zm.db";
     public static final int DB_VERSION = 11;
 
     private static DBHelper dbHelper;
@@ -121,6 +121,10 @@ public class DBHelper {
         return null;
     }
 
+
+
+
+
     public <T> T findById(Class<T> t, Object id) {
         try {
             DbManager db = x.getDb(daoConfig);
@@ -131,16 +135,27 @@ public class DBHelper {
         return null;
     }
 
-    public <T> T findByLike(Class<T> t, String id, String value) {
+    public <T> List<T> findByLike(Class<T> t, String id, String value) {
         try {
             DbManager db = x.getDb(daoConfig);
-            return (T) db.selector(t).where(id, "LIKE", value + "%").findAll();
+            return (List<T>) db.selector(t).where(id, "LIKE", value + "%").findAll();
 
         } catch (DbException e) {
             e.printStackTrace();
         }
         return null;
     }
+
+//    public <T> T findByLikeByName(Class<T> t, String name, String value) {
+//        try {
+//            DbManager db = x.getDb(daoConfig);
+//            return (T) db.selector(t).where(name, "LIKE", "%"+value + "%").findAll();
+//
+//        } catch (DbException e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
 
 
     public void updateTable(DbManager db, Class<?> tClass) {

@@ -14,6 +14,7 @@ import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.test.imTwo.activity.ChatActivity;
 import com.smh.szyproject.test.zm.PickUpActivity;
+import com.smh.szyproject.test.zmdatamanager.DataManagerHomeActivity;
 
 import butterknife.BindView;
 
@@ -59,7 +60,7 @@ public class SplashActivity extends BaseActivity {
     @Permissions({Permission.WRITE_EXTERNAL_STORAGE})
     public void initPermission() {
         L.e("开始跳了");
-        startActivityFinish(PickUpActivity.class);
+        startActivityFinish(DataManagerHomeActivity.class);
     }
 
 //    //隐藏状态栏

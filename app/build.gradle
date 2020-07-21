@@ -247,8 +247,8 @@ dependencies {
     //今日头条适配
     implementation 'me.jessyan:autosize:1.2.1'
     //glide图片
-    implementation 'com.github.bumptech.glide:glide:4.10.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     //轮子的权限请求框架
     implementation 'com.hjq:xxpermissions:6.5'
@@ -351,9 +351,8 @@ dependencies {
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.8'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     implementation 'com.nbsp:library:1.8'
-    //常用 Dialog    https://github.com/afollestad/material-dialogs
-    //高版本kotlin 暂时不要更新
-    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
+    //常用 Dialog    https://github.com/afollestad/material-dialogs，高版本kotlin 暂时不要更新
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'//不要更新
 
     
 //    https://github.com/pinguo-zhouwei/MZBannerView  魅族的banner
@@ -374,12 +373,9 @@ dependencies {
 //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
 //    // 如果使用了 support fragment，请同时依赖
 //    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
-
 }
 
 import org.aspectj.tools.ajc.Main
-
-
 //getJavaCompileProvider
 //在构建工程时，执行编织
 project.android.applicationVariants.all { variant ->

@@ -95,9 +95,9 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      */
     protected ImmersionBar createStatusBarConfig() {
         // 在BaseActivity里初始化
-        mImmersionBar = ImmersionBar.with(this);
+        mImmersionBar = ImmersionBar.with(this)
         // 默认状态栏字体颜色为黑色
-//                .statusBarDarkFont(isStatusBarDarkFont());
+                .statusBarDarkFont(isStatusBarDarkFont());
 //        https://github.com/gyf-dev/ImmersionBar
         return mImmersionBar;
     }
@@ -155,6 +155,7 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
             }).start();
         }
     }
+
 
     public void showToast(String msg){
         ToastUtils.showToastForText(this,msg);

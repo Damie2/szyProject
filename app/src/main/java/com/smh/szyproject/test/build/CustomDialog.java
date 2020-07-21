@@ -58,7 +58,6 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
         ButterKnife.bind(this, viewGroup);
         btn_left.setOnClickListener(this);
         btn_right.setOnClickListener(this);
-
     }
 
     public CustomDialog setLeftLinster(OnLeftLinster leftLinster) {

@@ -60,7 +60,6 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
                 .setRightBtnText("确定")
                 .setLeftBtnText("取消")
                 .setRightBtnColor(Color.RED)
-
                 .setLeftLinster(new OnLeftLinster() {
                     @Override
                     public void onClick(IDialogView view) {

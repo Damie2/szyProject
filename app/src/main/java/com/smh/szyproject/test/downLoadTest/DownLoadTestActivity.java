@@ -3,6 +3,7 @@ package com.smh.szyproject.test.downLoadTest;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.arialyy.annotations.Download;
@@ -15,6 +16,7 @@ import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.FileUtil;
 import com.smh.szyproject.other.utils.L;
+import com.umeng.commonsdk.debug.E;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -59,14 +61,14 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         if (v.getId() == R.id.tv_down_load) {
             L.e("点击下载");
-//            downLoad();
+            downLoad();
         }
     }
 
     private void downLoad() {
-        method1();//xutils
+//        method1();//xutils
 //        method2();//okhttp的
-//        method4();//Retrofit
+        method4();//Retrofit
 //        method5();//多文件下载
     }
 
@@ -105,7 +107,44 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
 
     //Retrofit
     private void method4() {
+        RequestParams params = new RequestParams("https://jiaoliu168.com/api/room/stock");
+        params.addParameter("page", 1);
+        params.addParameter("size", 15);
+        try {
+            x.http().post(params, new Callback.CommonCallback<String>() {
 
+                @Override
+                public void onSuccess(String result) {
+                    L.e("结果是:" + result);
+                }
+
+                @Override
+                public void onError(Throwable ex, boolean isOnCallback) {
+                    L.e("onError");
+                }
+
+                @Override
+                public void onCancelled(CancelledException cex) {
+                    L.e("onCancelled");
+                }
+
+                @Override
+                public void onFinished() {
+                    L.e("onFinished");
+                }
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+//        try {
+//            String result = x.http().postSync(params, String.class);
+//            L.e("结果是:" + result);
+//        } catch (Throwable throwable) {
+//            throwable.printStackTrace();
+//        }
     }
 
 

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150px">
+
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="30px"
+        android:maxEms="6"
+        android:text="苹果"
+        android:textColor="#383838"
+        android:textSize="22px" />
+
+    <TextView
+        android:id="@+id/tv_general_agency_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="260px"
+        android:text="5.63"
+        android:textColor="#ec2135"
+        android:textSize="22px" />
+
+    <TextView
+        android:id="@+id/tv_agent_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="350px"
+        android:text="5.63"
+        android:textColor="#ec2135"
+        android:textSize="22px" />
+
+    <TextView
+        android:id="@+id/tv_retail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="430px"
+        android:text="+10.06%"
+        android:textSize="22px" />
+
+    <TextView
+        android:id="@+id/tv_extra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30px"
+        android:layout_toLeftOf="@id/tv_edit"
+        android:maxEms="4"
+        android:text="备注"
+        android:textColor="#ec2135"
+        android:textSize="22px" />
+
+
+    <TextView
+        android:id="@+id/tv_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30px"
+        android:text="编辑"
+        android:textSize="22px" />
+
+
+    <View
+        android:id="@+id/view_1_referral_code"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/user_background_G" />
+
+</RelativeLayout>
+
