@@ -4,18 +4,10 @@ apply plugin: 'kotlin-android'
 //apply plugin: 'channel'
 
 android {
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
-        }
-    }
+
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
     defaultConfig {
         applicationId "com.smh.szyproject"
         minSdkVersion 21
@@ -68,6 +60,21 @@ android {
             version "3.10.2"
         }
     }
+
+    // 设置存放 so 文件的目录
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    // 支持 Java JDK 8
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
     //将Eclipse项目导入到Android studio 中 很多点9图出现问题解决方法,用来关闭Android Studio的PNG合法性检查的，直接不让它检查。
     aaptOptions {
         cruncherEnabled = false
@@ -190,7 +197,7 @@ dependencies {
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     //butterknife
     implementation 'com.jakewharton:butterknife:10.2.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
@@ -221,17 +228,7 @@ dependencies {
     implementation 'cc.cloudist.acplibrary:library:1.2.1'
     //Xutils
     implementation 'org.xutils:xutils:3.8.10'
-    //下拉刷新
-//    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
-//    https://github.com/scwang90/SmartRefreshLayout
-    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
-    implementation 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
-    implementation 'com.scwang.smart:refresh-header-radar:2.0.1'       //雷达刷新头
-    implementation 'com.scwang.smart:refresh-header-falsify:2.0.1'     //虚拟刷新头
-    implementation 'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
-    implementation 'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
-    implementation 'com.scwang.smart:refresh-footer-ball:2.0.1'        //球脉冲加载
-    implementation 'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+
 
     // 日志的拦截器，也可以自行选择
     implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
@@ -325,6 +322,19 @@ dependencies {
 //      exo是谷歌下的IjkExoMediaPlayer，如果需要使用的话可以添加
     implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
     //上面是直播库
+    //下拉刷新
+//    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+//    https://github.com/scwang90/SmartRefreshLayout
+    implementation 'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
+    implementation 'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
+    implementation 'com.scwang.smart:refresh-header-radar:2.0.1'       //雷达刷新头
+    implementation 'com.scwang.smart:refresh-header-falsify:2.0.1'     //虚拟刷新头
+    implementation 'com.scwang.smart:refresh-header-material:2.0.1'    //谷歌刷新头
+    implementation 'com.scwang.smart:refresh-header-two-level:2.0.1'   //二级刷新头
+    implementation 'com.scwang.smart:refresh-footer-ball:2.0.1'        //球脉冲加载
+    implementation 'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
+
+
 //    烈焰弹幕使
     implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
     implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
@@ -354,6 +364,11 @@ dependencies {
     //常用 Dialog    https://github.com/afollestad/material-dialogs，高版本kotlin 暂时不要更新
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'//不要更新
 
+    //Android炫酷的底部切换效果
+    implementation 'com.roughike:bottom-bar:2.3.1'
+
+
+
     
 //    https://github.com/pinguo-zhouwei/MZBannerView  魅族的banner
 //    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
@@ -376,6 +391,27 @@ dependencies {
 //    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
 //    // 如果使用了 support fragment，请同时依赖
 //    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
+
+
+//    什么都没改
+//    20Mb
+//    17.7 Mb
+//    删除ndk1
+//    19.9
+//    17.5
+//    删除友盟多渠道配置2 中间那个==============友盟多渠道配置方式二===============
+//    19.9
+//    17.5
+//    删除Test文件夹及数据库db3
+//    17.6
+//    15.2
+//    减少引入的那些lib以及极光im4
+//    极光IM单独占用2M
+//    友盟 占用1.7
+//    6.18
+//    4.67
+
+
 }
 
 import org.aspectj.tools.ajc.Main
@@ -388,7 +424,7 @@ project.android.applicationVariants.all { variant ->
     javaCompile.doLast {
         println "执行AspectJ编译器......"
         String[] args = [
-                "-1.7",
+                "-1.8",
                 //aspectJ 处理的源文件
                 "-inpath", javaCompile.destinationDir.toString(),
                 //输出目录，aspectJ处理完成后的输出目录

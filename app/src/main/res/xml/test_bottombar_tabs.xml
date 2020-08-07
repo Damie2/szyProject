@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+<tab
+    id="@+id/conversations"
+    icon="@drawable/selector_home_found"
+    title="最爱"/>
+<tab
+    id="@+id/contacts"
+    icon="@drawable/selector_home_message"
+    title="邻居"
+
+    />
+    barColorWhenSelected="#5D4037"
+<tab
+    id="@+id/dynamic"
+    icon="@drawable/selector_home_me"
+    title="朋友"
+
+    />
+</tabs>

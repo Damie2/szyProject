@@ -67,6 +67,8 @@ public class MainFragment extends BaseFragment {
         vp_content.setOffscreenPageLimit(this.fragments.size() - 1);
         //设置默认的tab样式
         setTextCustomView(mTablayout.getTabAt(0));
+        //这个是默认展示第几个
+        mTablayout.getTabAt(2).select();
         mTablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -93,6 +95,7 @@ public class MainFragment extends BaseFragment {
     public void onDestroy() {
         super.onDestroy();
         RxBus.getInstance().unRegister(this);
+
     }
 
     public void onHiddenChanged(boolean hidden) {

@@ -24,7 +24,7 @@ import butterknife.OnClick;
  * date   : 2020/7/14 16:43
  * desc   :
  */
-public class PopWindowActivityTwo extends BaseActivity implements View.OnClickListener , CustomPopwindow.SelectClassifyLinstener {
+public class PopWindowActivityTwo extends BaseActivity implements View.OnClickListener, CustomPopwindow.SelectClassifyLinstener {
 
     CustomPopwindow popwindow;
 
@@ -43,10 +43,10 @@ public class PopWindowActivityTwo extends BaseActivity implements View.OnClickLi
 
     private void setPopupWindow() {
         List<String> list = new ArrayList<>();
-        for(int i=0;i<20;i++){
-            list.add(i+"");
+        for (int i = 0; i < 20; i++) {
+            list.add(i + "");
         }
-        popwindow = new CustomPopwindow(this,list,this,this);
+        popwindow = new CustomPopwindow(this, list, this, this);
     }
 
 
@@ -65,6 +65,6 @@ public class PopWindowActivityTwo extends BaseActivity implements View.OnClickLi
 
     @Override
     public void selected(String msg) {
-        L.e("内容是:"+msg);
+        L.e("内容是:" + msg);
     }
 }

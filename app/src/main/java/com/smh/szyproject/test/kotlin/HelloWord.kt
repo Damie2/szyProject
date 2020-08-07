@@ -34,9 +34,12 @@ class HelloWord : AppCompatActivity() {
         change()
         //异常处理
         Exceptions()
+        ExceptionsTwo()
         //递归
         recursion()
     }
+
+
 
     private fun recursion() {
         var num = 5
@@ -51,7 +54,18 @@ class HelloWord : AppCompatActivity() {
             L.e(""+e.printStackTrace())
 
         }
+
     }
+
+    private fun ExceptionsTwo() {
+        val number = try {
+            Integer.parseInt("1")
+        }catch (e:Exception){
+            return
+        }
+        L.e("")
+    }
+
 
     //字符串 数字转换
      fun change() {
@@ -118,7 +132,7 @@ class HelloWord : AppCompatActivity() {
     }
 
     //when表达式
-    fun whenFun(score: Int) {//类似java的swich
+    fun whenFun(score: Int) {//类似java的switch
         when (score) {
             10 -> L.e("10分")
             9 -> L.e("9分")
@@ -157,7 +171,6 @@ class HelloWord : AppCompatActivity() {
     private fun createFun() {
         //创建函数的方法
         plus(1, 2)
-
     }
 
     /**

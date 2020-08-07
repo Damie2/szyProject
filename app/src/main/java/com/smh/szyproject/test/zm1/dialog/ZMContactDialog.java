@@ -1,4 +1,4 @@
-package com.smh.szyproject.ui.dialog;
+package com.smh.szyproject.test.zm1.dialog;
 
 import android.app.Dialog;
 import android.content.Context;

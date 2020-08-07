@@ -1,19 +1,24 @@
 package com.smh.szyproject.test.build;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.smh.szyproject.R;
 import com.zhy.autolayout.utils.AutoUtils;
@@ -43,6 +48,8 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
     LinearLayout ll_content;
     @BindView(R.id.line_center)
     View line;
+    @BindView(R.id.rl_group)
+    RelativeLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,8 +94,14 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
         return this;
     }
 
+
     public CustomDialog setTitle(String text) {
         tv_title.setText(text);
+        return this;
+    }
+
+    public CustomDialog setTitleColor(int color) {
+        tv_title.setTextColor(color);
         return this;
     }
 

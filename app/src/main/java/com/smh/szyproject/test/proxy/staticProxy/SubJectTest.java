@@ -23,7 +23,5 @@ public class SubJectTest extends BaseActivity {
     }
 
     private void test() {
-
-
     }
 }

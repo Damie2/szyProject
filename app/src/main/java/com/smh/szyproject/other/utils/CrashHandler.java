@@ -154,6 +154,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 		}
 		// 使用反射来收集设备信息.在Build类中包含各种设备信息,
 		// 例如: 系统版本号,设备生产商 等帮助调试程序的有用信息
+
 		// 返回 Field 对象的一个数组，这些对象反映此 Class 对象所表示的类或接口所声明的所有字段
 		Field[] fields = Build.class.getDeclaredFields();
 		for (Field field : fields) {

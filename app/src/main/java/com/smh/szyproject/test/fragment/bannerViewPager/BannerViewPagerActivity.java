@@ -1,6 +1,5 @@
 package com.smh.szyproject.test.fragment.bannerViewPager;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -12,7 +11,6 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +22,7 @@ import butterknife.BindView;
  * date   : 2020/7/10 11:14
  * desc   :
  */
-public class BannerViewPager extends BaseActivity implements OnItemClickListener {
+public class BannerViewPagerActivity extends BaseActivity implements OnItemClickListener {
     @BindView(R.id.banner)
     ConvenientBanner convenientBanner;
 
@@ -63,7 +61,7 @@ public class BannerViewPager extends BaseActivity implements OnItemClickListener
                 new CBViewHolderCreator() {
                     @Override
                     public NetWorkImageHolderView createHolder(View itemView) {
-                        return new NetWorkImageHolderView(BannerViewPager.this,itemView);
+                        return new NetWorkImageHolderView(BannerViewPagerActivity.this,itemView);
                     }
 
                     @Override

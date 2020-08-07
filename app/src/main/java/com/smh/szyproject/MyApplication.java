@@ -1,9 +1,18 @@
 package com.smh.szyproject;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.os.Build;
 import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleOwner;
 
 import com.smh.szyproject.common.image.ImageLoader;
 import com.smh.szyproject.other.helper.ActivityStackManager;
@@ -13,6 +22,8 @@ import com.smh.szyproject.net.interceptor.InterceptorUtil;
 
 import com.smh.szyproject.other.umeng.UmengClient;
 import com.smh.szyproject.other.utils.CrashHandler;
+import com.smh.szyproject.other.utils.ToastUtils;
+import com.smh.szyproject.ui.activity.LoginActivity;
 
 import org.xutils.x;
 
@@ -64,7 +75,9 @@ public class MyApplication extends Application {
         initOKHttp();
         ActivityStackManager.getInstance().init(application);
         CrashHandler.getInstance().init(this);
+        initNetManager();
     }
+
 
     private void initSDK() {
         String curProcessName = getProcessName(this);
@@ -83,6 +96,28 @@ public class MyApplication extends Application {
         //极光im第六步
         JMessageClient.setDebugMode(true);
         JMessageClient.init(this);
+
+    }
+
+
+    private void initNetManager() {
+        //注册网络状态变化监听
+        ConnectivityManager connectivityManager = ContextCompat.getSystemService(application, ConnectivityManager.class);
+        if (connectivityManager != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            connectivityManager.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
+                @Override
+                public void onLost(@NonNull Network network) {
+                    super.onLost(network);
+                    Activity topActivity = ActivityStackManager.getInstance().getTopActivity();
+                    if (topActivity instanceof LifecycleOwner) {
+                        LifecycleOwner lifecycleOwner = (LifecycleOwner) topActivity;
+                        if (lifecycleOwner.getLifecycle().getCurrentState() == Lifecycle.State.RESUMED) {
+                            ToastUtils.showToastForText(application, "当前网络不可用");
+                        }
+                    }
+                }
+            });
+        }
     }
 
 
@@ -100,11 +135,6 @@ public class MyApplication extends Application {
                     .build();
         }
         return mOkHttpClient;
-    }
-
-
-    public static Context getContext() {
-        return context;
     }
 
 
@@ -134,9 +164,12 @@ public class MyApplication extends Application {
         return "";
     }
 
-
     public static MyApplication getApplication() {
         return application;
+    }
+
+    public static Context getContext() {
+        return context;
     }
 
     @Override
@@ -146,34 +179,5 @@ public class MyApplication extends Application {
         //MultiDex.install(this);
     }
 
+
 }
-/**
- * 　                   &#######&
- * 　                   #########&
- * 　                  ###########&
- * 　                 ##&#$###$  ##&
- * 　                ;###  ####& ####
- * 　                ###;#######  ####
- * 　               &###########  #####
- * 　              ;#########o##   #####
- * 　              #########  ##   ######
- * 　            ;########### ###   ######
- * 　            ################   #######
- * 　           #################;   ######,
- * 　           #############$####   #######
- * 　          ########&;,########   &#######
- * 　        ;#########   &###       ########
- * 　        ##########    ###;      ########
- * 　       ###########     ##$      ########
- * 　       ###########     ###     #########
- * 　       ##########&$     ##    ;########
- * 　       #########, !      ##   ########
- * 　      ;########&          ##  #######
- * 　        #&#####            ##   &#&
- * 　          o# &#             #;
- * 　             ##             ##
- * 　             &#&           ;##
- * 　              ##           ###
- * <p/>
- * 　　　　　　　　　葱官赐福　　百无禁忌
- */

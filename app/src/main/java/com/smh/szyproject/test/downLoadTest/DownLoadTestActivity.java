@@ -68,8 +68,8 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
     private void downLoad() {
 //        method1();//xutils
 //        method2();//okhttp的
-        method4();//Retrofit
-//        method5();//多文件下载
+//        method4();//Retrofit
+        method5();//多文件下载
     }
 
     //多文件下载
@@ -86,6 +86,7 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
 //        //.resume();    // 恢复任务
 
     }
+    //下面这两个是Aria的方法，直接贴上就行，下载的时候，会回调这俩方法
 
     @Download.onTaskRunning
     protected void running(DownloadTask task) {
@@ -105,7 +106,9 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
         L.e("文件的长度是:" + task.getFileSize());
     }
 
-    //Retrofit
+    //上面这两个是Aria的方法，直接贴上就行，下载的时候，会回调这俩方法
+
+    //Xutils不带进度条的
     private void method4() {
         RequestParams params = new RequestParams("https://jiaoliu168.com/api/room/stock");
         params.addParameter("page", 1);
@@ -153,7 +156,7 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
 
     }
 
-    //xutils
+    //xutils带进度条的
     private void method1() {
         L.e("开始下载");
         RequestParams params = new RequestParams(path);

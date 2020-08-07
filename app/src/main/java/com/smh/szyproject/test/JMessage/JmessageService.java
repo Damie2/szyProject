@@ -1,4 +1,4 @@
-package com.smh.szyproject.other.JMessage;
+package com.smh.szyproject.test.JMessage;
 
 import cn.jpush.android.service.JCommonService;
 

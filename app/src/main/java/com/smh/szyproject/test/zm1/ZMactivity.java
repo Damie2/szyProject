@@ -1,4 +1,4 @@
-package com.smh.szyproject.ui.activity;
+package com.smh.szyproject.test.zm1;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -17,13 +17,12 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.CheckNet;
 import com.smh.szyproject.aop.SingleClick;
-import com.smh.szyproject.other.db.DBHelper;
-import com.smh.szyproject.ui.adapter.ZmContactAdapter;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.common.base.CommonAdapter;
 import com.smh.szyproject.mvp.bean.ZmContact;
-import com.smh.szyproject.ui.dialog.ZMAddContactDialog;
+import com.smh.szyproject.other.db.DBHelper;
 import com.smh.szyproject.other.utils.L;
+import com.smh.szyproject.test.zm1.dialog.ZMAddContactDialog;
 
 import java.util.List;
 
@@ -56,7 +55,7 @@ public class ZMactivity extends BaseActivity implements View.OnClickListener, Zm
 
     @Override
     public int getLayoutId() {
-        return R.layout.zm_activity;
+        return R.layout.test_zm_activity;
     }
 
     @Override

@@ -22,6 +22,7 @@ public class SubJectTest extends BaseActivity {
 
         Subject subject = (Subject) Proxy.newProxyInstance(handler.getClass().getClassLoader(),realSubject.getClass().getInterfaces(),handler);
 
-        subject.sayGoodBye();
+//        subject.sayGoodBye();
+        subject.sayGoodBy11111e();
     }
 }

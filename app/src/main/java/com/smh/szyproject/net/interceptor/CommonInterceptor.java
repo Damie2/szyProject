@@ -23,6 +23,7 @@ public class CommonInterceptor implements Interceptor {
         Request newRequest = oldRequest.newBuilder()
                 .method(oldRequest.method(), oldRequest.body())
                 .url(authorizedUrlBuilder.build())
+//                .addHeader("","")//在这里添加header
                 .build();
 
         return chain.proceed(newRequest);

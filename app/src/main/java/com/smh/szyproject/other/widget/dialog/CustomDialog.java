@@ -57,6 +57,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
         ButterKnife.bind(this, viewGroup);
         btn_left.setOnClickListener(this);
         btn_right.setOnClickListener(this);
+//        setFinishOnTouchOutside
     }
 
     public CustomDialog setLeftLinster(OnLeftLinster leftLinster) {
@@ -88,6 +89,11 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
 
     public CustomDialog setTitle(String text) {
         tv_title.setText(text);
+        return this;
+    }
+
+    public CustomDialog setTitleColor(int color) {
+        tv_title.setTextColor(color);
         return this;
     }
 

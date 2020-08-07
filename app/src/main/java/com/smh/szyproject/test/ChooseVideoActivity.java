@@ -1,4 +1,4 @@
-package com.smh.szyproject.ui.activity;
+package com.smh.szyproject.test;
 
 import android.content.Intent;
 import android.os.Bundle;

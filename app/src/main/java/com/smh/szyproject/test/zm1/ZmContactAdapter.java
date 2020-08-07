@@ -1,4 +1,4 @@
-package com.smh.szyproject.ui.adapter;
+package com.smh.szyproject.test.zm1;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -11,7 +11,7 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.CommonAdapter;
 import com.smh.szyproject.common.base.ViewHolder;
 import com.smh.szyproject.mvp.bean.ZmContact;
-import com.smh.szyproject.ui.dialog.ZMContactDialog;
+import com.smh.szyproject.test.zm1.dialog.ZMContactDialog;
 import com.smh.szyproject.other.utils.L;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class ZmContactAdapter extends CommonAdapter<ZmContact> implements ZMCont
 
     @Override
     protected int getLayoutId(int viewType) {
-        return R.layout.zm_contact_item;
+        return R.layout.test_zm_contact_item;
     }
 
     @Override
