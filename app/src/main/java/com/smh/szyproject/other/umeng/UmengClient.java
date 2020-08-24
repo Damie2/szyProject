@@ -44,7 +44,7 @@ public final class UmengClient {
 
                 @Override
                 public void onFailure(String s, String s1) {
-                    L.e("失败:" + s + "," + s1);
+//                    L.e("失败:" + s + "," + s1);
                 }
             });
 

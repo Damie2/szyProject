@@ -19,7 +19,6 @@ public class enumActivity extends BaseActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        
         method1();
         method2();
     }

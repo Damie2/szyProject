@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smh.szyproject.other.widget.other.HintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.hjq.bar.TitleBar
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:backButton="false"
+            app:rightTitle="删除"
+            app:leftTitle="全选"
+            app:title="选择器" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/bar"
+            android:id="@+id/rv_check_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="25px"
+            android:layout_marginRight="25px" />
+
+        <TextView
+            android:id="@+id/tv_submit"
+            android:textSize="30px"
+            android:layout_marginRight="50px"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="50px"
+            android:layout_alignParentBottom="true"
+            android:text="提交"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+</com.smh.szyproject.other.widget.other.HintLayout>

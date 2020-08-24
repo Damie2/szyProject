@@ -67,15 +67,15 @@
             android:value="640" />
 
 <!--        BottomBarActivity-->
-        <activity
-            android:name=".test.dialog.CustomDialogActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+<!--        <activity-->
+<!--            android:name=".test.zkr.dispatchTouchEvent.ActivityEventTest"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:theme="@style/AppTheme">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
 
         <activity
             android:name=".test.zmdatamanager.DataManagerHomeActivity"
@@ -84,27 +84,28 @@
             android:windowSoftInputMode="stateHidden">
 
         </activity>
+        <activity android:name=".ui.activity.LoginActivity"/>
 
         <activity android:name=".test.zmdatamanager.activity.DetailActivity" />
         <activity android:name=".test.zmdatamanager.activity.OrderActivity"/>
 
 
-        <!--        <activity-->
-        <!--            android:name=".ui.activity.VideoActivity"-->
-        <!--            android:label="@string/app_name"-->
-        <!--            android:theme="@style/AppTheme"-->
-        <!--            android:configChanges="orientation|screenSize|keyboardHidden"-->
-        <!--            android:screenOrientation="portrait"-->
-        <!--            >-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.MAIN" />-->
+                <activity
+                    android:name=".test.ChooseVideoActivity"
+                    android:label="@string/app_name"
+                    android:theme="@style/AppTheme"
+                    android:configChanges="orientation|screenSize|keyboardHidden"
+                    android:screenOrientation="portrait"
+                    >
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
 
-        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-        <!--            </intent-filter>-->
-        <!--        </activity>-->
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
 
-        <!--        <activity android:name=".ui.activity.VideoActivity" android:configChanges="orientation|screenSize|keyboardHidden"-->
-        <!--            android:screenOrientation="portrait"/>-->
+                <activity android:name=".test.VideoActivity" android:configChanges="orientation|screenSize|keyboardHidden"
+                    android:screenOrientation="portrait"/>
 
         <activity android:name=".test.observer.activity.SecondActivity" />
         <activity android:name=".test.observer.activity.ThirdActivity" />

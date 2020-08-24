@@ -1,15 +1,10 @@
 package com.smh.szyproject.test.dialog;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.InputType;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
@@ -17,9 +12,7 @@ import com.smh.szyproject.test.build.CustomDialog;
 import com.smh.szyproject.test.build.IDialogView;
 import com.smh.szyproject.test.build.OnLeftLinster;
 import com.smh.szyproject.test.build.OnRightLinster;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.smh.szyproject.test.build.SimpleDialog;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -43,13 +36,48 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
     public void init(Bundle savedInstanceState) {
 //        dialog1();
 //        dialog2();
-        dialog3();
+//        dialog3();
 //        dialog4();
+        getContentView().postDelayed(() -> {
+            dialog5();
+        }, 3000);
     }
+
+    @Override
+    protected void onPause() {
+        L.e("onPause");
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        L.e("onResume");
+        super.onResume();
+    }
+
+    private void dialog5() {
+        new SimpleDialog(this, R.style.dialog_style)
+                .setContent("确定吗骚年？")
+                .setRightBtnText("确定")
+                .setLeftBtnText("取消")
+                .setLeftBtnGone()
+                .setRightBtnColor(Color.RED)
+                .setLeftLinster((IDialogView view) -> {
+                    L.e("点击左边");
+                    SimpleDialog dialog = (SimpleDialog) view;
+                    dialog.dismiss();
+                }).setRightLinster((IDialogView view) -> {
+            L.e("点击右边");
+            SimpleDialog dialog = (SimpleDialog) view;
+            dialog.dismiss();
+        }).show();
+    }
+
+
+
 
     private void dialog4() {
         new CustomDialog(this, R.style.dialog_style)
-
                 .setContent("我是内容")
                 .setRightBtnText("确定")
                 .setLeftBtnText("取消")

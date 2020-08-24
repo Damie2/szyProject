@@ -18,26 +18,36 @@ import cn.jzvd.Jzvd;
 public class VideoActivity extends BaseActivity {
     @BindView(R.id.jz_video)
     MyJzvdStd myJzvdStd;
-    private String url = "http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
+    //    private String url = "http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
+    private String url;
     @Override
     public int getLayoutId() {
         return R.layout.test_activity_jiaozi_video;
     }
 
+
+//    http://tcplay.vk0.com/live/inside.m3u8
+//    http://tcplay.vk0.com/live/inside.flv
+//
+//    rtmp://tcplay.vk0.com/live/inside
+
     @Override
     public void init(Bundle savedInstanceState) {
         ImmersionBar.setTitleBar(this, myJzvdStd);
-//        String  extra = getIntent().getStringExtra("extra");
-//        switch (extra){
-//            case "video1":
-//                url = "http://stream.vipniu.com/live/xunshi.m3u8";
-//                break;
-//            case "video2":
-//                url="http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
-//                break;
-//            default:
-//                break;
-//        }
+        String  extra = getIntent().getStringExtra("extra");
+        switch (extra){
+            case "video1":
+                url = "http://tcplay.vk0.com/live/inside.m3u8";
+                break;
+            case "video2":
+                url="http://tcplay.vk0.com/live/inside.flv";
+                break;
+            case "video3":
+                url="http://stream.vipniu.com/live/xunshi.m3u8";
+                break;
+            default:
+                break;
+        }
 
         myJzvdStd.setUp(url
                 , "");

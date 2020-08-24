@@ -41,6 +41,4 @@ public class ClassifyAdapter extends CommonAdapter<String> {
             tv_classify.setTextColor(Color.parseColor("#36373d"));
         }
     }
-
-
 }

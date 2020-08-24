@@ -13,6 +13,7 @@ import okhttp3.Response;
 public class CookieReadInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
+
         Request.Builder builder = chain.request().newBuilder();
         builder.addHeader("Cookie", SPUtil.getString("cookiess", "", MyApplication.getContext()));
         return chain.proceed(builder.build());

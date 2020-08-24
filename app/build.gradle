@@ -8,6 +8,10 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
 
+//    minSdkVersion 最低安装版本，APP必须在这个版本等级之上的设备才能安装 将
+//    targetSdkVersion目标  告知系统，如果应用的targetSdkVersion比系统版本低，那么在一些新特效上系统会做向下兼容处理，如果想要适配某条android版本，必须要将targetSdkVersion调到这个版本等级之上
+//    compileSdkVersion 编译源码版本，我们可以通过修改这个版本等级来改变我们在代码中所看到的 Android SDK 源码的版本，同时也决定了编译器在进行代码检查时所用的版本。
+
     defaultConfig {
         applicationId "com.smh.szyproject"
         minSdkVersion 21
@@ -185,6 +189,8 @@ repositories {
         dirs '../app/libs'
     }
 }
+
+//看异常，就用我 gradlew  assembleDebug  --stacktrace
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -367,6 +373,10 @@ dependencies {
     //Android炫酷的底部切换效果
     implementation 'com.roughike:bottom-bar:2.3.1'
 
+    //日志框架
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+
+    
 
 
     

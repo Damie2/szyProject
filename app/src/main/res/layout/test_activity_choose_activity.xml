@@ -17,13 +17,21 @@
         android:layout_below="@id/btn_video1"
         android:id="@+id/btn_video2"
         android:layout_marginTop="50dp"
-        android:text="直播地址一"
+        android:text="直播地址二"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_below="@id/btn_video2"
+        android:id="@+id/btn_video3"
+        android:layout_marginTop="50dp"
+        android:text="直播地址三"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+
     <EditText
         android:id="@+id/et_url"
-        android:layout_below="@id/btn_video2"
+        android:layout_below="@id/btn_video3"
         android:layout_marginTop="50dp"
         android:hint="请输入自定义地址"
         android:layout_width="match_parent"

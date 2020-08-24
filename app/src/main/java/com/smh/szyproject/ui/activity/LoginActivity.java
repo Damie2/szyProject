@@ -144,7 +144,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
     @OnClick(R.id.btn_login_commit)
     public void login_commit() {
         showToast("登录提交");
-//        loginSuccess();
+        loginSuccess();
     }
 
     @Permissions(Permission.WRITE_EXTERNAL_STORAGE)

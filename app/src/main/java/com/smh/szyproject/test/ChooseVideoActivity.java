@@ -30,7 +30,7 @@ public class ChooseVideoActivity extends BaseActivity implements View.OnClickLis
 
     }
 
-    @OnClick({R.id.btn_video1, R.id.btn_video2, R.id.btn_enter_video})
+    @OnClick({R.id.btn_video1, R.id.btn_video2,R.id.btn_video3, R.id.btn_enter_video})
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -39,6 +39,9 @@ public class ChooseVideoActivity extends BaseActivity implements View.OnClickLis
                 break;
             case R.id.btn_video2:
                 startActivity("video2");
+                break;
+            case R.id.btn_video3:
+                startActivity("video3");
                 break;
             case R.id.btn_enter_video:
                 String url = editText.getText().toString().trim();
@@ -61,6 +64,9 @@ public class ChooseVideoActivity extends BaseActivity implements View.OnClickLis
                  break;
              case "video2":
                  intent.putExtra("extra","video2");
+                 break;
+             case "video3":
+                 intent.putExtra("extra","video3");
                  break;
              default:
                  intent.putExtra("extra",s);

@@ -30,6 +30,9 @@ public class RetrofitUtil {
         return mInstance;
     }
 
+    //自定义view
+    //BaseBean
+
     public AllApi initRetrofit() {
         if (allApi == null) {
             Retrofit mRetrofit = new Retrofit.Builder()
