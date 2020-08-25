@@ -71,11 +71,11 @@ public class MyApplication extends Application {
         super.onCreate();
         application = this;
         context = getApplicationContext();
-        initSDK();
         initOKHttp();
         ActivityStackManager.getInstance().init(application);
         CrashHandler.getInstance().init(this);
         initNetManager();
+        initSDK();
     }
 
 
@@ -178,6 +178,4 @@ public class MyApplication extends Application {
         // 使用 Dex分包
         //MultiDex.install(this);
     }
-
-
 }

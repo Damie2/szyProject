@@ -430,6 +430,6 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
                 }
                 mAdapter.notifyItemChanged(position);
             }
-        }, 2000);
+        }, 200);
     }
 }

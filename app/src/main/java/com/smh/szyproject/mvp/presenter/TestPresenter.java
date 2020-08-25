@@ -37,6 +37,10 @@ public class TestPresenter implements TestContract.presenter {
                 .subscribe(new BaseObserver<JSONObject>() {
                     @Override
                     public void next(JSONObject data) {
+
+                        //c
+
+
 //                        Refund r = new Refund();
 //                        String jsonStr = JSONObject.toJSONString(r);
 //
