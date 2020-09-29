@@ -12,9 +12,20 @@ public class ApiAddress {
     public final static String getStatus = "/test/a";
 
 
+    public final static String getResult = "index/test";
+
+
     //1.安装APP后发送请求
     public final static String sendParameter = "/v1/app/device";
+    public final static String getName = "getName";
 
+
+    //call 登录
+    public final static String callLogin = "callLogin";
+
+    public final static String callGetUser = "call";
+
+    public final static String callSendResult = "callResponse";
 
 }
 

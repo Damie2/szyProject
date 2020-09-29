@@ -12,6 +12,7 @@ import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.common.base.CommonPopupWindow;
 import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.Utils;
+import com.smh.szyproject.test.rxjava.RxJavaActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,8 @@ public class PopWindowActivityTwo extends BaseActivity implements View.OnClickLi
             list.add(i + "");
         }
         popwindow = new CustomPopwindow(this, list, this, this);
+
+
     }
 
 
@@ -56,7 +59,11 @@ public class PopWindowActivityTwo extends BaseActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.tv_next:
 //                popwindow.showAtLocation(rl_root, Gravity.TOP, 0, -Utils.getNavigationBarSize(this).y);
-                popwindow.showAtLocation(rl_root, Gravity.BOTTOM, 0, -Utils.getNavigationBarSize(this).y);
+
+//                popwindow.showAtLocation(rl_root, Gravity.BOTTOM, 0, -Utils.getNavigationBarSize(this).y);
+
+                startActivity(RxJavaActivity.class);
+
                 break;
             default:
                 break;
@@ -66,5 +73,24 @@ public class PopWindowActivityTwo extends BaseActivity implements View.OnClickLi
     @Override
     public void selected(String msg) {
         L.e("内容是:" + msg);
+    }
+
+
+    @Override
+    protected void onPause() {
+        L.e("onPause");
+        super.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        L.e("onResume");
+        super.onResume();
+    }
+
+    @Override
+    protected void onStop() {
+        L.e("onStop");
+        super.onStop();
     }
 }

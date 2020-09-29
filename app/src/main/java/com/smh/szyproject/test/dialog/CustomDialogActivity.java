@@ -156,7 +156,7 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.tv_next) {
-            dialog.show();
+//            dialog.show();
         }
     }
 

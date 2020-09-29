@@ -2,6 +2,7 @@ package com.smh.szyproject.common.base;
 
 
 import com.smh.szyproject.other.Rx.ExceptionHandle;
+import com.smh.szyproject.other.utils.L;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
@@ -38,6 +39,7 @@ public abstract class BaseObserver<T> implements Observer<T> {
         if (t != null)
             next(t);
         else {
+            L.e("???");
             onError(new ExceptionHandle.ResponeThrowable(new Throwable("返回的数据是null或者返回数据的格式错误"), 0));
         }
     }

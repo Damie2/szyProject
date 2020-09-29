@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 //腾讯VasDolly多渠道打包插件
 //apply plugin: 'channel'
 
@@ -14,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId "com.smh.szyproject"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 100
         versionName "50.0"
@@ -200,6 +201,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.2.1'
     implementation 'androidx.navigation:navigation-ui:2.2.1'
     implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.paging:paging-runtime:2.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
@@ -254,7 +258,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     //轮子的权限请求框架
-    implementation 'com.hjq:xxpermissions:6.5'
+    implementation 'com.hjq:xxpermissions:8.6'
     implementation 'androidx.cardview:cardview:1.0.0'
     //dagger2
     implementation 'com.google.dagger:dagger:2.4'//指定注解处理器
@@ -289,7 +293,7 @@ dependencies {
     //微信分享、登录、收藏、支付
     api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.3.1'
     //友盟
-//    推送的
+    //推送的
     //基础组件库依赖(必须) Push 605版本必须升级新版本Common SDK
     implementation 'com.umeng.umsdk:common:2.2.2'
     implementation 'com.umeng.umsdk:utdid:1.5.2'
@@ -308,8 +312,8 @@ dependencies {
 
 //    多任务文件并行下载
     //    https://github.com/AriaLyy/Aria
-    implementation 'com.arialyy.aria:core:3.8.7'
-    annotationProcessor 'com.arialyy.aria:compiler:3.8.7'
+    implementation 'com.arialyy.aria:core:3.8.14'
+    annotationProcessor 'com.arialyy.aria:compiler:3.8.14'
     //腾讯VasDolly多渠道打包
 //    api 'com.leon.channel:helper:2.0.3'
 
@@ -370,23 +374,48 @@ dependencies {
     //常用 Dialog    https://github.com/afollestad/material-dialogs，高版本kotlin 暂时不要更新
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'//不要更新
 
+    //安全加密库
+    implementation "androidx.security:security-crypto:1.1.0-alpha01"
+
+    //jetPack 下的ktx
+    //看这个https://developer.android.google.cn/kotlin/ktx
+    implementation "androidx.core:core-ktx:1.3.1"
+    implementation "androidx.collection:collection-ktx:1.1.0"// 这个是collection,包含ArrayMap、LongParseArray、LruCache
+    implementation "androidx.fragment:fragment-ktx:1.2.5"//Fragment KTX 模块
+
+    //协程
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha01"
+    //navigation
+    implementation"androidx.navigation:navigation-fragment:2.3.0"
+    implementation"androidx.navigation:navigation-ui:2.3.0"
+    //room
+    implementation "androidx.room:room-runtime:2.2.5"
+    annotationProcessor "androidx.room:room-compiler:2.2.5"
+
+
+    //ViewModelProviders用的
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0-alpha01"
+
     //Android炫酷的底部切换效果
     implementation 'com.roughike:bottom-bar:2.3.1'
 
-    //日志框架
-    implementation 'com.jakewharton.timber:timber:4.5.1'
-
-    
+    //im直播LiveActivity用到的 共同头部+ViewPager+ListView(AdapterView)|RecyclerView|ScrollView|WebView
+    implementation 'com.github.cpoopc:scrollablelayoutlib:1.0.0'
 
 
-    
+
+
+
+
 //    https://github.com/pinguo-zhouwei/MZBannerView  魅族的banner
 //    implementation 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
 
 
-    //图片选择器，记得混淆
+    //图片选择器，记得混淆 im上面有用
 //    https://github.com/LuckSiege/PictureSelector
-//    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.1'
+//    implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.9'
     //多任务文件并行下载 工具，好使
 //    https://github.com/AriaLyy/Aria
 //    // 不小心的蓝牙  https://github.com/aicareles/Android-BLE
@@ -396,11 +425,11 @@ dependencies {
 
     //LeakCanary 内存泄漏检测工具
     // debug 版本依赖
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
-//    // release 版本依赖
-//    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
-//    // 如果使用了 support fragment，请同时依赖
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
+    // release 版本依赖
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
+    // 如果使用了 support fragment，请同时依赖
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
 
 
 //    什么都没改

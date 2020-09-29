@@ -32,7 +32,7 @@ public class RetrofitUtil {
 
     //自定义view
     //BaseBean
-
+//    https://blog.csdn.net/lmj623565791/article/details/51304204
     public AllApi initRetrofit() {
         if (allApi == null) {
             Retrofit mRetrofit = new Retrofit.Builder()
@@ -41,7 +41,7 @@ public class RetrofitUtil {
                     .baseUrl(ApiAddress.api)
                     // 设置解析转换工厂，用自己定义的
                     .addConverterFactory(JsonConverterFactory.create())//加密，解密工厂
-//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .addConverterFactory(GsonConverterFactory.create())//服务器返回的是json格式的数组,就用GsonConverterFactory
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
             allApi = mRetrofit.create(AllApi.class);

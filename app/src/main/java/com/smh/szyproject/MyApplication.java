@@ -23,7 +23,7 @@ import com.smh.szyproject.net.interceptor.InterceptorUtil;
 import com.smh.szyproject.other.umeng.UmengClient;
 import com.smh.szyproject.other.utils.CrashHandler;
 import com.smh.szyproject.other.utils.ToastUtils;
-import com.smh.szyproject.ui.activity.LoginActivity;
+import com.squareup.leakcanary.LeakCanary;
 
 import org.xutils.x;
 
@@ -97,6 +97,13 @@ public class MyApplication extends Application {
         JMessageClient.setDebugMode(true);
         JMessageClient.init(this);
 
+
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            // This process is dedicated to LeakCanary for heap analysis.
+            // You should not init your app in this process.
+            return;
+        }
+        LeakCanary.install(this);
     }
 
 
@@ -128,9 +135,8 @@ public class MyApplication extends Application {
                     .readTimeout(TIMEOUT, TimeUnit.SECONDS)//设置读取超时时间
                     .writeTimeout(TIMEOUT, TimeUnit.SECONDS)//设置写入超时时间
                     .addInterceptor(InterceptorUtil.LogInterceptor())//添加日志拦截器
-//                    .addInterceptor(new RequestEncryptInterceptor())//加密请求体了啊
-                    .addInterceptor(new CookieReadInterceptor())
-                    .addInterceptor(new CookiesSaveInterceptor())
+//                    .addInterceptor(new CookieReadInterceptor())
+//                    .addInterceptor(new CookiesSaveInterceptor())
 //                    .addInterceptor(new CommonInterceptor())
                     .build();
         }

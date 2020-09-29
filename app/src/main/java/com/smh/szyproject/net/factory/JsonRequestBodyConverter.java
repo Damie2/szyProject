@@ -2,6 +2,9 @@ package com.smh.szyproject.net.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;
+import com.smh.szyproject.Constants;
+import com.smh.szyproject.other.utils.AESUtil;
+import com.smh.szyproject.other.utils.GsonUtils;
 import com.smh.szyproject.other.utils.L;
 
 import java.io.IOException;
@@ -38,6 +41,11 @@ public class JsonRequestBodyConverter<T> implements Converter<T, RequestBody> {
     @Override
     public RequestBody convert(T value) throws IOException {
         String postBody = gson.toJson(value); //对象转化成json
+
+//        String paramStr = AESUtil.encrypt(GsonUtils.getGson().toJson(postBody), Constants.AES_KEY);
+//        L.e("请求的数据：" + paramStr);
+//        return RequestBody.create(MEDIA_TYPE, paramStr);
+
         L.e("请求的数据：" + postBody);
         return RequestBody.create(MEDIA_TYPE, postBody);
     }

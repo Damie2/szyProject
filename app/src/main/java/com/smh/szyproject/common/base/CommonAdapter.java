@@ -60,6 +60,7 @@ public abstract class CommonAdapter<T> extends RecyclerView.Adapter<ViewHolder> 
 
     protected abstract int getLayoutId(int viewType);
 
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         holder.getView().setOnClickListener(new View.OnClickListener() {

@@ -65,6 +65,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
         ButterKnife.bind(this, viewGroup);
         btn_left.setOnClickListener(this);
         btn_right.setOnClickListener(this);
+//        setCanceledOnTouchOutside(false);//这个无效的原因是xml布局是全屏的，所以无效，可以给其他布局设置个点击事件，点击后就退出全屏
     }
 
     public CustomDialog setLeftLinster(OnLeftLinster leftLinster) {

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,8 @@ import com.zhy.autolayout.AutoRelativeLayout;
 //import com.zhy.autolayout.AutoLinearLayout;
 //import com.zhy.autolayout.AutoRelativeLayout;
 
+import org.w3c.dom.Text;
+
 import butterknife.ButterKnife;
 
 /**
@@ -50,7 +53,9 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      */
     private TitleBar mTitleBar;
 
-    /** 状态栏沉浸 */
+    /**
+     * 状态栏沉浸
+     */
     private ImmersionBar mImmersionBar;
 
     public KProgressHUD kProgressHUD;
@@ -84,23 +89,25 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      */
     protected void initImmersionBar() {
         // 初始化沉浸式状态栏
-            createStatusBarConfig().init();
-            // 设置标题栏沉浸
-            if (mTitleBar != null) {
-                ImmersionBar.setTitleBar(this, mTitleBar);
-            }
+        createStatusBarConfig().init();
+        // 设置标题栏沉浸
+        if (mTitleBar != null) {
+            ImmersionBar.setTitleBar(this, mTitleBar);
+        }
     }
+
     /**
      * 初始化沉浸式状态栏
      */
     protected ImmersionBar createStatusBarConfig() {
         // 在BaseActivity里初始化
         mImmersionBar = ImmersionBar.with(this)
-        // 默认状态栏字体颜色为黑色
+                // 默认状态栏字体颜色为黑色
                 .statusBarDarkFont(isStatusBarDarkFont());
 //        https://github.com/gyf-dev/ImmersionBar
         return mImmersionBar;
     }
+
     /**
      * 状态栏字体深色模式
      */
@@ -157,8 +164,16 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     }
 
 
-    public void showToast(String msg){
-        ToastUtils.showToastForText(this,msg);
+    public void showToast(String msg) {
+        ToastUtils.showToastForText(this, msg);
+    }
+
+
+    public boolean isNotEmpty(String text) {
+        if (TextUtils.isEmpty(text))
+            return false;
+        else
+            return true;
     }
 
     public void showProgressHUD() {
@@ -177,11 +192,11 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
         // 重新初始化状态栏
 //        UmengClient.onResume(this);
     }
+
     protected void onPause() {
 //        UmengClient.onPause(this);
         super.onPause();
     }
-
 
 
     /**
@@ -262,10 +277,6 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
     public abstract void init(Bundle savedInstanceState);
 
 
-    public boolean afterM() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
-    }
-
     public void startActivity(Class<? extends Activity> cls) {
         startActivity(new Intent(this, cls));
     }
@@ -284,5 +295,12 @@ public abstract class BaseActivity extends AppCompatActivity implements TitleBar
      */
     public ViewGroup getContentView() {
         return findViewById(Window.ID_ANDROID_CONTENT);
+    }
+
+
+    @Override
+    public void startActivityForResult(Intent oldIntent, int requestCode, @Nullable Bundle options) {
+        super.startActivityForResult(oldIntent, requestCode, options);
+
     }
 }

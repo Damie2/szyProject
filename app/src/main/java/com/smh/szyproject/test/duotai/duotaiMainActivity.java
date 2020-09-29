@@ -11,6 +11,7 @@ import com.smh.szyproject.common.base.BaseActivity;
  * desc   :
  */
 public class duotaiMainActivity extends BaseActivity {
+    //程序员客栈  云沃客 解放号
     @Override
     public int getLayoutId() {
         return R.layout.test_activity_test;

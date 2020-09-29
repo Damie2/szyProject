@@ -29,7 +29,7 @@ public class ThreadTestActivity extends BaseActivity {
              * 然后Looper.loop()
              *
              * 主线程有自己的消息队列
-             * 一般线程创建的时候没有自己的消息队列
+             * 一般线程创建的时候没有自己的消息队列1
              * 所以处理时就要在主线程中完成
              *
              *

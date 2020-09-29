@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.smh.szyproject">
 
+
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
@@ -12,15 +13,28 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!--打电话权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 
+    <!--录音权限-->
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!--悬浮窗-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <!--读写权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <!--    极光im第三步-->
     <permission
         android:name="com.smh.szyproject.permission.JPUSH_MESSAGE"
@@ -50,6 +64,7 @@
         android:roundIcon="@mipmap/zx"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
 
         <!-- autoSize -->
@@ -66,9 +81,24 @@
             android:name="design_height_in_dp"
             android:value="640" />
 
-<!--        BottomBarActivity-->
-<!--        <activity-->
-<!--            android:name=".test.zkr.dispatchTouchEvent.ActivityEventTest"-->
+        <activity android:name=".test.call.CallMainActivity"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".test.jetpack.bilibiliJetPack.paging.PagingActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <!--        <activity-->
+<!--            android:name=".test.call.CallLoginActivity"-->
 <!--            android:label="@string/app_name"-->
 <!--            android:theme="@style/AppTheme">-->
 <!--            <intent-filter>-->
@@ -84,32 +114,46 @@
             android:windowSoftInputMode="stateHidden">
 
         </activity>
-        <activity android:name=".ui.activity.LoginActivity"/>
+        <activity android:name=".ui.activity.LoginActivity" />
 
         <activity android:name=".test.zmdatamanager.activity.DetailActivity" />
-        <activity android:name=".test.zmdatamanager.activity.OrderActivity"/>
+        <activity android:name=".test.zmdatamanager.activity.OrderActivity" />
+        <activity android:name=".test.rxjava.RxJavaActivity"/>
 
 
-                <activity
-                    android:name=".test.netTest.netTestActivity"
-                    android:label="@string/app_name"
-                    android:theme="@style/AppTheme"
-                    android:configChanges="orientation|screenSize|keyboardHidden"
-                    android:screenOrientation="portrait"
-                    >
-                    <intent-filter>
-                        <action android:name="android.intent.action.MAIN" />
+        <service android:name="com.smh.szyproject.test.call.SystemService"/>
+        <service android:name="com.smh.szyproject.test.call.ControlWindowService" />
 
-                        <category android:name="android.intent.category.LAUNCHER" />
-                    </intent-filter>
-                </activity>
+        <receiver android:name="com.smh.szyproject.test.call.BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
 
-                <activity android:name=".test.VideoActivity" android:configChanges="orientation|screenSize|keyboardHidden"
-                    android:screenOrientation="portrait"/>
+
+<!--        <activity android:name=".test.call.CallMainActivity"/>-->
+
+        <!--                <activity-->
+        <!--                    android:name=".test.netTest.netTestActivity"-->
+        <!--                    android:label="@string/app_name"-->
+        <!--                    android:theme="@style/AppTheme"-->
+        <!--                    android:configChanges="orientation|screenSize|keyboardHidden"-->
+        <!--                    android:screenOrientation="portrait"-->
+        <!--                    >-->
+        <!--                    <intent-filter>-->
+        <!--                        <action android:name="android.intent.action.MAIN" />-->
+
+        <!--                        <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--                    </intent-filter>-->
+        <!--                </activity>-->
+
+        <!--                <activity android:name=".test.VideoActivity" android:configChanges="orientation|screenSize|keyboardHidden"-->
+        <!--                    android:screenOrientation="portrait"/>-->
 
         <activity android:name=".test.observer.activity.SecondActivity" />
         <activity android:name=".test.observer.activity.ThirdActivity" />
 
+        <activity android:name=".test.TestActivity"/>
         <activity android:name=".test.fragment.repace.MyRepaceActivity" />
         <!-- <activity -->
         <!-- android:name=".test.observer.activity.FirstActivity" -->
@@ -355,7 +399,6 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".test.customView.CustomViewActivity" />
 
         <!--        上面都是友盟的，最后面一个主意-->
         <!--        下面是极光的-->

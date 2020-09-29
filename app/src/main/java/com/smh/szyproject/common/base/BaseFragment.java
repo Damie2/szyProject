@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,13 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
     }
     public void showToast(String msg){
         ToastUtils.showToastForText(getContext(),msg);
+    }
+
+    public boolean isNotEmpty(String text) {
+        if (TextUtils.isEmpty(text))
+            return false;
+        else
+            return true;
     }
 
 

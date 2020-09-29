@@ -66,7 +66,10 @@ class HelloWord : AppCompatActivity() {
         L.e("")
     }
 
-
+   /** 一款小额贷款类的APP，项目主要涉及贷款、还款等流程。 其中包括身份认证OCR、人脸识别、银行卡绑定、获取运营商报表认证等逻辑
+    * 该项目使用jsBridge等参与网页的交互
+    *
+*/
     //字符串 数字转换
      fun change() {
         var a = "123"
@@ -204,6 +207,7 @@ class HelloWord : AppCompatActivity() {
     fun varDecal() {
         //var是变量的意思
         var name = "张三"
+        var method ="ssss"
         //val是只读属性，不可改变
         val contury = "china"
         //指定数据类型

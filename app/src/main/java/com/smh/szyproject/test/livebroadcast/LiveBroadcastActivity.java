@@ -30,7 +30,8 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
  * https://blog.csdn.net/y331271939/article/details/83217507
  */
 public class LiveBroadcastActivity extends BaseActivity {
-    private String url = "http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
+//    private String url = "http://pull.6133.net/live/lovelife230515_360p/playlist.m3u8";
+    private String url = "http://player.alicdn.com/video/aliyunmedia.mp4";
 //    "http://stream.jiaoliu168.com/live/test.m3u8"
 
     @BindView(R.id.surface_view)

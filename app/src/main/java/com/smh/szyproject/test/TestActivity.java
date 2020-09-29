@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.mvp.bean.getStatus;
+import com.smh.szyproject.mvp.bean.sendId;
 import com.smh.szyproject.mvp.bean.testStatus;
 import com.smh.szyproject.mvp.module.TestContract;
 import com.smh.szyproject.mvp.presenter.TestPresenter;
@@ -41,5 +42,10 @@ public class TestActivity extends BaseActivity implements TestContract.View {
     @Override
     public void sendRequest(getStatus o) {
         L.e(""+o.getMessage());
+    }
+
+    @Override
+    public void sendId(sendId testStatus) {
+
     }
 }

@@ -1,9 +1,10 @@
 package com.smh.szyproject.test.downLoadTest;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.TextUtils;
 import android.view.View;
 
 import com.arialyy.annotations.Download;
@@ -16,7 +17,6 @@ import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.FileUtil;
 import com.smh.szyproject.other.utils.L;
-import com.umeng.commonsdk.debug.E;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -65,12 +65,30 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
+
+
     private void downLoad() {
 //        method1();//xutils
 //        method2();//okhttp的
 //        method4();//Retrofit
-        method5();//多文件下载
+//        method5();//多文件下载
+        call();
+
+        //https://github.com/hongyangAndroid/okhttputils
+        //鸿洋的okhttputils 也可以用
     }
+
+    @Permissions({Permission.CALL_PHONE})
+    public void call(){
+        L.e("走了？");
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        Uri data = Uri.parse("tel:" + "10086");
+        intent.setData(data);
+        startActivity(intent);
+    }
+
+
+
 
     //多文件下载
     private void method5() {
