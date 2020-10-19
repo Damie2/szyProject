@@ -13,27 +13,19 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseFragment;
 import com.smh.szyproject.other.Rx.databus.RegisterRxBus;
-import com.smh.szyproject.other.Rx.databus.RxBus;
 import com.smh.szyproject.other.db.DBHelper;
-import com.smh.szyproject.other.utils.GsonUtils;
 import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.test.build.CustomDialog;
 import com.smh.szyproject.test.build.IDialogView;
 import com.smh.szyproject.test.build.OnLeftLinster;
 import com.smh.szyproject.test.build.OnRightLinster;
-import com.smh.szyproject.test.zmdatamanager.activity.DetailActivity;
-import com.smh.szyproject.test.zmdatamanager.activity.OrderActivity;
 import com.smh.szyproject.test.zmdatamanager.adapter.OrderAdapter;
-import com.smh.szyproject.test.zmdatamanager.adapter.ProductAdapter;
 import com.smh.szyproject.test.zmdatamanager.bean.Order;
-import com.smh.szyproject.test.zmdatamanager.bean.Product;
 import com.smh.szyproject.ui.view.SpaceItemDecoration;
 
-import java.util.HashMap;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
  * author : smh
@@ -80,14 +72,14 @@ public class TestFragment2 extends BaseFragment {
                     .setRightBtnText("确定")
                     .setLeftBtnText("取消")
                     .setRightBtnColor(Color.BLUE)
-                    .setLeftLinster(new OnLeftLinster() {
+                    .setLeftListener(new OnLeftLinster() {
                         @Override
                         public void onClick(IDialogView view) {
                             L.e("点击左边");
                             CustomDialog dialog = (CustomDialog) view;
                             dialog.dismiss();
                         }
-                    }).setRightLinster(new OnRightLinster() {
+                    }).setRightListener(new OnRightLinster() {
                 @Override
                 public void onClick(IDialogView view) {
                     DBHelper.getInstance().deleteById(Order.class, list.get(position).getId());

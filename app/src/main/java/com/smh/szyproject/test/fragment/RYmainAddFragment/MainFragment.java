@@ -94,7 +94,6 @@ public class MainFragment extends BaseFragment {
 
     public void onDestroy() {
         super.onDestroy();
-        RxBus.getInstance().unRegister(this);
 
     }
 

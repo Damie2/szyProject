@@ -1,24 +1,19 @@
 package com.smh.szyproject.test.build;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.smh.szyproject.R;
 import com.zhy.autolayout.utils.AutoUtils;
@@ -34,8 +29,8 @@ import butterknife.ButterKnife;
 public class CustomDialog extends Dialog implements View.OnClickListener, IDialogView {
 
     private ViewGroup viewGroup;
-    private OnLeftLinster leftLinster;
-    private OnRightLinster rightLinster;
+    private OnLeftLinster leftListener;
+    private OnRightLinster rightListener;
     @BindView(R.id.btn_left)
     Button btn_left;
     @BindView(R.id.btn_right)
@@ -68,13 +63,13 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
 //        setCanceledOnTouchOutside(false);//这个无效的原因是xml布局是全屏的，所以无效，可以给其他布局设置个点击事件，点击后就退出全屏
     }
 
-    public CustomDialog setLeftLinster(OnLeftLinster leftLinster) {
-        this.leftLinster = leftLinster;
+    public CustomDialog setLeftListener(OnLeftLinster leftListener) {
+        this.leftListener = leftListener;
         return this;
     }
 
-    public CustomDialog setRightLinster(OnRightLinster rightLinster) {
-        this.rightLinster = rightLinster;
+    public CustomDialog setRightListener(OnRightLinster rightListener) {
+        this.rightListener = rightListener;
         return this;
     }
 
@@ -158,8 +153,8 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
 
     @Override
     public void onLeftClick() {
-        if (leftLinster != null)
-            leftLinster.onClick(this);
+        if (leftListener != null)
+            leftListener.onClick(this);
     }
 
     @Override
@@ -169,7 +164,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener, IDialo
 
     @Override
     public void onRightClick() {
-        if (rightLinster != null)
-            rightLinster.onClick(this);
+        if (rightListener != null)
+            rightListener.onClick(this);
     }
 }

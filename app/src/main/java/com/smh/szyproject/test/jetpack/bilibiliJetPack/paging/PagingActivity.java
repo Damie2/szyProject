@@ -25,6 +25,7 @@ public class PagingActivity extends BaseActivity {
     @BindView(R.id.rv_recyclerview)
     RecyclerView recyclerView;
     PagingAdapter adapter;
+
     @Override
     public int getLayoutId() {
         return R.layout.test_paging_activity;
@@ -35,8 +36,8 @@ public class PagingActivity extends BaseActivity {
         adapter = new PagingAdapter();
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        LiveData<PagedList<WorksEntity>> datas = new LivePagedListBuilder<>(WorksRepository.getInstance(this).getWorksDao().getWorksForPaging(),15).build();//第二个参数是每页我们需要加载的条目数
-//        datas是个liveData,那我们就可以观察它
+        LiveData<PagedList<WorksEntity>> datas = new LivePagedListBuilder<>(WorksRepository.getInstance(this).getWorksDao().getWorksForPaging(), 15).build();//第二个参数是每页我们需要加载的条目数
+//        data是个liveData,那我们就可以观察它
         datas.observe(this, new Observer<PagedList<WorksEntity>>() {
             @Override
             public void onChanged(PagedList<WorksEntity> worksEntities) {
@@ -45,13 +46,13 @@ public class PagingActivity extends BaseActivity {
             }
         });
 
-        getContentView().postDelayed(()->{
-            for(int i=0;i<100;i++){
-                WorksEntity entity = new WorksEntity("name"+i,"work"+i);
+        getContentView().postDelayed(() -> {
+            for (int i = 0; i < 100; i++) {
+                WorksEntity entity = new WorksEntity("name" + i, "work" + i);
                 WorksRepository.getInstance(this).getWorksDao().insert(entity);
             }
 
-        },5000);
+        }, 5000);
     }
 
     @Override

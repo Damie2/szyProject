@@ -35,6 +35,13 @@ public class netTestActivity extends BaseActivity implements View.OnClickListene
     @Override
     public void init(Bundle savedInstanceState) {
         presenter = new TestPresenter(this, this);
+
+
+//        getWindow()拿到的是PhoneWindow
+
+
+
+
     }
 
     @OnClick(R.id.tv_next)

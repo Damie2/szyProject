@@ -89,13 +89,13 @@ public class DetailActivity extends BaseActivity implements View.OnClickListener
                     .setRightBtnText("确定")
                     .setLeftBtnText("取消")
                     .setRightBtnColor(Color.BLUE)
-                    .setLeftLinster(new OnLeftLinster() {
+                    .setLeftListener(new OnLeftLinster() {
                         @Override
                         public void onClick(IDialogView view) {
                             L.e("点击左边");
                             dialog.dismiss();
                         }
-                    }).setRightLinster(new OnRightLinster() {
+                    }).setRightListener(new OnRightLinster() {
                         @Override
                         public void onClick(IDialogView view) {
                             L.e("点击右边");

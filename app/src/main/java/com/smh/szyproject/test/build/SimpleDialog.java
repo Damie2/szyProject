@@ -27,8 +27,8 @@ import butterknife.ButterKnife;
 public class SimpleDialog extends Dialog implements View.OnClickListener, IDialogView {
 
     private ViewGroup viewGroup;
-    private OnLeftLinster leftLinster;
-    private OnRightLinster rightLinster;
+    private OnLeftLinster leftListener;
+    private OnRightLinster rightListener;
     @BindView(R.id.btn_left)
     Button btn_left;
     @BindView(R.id.btn_right)
@@ -54,13 +54,13 @@ public class SimpleDialog extends Dialog implements View.OnClickListener, IDialo
 
     }
 
-    public SimpleDialog setLeftLinster(OnLeftLinster leftLinster) {
-        this.leftLinster = leftLinster;
+    public SimpleDialog setLeftListener(OnLeftLinster leftListener) {
+        this.leftListener = leftListener;
         return this;
     }
 
-    public SimpleDialog setRightLinster(OnRightLinster rightLinster) {
-        this.rightLinster = rightLinster;
+    public SimpleDialog setRightListener(OnRightLinster rightListener) {
+        this.rightListener = rightListener;
         return this;
     }
 
@@ -97,7 +97,6 @@ public class SimpleDialog extends Dialog implements View.OnClickListener, IDialo
     }
 
 
-
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -115,8 +114,8 @@ public class SimpleDialog extends Dialog implements View.OnClickListener, IDialo
 
     @Override
     public void onLeftClick() {
-        if (leftLinster != null)
-            leftLinster.onClick(this);
+        if (leftListener != null)
+            leftListener.onClick(this);
     }
 
     @Override
@@ -126,7 +125,7 @@ public class SimpleDialog extends Dialog implements View.OnClickListener, IDialo
 
     @Override
     public void onRightClick() {
-        if (rightLinster != null)
-            rightLinster.onClick(this);
+        if (rightListener != null)
+            rightListener.onClick(this);
     }
 }

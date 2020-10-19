@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.smh.szyproject.test.jetpack.bilibiliJetPack.myJetPack.MyViewModel" />
+        <!--这里面绑定了DataBindingViewModel -->
+        <!--        dataBing要小写，里面的内部类都要大写-->
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()->data.loadList()}"
+            android:text="button1" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_zm_contact"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/button1"
+            android:layout_marginTop="10dp"
+            android:background="@color/white" />
+
+
+    </RelativeLayout>
+</layout>

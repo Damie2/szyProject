@@ -1,5 +1,6 @@
 package com.smh.szyproject.test.jetpack.bilibiliJetPack.navigation4;
 
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.smh.szyproject.R;
+import com.smh.szyproject.test.jetpack.bilibiliJetPack.dataBindForLunzi.ViewModel2;
 
 public class JYFragment extends Fragment {
 
@@ -31,7 +33,9 @@ public class JYFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(JYViewModel.class);
+//        mViewModel = ViewModelProviders.of(this).get(JYViewModel.class);//这个过时了
+
+        mViewModel = new ViewModelProvider(this).get(JYViewModel.class);
         // TODO: Use the ViewModel
     }
 

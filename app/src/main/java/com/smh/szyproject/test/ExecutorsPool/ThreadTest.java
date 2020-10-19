@@ -104,6 +104,8 @@ public class ThreadTest extends BaseActivity {
                 }
             });
         }
+
+
     }
 
     private void CachedThreadPool() {

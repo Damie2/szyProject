@@ -59,17 +59,17 @@ public class JsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
             JSONObject json = new JSONObject(body);
             int code = json.optInt("code");
             if (code == 200) {
-                body =json.optString("data");
+                body = json.optString("data");
                 return adapter.fromJson(body);
-            }else if(code==0){
+            } else if (code == 0) {
                 Message message = new Message();
                 message.obj = json.optString("msg");
                 message.what = 0;
                 handler.sendMessage(message);
                 throw new RuntimeException();
-            }else{
+            } else {
                 //正常就走这里
-                body =  json.optString("data");
+                body = json.optString("data");
                 return adapter.fromJson(body);
             }
         } catch (Exception e) {
@@ -78,7 +78,6 @@ public class JsonResponseBodyConverter<T> implements Converter<ResponseBody, T> 
             value.close();
         }
     }
-
 
 
 //    @Override

@@ -78,7 +78,6 @@ public class MainAddActivity extends BaseActivity implements OnButtonClickListen
     }
 
     public void init(Bundle paramBundle) {
-        RxBus.getInstance().register(this);
         if (paramBundle != null) {
             viewId = paramBundle.getInt("viewId");
         }
@@ -126,7 +125,6 @@ public class MainAddActivity extends BaseActivity implements OnButtonClickListen
 
     protected void onDestroy() {
         super.onDestroy();
-        RxBus.getInstance().unRegister(this);
     }
 
     @Override

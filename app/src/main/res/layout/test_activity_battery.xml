@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.activity.AboutActivity">
+
+    <com.hjq.bar.TitleBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="关于我们" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <!--电池电量-->
+        <TextView
+            android:id="@+id/tv_extra_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--电池总电量-->
+        <TextView
+            android:id="@+id/tv_EXTRA_SCALE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <!--电池健康状态-->
+        <TextView
+            android:id="@+id/tv_EXTRA_HEALTH"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!--电池温度-->
+        <TextView
+            android:id="@+id/tv_EXTRA_TEMPERATURE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

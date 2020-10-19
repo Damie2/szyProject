@@ -159,7 +159,6 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
     protected abstract void init();
 
     protected abstract int getLayoutId();
-
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -169,6 +168,8 @@ public abstract class BaseFragment extends Fragment implements TitleBarAction {
             init();
         }
     }
+
+
 
 
     @Override

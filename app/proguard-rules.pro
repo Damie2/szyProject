@@ -221,13 +221,6 @@
 #    public static final int *;
 # }
 
-# 保护 Bean 类不被混淆（请注意修改包名路径）
--keepclassmembernames class com.smh.szyproject.mvp.bean.** {
-    <fields>;
-}
-
-
-
 #Gson
 -dontwarn com.google.gson.**
 -keep class com.google.gson.**{*;}
@@ -434,3 +427,43 @@ public void onEvent*(**);
 #如果使用了实时音视频功能
 -keep class com.superrtc.** {*;}
 -dontwarn  com.superrtc.**
+
+
+# 不混淆这个包下的字段名
+-keepclassmembernames class com.hjq.http.demo.http.** {
+    <fields>;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#时刻提醒自己别忘了这个
+# 保护 Bean 类不被混淆（一点要修改啊啊啊啊啊啊，不让bean的字段名给混淆了）
+-keepclassmembernames class com.smh.szyproject.mvp.bean.** {
+    <fields>;
+}
+
+
+# 不混淆这个包下的字段名 轮子的
+-keepclassmembernames class com.smh.szyproject.easyNet.** {
+    <fields>;
+}

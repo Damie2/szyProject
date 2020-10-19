@@ -14,7 +14,14 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.hjq.http.EasyConfig;
+import com.hjq.http.config.IRequestInterceptor;
+import com.hjq.http.config.IRequestServer;
+import com.hjq.http.model.HttpHeaders;
+import com.hjq.http.model.HttpParams;
 import com.smh.szyproject.common.image.ImageLoader;
+import com.smh.szyproject.easyNet.model.RequestHandler;
+import com.smh.szyproject.easyNet.server.MyServer;
 import com.smh.szyproject.other.helper.ActivityStackManager;
 import com.smh.szyproject.net.interceptor.CookieReadInterceptor;
 import com.smh.szyproject.net.interceptor.CookiesSaveInterceptor;
@@ -71,11 +78,40 @@ public class MyApplication extends Application {
         super.onCreate();
         application = this;
         context = getApplicationContext();
-        initOKHttp();
+        initOKHttp();//普通的ok
+        initEasyHttp();//轮子的请求
         ActivityStackManager.getInstance().init(application);
         CrashHandler.getInstance().init(this);
         initNetManager();
         initSDK();
+    }
+
+    private void initEasyHttp() {
+        IRequestServer server = new MyServer();
+        OkHttpClient okHttpClient = new OkHttpClient.Builder().build();
+        EasyConfig.with(okHttpClient)
+                // 是否打印日志
+                //.setLogEnabled(BuildConfig.DEBUG)
+                // 设置服务器配置
+                .setServer(server)
+                // 设置请求处理策略
+                .setHandler(new RequestHandler(this))
+                // 设置请求参数拦截器
+                .setInterceptor(new IRequestInterceptor() {
+                    @Override
+                    public void intercept(String url, String tag, HttpParams params, HttpHeaders headers) {
+                        headers.put("timestamp", String.valueOf(System.currentTimeMillis()));
+                    }
+                })
+                // 设置请求重试次数
+                .setRetryCount(1)
+                // 设置请求重试时间
+                .setRetryTime(1000)
+                // 添加全局请求参数
+                //.addParam("token", "6666666")
+                // 添加全局请求头
+                //.addHeader("time", "20191030")
+                .into();
     }
 
 

@@ -22,7 +22,6 @@ import com.smh.szyproject.test.build.OnLeftLinster;
 import com.smh.szyproject.test.build.OnRightLinster;
 import com.smh.szyproject.test.zmdatamanager.activity.OrderActivity;
 import com.smh.szyproject.test.zmdatamanager.adapter.ProductAdapter;
-import com.smh.szyproject.test.zmdatamanager.bean.Order;
 import com.smh.szyproject.test.zmdatamanager.bean.Product;
 import com.smh.szyproject.test.zmdatamanager.activity.DetailActivity;
 import com.smh.szyproject.ui.view.SpaceItemDecoration;
@@ -74,14 +73,14 @@ public class TestFragment1 extends BaseFragment {
                     .setRightBtnText("确定")
                     .setLeftBtnText("取消")
                     .setRightBtnColor(Color.BLUE)
-                    .setLeftLinster(new OnLeftLinster() {
+                    .setLeftListener(new OnLeftLinster() {
                         @Override
                         public void onClick(IDialogView view) {
                             L.e("点击左边");
                             CustomDialog dialog = (CustomDialog) view;
                             dialog.dismiss();
                         }
-                    }).setRightLinster(new OnRightLinster() {
+                    }).setRightListener(new OnRightLinster() {
                 @Override
                 public void onClick(IDialogView view) {
                     DBHelper.getInstance().deleteById(Product.class,list.get(position).getId());
