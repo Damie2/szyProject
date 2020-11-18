@@ -29,6 +29,16 @@ public class interfaceTestC extends BaseActivity {
 
         //其他的
         new cc().hi("sssss");
+
+
+        CC c = new CC(this, new InterfaceC() {
+            @Override
+            public void OnListener(String Code) {
+
+            }
+        });
+
+
     }
 
     public class cc implements presenter {

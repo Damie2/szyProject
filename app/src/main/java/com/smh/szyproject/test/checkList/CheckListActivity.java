@@ -50,7 +50,7 @@ public class CheckListActivity extends BaseActivity implements View.OnClickListe
         listData = new ArrayList<>();
         submitListData = new ArrayList<>();
 
-        for (int i = 0; i < 2000; i++) {
+        for (int i = 0; i < 20; i++) {
             list.add(i + "");
         }
 

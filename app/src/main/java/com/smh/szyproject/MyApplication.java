@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
+import com.clj.fastble.BleManager;
 import com.hjq.http.EasyConfig;
 import com.hjq.http.config.IRequestInterceptor;
 import com.hjq.http.config.IRequestServer;
@@ -132,6 +133,14 @@ public class MyApplication extends Application {
         //极光im第六步
         JMessageClient.setDebugMode(true);
         JMessageClient.init(this);
+
+        //fastBle蓝牙初始化
+        BleManager.getInstance().init(getApplication());
+        BleManager.getInstance()
+                .enableLog(true)
+                .setReConnectCount(1, 5000)
+                .setOperateTimeout(5000);
+
 
 
         if (LeakCanary.isInAnalyzerProcess(this)) {

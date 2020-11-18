@@ -75,7 +75,6 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
 
 
 
-
     private void dialog4() {
         new CustomDialog(this, R.style.dialog_style)
                 .setContent("我是内容")

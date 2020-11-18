@@ -13,6 +13,7 @@ import androidx.core.content.FileProvider;
 
 import com.hjq.http.EasyConfig;
 import com.hjq.http.EasyHttp;
+import com.hjq.http.EasyUtils;
 import com.hjq.http.listener.HttpCallback;
 import com.hjq.http.listener.OnDownloadListener;
 import com.hjq.http.listener.OnHttpListener;

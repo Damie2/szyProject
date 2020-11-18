@@ -47,12 +47,28 @@
             android:layout_width="100dp"
             android:layout_height="100dp"/>
         <RelativeLayout
+            android:id="@id/rl"
             android:layout_width="36pt"
             android:layout_height="20pt"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@color/blue"
             android:gravity="bottom" />
+
+        <Button
+            android:layout_above="@id/rl"
+            android:id="@+id/scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描" />
+
+        <Button
+            android:layout_toRightOf="@id/scan"
+            android:layout_above="@id/rl"
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
 
     </RelativeLayout>
 </com.smh.szyproject.other.widget.other.HintLayout>

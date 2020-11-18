@@ -107,15 +107,16 @@ public class CrashHandler implements UncaughtExceptionHandler {
 		if (ex == null) {
 			return true;
 		}
-		final String msg = ex.getLocalizedMessage();
-		// 使用Toast来显示异常信息
+		L.e("错误:"+ex.getLocalizedMessage());
+		L.e("-------------------");
+		ex.printStackTrace();//打印堆栈信息
+
 		new Thread() {
 			@Override
 			public void run() {
 				// Toast 显示需要出现在一个线程的消息队列中
 				Looper.prepare();
 				ToastUtils.showToastForText(mContext,"程序出错啦,我们会尽快修改");
-				L.e("出错啦:"+ex.getMessage());
 				ActivityStackManager.getInstance().finishAllActivities();
 				Looper.loop();
 			}

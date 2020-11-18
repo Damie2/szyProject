@@ -73,11 +73,30 @@ public class MainFragment extends BaseFragment {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 setTextCustomView(tab);
+
+                //设置第一页为选中状态时的tab文字颜色为红色   初始的时候要设置这个
+                //在上面啊
+
+//                View view=mTabLayout.getTabAt(0).getCustomView();
+//                TextView textView=view.findViewById(R.id.tv_header);
+//                textView.setTextColor(Color.RED);
+
+
+
+
+                  //可以这么搞
+//                View view=tab.getCustomView();
+//                TextView textView=view.findViewById(R.id.tv_header);
+//                textView.setTextColor(Color.RED);
             }
 
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 tab.setCustomView(null);
+
+//                View view=tab.getCustomView();
+//                TextView textView=view.findViewById(R.id.tv_header);
+//                textView.setTextColor(Color.BLUE);
             }
 
             @Override
