@@ -14,7 +14,7 @@ import butterknife.BindView;
 /**
  * author : smh
  * date   : 2020/11/19 14:39
- * desc   :
+ * desc   :  刷新啊啊啊
  */
 public  class RefreshActivity extends BaseActivity {
 
