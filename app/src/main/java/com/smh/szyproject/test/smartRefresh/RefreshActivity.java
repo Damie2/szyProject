@@ -1,28 +1,13 @@
-package com.smh.szyproject.test.refresh;
+package com.smh.szyproject.test.smartRefresh;
 
 import android.os.Bundle;
 
-import com.nbsp.materialfilepicker.MaterialFilePicker;
-import com.scwang.smart.refresh.classics.ArrowDrawable;
-import com.scwang.smart.refresh.footer.BallPulseFooter;
-import com.scwang.smart.refresh.footer.ClassicsFooter;
-import com.scwang.smart.refresh.header.BezierRadarHeader;
-import com.scwang.smart.refresh.header.ClassicsHeader;
-import com.scwang.smart.refresh.header.FalsifyFooter;
-import com.scwang.smart.refresh.header.FalsifyHeader;
-import com.scwang.smart.refresh.header.MaterialHeader;
-import com.scwang.smart.refresh.header.TwoLevelHeader;
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
-import com.scwang.smart.refresh.layout.constant.SpinnerStyle;
-import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
 
-
-import java.util.HashMap;
 
 import butterknife.BindView;
 
