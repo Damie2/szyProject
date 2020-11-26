@@ -40,7 +40,16 @@ public class ThreadTest extends BaseActivity {
         //创建一个定长线程池，支持定时及周期性任务执行
 //        ScheduledThreadPool();
 //        一个单线程化的线程池
-        singleThreadExecutor();
+//        singleThreadExecutor();
+
+        CachedExecutorsUtil.getInstance().init();//在application里注册
+
+        for (int i=0;i<10;i++){
+            CachedExecutorsUtil.getInstance().executors(()->{
+                L.e("这里???");
+            });
+        }
+
     }
 
     private void singleThreadExecutor() {
@@ -145,10 +154,10 @@ public class ThreadTest extends BaseActivity {
     }
 
     private void oneThread() {
-        oneThreadExecutor = new ThreadPoolExecutor(
+        oneThreadExecutor = new ThreadPoolExecutor(  //如果核心线程池为0，就代表空闲一段时间之后，就把里面所有的线程销毁
                 1,//一个核心线程  ,核心线程数，何为核心线程数？源码注释已经写得很明白了，也就是最小线程数，规定线程池里面最少必须有几个线程在工作，这些核心线程在没有任务可以执行的时候还必须存活着，除非我们设定了核心线程的存活时间，否则这些核心线程永远不会停止工作。
                 1,//线程池中所能容纳最大的线程 最大线程数，这里面不仅包含了核心线程数，还包含了非核心线程数，那么问题来了，何为非核心线程？
-                60,//非核心线程闲置是的超市时长，超过这个时长，非核心线程就会被回收    非核心线程的存活时间，当线程池中的非核心线程没有任务执行的时候，如果超过了指定的时间还是没有执行任何任务的时候，那么这个非核心线程会在超时后被回收掉，如果我们不指定这个时间，那么这些非核心线程将永远不会被回收。
+                60,//非核心线程闲置是的超时时长，超过这个时长，非核心线程就会被回收    非核心线程的存活时间，当线程池中的非核心线程没有任务执行的时候，如果超过了指定的时间还是没有执行任何任务的时候，那么这个非核心线程会在超时后被回收掉，如果我们不指定这个时间，那么这些非核心线程将永远不会被回收。
 
                 TimeUnit.SECONDS,//用于指定keepAliveTime的时间单位
                 new SynchronousQueue<Runnable>(),//线程池中的人物队列，通过线程池的execute方法提交的runable对象会存储在这个参数中

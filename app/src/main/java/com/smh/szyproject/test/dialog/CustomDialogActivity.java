@@ -62,11 +62,11 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
                 .setLeftBtnText("取消")
                 .setLeftBtnGone()
                 .setRightBtnColor(Color.RED)
-                .setLeftListener((IDialogView view) -> {
+                .setLeftListener(view -> {
                     L.e("点击左边");
                     SimpleDialog dialog = (SimpleDialog) view;
                     dialog.dismiss();
-                }).setRightListener((IDialogView view) -> {
+                }).setRightListener(view -> {
             L.e("点击右边");
             SimpleDialog dialog = (SimpleDialog) view;
             dialog.dismiss();
@@ -81,11 +81,11 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
                 .setRightBtnText("确定")
                 .setLeftBtnText("取消")
                 .setRightBtnColor(Color.RED)
-                .setLeftListener((IDialogView view) -> {
+                .setLeftListener(view -> {
                     L.e("点击左边");
                     CustomDialog dialog = (CustomDialog) view;
                     dialog.dismiss();
-                }).setRightListener((IDialogView view) -> {
+                }).setRightListener(view -> {
             L.e("点击右边");
             CustomDialog dialog = (CustomDialog) view;
             dialog.dismiss();
@@ -99,11 +99,11 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
                 .setRightBtnText("确定")
                 .setLeftBtnText("取消")
                 .setRightBtnColor(Color.BLUE)
-                .setLeftListener((IDialogView view) -> {
+                .setLeftListener(view -> {
                     L.e("点击左边");
                     CustomDialog dialog = (CustomDialog) view;
                     dialog.dismiss();
-                }).setRightListener((IDialogView view) -> {
+                }).setRightListener(view -> {
             L.e("点击右边");
             CustomDialog dialog = (CustomDialog) view;
             dialog.dismiss();

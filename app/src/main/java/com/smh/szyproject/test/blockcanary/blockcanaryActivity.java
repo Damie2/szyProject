@@ -1,29 +1,25 @@
-package com.smh.szyproject.test.autosize;
+package com.smh.szyproject.test.blockcanary;
 
 import android.os.Bundle;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
-import com.smh.szyproject.other.utils.L;
 
 /**
  * author : smh
- * date   : 2020/7/6 18:05
- * desc   :
+ * date   : 2020/11/26 14:02
+ * desc   : UI卡顿检测
  */
-public class AutoSizeActivity extends BaseActivity {
+public class blockcanaryActivity extends BaseActivity {
     @Override
     public int getLayoutId() {
         return R.layout.test_activity_test;
     }
 
-    int i = 0;
-
     @Override
     public void init(Bundle savedInstanceState) {
-        new Thread(() -> {
-        }).start();
-        new Thread(() -> {
-        }).start();
+        for(int i=0;i<100;i++){
+
+        }
     }
 }

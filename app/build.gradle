@@ -403,10 +403,11 @@ dependencies {
     //协程
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-v iewmodel-ktx:2.2.0-alpha01"
 
-
-
+    //eventBus
+    implementation 'org.greenrobot:eventbus:3.0.0'
+//    implementation 'org.greenrobot:eventbus:3.2.0'
     //Android炫酷的底部切换效果
     implementation 'com.roughike:bottom-bar:2.3.1'
 
@@ -415,6 +416,8 @@ dependencies {
 
     //轮子的EasyHttp
     implementation 'com.hjq:http:8.6'
+    //卡顿检测优化框架  https://github.com/markzhai/AndroidPerformanceMonitor
+    implementation 'com.github.markzhai:blockcanary-android:1.5.0'
 
 
 //    https://github.com/pinguo-zhouwei/MZBannerView  魅族的banner

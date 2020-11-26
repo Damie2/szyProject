@@ -15,6 +15,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 
 import com.clj.fastble.BleManager;
+import com.github.moduth.blockcanary.BlockCanary;
 import com.hjq.http.EasyConfig;
 import com.hjq.http.config.IRequestInterceptor;
 import com.hjq.http.config.IRequestServer;
@@ -31,6 +32,7 @@ import com.smh.szyproject.net.interceptor.InterceptorUtil;
 import com.smh.szyproject.other.umeng.UmengClient;
 import com.smh.szyproject.other.utils.CrashHandler;
 import com.smh.szyproject.other.utils.ToastUtils;
+import com.smh.szyproject.test.blockcanary.AppBlockCanaryContext;
 import com.squareup.leakcanary.LeakCanary;
 
 import org.xutils.x;
@@ -149,6 +151,12 @@ public class MyApplication extends Application {
             return;
         }
         LeakCanary.install(this);
+
+        //查看所有android源码的地址   androidxref
+
+
+        //卡顿检测优化框架
+        BlockCanary.install(this, new AppBlockCanaryContext()).start();
     }
 
 

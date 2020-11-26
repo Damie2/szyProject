@@ -14,6 +14,7 @@ import com.flyco.tablayout.SegmentTabLayout;
 import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.flyco.tablayout.widget.MsgView;
 import com.smh.szyproject.R;
+import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.test.fragment.allTablayoutFragment.utils.ViewFindUtils;
 
 import java.util.ArrayList;
@@ -57,6 +58,16 @@ public class SegmentTabActivity extends AppCompatActivity {
 
         //显示未读红点
         tabLayout_1.showDot(2);
+        tabLayout_1.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+                L.e("当前选择" + position);
+            }
+
+            @Override
+            public void onTabReselect(int position) {
+            }
+        });
         tabLayout_2.showDot(2);
         mTabLayout_3.showDot(1);
         tabLayout_4.showDot(1);
