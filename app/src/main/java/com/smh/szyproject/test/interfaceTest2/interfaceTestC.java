@@ -34,8 +34,11 @@ public class interfaceTestC extends BaseActivity {
         CC c = new CC(this, new InterfaceC() {
             @Override
             public void OnListener(String Code) {
-
             }
+        });
+
+        CC c1 = new CC(this, code -> {
+                L.e("");
         });
 
 

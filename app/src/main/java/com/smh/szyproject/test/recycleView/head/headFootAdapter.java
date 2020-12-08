@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.recycleView;
+package com.smh.szyproject.test.recycleView.head;
 
 import android.content.Context;
 
@@ -7,7 +7,6 @@ import android.widget.TextView;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.CommonAdapter;
 import com.smh.szyproject.common.base.ViewHolder;
-import com.smh.szyproject.other.utils.L;
 
 import java.util.List;
 

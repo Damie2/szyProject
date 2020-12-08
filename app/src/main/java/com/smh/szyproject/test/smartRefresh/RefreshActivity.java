@@ -16,7 +16,7 @@ import butterknife.BindView;
  * date   : 2020/11/19 14:39
  * desc   :  刷新啊啊啊
  */
-public  class RefreshActivity extends BaseActivity {
+public class RefreshActivity extends BaseActivity {
 
     @BindView(R.id.refreshLayout)
     SmartRefreshLayout mSmartLayout;
@@ -31,12 +31,12 @@ public  class RefreshActivity extends BaseActivity {
 //        mSmartLayout.setEnableAutoLoadMore(true);//触发自动刷新功能
 
         mSmartLayout.autoRefresh();
-        mSmartLayout.setOnRefreshListener((RefreshLayout refreshLayout)->{
+        mSmartLayout.setOnRefreshListener(r -> {
             L.e("开始load数据啦");
             mSmartLayout.finishRefresh(500);
         });
 
-        mSmartLayout.setOnLoadMoreListener((RefreshLayout refreshLayout)->{
+        mSmartLayout.setOnLoadMoreListener(r -> {
             mSmartLayout.finishLoadMore(500);
         });
 
@@ -62,7 +62,6 @@ public  class RefreshActivity extends BaseActivity {
 
 
     }
-
 
 
 }

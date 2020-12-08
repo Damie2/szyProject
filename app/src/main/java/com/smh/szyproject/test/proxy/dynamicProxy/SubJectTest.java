@@ -7,6 +7,9 @@ import com.smh.szyproject.common.base.BaseActivity;
 
 import java.lang.reflect.Proxy;
 
+/**
+ * 动态代理模式
+ */
 public class SubJectTest extends BaseActivity {
     @Override
     public int getLayoutId() {

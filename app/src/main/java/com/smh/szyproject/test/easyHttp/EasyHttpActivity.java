@@ -20,7 +20,7 @@ import com.hjq.http.listener.OnHttpListener;
 import com.hjq.http.listener.OnUpdateListener;
 import com.hjq.http.model.DataClass;
 import com.hjq.http.model.HttpMethod;
-import com.hjq.permissions.OnPermission;
+import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.smh.szyproject.R;
@@ -233,9 +233,9 @@ public class EasyHttpActivity extends BaseActivity implements OnHttpListener {
         XXPermissions.with(EasyHttpActivity.this)
                 // 安装包权限
                 .permission(Permission.REQUEST_INSTALL_PACKAGES)
-                .request(new OnPermission() {
+                .request(new OnPermissionCallback() {
                     @Override
-                    public void hasPermission(List<String> granted, boolean all) {
+                    public void onGranted(List<String> permissions, boolean all) {
                         if (all) {
                             Intent intent = new Intent();
                             intent.setAction(Intent.ACTION_VIEW);
@@ -254,7 +254,7 @@ public class EasyHttpActivity extends BaseActivity implements OnHttpListener {
                     }
 
                     @Override
-                    public void noPermission(List<String> denied, boolean quick) {
+                    public void onDenied(List<String> permissions, boolean quick) {
 
                     }
                 });

@@ -81,7 +81,7 @@ public class LanmbdaActivity extends BaseActivity {
     //有返回值的
     private void Lanmbda2() {
         //首先在()中定义此表达式里面需要接收变量s，后面的多行语句中就可以使用该变量了。注意：多行语句别少“；”号
-        hi1((s) -> L.e("接收到的值是:" + s));
+        hi1(s -> L.e("接收到的值是:" + s));
 
         hi1(new MyInterface1() {
             @Override

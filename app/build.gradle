@@ -151,6 +151,13 @@ android {
             storeFile file('D:\\Virtualkey.jks')
             storePassword 'swkj666!'
 
+//            jks转keystore
+//            先生成.p12文件
+//            keytool -importkeystore -srckeystore D:\test.jks -srcstoretype JKS -deststoretype PKCS12 -destkeystore test.p12
+//            用p12生成keystore
+//            keytool -v -importkeystore -srckeystore D:\test.p12 -srcstoretype PKCS12 -destkeystore D:\test.keystore -deststoretype JKS
+//            可以通过以下命令来验证
+//            keytool -v -list -keystore D:\test.keystore
         }
     }
 
@@ -224,6 +231,9 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
     //imageloader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+
+    // 轮子的Gson 解析容错：https://github.com/getActivity/GsonFactory
+    implementation 'com.hjq.gson:factory:2.2'
     //gson
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.google.code.gson:gson-parent:2.8.6'
@@ -267,9 +277,10 @@ dependencies {
     //glide图片
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
-
+    //picasso 框架 图片，类似glide
+    implementation 'com.squareup.picasso:picasso:2.5.2'
     //轮子的权限请求框架
-    implementation 'com.hjq:xxpermissions:8.6'
+    implementation 'com.hjq:xxpermissions:9.5'
     implementation 'androidx.cardview:cardview:1.0.0'
     //dagger2
     implementation 'com.google.dagger:dagger:2.4'//指定注解处理器
@@ -403,7 +414,7 @@ dependencies {
     //协程
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.1.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
-    implementation "androidx.lifecycle:lifecycle-v iewmodel-ktx:2.2.0-alpha01"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-alpha01"
 
     //eventBus
     implementation 'org.greenrobot:eventbus:3.0.0'
@@ -443,7 +454,7 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
     // 如果使用了 support fragment，请同时依赖
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
-
+0
 
 //    什么都没改
 //    20Mb

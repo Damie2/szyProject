@@ -40,6 +40,12 @@ public class LiveDataActivity extends BaseActivity {
                 textView1.setText(String.valueOf(viewModel.getCk().getValue()));
             }
         });
+
+        viewModel.getCk().observe(this,i->{
+
+        });
+
+
         viewModel.getJy().observe(this, new Observer<Integer>() {
             @Override
             public void onChanged(Integer integer) {

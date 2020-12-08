@@ -1,23 +1,18 @@
-package com.smh.szyproject.test.recycleView;
+package com.smh.szyproject.test.recycleView.head;
 
 import android.content.ClipData;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
-import com.smh.szyproject.mvp.bean.ZmContact;
 import com.smh.szyproject.other.db.DBHelper;
-import com.smh.szyproject.other.utils.L;
-import com.smh.szyproject.test.zm1.dialog.ZMAddContactDialog;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -12,10 +12,10 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.databinding.ActivityNewMvvmBinding;
+import com.smh.szyproject.other.utils.GsonUtils;
 import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.other.utils.PhoneInfo;
 import com.smh.szyproject.other.utils.SPUtil;
-import com.smh.szyproject.other.utils.utilCode.GsonUtils;
 
 /**
  * 看这个啊啊啊啊啊啊啊  https://www.jianshu.com/p/4f28ef25c8f6
@@ -59,6 +59,7 @@ public class newMvvm extends BaseActivity implements WebViewContract.View {
         parameter.setOperator("");
         parameter.setIccid("");
         presenter.sendParameter(parameter);
+//        L.e("1.手机参数是:" + GsonUtils.getGson().toJson(parameter));
         L.e("1.手机参数是:" + GsonUtils.getGson().toJson(parameter));
 
     }

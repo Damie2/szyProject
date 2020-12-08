@@ -33,9 +33,10 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 import retrofit2.http.PartMap;
+import retrofit2.http.Path;
 
 
-public interface AllApi {
+public interface  AllApi {
 
     @POST(ApiAddress.sendVersion)
     Observable<Object> test1(@Body Test parameter);
@@ -72,6 +73,14 @@ public interface AllApi {
     @Multipart
     @POST(ApiAddress.callSendResult)
     Observable<JSONObject> callSendResult(@PartMap Map<String,RequestBody> params,  @Body CallResult result );
+
+
+
+
+    @POST("users/{user}/repos")//path的意思是 如果user为空，就把path的这个user，放到上面post的这个user里
+    Observable<JSONObject> listRepos(@Path("user") String user);
+
+
 
 //    雨刮器
 //    紫桶、机滤、空滤
