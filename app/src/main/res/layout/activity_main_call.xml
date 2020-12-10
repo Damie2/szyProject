@@ -29,7 +29,6 @@
 
 
     <Button
-        android:visibility="gone"
         android:layout_below="@id/connect"
         android:id="@+id/disconnect"
         android:layout_width="match_parent"

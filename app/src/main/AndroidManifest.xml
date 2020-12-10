@@ -88,7 +88,7 @@
             android:name="design_height_in_dp"
             android:value="640" />
 
-        <activity android:name=".test.call.CallMainActivity"
+        <activity android:name=".test.callService.CallMainActivity"
             android:launchMode="singleTask"
             />
 
@@ -128,10 +128,10 @@
 <!--        <activity android:name=".test.rxjava.RxJavaActivity"/>-->
 
 
-        <service android:name="com.smh.szyproject.test.call.SystemService"/>
-        <service android:name="com.smh.szyproject.test.call.ControlWindowService" />
+        <service android:name="com.smh.szyproject.test.callService.SystemService"/>
+        <service android:name="com.smh.szyproject.test.callService.ControlWindowService" />
 
-        <receiver android:name="com.smh.szyproject.test.call.BootReceiver" >
+        <receiver android:name="com.smh.szyproject.test.callService.BootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

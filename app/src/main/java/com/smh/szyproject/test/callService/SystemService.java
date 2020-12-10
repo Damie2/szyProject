@@ -1,7 +1,6 @@
-package com.smh.szyproject.test.call;
+package com.smh.szyproject.test.callService;
 
 import java.io.File;
-import java.io.IOException;
 
 import android.app.Service;
 import android.content.Intent;
@@ -12,7 +11,6 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 
 import com.smh.szyproject.other.utils.L;
-import com.umeng.message.proguard.l;
 
 public class SystemService extends Service {
     // 电话管理器

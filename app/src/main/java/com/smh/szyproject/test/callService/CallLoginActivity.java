@@ -1,8 +1,7 @@
-package com.smh.szyproject.test.call;
+package com.smh.szyproject.test.callService;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -19,10 +18,7 @@ import com.smh.szyproject.mvp.module.CallLoginContract;
 import com.smh.szyproject.mvp.presenter.CallLoginPresenter;
 import com.smh.szyproject.other.helper.InputTextHelper;
 import com.smh.szyproject.other.utils.L;
-import com.smh.szyproject.other.utils.PhoneInfo;
 import com.smh.szyproject.other.utils.SPUtil;
-import com.smh.szyproject.other.widget.PasswordEditText;
-import com.smh.szyproject.test.mvvm.newMvvm;
 
 import butterknife.BindView;
 import butterknife.OnClick;

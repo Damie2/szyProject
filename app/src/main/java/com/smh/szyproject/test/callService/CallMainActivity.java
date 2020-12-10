@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.call;
+package com.smh.szyproject.test.callService;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 
-import android.view.View;
 import android.widget.Button;
 
 import com.hjq.permissions.Permission;
@@ -17,22 +16,21 @@ import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
 
 import com.smh.szyproject.other.utils.L;
-import com.smh.szyproject.other.utils.SPUtil;
 
 import butterknife.BindView;
 
 /**
  * author : smh
  * date   : 2020/9/22 15:12
- * desc   :
+ * desc   : 使用bind来启动service
  */
 public class CallMainActivity extends BaseActivity implements ControlWindowService.contralListener {
     @BindView(R.id.connect)
     Button connect;
     ControlWindowService mMyService;
 
-//    @BindView(R.id.disconnect)
-//    Button disconnect;
+    @BindView(R.id.disconnect)
+    Button disconnect;
 
 
     @Override
@@ -40,23 +38,12 @@ public class CallMainActivity extends BaseActivity implements ControlWindowServi
         return R.layout.activity_main_call;
     }
 
-//    @Permissions({Permission.MANAGE_EXTERNAL_STORAGE, Permission.READ_PHONE_STATE, Permission.CALL_PHONE, Permission.RECORD_AUDIO})
+    @Permissions({Permission.MANAGE_EXTERNAL_STORAGE, Permission.READ_PHONE_STATE, Permission.CALL_PHONE, Permission.RECORD_AUDIO})
     @Override
     public void init(Bundle savedInstanceState) {
         Intent bindIntent = new Intent(CallMainActivity.this, ControlWindowService.class);
         bindService(bindIntent, sconnection, Context.BIND_AUTO_CREATE);
-
-//        disconnect.setOnClickListener(new View.OnClickListener() {
-//            @Permissions({Permission.CALL_PHONE})
-//            @Override
-//            public void onClick(View view) {
-//                try {
-//                    call();
-//                }catch (Exception e){
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
+        disconnect.setOnClickListener(v->{ call();});
     }
 
     /* 绑定service监听*/

@@ -1,4 +1,4 @@
-package com.smh.szyproject.test.call;
+package com.smh.szyproject.test.callService;
 
 import android.app.Service;
 import android.content.Context;
@@ -27,7 +27,6 @@ import com.arialyy.aria.core.Aria;
 import com.arialyy.aria.core.common.HttpOption;
 import com.arialyy.aria.core.task.UploadTask;
 import com.smh.szyproject.mvp.bean.CallBean;
-import com.smh.szyproject.mvp.bean.CallResult;
 import com.smh.szyproject.mvp.bean.ID;
 import com.smh.szyproject.mvp.module.CallMainContract;
 import com.smh.szyproject.mvp.presenter.CallMainPresenter;
@@ -90,7 +89,7 @@ public class ControlWindowService extends Service implements CallMainContract.Vi
                     ID id = new ID();
                     id.setId(SPUtil.getInt("id", 0, context));
                     presenter.sendUser(id);
-                }else{
+                } else {
                     L.e("正在通话中，不打电话 ");
                 }
             }
@@ -229,7 +228,7 @@ public class ControlWindowService extends Service implements CallMainContract.Vi
             button.setTextColor(Color.WHITE);
             windowManager.addView(button, layoutParams);
             button.setOnTouchListener(new FloatingOnTouchListener());
-            button.setOnClickListener((View view) -> {
+            button.setOnClickListener(v -> {
                 click();
             });
         }
