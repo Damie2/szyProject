@@ -25,7 +25,7 @@ public class TabLayoutFragment extends BaseFragment {
     protected void init() {
         textView.setText(getArguments().getString("name"));
 
-        help.setOnClickListener((view)->{
+        help.setOnClickListener(v->{
             startActivity(new Intent(getContext(), MyRepaceActivity.class));
         });
     }

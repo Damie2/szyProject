@@ -18,7 +18,7 @@ public class Common {
     public static String getBasePath(Context context) {
         String basePath = context.getCacheDir().getPath();
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
-                && ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+                && ContextCompat.checkSelfPermission(context, Manifest.permission.MANAGE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
                 && Environment.getExternalStorageState() != null
                 && Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)) {
             basePath = context.getExternalCacheDir().getPath();

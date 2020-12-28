@@ -37,7 +37,7 @@ public class interfaceTestA extends BaseActivity implements StatusAction {
 //        SPUtil.putString("token","123",this);
         //输入法自动往上抬
 //        SoftHideKeyBoardUtil.assistActivity(this);
-        //输入法，软键盘 输入框 很好很强大
+        //输入法，软键盘 输入框 很好很强大  锁键盘
         getStatusBarConfig().keyboardEnable(true).init();
         getStatusBarConfig().keyboardEnable(true).setOnKeyboardListener(new OnKeyboardListener() {
             @Override

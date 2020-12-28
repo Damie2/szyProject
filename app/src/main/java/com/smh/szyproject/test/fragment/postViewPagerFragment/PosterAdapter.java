@@ -58,6 +58,17 @@ public class PosterAdapter extends CommonAdapter<Integer> {
         }
 
         if (selectPosiion == position) {
+
+            /**
+             * 为指定View设置带阴影的背景
+             * @param view 目标View
+             * @param bgColor View背景色
+             * @param shapeRadius View的圆角
+             * @param shadowColor 阴影的颜色
+             * @param shadowRadius 阴影的宽度
+             * @param offsetX 阴影水平方向的偏移量
+             * @param offsetY 阴影垂直方向的偏移量
+             */
             ShadowDrawable.setShadowDrawable(iv, Color.parseColor("#00000000"), 0,
                     Color.parseColor("#b2ff2922"), 10, 0, 0);
         } else {

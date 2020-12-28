@@ -22,7 +22,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
+import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.other.utils.L;
 
 import java.io.File;
@@ -221,6 +223,7 @@ public class RecordButton extends AppCompatButton {
      * 执行录音操作
      */
     //int num = 0 ;
+    @Permissions({Permission.RECORD_AUDIO,Permission.MANAGE_EXTERNAL_STORAGE})
     private void startRecording() {
           if (mRecorder != null) {
             mRecorder.reset();

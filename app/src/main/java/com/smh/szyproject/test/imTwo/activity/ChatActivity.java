@@ -93,7 +93,7 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test_im2_activity_chat);
         initContent();
-        initData();
+//        initData();
     }
 
 

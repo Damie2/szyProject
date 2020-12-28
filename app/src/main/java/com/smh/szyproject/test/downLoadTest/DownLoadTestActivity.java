@@ -55,7 +55,7 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
         L.e("保存路径：" + saveFilePath);
     }
 
-    @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
+    @Permissions(Permission.MANAGE_EXTERNAL_STORAGE)
     @OnClick(R.id.tv_down_load)
     @Override
     public void onClick(View v) {

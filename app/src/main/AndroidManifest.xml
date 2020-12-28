@@ -33,7 +33,7 @@
 
     <!--读写权限-->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <!--    极光im第三步-->
     <permission
@@ -88,12 +88,9 @@
             android:name="design_height_in_dp"
             android:value="640" />
 
-        <activity android:name=".test.callService.CallMainActivity"
-            android:launchMode="singleTask"
-            />
 
         <activity
-            android:name=".test.observer.activity.FirstActivity"
+            android:name=".test.imThree.activity.ChatActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -103,16 +100,20 @@
         </activity>
 
 
+        <activity
+            android:name=".test.callService.CallMainActivity"
+            android:launchMode="singleTask" />
+
 
         <!--        <activity-->
-<!--            android:name=".test.call.CallLoginActivity"-->
-<!--            android:label="@string/app_name"-->
-<!--            android:theme="@style/AppTheme">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--            android:name=".test.call.CallLoginActivity"-->
+        <!--            android:label="@string/app_name"-->
+        <!--            android:theme="@style/AppTheme">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
         <activity
             android:name=".test.zmdatamanager.DataManagerHomeActivity"
@@ -125,20 +126,20 @@
 
         <activity android:name=".test.zmdatamanager.activity.DetailActivity" />
         <activity android:name=".test.zmdatamanager.activity.OrderActivity" />
-<!--        <activity android:name=".test.rxjava.RxJavaActivity"/>-->
+        <!--        <activity android:name=".test.rxjava.RxJavaActivity"/>-->
 
 
-        <service android:name="com.smh.szyproject.test.callService.SystemService"/>
+        <service android:name="com.smh.szyproject.test.callService.SystemService" />
         <service android:name="com.smh.szyproject.test.callService.ControlWindowService" />
 
-        <receiver android:name="com.smh.szyproject.test.callService.BootReceiver" >
+        <receiver android:name="com.smh.szyproject.test.callService.BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
 
-<!--        <activity android:name=".test.call.CallMainActivity"/>-->
+        <!--        <activity android:name=".test.call.CallMainActivity"/>-->
 
         <!--                <activity-->
         <!--                    android:name=".test.netTest.netTestActivity"-->
@@ -160,8 +161,7 @@
         <activity android:name=".test.observer.activity.SecondActivity" />
         <activity android:name=".test.observer.activity.ThirdActivity" />
 
-        <activity android:name=".test.TestActivity"/>
-        <activity android:name=".test.fragment.repace.MyRepaceActivity" />
+        <activity android:name=".test.TestActivity" />
         <!-- <activity -->
         <!-- android:name=".test.observer.activity.FirstActivity" -->
         <!-- android:name=".test.observer.activity.FirstActivity" -->
@@ -512,5 +512,14 @@
         </provider>
 
     </application>
+
+    <!-- Android 11  30版本 新策略，让我们在清单中注明要访问的第三方应用的包名，这样我们的应用才能正常访问到其他第三方应用的信息-->
+    <!--如果不加这俩玩意，QQ 登录和微信登录时，系统会告诉我们应用可能不存在-->
+    <queries>
+        <!--手机QQ-->
+        <package android:name="com.tencent.mobileqq"/>
+        <!--微信-->
+        <package android:name="com.tencent.mm"/>
+    </queries>
 
 </manifest>

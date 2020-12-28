@@ -147,7 +147,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
         loginSuccess();
     }
 
-    @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
+    @Permissions(Permission.MANAGE_EXTERNAL_STORAGE)
     @OnClick(R.id.iv_login_qq)
     public void iv_login_qq() {
         showToast("QQ登录");
@@ -155,7 +155,7 @@ public class LoginActivity extends BaseActivity implements UmengLogin.OnLoginLis
         UmengClient.login(this, platform, this);
     }
 
-    @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
+    @Permissions(Permission.MANAGE_EXTERNAL_STORAGE)
     @OnClick(R.id.iv_login_wx)
     public void iv_login_wx() {
         showToast("微信登录");

@@ -32,7 +32,7 @@ public class SplashActivity extends BaseActivity {
     public int getLayoutId() {
         return R.layout.activity_splash;
     }
-//    @Permissions({Permission.WRITE_EXTERNAL_STORAGE,Permission.READ_EXTERNAL_STORAGE,Permission.CAMERA,Permission.RECORD_AUDIO})
+//    @Permissions({Permission.MANAGE_EXTERNAL_STORAGE,Permission.READ_EXTERNAL_STORAGE,Permission.CAMERA,Permission.RECORD_AUDIO})
     @Override
     public void init(Bundle savedInstanceState) {
         initView();
@@ -57,7 +57,7 @@ public class SplashActivity extends BaseActivity {
         });
     }
 
-    @Permissions({Permission.WRITE_EXTERNAL_STORAGE})
+    @Permissions({Permission.MANAGE_EXTERNAL_STORAGE})
     public void initPermission() {
         L.e("开始跳了");
         startActivityFinish(DataManagerHomeActivity.class);

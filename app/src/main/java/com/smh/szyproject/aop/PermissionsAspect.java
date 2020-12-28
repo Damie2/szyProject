@@ -64,7 +64,6 @@ public class PermissionsAspect {
 
                     @Override
                     public void onDenied(List<String> permissions, boolean quick) {
-                        L.e("???");
                         if (quick) {
                             ToastUtils.showToastForText(ActivityStackManager.getInstance().getTopActivity(),"授权失败，请手动授予权限");
                             XXPermissions.startPermissionActivity(ActivityStackManager.getInstance().getTopActivity(), permissions);

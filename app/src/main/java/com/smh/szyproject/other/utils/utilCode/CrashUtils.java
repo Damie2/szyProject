@@ -24,7 +24,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+import static android.Manifest.permission.MANAGE_EXTERNAL_STORAGE;
 
 /**
  * <pre>
@@ -115,7 +115,7 @@ public final class CrashUtils {
 
     /**
      * Initialization.
-     * <p>Must hold {@code <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />}</p>
+     * <p>Must hold {@code <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />}</p>
      */
     @SuppressLint("MissingPermission")
     public static void init() {
@@ -124,29 +124,29 @@ public final class CrashUtils {
 
     /**
      * Initialization
-     * <p>Must hold {@code <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />}</p>
+     * <p>Must hold {@code <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />}</p>
      *
      * @param crashDir The directory of saving crash information.
      */
-    @RequiresPermission(WRITE_EXTERNAL_STORAGE)
+    @RequiresPermission(MANAGE_EXTERNAL_STORAGE)
     public static void init(@NonNull final File crashDir) {
         init(crashDir.getAbsolutePath(), null);
     }
 
     /**
      * Initialization
-     * <p>Must hold {@code <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />}</p>
+     * <p>Must hold {@code <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />}</p>
      *
      * @param crashDirPath The directory's path of saving crash information.
      */
-    @RequiresPermission(WRITE_EXTERNAL_STORAGE)
+    @RequiresPermission(MANAGE_EXTERNAL_STORAGE)
     public static void init(final String crashDirPath) {
         init(crashDirPath, null);
     }
 
     /**
      * Initialization
-     * <p>Must hold {@code <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />}</p>
+     * <p>Must hold {@code <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />}</p>
      *
      * @param onCrashListener The crash listener.
      */
@@ -157,24 +157,24 @@ public final class CrashUtils {
 
     /**
      * Initialization
-     * <p>Must hold {@code <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />}</p>
+     * <p>Must hold {@code <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />}</p>
      *
      * @param crashDir        The directory of saving crash information.
      * @param onCrashListener The crash listener.
      */
-    @RequiresPermission(WRITE_EXTERNAL_STORAGE)
+    @RequiresPermission(MANAGE_EXTERNAL_STORAGE)
     public static void init(@NonNull final File crashDir, final OnCrashListener onCrashListener) {
         init(crashDir.getAbsolutePath(), onCrashListener);
     }
 
     /**
      * Initialization
-     * <p>Must hold {@code <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />}</p>
+     * <p>Must hold {@code <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />}</p>
      *
      * @param crashDirPath    The directory's path of saving crash information.
      * @param onCrashListener The crash listener.
      */
-    @RequiresPermission(WRITE_EXTERNAL_STORAGE)
+    @RequiresPermission(MANAGE_EXTERNAL_STORAGE)
     public static void init(final String crashDirPath, final OnCrashListener onCrashListener) {
         if (isSpace(crashDirPath)) {
             dir = null;

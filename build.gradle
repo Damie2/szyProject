@@ -33,6 +33,7 @@ allprojects {
         maven { url 'https://dl.bintray.com/umsdk/release' }
         maven { url 'https://jitpack.io' }
         maven {url  "http://dl.bintray.com/lukaville/maven"}
+        maven { url 'http://developer.huawei.com/repo'} //环信第一步 如果需要使用华为推送HMS，则需要加上此句  这是集成环信
     }
 }
 

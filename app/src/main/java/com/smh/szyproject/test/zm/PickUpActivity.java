@@ -86,7 +86,7 @@ public class PickUpActivity extends BaseActivity implements View.OnClickListener
         return R.layout.test_pick_up_picture;
     }
 
-    @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
+    @Permissions(Permission.MANAGE_EXTERNAL_STORAGE)
     @Override
     public void init(Bundle savedInstanceState) {
         getStatusBarConfig().statusBarDarkFont(true);
@@ -98,7 +98,7 @@ public class PickUpActivity extends BaseActivity implements View.OnClickListener
         rv_data.setAdapter(adapter);
     }
 
-    @Permissions(Permission.WRITE_EXTERNAL_STORAGE)
+    @Permissions(Permission.MANAGE_EXTERNAL_STORAGE)
     @OnClick({R.id.tv_set_message, R.id.tv_get_photo, R.id.tv_down_load_picture})
     @Override
     public void onClick(View view) {

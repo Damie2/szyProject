@@ -26,6 +26,7 @@ import com.tencent.mm.opensdk.openapi.IWXAPI;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.BindView;
 
 public class NewPosterActivity extends BaseActivity implements ViewPager.OnPageChangeListener, PosterFragment.getBitmapListener {
@@ -66,16 +67,23 @@ public class NewPosterActivity extends BaseActivity implements ViewPager.OnPageC
         adapter = new PosterAdapter(list, this);
         rv_middle.setLayoutManager(new MyLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         rv_middle.setAdapter(adapter);
-        adapter.setOnClickLinster(new CommonAdapter.OnItemClickLinster() {
-            @Override
-            public void onItemClick(int position, View view) {
-                int old = adapter.getSelectPosiion();
-                adapter.setSelectPosiion(position);
-                adapter.notifyItemChanged(position);
-                adapter.notifyItemChanged(old);
-                vp_content.setCurrentItem(position);
-            }
+        adapter.setOnClickLinster((int position, View view) -> {
+            int old = adapter.getSelectPosiion();//先拿到默认的-1位置
+            adapter.setSelectPosiion(position);//adapter中将当前选中的设置为选中的位置
+            adapter.notifyItemChanged(position);//更新选中的位置
+            adapter.notifyItemChanged(old);//更新旧位置
+            vp_content.setCurrentItem(position);
         });
+//        adapter.setOnClickLinster(new CommonAdapter.OnItemClickLinster() {
+//            @Override
+//            public void onItemClick(int position, View view) {
+//                int old = adapter.getSelectPosiion();
+//                adapter.setSelectPosiion(position);
+//                adapter.notifyItemChanged(position);
+//                adapter.notifyItemChanged(old);
+//                vp_content.setCurrentItem(position);
+//            }
+//        });
         adapter.setSelectPosiion(0);
         adapter.notifyItemChanged(0);
     }

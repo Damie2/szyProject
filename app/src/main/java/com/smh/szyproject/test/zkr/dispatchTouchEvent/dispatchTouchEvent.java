@@ -31,4 +31,32 @@ class dispatchTouchEvent {
 //    如果返回了true，就交给viewGroup中的onTouchEvent处理
 
 
+//    主要方法解释
+//    dispatchTouchEvent：事件分发方法
+//
+//    返回 false：分发事件
+//
+//    返回 true：不分发事件
+//
+//    默认返回值：false
+//=================================================
+//    onInterceptTouchEvent：事件拦截方法
+//
+//    返回 false：不拦截事件
+//
+//    返回 true：拦截事件
+//
+//    默认返回值：false
+//=================================================
+//    onTouchEvent：事件消费方法
+//
+//    返回 false：不消费事件
+//
+//    返回 true：消费事件
+//
+//    默认返回值：false
+//
+
+
+
 }

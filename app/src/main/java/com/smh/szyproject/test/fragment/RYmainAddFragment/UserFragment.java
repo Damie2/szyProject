@@ -78,6 +78,7 @@ public class UserFragment extends BaseFragment {
     }
 
 
+
     @RegisterRxBus(1)
     public void getMsg(String push, int tag) {
     }

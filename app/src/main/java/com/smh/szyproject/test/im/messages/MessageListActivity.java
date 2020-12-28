@@ -158,7 +158,7 @@ public class MessageListActivity extends Activity implements View.OnTouchListene
                     });
                 }
             }
-            @Permissions({Permission.RECORD_AUDIO,Permission.WRITE_EXTERNAL_STORAGE})
+            @Permissions({Permission.RECORD_AUDIO,Permission.MANAGE_EXTERNAL_STORAGE})
             @Override
             public boolean switchToMicrophoneMode() {
                 scrollToBottom();
@@ -172,7 +172,7 @@ public class MessageListActivity extends Activity implements View.OnTouchListene
                 mChatView.getChatInputView().getSelectPhotoView().updateData();
                 return true;
             }
-            @Permissions({Permission.WRITE_EXTERNAL_STORAGE,Permission.CAMERA,Permission.RECORD_AUDIO})
+            @Permissions({Permission.MANAGE_EXTERNAL_STORAGE,Permission.CAMERA,Permission.RECORD_AUDIO})
             @Override
             public boolean switchToCameraMode() {
                 scrollToBottom();

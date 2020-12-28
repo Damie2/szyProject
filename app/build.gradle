@@ -373,6 +373,7 @@ dependencies {
     implementation 'com.scwang.smart:refresh-footer-classics:2.0.1'    //经典加载
 
 
+
 //    烈焰弹幕使
     implementation 'com.github.ctiao:DanmakuFlameMaster:0.9.25'
     implementation 'com.github.ctiao:ndkbitmap-armv7a:0.9.21'
@@ -382,6 +383,22 @@ dependencies {
     //这是极光IM用到的插件
     implementation 'cn.jiguang.imui:messagelist:0.8.0'
     implementation 'cn.jiguang.imui:chatinput:0.10.0'
+
+//    //环信 第二步   http://docs-im.easemob.com/im/android/sdk/import
+//    api 'com.android.support:appcompat-v7:28.0.0-alpha1'
+//    // Google firebase cloud messaging
+//    implementation 'com.google.android.gms:play-services-base:11.4.0'
+//    implementation 'com.google.firebase:firebase-messaging:11.4.0'
+//    api 'com.hyphenate:hyphenate-sdk:3.6.8'
+//
+//    //如果想使用不包含音视频通话的sdk，单独用下面这句就行
+////    api 'com.hyphenate:hyphenate-sdk-lite:3.6.8';
+    implementation 'com.hyphenate:hyphenate-sdk-lite:3.6.8'
+//    //上面是环信第二步
+
+    //环信
+
+
 
     //饺子播放器
     implementation 'cn.jzvd:jiaozivideoplayer:7.4.1'
@@ -421,6 +438,10 @@ dependencies {
 //    implementation 'org.greenrobot:eventbus:3.2.0'
     //Android炫酷的底部切换效果
     implementation 'com.roughike:bottom-bar:2.3.1'
+
+//    viewpager大全
+//    https://blog.csdn.net/confusing_awakening/article/details/107635695#Tab_indicatorViewPagerViewPager2_148
+
 
     //im直播LiveActivity用到的 共同头部+ViewPager+ListView(AdapterView)|RecyclerView|ScrollView|WebView
     implementation 'com.github.cpoopc:scrollablelayoutlib:1.0.0'

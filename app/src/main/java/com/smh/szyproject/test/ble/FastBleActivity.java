@@ -45,7 +45,7 @@ public class FastBleActivity extends BaseActivity {
         BleManager.getInstance().initScanRule(scanRuleConfig);
 
 
-        findViewById(R.id.tv_next).setOnClickListener((View v) -> {
+        findViewById(R.id.tv_next).setOnClickListener(v -> {
             if (BleManager.getInstance().isSupportBle()) {
                 //主动打开蓝牙
                 BleManager.getInstance().enableBluetooth();

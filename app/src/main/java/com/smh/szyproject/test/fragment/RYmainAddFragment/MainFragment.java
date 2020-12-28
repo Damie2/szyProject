@@ -68,7 +68,7 @@ public class MainFragment extends BaseFragment {
         //设置默认的tab样式
         setTextCustomView(mTablayout.getTabAt(0));
         //这个是默认展示第几个
-        mTablayout.getTabAt(2).select();
+        mTablayout.getTabAt(0).select();
         mTablayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
