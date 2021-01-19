@@ -90,7 +90,7 @@
 
 
         <activity
-            android:name=".test.imThree.activity.ChatActivity"
+            android:name=".test.ble.FastBleActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
