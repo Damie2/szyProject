@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.LifecycleRegistry;
 
 import com.clj.fastble.BleManager;
 import com.github.moduth.blockcanary.BlockCanary;
@@ -69,18 +70,20 @@ import okhttp3.OkHttpClient;
  * 　　　　　　　　　　┃┫┫　┃┫┫
  * 　　　　　　　　　　┗┻┛　┗┻┛
  */
-public class MyApplication extends Application {
+public class MyApplication extends Application implements LifecycleOwner{
 
     private static MyApplication application;
     private static Context context;
     private static OkHttpClient mOkHttpClient;
     public static final int TIMEOUT = 60;
+    private final LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
 
     @Override
     public void onCreate() {
         super.onCreate();
         application = this;
         context = getApplicationContext();
+        mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_CREATE);
         initOKHttp();//普通的ok
         initEasyHttp();//轮子的请求
         ActivityStackManager.getInstance().init(application);
@@ -236,5 +239,11 @@ public class MyApplication extends Application {
         super.attachBaseContext(base);
         // 使用 Dex分包
         //MultiDex.install(this);
+    }
+
+    @NonNull
+    @Override
+    public Lifecycle getLifecycle() {
+        return mLifecycle;
     }
 }
