@@ -235,6 +235,18 @@ public class MyApplication extends Application implements LifecycleOwner{
     }
 
     @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        //清理所有图片内存缓存
+    }
+
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        //根据手机内存剩余情况清理图片内存缓存
+    }
+
+    @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         // 使用 Dex分包
