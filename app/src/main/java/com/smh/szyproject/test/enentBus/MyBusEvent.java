@@ -9,7 +9,6 @@ public class MyBusEvent {
 
     public final String message;
 
-
     public MyBusEvent(String message) {
         this.message = message;
     }
