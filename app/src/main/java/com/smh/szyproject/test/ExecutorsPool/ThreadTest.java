@@ -2,6 +2,7 @@ package com.smh.szyproject.test.ExecutorsPool;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.SystemClock;
 
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
@@ -44,12 +45,18 @@ public class ThreadTest extends BaseActivity {
 
         CachedExecutorsUtil.getInstance().init();//在application里注册
 
+//        for (int i=0;i<10;i++){
+//            CachedExecutorsUtil.getInstance().executors(()->{
+//                L.e("这里???");
+//            });
+//        }
+
+        //轮子的线程池
         for (int i=0;i<10;i++){
-            CachedExecutorsUtil.getInstance().executors(()->{
-                L.e("这里???");
+            LunZiAppThreadManager.getInstance().execute(()->{
+                L.e("轮子哥?");
             });
         }
-
     }
 
     private void singleThreadExecutor() {
@@ -160,7 +167,7 @@ public class ThreadTest extends BaseActivity {
                 60,//非核心线程闲置是的超时时长，超过这个时长，非核心线程就会被回收    非核心线程的存活时间，当线程池中的非核心线程没有任务执行的时候，如果超过了指定的时间还是没有执行任何任务的时候，那么这个非核心线程会在超时后被回收掉，如果我们不指定这个时间，那么这些非核心线程将永远不会被回收。
 
                 TimeUnit.SECONDS,//用于指定keepAliveTime的时间单位
-                new SynchronousQueue<Runnable>(),//线程池中的人物队列，通过线程池的execute方法提交的runable对象会存储在这个参数中
+                new SynchronousQueue<Runnable>(),//线程池中的任务队列，通过线程池的execute方法提交的runable对象会存储在这个参数中
                 new ThreadPoolExecutor.DiscardPolicy()
         );
 

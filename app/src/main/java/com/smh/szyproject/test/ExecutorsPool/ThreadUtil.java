@@ -9,7 +9,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * 线程工具，用于执行线程等
+ * 线程工具，用于执行线程等 廊坊银行用的
  */
 public final class ThreadUtil {
     public static final ThreadUtil INST = new ThreadUtil();
