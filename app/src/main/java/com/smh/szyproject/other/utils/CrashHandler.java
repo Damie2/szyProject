@@ -121,9 +121,16 @@ public class CrashHandler implements UncaughtExceptionHandler {
 				Looper.loop();
 			}
 		}.start();
-		
+
 		// 收集设备信息
 		collectCrashDeviceInfo(mContext);
+
+
+		// 杀死进程（这个事应该是系统干的，但是它会多弹出一个崩溃对话框，所以需要我们自己手动杀死进程）
+		android.os.Process.killProcess(android.os.Process.myPid());
+		System.exit(10);
+
+
 		// 使用友盟SDK将错误报告保存到文件中，待下次应用程序重启时上传log
 //		String crashFileName = saveCrashInfoToFile(ex);
 		// 发送错误报告到服务器

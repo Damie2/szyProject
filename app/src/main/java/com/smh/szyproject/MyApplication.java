@@ -15,6 +15,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.LifecycleRegistry;
 
+import com.bumptech.glide.Glide;
 import com.clj.fastble.BleManager;
 import com.github.moduth.blockcanary.BlockCanary;
 import com.hjq.http.EasyConfig;
@@ -238,12 +239,14 @@ public class MyApplication extends Application implements LifecycleOwner{
     public void onLowMemory() {
         super.onLowMemory();
         //清理所有图片内存缓存
+        Glide.get(this).onLowMemory();
     }
 
     @Override
     public void onTrimMemory(int level) {
         super.onTrimMemory(level);
         //根据手机内存剩余情况清理图片内存缓存
+        Glide.get(this).onTrimMemory(level);
     }
 
     @Override

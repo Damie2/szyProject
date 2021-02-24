@@ -339,7 +339,8 @@
 -keepattributes InnerClasses, EnclosingMethod, Signature, *Annotation*
 
 -keepnames @org.aspectj.lang.annotation.Aspect class * {
-    ajc* <methods>;
+#    ajc* <methods>;
+     public <methods>;
 }
 
 # OkHttp3

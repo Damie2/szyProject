@@ -22,10 +22,11 @@ public final class ActivityStackManager implements Application.ActivityLifecycle
      * 当前应用上下文对象
      */
     private Application mApplication;
-    /**
-     * 当前 Activity 对象标记
-     */
-    private String mCurrentTag;
+    /** 最后一个可见 Activity 标记 */
+    private String mLastVisibleTag;
+    /** 最后一个不可见 Activity 标记 */
+    private String mLastInvisibleTag;
+
 
     private ActivityStackManager() {
     }
@@ -58,7 +59,7 @@ public final class ActivityStackManager implements Application.ActivityLifecycle
      * 获取栈顶的 Activity
      */
     public Activity getTopActivity() {
-        return mActivitySet.get(mCurrentTag);
+        return mActivitySet.get(mLastVisibleTag);
     }
 
     /**
@@ -67,6 +68,20 @@ public final class ActivityStackManager implements Application.ActivityLifecycle
     public void finishAllActivities() {
         finishAllActivities((Class<? extends Activity>) null);
     }
+
+    /**
+     * 判断当前应用是否处于前台状态
+     */
+    public boolean isForeground() {
+        // 如果最后一个可见的 Activity 和最后一个不可见的 Activity 是同一个的话
+        if (mLastVisibleTag.equals(mLastInvisibleTag)) {
+            return false;
+        }
+        Activity activity = getTopActivity();
+        return activity != null;
+    }
+
+
 
     /**
      * 销毁所有的 Activity，除这些 Class 之外的 Activity
@@ -94,36 +109,31 @@ public final class ActivityStackManager implements Application.ActivityLifecycle
         }
     }
 
-    /**
-     * 获取一个对象的独立无二的标记
-     */
-    private static String getObjectTag(Object object) {
-        // 对象所在的包名 + 对象的内存地址
-        return object.getClass().getName() + Integer.toHexString(object.hashCode());
-    }
 
     @Override
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle savedInstanceState) {
-        mCurrentTag = getObjectTag(activity);
+        mLastVisibleTag = getObjectTag(activity);
         mActivitySet.put(getObjectTag(activity), activity);
     }
 
     @Override
     public void onActivityStarted(@NonNull Activity activity) {
-        mCurrentTag = getObjectTag(activity);
+        mLastVisibleTag = getObjectTag(activity);
     }
 
     @Override
     public void onActivityResumed(@NonNull Activity activity) {
-        mCurrentTag = getObjectTag(activity);
+        mLastVisibleTag = getObjectTag(activity);
     }
 
     @Override
     public void onActivityPaused(@NonNull Activity activity) {
+        mLastInvisibleTag = getObjectTag(activity);
     }
 
     @Override
     public void onActivityStopped(@NonNull Activity activity) {
+        mLastInvisibleTag = getObjectTag(activity);
     }
 
     @Override
@@ -133,12 +143,23 @@ public final class ActivityStackManager implements Application.ActivityLifecycle
     @Override
     public void onActivityDestroyed(@NonNull Activity activity) {
         mActivitySet.remove(getObjectTag(activity));
-        if (getObjectTag(activity).equals(mCurrentTag)) {
+        mLastInvisibleTag = getObjectTag(activity);
+        if (getObjectTag(activity).equals(mLastVisibleTag)) {
             // 清除当前标记
-            mCurrentTag = null;
+            mLastVisibleTag = null;
         }
     }
+    /**
+     * 获取一个对象的独立无二的标记
+     */
+    private static String getObjectTag(Object object) {
+        // 对象所在的包名 + 对象的内存地址
+        return object.getClass().getName() + Integer.toHexString(object.hashCode());
+    }
 }
+
+
+
 //下面是之前用的，带广告的
 //////////////////////////////////////////////////////////////////
 

@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.SystemClock;
 
+import com.hjq.permissions.Permission;
 import com.smh.szyproject.R;
+import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
 
@@ -27,7 +29,7 @@ public class ThreadTest extends BaseActivity {
     public int getLayoutId() {
         return R.layout.activity_main;
     }
-
+    @Permissions(Permission.CAMERA)
     @Override
     public void init(Bundle savedInstanceState) {
         //每次只允许有一个线程运行
