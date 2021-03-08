@@ -44,6 +44,13 @@ public class FastBleActivity extends BaseActivity {
                 .build();
         BleManager.getInstance().initScanRule(scanRuleConfig);
 
+        findViewById(R.id.tv_next).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         findViewById(R.id.tv_next).setOnClickListener(v -> {
             if (BleManager.getInstance().isSupportBle()) {

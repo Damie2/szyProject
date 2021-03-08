@@ -44,7 +44,7 @@ public class ThreadTest extends BaseActivity {
 //        ScheduledThreadPool();
 //        一个单线程化的线程池
 //        singleThreadExecutor();
-
+        test();
         CachedExecutorsUtil.getInstance().init();//在application里注册
 
 //        for (int i=0;i<10;i++){
@@ -59,6 +59,17 @@ public class ThreadTest extends BaseActivity {
                 L.e("轮子哥?");
             });
         }
+
+//        test();
+    }
+
+    private void test() {
+        L.e("1");
+        L.e("2");
+        L.e("3");
+        L.e("4");
+        L.e("5");
+        L.e("6");
     }
 
     private void singleThreadExecutor() {
