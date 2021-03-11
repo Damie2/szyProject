@@ -36,6 +36,11 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
+    <!--指纹识别-->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+
     <!--    极光im第三步-->
     <permission
         android:name="com.smh.szyproject.permission.JPUSH_MESSAGE"
@@ -91,7 +96,7 @@
 
 
         <activity
-            android:name=".test.ExecutorsPool.ThreadTest"
+            android:name=".test.fingerprint.FingerLoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -124,6 +129,7 @@
 
         </activity>
         <activity android:name=".ui.activity.LoginActivity" />
+        <activity android:name=".test.ExecutorsPool.bingfa.MainActivity"/>
 
         <activity android:name=".test.zmdatamanager.activity.DetailActivity" />
         <activity android:name=".test.zmdatamanager.activity.OrderActivity" />

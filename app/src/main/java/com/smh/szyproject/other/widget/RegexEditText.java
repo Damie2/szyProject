@@ -177,6 +177,7 @@ public class RegexEditText extends AppCompatEditText implements InputFilter {
             }
         } else {
             if (!mPattern.matcher(result).matches()) {
+
                 // 如果不匹配则不让删除（删空操作除外）
                 if (!"".equals(result)) {
                     return dest.toString().substring(dstart, dend);
