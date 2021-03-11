@@ -80,7 +80,6 @@ public class FileUtil {
         }
     }
 
-
     @SuppressWarnings("ResultOfMethodCallIgnored")
     private static File createDir(String sdcardDirName) {
         //拼接成SD卡中完整的dir

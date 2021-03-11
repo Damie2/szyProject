@@ -30,6 +30,8 @@ public class FingerLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        int i=0;
+        int a = 5/i;
         if (supportFingerprint()) {
             initKey();
             initCipher();

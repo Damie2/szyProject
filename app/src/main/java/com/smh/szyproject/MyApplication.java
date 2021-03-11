@@ -26,13 +26,14 @@ import com.hjq.http.model.HttpParams;
 import com.smh.szyproject.common.image.ImageLoader;
 import com.smh.szyproject.easyNet.model.RequestHandler;
 import com.smh.szyproject.easyNet.server.MyServer;
+import com.smh.szyproject.other.crash.CrashHandler;
 import com.smh.szyproject.other.helper.ActivityStackManager;
 import com.smh.szyproject.net.interceptor.CookieReadInterceptor;
 import com.smh.szyproject.net.interceptor.CookiesSaveInterceptor;
 import com.smh.szyproject.net.interceptor.InterceptorUtil;
 
 import com.smh.szyproject.other.umeng.UmengClient;
-import com.smh.szyproject.other.utils.CrashHandler;
+
 import com.smh.szyproject.other.utils.ToastUtils;
 import com.smh.szyproject.test.blockcanary.AppBlockCanaryContext;
 import com.squareup.leakcanary.LeakCanary;
@@ -88,7 +89,8 @@ public class MyApplication extends Application implements LifecycleOwner{
         initOKHttp();//普通的ok
         initEasyHttp();//轮子的请求
         ActivityStackManager.getInstance().init(application);
-        CrashHandler.getInstance().init(this);
+//        CrashHandler.getInstance().init(this);
+        CrashHandler.getInstance(this);
         initNetManager();
         initSDK();
     }

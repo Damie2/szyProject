@@ -131,5 +131,11 @@
         </attr>
     </declare-styleable>
 
+    <!--放大镜-->
+    <declare-styleable name="LoupeView">
+        <attr name="louperadius" format="integer|reference"/>
+        <attr name="loupescale" format="integer|reference"/>
+    </declare-styleable>
+
 
 </resources>

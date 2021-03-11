@@ -94,8 +94,11 @@
             android:value="640" />
 
 
+<!--        <activity-->
+<!--            android:name=".test.LoupeView.LoupeViewActivity"-->
+<!--        android:name=".test.fingerprint.FingerLoginActivity"-->
         <activity
-            android:name=".test.fingerprint.FingerLoginActivity"
+            android:name=".ui.activity.LoginActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -103,6 +106,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".test.fingerprint.FingerprintActivity"/>
 
 
         <activity
@@ -127,7 +132,7 @@
             android:windowSoftInputMode="stateHidden">
 
         </activity>
-        <activity android:name=".ui.activity.LoginActivity" />
+<!--        <activity android:name=".ui.activity.LoginActivity" />-->
         <activity android:name=".test.ExecutorsPool.bingfa.MainActivity"/>
 
         <activity android:name=".test.zmdatamanager.activity.DetailActivity" />
