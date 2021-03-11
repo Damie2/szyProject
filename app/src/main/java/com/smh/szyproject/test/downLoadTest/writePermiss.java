@@ -64,7 +64,17 @@ public class writePermiss extends BaseActivity {
 //            saveFilePath = Environment.getExternalStorageDirectory() + "/download/" + fileName;
         saveFilePath = Environment.getExternalStorageDirectory() + "/" + fileName;
             //测试路径都能下载
+
+//        https://blog.csdn.net/weixin_40611659/article/details/95174124
+
+//        看我，看我，看我
+//        PathUtils中 getExternalAppPicturesPath方法
+//        getExternalAppDownloadPath
+//                getExternalAppDcimPath
+//        getExternalAppDocumentsPath
 //        }
+
+//        如果要访问沙盒外的媒体共享文件，比如照片，音乐，视频等，需要申请新的媒体权限:READ_MEDIA_IMAGES,READ_MEDIA_VIDEO,READ_MEDIA_AUDIO,申请方法同原来的存储权限
         method1();
     }
 

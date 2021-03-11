@@ -42,6 +42,10 @@ public class newMvvm extends BaseActivity implements WebViewContract.View {
     }
     @Permissions(Permission.READ_PHONE_STATE)
     private void initPermissions() {
+//        设备唯一标识符需要特别注意，原来的READ_PHONE_STATE权限已经不能获得IMEI和序列号，如果想在Q设备上通过
+
+
+
         L.e("1.安装APP后发送请求");
         String imei = "";
         if (Build.VERSION.SDK_INT < 29) {
