@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId "com.smh.szyproject"
-        minSdkVersion 23
+        minSdkVersion 23    //在 Android Q 中，当用户首次运行以 Android 6.0（API 级别 23）以下的版本为目标平台的任何应用时，Android平台会向用户发出警告。
         targetSdkVersion 30
         versionCode 100
         versionName "50.0"
@@ -53,19 +53,19 @@ android {
 
         //NDK开发第一步
         //https://www.jianshu.com/p/921a5142ae12
-        externalNativeBuild {
-            cmake {
-                cppFlags ""
-            }
-        }
+//        externalNativeBuild {
+//            cmake {
+//                cppFlags ""
+//            }
+//        }
     }
     //NDK开发第二步
-    externalNativeBuild {
-        cmake {
-            path "src/main/cpp/CMakeLists.txt"
-            version "3.10.2"
-        }
-    }
+//    externalNativeBuild {
+//        cmake {
+//            path "src/main/cpp/CMakeLists.txt"
+//            version "3.10.2"
+//        }
+//    }
 
     // 设置存放 so 文件的目录
     sourceSets {

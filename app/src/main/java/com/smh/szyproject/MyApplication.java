@@ -72,7 +72,7 @@ import okhttp3.OkHttpClient;
  * 　　　　　　　　　　┃┫┫　┃┫┫
  * 　　　　　　　　　　┗┻┛　┗┻┛
  */
-public class MyApplication extends Application implements LifecycleOwner{
+public class  MyApplication extends Application implements LifecycleOwner{
 
     private static MyApplication application;
     private static Context context;
