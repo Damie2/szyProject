@@ -66,9 +66,9 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
                     L.e("点击左边");
                     SimpleDialog dialog = (SimpleDialog) view;
                     dialog.dismiss();
-                }).setRightListener(view -> {
+                }).setRightListener(i -> {
             L.e("点击右边");
-            SimpleDialog dialog = (SimpleDialog) view;
+            SimpleDialog dialog = (SimpleDialog) i;
             dialog.dismiss();
         }).show();
     }
@@ -81,13 +81,13 @@ public class CustomDialogActivity extends BaseActivity implements View.OnClickLi
                 .setRightBtnText("确定")
                 .setLeftBtnText("取消")
                 .setRightBtnColor(Color.RED)
-                .setLeftListener(view -> {
+                .setLeftListener(i -> {
                     L.e("点击左边");
-                    CustomDialog dialog = (CustomDialog) view;
+                    CustomDialog dialog = (CustomDialog) i;
                     dialog.dismiss();
-                }).setRightListener(view -> {
+                }).setRightListener(i -> {
             L.e("点击右边");
-            CustomDialog dialog = (CustomDialog) view;
+            CustomDialog dialog = (CustomDialog) i;
             dialog.dismiss();
         }).show();
     }

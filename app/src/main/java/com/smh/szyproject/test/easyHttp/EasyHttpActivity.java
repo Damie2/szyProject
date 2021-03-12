@@ -32,6 +32,7 @@ import com.smh.szyproject.easyNet.model.HttpData;
 import com.smh.szyproject.easyNet.request.LoginApi;
 import com.smh.szyproject.easyNet.request.UpdateImageApi;
 import com.smh.szyproject.other.utils.L;
+import com.smh.szyproject.test.ExecutorsPool.LunZiAppThreadManager;
 
 import java.io.File;
 import java.util.List;
@@ -151,6 +152,16 @@ public class EasyHttpActivity extends BaseActivity implements OnHttpListener {
     }
 
     private void syncRequest() {
+        LunZiAppThreadManager.getInstance().execute(()->{
+            try {
+                ID data = EasyHttp.post(this).api(new LoginApi().setAuthor(new User("admin"))).execute(new DataClass<ID>() {});
+                L.e("" + data.getId());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+
         new Thread(() -> {
             runOnUiThread(this::showProgressHUD);
             try {
