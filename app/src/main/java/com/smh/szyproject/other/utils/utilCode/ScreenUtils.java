@@ -124,6 +124,8 @@ public final class ScreenUtils {
     }
 
     /**
+     *
+     *
      * Set non full screen.
      *
      * @param activity The activity.

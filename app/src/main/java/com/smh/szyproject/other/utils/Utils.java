@@ -58,6 +58,7 @@ public class Utils {
         int width = dm.widthPixels;
         int sw = context.getResources().getConfiguration().smallestScreenWidthDp;
         System.out.println("屏幕分辨率:" + width + "*" + height + ",dpi:" + dm.density + ",sw:" + sw);
+       L.e("屏幕分辨率:" + width + "*" + height + ",dpi:" + dm.density + ",sw:" + sw);
         return dm.density;
     }
 

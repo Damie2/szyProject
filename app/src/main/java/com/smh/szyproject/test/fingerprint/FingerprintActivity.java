@@ -2,6 +2,7 @@ package com.smh.szyproject.test.fingerprint;
 
 import android.os.Bundle;
 
+import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
 
 /**
@@ -10,7 +11,7 @@ import com.smh.szyproject.common.base.BaseActivity;
 public class FingerprintActivity extends BaseActivity {
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.test_activity_test;
     }
 
     @Override
