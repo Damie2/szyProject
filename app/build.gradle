@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+//神策
+apply plugin: 'com.sensorsdata.analytics.android'
 //腾讯VasDolly多渠道打包插件
 //apply plugin: 'channel'
 
@@ -478,6 +480,9 @@ dependencies {
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.2'
     // 如果使用了 support fragment，请同时依赖
     debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.2'
+
+    // 添加 神策埋点 Sensors Analytics SDK 依赖
+    implementation 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:5.1.0'
 
 //    什么都没改
 //    20Mb

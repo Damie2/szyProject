@@ -37,10 +37,16 @@ public class FingerprintDialogFragment extends DialogFragment {
         mCipher = cipher;
     }
 
+    //onAttach是Fragment与Activity建立联系的时候调用的
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mActivity = (FingerLoginActivity) getActivity();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
     }
 
     @Override
@@ -120,5 +126,4 @@ public class FingerprintDialogFragment extends DialogFragment {
             isSelfCancelled = true;
         }
     }
-
 }

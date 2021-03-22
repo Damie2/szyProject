@@ -16,6 +16,9 @@ buildscript {
 
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
+        //添加神策分析 android-gradle-plugin2 依赖
+        classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:3.3.4'
+
 
         //aop
         classpath 'org.aspectj:aspectjtools:1.9.5'
