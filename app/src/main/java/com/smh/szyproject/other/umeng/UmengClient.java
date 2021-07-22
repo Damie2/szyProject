@@ -20,7 +20,7 @@ import com.umeng.socialize.PlatformConfig;
 import com.umeng.socialize.ShareAction;
 import com.umeng.socialize.UMShareAPI;
 
-import org.android.agoo.xiaomi.MiPushRegistar;
+//import org.android.agoo.xiaomi.MiPushRegistar;
 
 public final class UmengClient {
 
@@ -35,7 +35,7 @@ public final class UmengClient {
 //              PlatformConfig.setWeixin(String.valueOf(metaData.get("WX_APPID")), String.valueOf(metaData.get("WX_APPKEY")));
             UMConfigure.setLogEnabled(false);
             //小米开放平台申请到的推送初始化
-            MiPushRegistar.register(application,Constants.UM.XIAOMI_APPID, Constants.UM.XIAOMI_APPKEY); // 小米开放平台申请到的 APPID 和 APPKEY
+//            MiPushRegistar.register(application,Constants.UM.XIAOMI_APPID, Constants.UM.XIAOMI_APPKEY); // 小米开放平台申请到的 APPID 和 APPKEY
             PushAgent.getInstance(application).register(new IUmengRegisterCallback() {
                 @Override
                 public void onSuccess(String s) {

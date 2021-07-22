@@ -25,7 +25,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.entity.LocalMedia;
-import com.nbsp.materialfilepicker.ui.FilePickerActivity;
+
 import com.smh.szyproject.R;
 import com.smh.szyproject.other.utils.L;
 import com.smh.szyproject.test.imTwo.adapter.ChatAdapter;
@@ -279,9 +279,9 @@ public class ChatActivity extends AppCompatActivity implements SwipeRefreshLayou
         if (resultCode == RESULT_OK) {
             switch (requestCode) {
                 case REQUEST_CODE_FILE:
-                    String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
-                    L.e("获取到的文件路径:" + filePath);
-                    sendFileMessage(mSenderId, mTargetId, filePath);
+//                    String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
+//                    L.e("获取到的文件路径:" + filePath);
+//                    sendFileMessage(mSenderId, mTargetId, filePath);
                     break;
                 case REQUEST_CODE_IMAGE:
                     // 图片选择结果回调

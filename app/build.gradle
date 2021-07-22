@@ -21,10 +21,12 @@ android {
         targetSdkVersion 30
         versionCode 100
         versionName "50.0"
+//        manifestPlaceholders = [qqappid: "101872925"]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         // 仅保留中文语种的资源
         resConfig 'zh'
-
+        //友盟需要这玩意
+//        manifestPlaceholders = [qqappid: "101872925"]
 //        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
         //由于在Android Studio pluing 3.0.+以上，如果项目中用到注解，必须显示的声明注释处理器。
@@ -130,9 +132,9 @@ android {
             versionName "1.1"
         }
     }
-
     productFlavors.all {
-        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name,
+                                                 qqappid: "101872925"]
     }
     //================友盟多渠道配置方式二============
 
@@ -204,6 +206,9 @@ repositories {
 }
 
 //看异常，就用我 gradlew  assembleDebug  --stacktrace
+
+
+//gradlew processTencentDebugManifest --stacktrace，意思是如果明确指知道是哪个task有错误，比如processTencentDebugManifest
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -324,24 +329,51 @@ dependencies {
     //KProgressHUD dialog
     implementation 'com.kaopiz:kprogresshud:1.2.0'
     //微信分享、登录、收藏、支付
-    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.3.1'
+//    api 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.3.1'
     //友盟
-    //推送的
-    //基础组件库依赖(必须) Push 605版本必须升级新版本Common SDK
-    implementation 'com.umeng.umsdk:common:2.2.2'
-    implementation 'com.umeng.umsdk:utdid:1.5.2'
-    //友盟push相关依赖(必须)
-    implementation 'com.umeng.umsdk:push:6.0.5'
-    implementation 'com.umeng.umsdk:alicloud-httpdns:1.2.5'
-    implementation 'com.umeng.umsdk:alicloud-utils:1.1.5'
-    implementation 'com.umeng.umsdk:alicloud_beacon:1.0.1'
-    implementation 'com.umeng.umsdk:agoo-accs:3.3.8.8-open-fix2'
-    implementation 'com.umeng.umsdk:agoo_networksdk:3.5.5'
-    implementation 'com.umeng.umsdk:agoo_tlog:3.0.0.17'
-    implementation 'com.umeng.umsdk:agoo_tnet4android:3.1.14.9'
-    //小米推送
-    implementation 'com.umeng.umsdk:xiaomi-push:3.7.0'
-    implementation 'com.umeng.umsdk:xiaomi-umengaccs:1.1.4'
+//    https://github.com/umeng/MultiFunctionAndroidMavenDemo-master?spm=a311a.7996332.0.0.41123080OCVsoT
+    //上面是官方demo
+    implementation 'com.umeng.umsdk:common:9.4.0' // (必选)版本号
+    implementation 'com.umeng.umsdk:asms:1.2.3' // asms包依赖(必选)
+    implementation 'com.umeng.umsdk:apm:1.2.0' // apm包依赖(可选)
+    implementation 'com.umeng.umsdk:game:9.2.0+G' // 游戏统计SDK依赖(可选)
+
+    //友盟Push相关依赖（必须）
+    api 'com.umeng.umsdk:push:6.3.3'
+    implementation 'com.umeng.umsdk:alicloud-httpdns:1.3.2.3'
+    implementation 'com.umeng.umsdk:alicloud-utils:2.0.0'
+    implementation 'com.umeng.umsdk:alicloud_beacon:1.0.5'
+    api 'com.umeng.umsdk:agoo-accs:3.4.2.7'
+    implementation 'com.umeng.umsdk:agoo_aranger:1.0.6'
+    implementation 'com.umeng.umsdk:agoo_networksdk:3.5.8'
+    implementation 'com.umeng.umsdk:agoo_tnet4android:3.1.14.10'
+    implementation 'com.umeng.umsdk:utdid:1.5.2.1'
+
+    //分享，登录
+    implementation 'com.umeng.umsdk:share-core:7.1.5'
+    implementation 'com.umeng.umsdk:share-board:7.1.5'
+    implementation 'com.umeng.umsdk:share-qq:7.1.5'
+    implementation 'com.umeng.umsdk:share-wx:7.1.5'
+    implementation 'com.umeng.umsdk:share-sina:7.1.5'
+    implementation 'com.umeng.umsdk:share-alipay:7.1.5'
+    implementation 'com.umeng.umsdk:share-dingding:7.1.5'
+
+
+    //twitter官方sdk
+    implementation 'com.twitter.sdk.android:twitter-core:3.1.1'
+    implementation 'com.twitter.sdk.android:tweet-composer:3.1.1'
+    //新浪微博官方SDK
+    implementation(name:'openDefault-10.10.0', ext:'aar')
+
+
+    //QQ官方依赖库
+    implementation 'com.tencent.tauth:qqopensdk:3.53.0'
+    //微信官方依赖库
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.7.0'
+    //钉钉官方sdk
+    implementation  "com.alibaba.android:ddsharesdk:1.2.0@jar"
+    //友盟
+
 
 //    多任务文件并行下载
     //    https://github.com/AriaLyy/Aria
@@ -403,8 +435,6 @@ dependencies {
 
     //环信
 
-
-
     //饺子播放器
     implementation 'cn.jzvd:jiaozivideoplayer:7.4.1'
 //    WsManager socket
@@ -420,7 +450,7 @@ dependencies {
     //im 自定义UI
     implementation 'com.github.LuckSiege.PictureSelector:picture_library:v2.5.8'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
-    implementation 'com.nbsp:library:1.8'
+//    implementation 'com.nbsp:library:1.0'
     //常用 Dialog    https://github.com/afollestad/material-dialogs，高版本kotlin 暂时不要更新
     implementation 'com.afollestad.material-dialogs:core:0.9.6.0'//不要更新
 

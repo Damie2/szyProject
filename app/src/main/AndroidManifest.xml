@@ -21,6 +21,9 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <!--打电话权限-->
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
@@ -39,6 +42,24 @@
 
     <!--指纹识别-->
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <!--友盟-->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_ADDED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_CHANGED" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_INSTALL" />
+    <uses-permission android:name="android.permission.BROADCAST_PACKAGE_REPLACED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!--友盟-->
 
 
     <!--    极光im第三步-->
@@ -256,7 +277,130 @@
         <activity
             android:name=".other.umeng.PushActivcity"
             android:exported="true"
-            android:launchMode="singleTask" /> <!-- 以下为基本配置信息，需要自行添加至您的AndroidManifest文件中  友盟推送要注册下面的东西 start -->
+            android:launchMode="singleTask" />
+
+        <!-- 以下为基本配置信息，需要自行添加至您的AndroidManifest文件中  友盟推送要注册下面的东西 start -->
+
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            android:theme="@android:style/Theme.NoTitleBar" />
+        <!-- wechat callback-->
+
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!--dingding-->
+<!--        <activity-->
+<!--            android:name=".ddshare.DDShareActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize"-->
+<!--            android:exported="true"-->
+<!--            android:launchMode="singleInstance"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
+
+<!--        <activity-->
+<!--            android:name=".apshare.ShareEntryActivity"-->
+<!--            android:configChanges="keyboardHidden|orientation|screenSize"-->
+<!--            android:exported="true"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
+
+
+<!--        &lt;!&ndash; vk &ndash;&gt;-->
+<!--        <activity-->
+<!--            android:name="com.vk.sdk.VKServiceActivity"-->
+<!--            android:label="ServiceActivity"-->
+<!--            android:theme="@style/VK.Transparent" />-->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent101830139" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.tencent.connect.common.AssistActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name=".other.provider.UMProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths" />
+        </provider>
+
+        <uses-library
+            android:name="com.google.android.maps"
+            android:required="false" />
+        <uses-library android:name="android.test.runner" />
+        <!-- facebook -->
+<!--        <activity-->
+<!--            android:name="com.umeng.facebook.FacebookActivity"-->
+<!--            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
+        <!--1104087112943046-->
+<!--        <provider-->
+<!--            android:name="com.umeng.facebook.FacebookContentProvider"-->
+<!--            android:authorities="com.facebook.app.FacebookContentProvider2094171727560943"-->
+<!--            android:exported="true" />-->
+
+<!--        <meta-data-->
+<!--            android:name="com.facebook.sdk.ApplicationId"-->
+<!--            android:value="@string/facebook_app_id" />-->
+
+<!--        &lt;!&ndash;twitter分享回调结果 &ndash;&gt;-->
+<!--        <receiver-->
+<!--            android:name=".twitterapi.TwitterShareReceiver"-->
+<!--            android:exported="false">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_SUCCESS" />-->
+<!--                <action android:name="com.twitter.sdk.android.tweetcomposer.UPLOAD_FAILURE" />-->
+<!--                <action android:name="com.twitter.sdk.android.tweetcomposer.TWEET_COMPOSE_CANCEL" />-->
+<!--            </intent-filter>-->
+<!--        </receiver>-->
+
+<!--        <activity-->
+<!--            android:name="com.dropbox.client2.android.AuthActivity"-->
+<!--            android:configChanges="orientation|keyboard"-->
+<!--            android:launchMode="singleTask">-->
+<!--            <intent-filter>-->
+<!--                &lt;!&ndash; Change this to be db- followed by your app key &ndash;&gt;-->
+<!--                <data android:scheme="db-oz8v5apet3arcdy" />-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
+
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+<!--        &lt;!&ndash; push start &ndash;&gt;-->
+<!--        &lt;!&ndash; 使用完全自定义消息来开启应用的服务进程的示例服务配置 &ndash;&gt;-->
+<!--        <service android:name=".push.MyNotificationService" />-->
+<!--        <service-->
+<!--            android:name=".push.UmengNotificationService"-->
+<!--            android:permission="android.permission.BIND_JOB_SERVICE" />-->
+
+<!--        <receiver android:name=".push.NotificationBroadcast" />-->
+<!--        <activity-->
+<!--            android:name=".push.MipushTestActivity"-->
+<!--            android:exported="true"-->
+<!--            android:launchMode="singleTask" />-->
+
         <service
             android:name="com.taobao.accs.ChannelService"
             android:exported="true"
@@ -268,6 +412,7 @@
                 <action android:name="com.taobao.accs.intent.action.ELECTION" />
             </intent-filter>
         </service>
+
         <service
             android:name="com.taobao.accs.data.MsgDistributeService"
             android:exported="true">
@@ -287,13 +432,13 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
-
                 <data android:scheme="package" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
+
         <receiver
             android:name="com.taobao.accs.ServiceReceiver"
             android:process=":channel">
@@ -309,9 +454,11 @@
             android:name="com.taobao.accs.internal.AccsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:process=":channel" />
+
         <service
             android:name="com.taobao.accs.ChannelService$KernelService"
             android:process=":channel" />
+
         <service
             android:name="org.android.agoo.accs.AgooService"
             android:exported="true">
@@ -319,6 +466,7 @@
                 <action android:name="com.taobao.accs.intent.action.RECEIVE" />
             </intent-filter>
         </service>
+
         <service
             android:name="com.umeng.message.UmengIntentService"
             android:exported="true"
@@ -327,6 +475,7 @@
                 <action android:name="org.agoo.android.intent.action.RECEIVE" />
             </intent-filter>
         </service>
+
         <service
             android:name="com.umeng.message.XiaomiIntentService"
             android:exported="true"
@@ -345,7 +494,6 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REMOVED" />
-
                 <data android:scheme="package" />
             </intent-filter>
         </receiver>
@@ -383,6 +531,7 @@
                 <action android:name="com.umeng.message.message.sendmessage.action" />
             </intent-filter>
         </service>
+
         <service
             android:name="com.umeng.message.UmengDownloadResourceService"
             android:exported="false"
@@ -395,29 +544,8 @@
             <grant-uri-permission android:pathPattern=".*" />
         </provider>
 
-        <activity
-            android:name="com.tencent.tauth.AuthActivity"
-            android:launchMode="singleTask"
-            android:noHistory="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
 
-                <data android:scheme="tencent101872925" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="com.tencent.connect.common.AssistActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name=".wxapi.WXEntryActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!--        上面都是友盟的，最后面一个主意-->
         <!--        下面是极光的-->
@@ -511,17 +639,20 @@
             android:value="4188d63f9c639d9edd52418a" />
         <!--        上面是极光im的-->
 
-
+        <meta-data
+            android:name="qqappid"
+            android:value="${qqappid}">
+        </meta-data>
         <!-- 适配 Android 7.0 文件意图 -->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
+<!--        <provider-->
+<!--            android:name="androidx.core.content.FileProvider"-->
+<!--            android:authorities="${applicationId}.provider"-->
+<!--            android:exported="false"-->
+<!--            android:grantUriPermissions="true">-->
+<!--            <meta-data-->
+<!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+<!--                android:resource="@xml/file_paths" />-->
+<!--        </provider>-->
 
     </application>
 
