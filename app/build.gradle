@@ -220,10 +220,17 @@ dependencies {
 
     //  ==========  jetPack========
     // ViewModel and LiveData
+//    implementation "androidx.lifecycle:lifecycle-runtime:2.3.1"
+//    implementation "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+//    implementation "androidx.lifecycle:lifecycle-viewmodel:2.3.1"
+//    implementation "androidx.lifecycle:lifecycle-livedata:2.3.1"
+//    implementation "androidx.navigation:navigation-runtime:2.3.1"
+
+
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
     // Navigation
-    implementation 'androidx.navigation:navigation-fragment:2.2.1'
-    implementation 'androidx.navigation:navigation-ui:2.2.1'
+//    implementation 'androidx.navigation:navigation-fragment:2.2.1'
+//    implementation 'androidx.navigation:navigation-ui:2.2.1'
     // Room
     implementation "androidx.room:room-runtime:2.2.4"
     annotationProcessor "androidx.room:room-compiler:2.2.4"
@@ -232,6 +239,9 @@ dependencies {
     implementation "androidx.paging:paging-runtime:$paging_version"
 //  ==========  jetPack========
 
+    implementation 'com.kunminx.arch:unpeek-livedata:7.2.0-beta1'
+    implementation 'com.kunminx.arch:smooth-navigation:4.0.0-beta1'
+    implementation 'com.kunminx.arch:strict-databinding:4.0.0-beta1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'

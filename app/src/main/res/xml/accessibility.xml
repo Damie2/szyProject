@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeAllMask"
+    android:accessibilityFeedbackType="feedbackAllMask"
+    android:canRetrieveWindowContent="true"
+    android:notificationTimeout="100"
+    android:packageNames="com.android.vpndialogs,com.xunmeng.pinduoduo,com.tencent.mm,com.android.settings,com.yulong.android.launcher3,com.huawei.android.launcher,com.p1.mobile.putong,android" />

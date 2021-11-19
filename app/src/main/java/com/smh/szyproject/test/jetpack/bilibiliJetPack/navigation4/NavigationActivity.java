@@ -2,8 +2,8 @@ package com.smh.szyproject.test.jetpack.bilibiliJetPack.navigation4;
 
 import android.os.Bundle;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+//import androidx.navigation.NavController;
+//import androidx.navigation.Navigation;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.smh.szyproject.R;

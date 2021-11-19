@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.smh.szyproject.other.widget.other.HintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:visibility="gone"
+            android:textSize="20px"
+            android:layout_marginBottom="50dp"
+            android:layout_above="@id/tv_next"
+            android:id="@+id/tv_test"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我是测试" />
+
+
+        <Button
+            android:layout_centerInParent="true"
+            android:id="@+id/tv_nextaaa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="tv_next"
+            android:textSize="30sp"
+            android:text="点我测试" />
+
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/tv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:onClick="tv_next"
+            android:textSize="30sp"
+            android:text="点我" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_next"
+            android:layout_centerHorizontal="true"
+            android:hint="我是输入框" />
+
+        <ImageView
+            android:id="@+id/iv_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="100dp"
+            android:layout_below="@id/tv_next"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+        <RelativeLayout
+            android:id="@id/rl"
+            android:layout_width="36pt"
+            android:layout_height="20pt"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/blue"
+            android:gravity="bottom" />
+
+        <Button
+            android:layout_above="@id/rl"
+            android:id="@+id/scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描" />
+
+        <Button
+            android:layout_toRightOf="@id/scan"
+            android:layout_above="@id/rl"
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+    </RelativeLayout>
+</com.smh.szyproject.other.widget.other.HintLayout>
