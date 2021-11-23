@@ -4,9 +4,14 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.smh.szyproject.R;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
+
+import java.lang.reflect.Type;
+import java.util.List;
 
 import butterknife.BindView;
 
@@ -51,6 +56,28 @@ public class LanmbdaActivity extends BaseActivity {
         LanmbdaTwo();
     }
 
+    //json解析
+
+//    Gson gson = new Gson();
+//    Type type = new TypeToken<List<LibraryInfo>>() {
+//    }.getType();
+//    List<LibraryInfo> list = gson.fromJson(Utils.getApp().getString(R.string.library_json), type);
+
+
+//     DataRepository.getInstance().getLibraryInfo(new DataResult.Result<List<LibraryInfo>>() {
+//        @Override
+//        public void onResult(DataResult<List<LibraryInfo>> dataResult) {
+//            mLibraryLiveData.setValue(dataResult);
+//        }
+//    });
+
+//        DataRepository.getInstance().getLibraryInfo(d->{
+//        mLibraryLiveData.setValue(d);
+//    });
+
+//        DataRepository.getInstance().getLibraryInfo(mLibraryLiveData::setValue);
+
+
     private void LanmbdaTwo() {
         testTwo testTwo = new testTwo() {
             @Override
@@ -63,12 +90,12 @@ public class LanmbdaActivity extends BaseActivity {
             L.e(x + y + "");
         };
         testTwo1.test(1, 2);
-        
+
         testTwo testTwo2 = (int x, int y) -> L.e(x + y + "");
         testTwo2.test(1, 2);
 
 
-        Handler   mMainHandler=new Handler(msg -> {
+        Handler mMainHandler = new Handler(msg -> {
             switch (msg.what) {
                 case 0:
 

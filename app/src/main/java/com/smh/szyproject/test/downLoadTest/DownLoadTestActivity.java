@@ -45,6 +45,11 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void init(Bundle savedInstanceState) {
+        /**
+         * 新下载工具，在package com.smh.szyproject.other.utils.utilCode;下面的FileUtil的工具里
+         */
+
+
         Aria.download(this).register();
         String fileName = System.currentTimeMillis() + ".exe";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
@@ -66,7 +71,6 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
     }
 
 
-
     private void downLoad() {
 //        method1();//xutils
 //        method2();//okhttp的
@@ -79,15 +83,13 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
     }
 
     @Permissions({Permission.CALL_PHONE})
-    public void call(){
+    public void call() {
         L.e("走了？");
         Intent intent = new Intent(Intent.ACTION_CALL);
         Uri data = Uri.parse("tel:" + "10086");
         intent.setData(data);
         startActivity(intent);
     }
-
-
 
 
     //多文件下载

@@ -1,5 +1,6 @@
 package com.smh.szyproject.test.getOnlyID;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -23,6 +24,33 @@ public class getOnlyIdActivity extends BaseActivity {
 
         //获取唯一ID
       id =   getUUID();
+    }
+
+    /**
+     * 获取ID  获取唯一ID
+     * demo的这个可以
+     * @param context
+     * @return
+     */
+    public static String getDEVICE_ID(Context context){
+        String m_szDevIDShort = "35" + //we make this look like a valid IMEI
+
+                Build.BOARD.length() % 10 +
+                Build.BRAND.length() % 10 +
+                Build.CPU_ABI.length() % 10 +
+                Build.DEVICE.length() % 10 +
+                Build.DISPLAY.length() % 10 +
+                Build.HOST.length() % 10 +
+                Build.ID.length() % 10 +
+                Build.MANUFACTURER.length() % 10 +
+                Build.MODEL.length() % 10 +
+                Build.PRODUCT.length() % 10 +
+                Build.TAGS.length() % 10 +
+                Build.TYPE.length() % 10 +
+                Build.USER.length() % 10;
+//        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+//        return  tm.getDeviceId();
+        return m_szDevIDShort;
     }
 
     public static String getUUID() {
