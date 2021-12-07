@@ -1,10 +1,14 @@
 package com.smh.szyproject.test.downLoadTest;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 
 import com.arialyy.annotations.Download;
@@ -23,6 +27,9 @@ import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 import butterknife.OnClick;
 
@@ -53,11 +60,145 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
         Aria.download(this).register();
         String fileName = System.currentTimeMillis() + ".exe";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+
+//            https://blog.csdn.net/Kelaker/article/details/80471352
+
+//            1.内存
+//            2.内存设备--->应用名--->（cache/files/其他名字）：用的少
+//            3.内存设备--->Android--->data--->应用名--->（cache/files/其他名字）：用的多
+//            4.sd卡--->应用名--->（files/cache/其他名字）：用得少
+//            5.sd卡--->Android--->data--->应用名--->（cache/files/其他名字）：用的多
+
+            /**
+             *            {@link android.os.Environment#DIRECTORY_MUSIC},
+             *             {@link android.os.Environment#DIRECTORY_PODCASTS},
+             *             {@link android.os.Environment#DIRECTORY_RINGTONES},
+             *             {@link android.os.Environment#DIRECTORY_ALARMS},
+             *             {@link android.os.Environment#DIRECTORY_NOTIFICATIONS},
+             *             {@link android.os.Environment#DIRECTORY_PICTURES}, or
+             *             {@link android.os.Environment#DIRECTORY_MOVIES}.
+             */
+
+
             saveFilePath = MyApplication.getContext().getExternalFilesDir("file") + fileName;
         } else {
             saveFilePath = Environment.getExternalStorageDirectory() + "/download/" + fileName;
         }
         L.e("保存路径：" + saveFilePath);
+        lunzi();
+    }
+
+    /**
+     * 函数返回路径/storage/emulated/0/Android/data/包名/files
+     *
+     * 用来存储一些长时间保留的数据,应用卸载会被删除
+     * @param context
+     * @return
+     */
+    public String getFilesPath( Context context ){
+        String filePath ;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable()) {
+            //外部存储可用
+            filePath = context.getExternalFilesDir(null).getPath();
+        }else {
+            //外部存储不可用
+            filePath = context.getFilesDir().getPath() ;
+        }
+        return filePath ;
+    }
+
+
+
+
+    /**
+     *
+     * 函数返回路径/storage/emulated/0/Android/data/包名/cache
+     *
+     * 用来存储一些临时缓存数据
+     *
+     *
+     *
+     *   getExternalCacheDir和getCacheDir
+     *   相同点：
+     *
+     *          1. 都可以做app缓存目录。
+     *
+     *          2. app卸载后，两个目录下的数据都会被清空。
+     *
+     * 不同点:
+     *
+     *          1、目录的路径不同。前者的目录存在外部SD卡上的。后者的目录存在app的内部存储上。
+     *
+     *          2、前者的路径在手机里可以直接看到。后者的路径需要root以后，用Root Explorer 文件管理器才能看到。
+     * @param context
+     * @return
+     */
+    public String getCachePath( Context context ){
+        String cachePath ;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable()) {
+            //外部存储可用
+            cachePath = context.getExternalCacheDir().getPath() ;
+        }else {
+            //外部存储不可用
+            cachePath = context.getCacheDir().getPath() ;
+        }
+        return cachePath ;
+    }
+
+
+    public static String getSDCardPicPath() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+            return MyApplication.getContext().getExternalFilesDir("file").getPath() ;
+//            return MyApplication.getContext().getExternalFilesDir(AppConstants.SHARE_DOWNLOAD_PIC_FILE).getPath() ;
+        }
+//        return Environment.getExternalStorageDirectory() + File.separator + AppConstants.SHARE_DOWNLOAD_PIC_FILE;
+        return Environment.getExternalStorageDirectory() + File.separator + "file";
+    }
+
+    private void lunzi() {
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        File sourceFile = new File("imagePath");
+        String fileName = "CROP_" + new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date()) +
+                "." + getImageFormat(sourceFile).toString().toLowerCase();
+        String subFolderName = "CropImage";
+        Uri outputUri;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // 适配 Android 10 分区存储特性
+            ContentValues values = new ContentValues();
+            // 设置显示的文件名
+            values.put(MediaStore.Images.Media.DISPLAY_NAME, fileName);
+            // 设置输出的路径信息
+            values.put(MediaStore.Images.Media.RELATIVE_PATH, Environment.DIRECTORY_DCIM + File.separator + subFolderName);
+            // 生成一个新的 uri 路径
+            outputUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        } else {
+            File folderFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) + File.separator + subFolderName);
+            if (!folderFile.isDirectory()) {
+                folderFile.delete();
+            }
+            if (!folderFile.exists()) {
+                folderFile.mkdirs();
+            }
+            outputUri = Uri.fromFile(new File(folderFile, fileName));
+        }
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+        // 设置裁剪后保存的文件格式
+        intent.putExtra("outputFormat", getImageFormat(sourceFile).toString());
+    }
+
+    /**
+     * 获取图片文件的格式
+     */
+    private static Bitmap.CompressFormat getImageFormat(File file) {
+        String fileName = file.getName().toLowerCase();
+        if (fileName.endsWith(".png")) {
+            return Bitmap.CompressFormat.PNG;
+        } else if (fileName.endsWith(".webp")) {
+            return Bitmap.CompressFormat.WEBP;
+        }
+        return Bitmap.CompressFormat.JPEG;
     }
 
     @Permissions(Permission.MANAGE_EXTERNAL_STORAGE)
