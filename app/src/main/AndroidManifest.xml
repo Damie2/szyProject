@@ -663,6 +663,10 @@
         <package android:name="com.tencent.mobileqq"/>
         <!--微信-->
         <package android:name="com.tencent.mm"/>
+        <!--alipayHK-->
+        <package android:name="hk.alipay.wallet"/>
+        <!--支付宝-->
+        <package android:name="com.eg.android.AlipayGphone"/>
     </queries>
 
 </manifest>
