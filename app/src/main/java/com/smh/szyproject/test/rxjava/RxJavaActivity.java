@@ -18,6 +18,7 @@ import com.smh.szyproject.other.utils.utilCode.Utils;
 import com.smh.szyproject.test.build.CustomDialog;
 import com.smh.szyproject.test.build.IDialogView;
 
+import org.jetbrains.annotations.NotNull;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 
@@ -73,8 +74,41 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
 //                method1();
 //                method4();
                 method5FlatMap();
+//                method6();
                 break;
         }
+    }
+
+    /**
+     * map--1----a
+     * map--2----a!!!
+     * map--1----b
+     * map--2----b!!!
+     * map--1----c
+     * map--2----c!!!
+     * 意思就是Observable.just再发射
+     * 1、先走apply方法
+     * 2、return Observable.just
+     * 3、next里的s就是just发射过来的s + "!!!"
+     */
+    private void method6() {
+        Observable.just("a", "b", "c").flatMap(new Function<String, ObservableSource<String>>() {
+            @Override
+            public ObservableSource<String> apply(@NotNull String s) throws Exception {
+                L.e("1----" + s);
+                return Observable.just(s + "!!!");
+            }
+        }).subscribe(new BaseObserver<String>() {
+            @Override
+            public void next(String s) {
+                L.e("2----" + s);
+            }
+
+            @Override
+            public void onError(ExceptionHandle.ResponeThrowable e) {
+
+            }
+        });
     }
 
     private void method5FlatMap() {
@@ -105,39 +139,39 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
 
     private void print() {
         //打印所有学生的课程
-        for (Student student : students) {
-            for (Course course : student.getCourseList()) {
-                L.e("course:" + course.getName());
-            }
-        }
+//        for (Student student : students) {
+//            for (Course course : student.getCourseList()) {
+//                L.e("course:" + course.getName());
+//            }
+//        }
 
 //        //使用flatMap
-//        Observable.just(students)
-//                .flatMap(new Function<List<Student>, ObservableSource<?>>() {
-//                    @Override
-//                    public ObservableSource<?> apply(List<Student> students) throws Exception {
-//                        return Observable.just(students);
-//                    }
-//                })
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(new BaseObserver<Object>() {
-//                    @Override
-//                    public void next(Object o) {
-//                        List<Student> s = (List<Student>) o;
-//                        if (s != null) {
-//                            for (Student student : s) {
-//                                L.e("姓名" + student.getName());
-//                                //输出姓名
-//                            }
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(ExceptionHandle.ResponeThrowable e) {
-//
-//                    }
-//                });
+        Observable.just(students)
+                .flatMap(new Function<List<Student>, ObservableSource<?>>() {
+                    @Override
+                    public ObservableSource<?> apply(List<Student> students) throws Exception {
+                        return Observable.just(students);
+                    }
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new BaseObserver<Object>() {
+                    @Override
+                    public void next(Object o) {
+                        List<Student> s = (List<Student>) o;
+                        if (s != null) {
+                            for (Student student : s) {
+                                L.e("姓名" + student.getName());
+                                //输出姓名
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onError(ExceptionHandle.ResponeThrowable e) {
+
+                    }
+                });
 
 
         //使用flatMap
@@ -160,11 +194,15 @@ public class RxJavaActivity extends BaseActivity implements View.OnClickListener
                             }
                         }
                     }
+
                     @Override
                     public void onError(ExceptionHandle.ResponeThrowable e) {
 
                     }
                 });
+
+
+
     }
 
     public class Course {

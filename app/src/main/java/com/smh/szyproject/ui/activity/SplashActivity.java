@@ -12,7 +12,6 @@ import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
 import com.smh.szyproject.other.utils.L;
-import com.smh.szyproject.test.imTwo.activity.ChatActivity;
 import com.smh.szyproject.test.zm.PickUpActivity;
 import com.smh.szyproject.test.zmdatamanager.DataManagerHomeActivity;
 
