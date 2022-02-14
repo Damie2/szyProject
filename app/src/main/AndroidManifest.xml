@@ -101,6 +101,11 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
 
+        <!-- 表示当前已经适配了分区存储 -->
+        <meta-data
+            android:name="ScopedStorage"
+            android:value="true" />
+
         <!-- autoSize -->
         <meta-data
             android:name="design_width"
