@@ -11,9 +11,7 @@ import com.hjq.http.EasyHttp;
 import com.hjq.http.lifecycle.ActivityLifecycle;
 import com.hjq.http.listener.HttpCallback;
 import com.hjq.http.listener.OnHttpListener;
-import com.smh.szyproject.easyNet.bean.ID;
-import com.smh.szyproject.easyNet.bean.User;
-import com.smh.szyproject.easyNet.request.LoginApi;
+
 import com.smh.szyproject.mvp.bean.Test;
 import com.smh.szyproject.other.utils.L;
 
@@ -50,12 +48,12 @@ public class ViewModel2 extends ViewModel implements OnHttpListener {
 
 
     public void get() {
-        EasyHttp.post(lifecycle).api(new LoginApi().setAuthor(new User("admin"))).request(new HttpCallback<ID>(this) {
-        });
-
-
-        EasyHttp.post(lifecycle).api(new LoginApi().setAuthor(new User("admin"))).request(new HttpCallback<ID>(listener) {
-        });
+//        EasyHttp.post(lifecycle).api(new LoginApi().setAuthor(new User("admin"))).request(new HttpCallback<ID>(this) {
+//        });
+//
+//
+//        EasyHttp.post(lifecycle).api(new LoginApi().setAuthor(new User("admin"))).request(new HttpCallback<ID>(listener) {
+//        });
     }
 
     public void loadUsers() {

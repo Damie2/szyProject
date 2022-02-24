@@ -4,6 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,10 +14,18 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
+
 import com.arialyy.annotations.Download;
 import com.arialyy.aria.core.Aria;
 import com.arialyy.aria.core.task.DownloadTask;
+
+import com.hjq.http.EasyUtils;
+import com.hjq.http.model.FileContentResolver;
+import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
+import com.hjq.permissions.XXPermissions;
 import com.smh.szyproject.MyApplication;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
@@ -27,8 +38,11 @@ import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import butterknife.OnClick;
@@ -54,7 +68,100 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
     public void init(Bundle savedInstanceState) {
         /**
          * 新下载工具，在package com.smh.szyproject.other.utils.utilCode;下面的FileUtil的工具里
+         *
+         *
+         * goooooooooooooooood
          */
+
+
+        //参考https://github.com/getActivity/EasyHttp  工程
+
+
+//        https://www.jianshu.com/p/271bbd13bfcf  AndroidQ(10)分区存储完美适配
+
+            //lunzid
+
+//        File outputFile;
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//            ContentValues values = new ContentValues();
+//            // 生成一个新的 uri 路径
+//            Uri outputUri = getContentResolver().insert(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, values);
+//            // 适配 Android 10 分区存储特性
+//            outputFile = new FileContentResolver(context, outputUri);
+//        } else {
+//            outputFile = new File(xxxx);
+//        }
+//
+//        EasyHttp.post(this)
+//                .api(new XxxApi()
+//                        .setImage(outputFile))
+//                .request(new HttpCallback<Xxx <Xxx>>(this) {
+//
+//                    @Override
+//                    public void onSucceed(Xxx<Xxx> data) {
+//
+//                    }
+//                });
+
+
+
+
+
+
+        // 如果是放到外部存储目录下则需要适配分区存储
+//            String fileName = "EasyHttp.png";
+//            File file;
+//            Uri outputUri;
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                // 适配 Android 10 分区存储特性
+//                ContentValues values = new ContentValues();
+//                // 设置显示的文件名
+//                values.put(MediaStore.Images.Media.DISPLAY_NAME, fileName);
+//                // 生成一个新的 uri 路径
+//                outputUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+//                file = new FileContentResolver(getContentResolver(), outputUri, fileName);
+//            } else {
+//                file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), fileName);
+//            }
+
+        // 如果是放到外部存储的应用专属目录则不需要适配分区存储特性
+        File file = new File(getExternalFilesDir(Environment.DIRECTORY_PICTURES), "EasyHttp.png");
+
+        if (!file.exists()) {
+            // 生成图片到本地
+            try {
+                Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_launcher);
+                OutputStream outputStream = EasyUtils.openFileOutputStream(file);
+                if (((BitmapDrawable) drawable).getBitmap().compress(Bitmap.CompressFormat.PNG, 100, outputStream)) {
+                    outputStream.flush();
+                }
+                // 通知系统多媒体扫描该文件，否则会导致拍摄出来的图片或者视频没有及时显示到相册中，而需要通过重启手机才能看到
+                MediaScannerConnection.scanFile(this, new String[]{file.getPath()}, null, null);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+
+        // 如果是放到外部存储目录下则需要适配分区存储
+//            String fileName = "微信 8.0.15.apk";
+//
+//            File file;
+//            Uri outputUri;
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                // 适配 Android 10 分区存储特性
+//                ContentValues values = new ContentValues();
+//                // 设置显示的文件名
+//                values.put(MediaStore.Downloads.DISPLAY_NAME, fileName);
+//                // 生成一个新的 uri 路径
+//                outputUri = getContentResolver().insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values);
+//                file = new FileContentResolver(getContentResolver(), outputUri, fileName);
+//            } else {
+//                file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
+//            }
+
+
 
 
         Aria.download(this).register();
@@ -147,6 +254,43 @@ public class DownLoadTestActivity extends BaseActivity implements View.OnClickLi
         return cachePath ;
     }
 
+    /**
+     * 安装 Apk
+     */
+    private void installApk(final Context context, final File file) {
+        XXPermissions.with(this)
+                // 安装包权限
+                .permission(Permission.REQUEST_INSTALL_PACKAGES)
+                .request(new OnPermissionCallback() {
+                    @Override
+                    public void onGranted(List<String> permissions, boolean all) {
+                        if (all) {
+                            Intent intent = new Intent();
+                            intent.setAction(Intent.ACTION_VIEW);
+                            Uri uri;
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                if (file instanceof FileContentResolver) {
+                                    uri = ((FileContentResolver) file).getContentUri();
+                                } else {
+                                    uri = FileProvider.getUriForFile(context, context.getPackageName() + ".provider", file);
+                                }
+                                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                            } else {
+                                uri = Uri.fromFile(file);
+                            }
+
+                            intent.setDataAndType(uri, "application/vnd.android.package-archive");
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            context.startActivity(intent);
+                        }
+                    }
+
+                    @Override
+                    public void onDenied(List<String> permissions, boolean never) {
+
+                    }
+                });
+    }
 
     public static String getSDCardPicPath() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){

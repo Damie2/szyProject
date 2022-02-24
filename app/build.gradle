@@ -490,7 +490,8 @@ dependencies {
     implementation 'com.github.cpoopc:scrollablelayoutlib:1.0.0'
 
     //轮子的EasyHttp
-    implementation 'com.hjq:http:8.6'
+//    implementation 'com.hjq:http:8.6'
+    implementation 'com.github.getActivity:EasyHttp:10.8'
     //卡顿检测优化框架  https://github.com/markzhai/AndroidPerformanceMonitor
     implementation 'com.github.markzhai:blockcanary-android:1.5.0'
 
