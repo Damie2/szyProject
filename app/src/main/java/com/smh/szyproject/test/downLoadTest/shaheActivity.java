@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.hjq.http.model.FileContentResolver;
 import com.hjq.permissions.Permission;
-import com.smh.szyproject.MyApplication;
 import com.smh.szyproject.R;
 import com.smh.szyproject.aop.Permissions;
 import com.smh.szyproject.common.base.BaseActivity;
@@ -25,26 +24,17 @@ import org.xutils.x;
 import java.io.File;
 
 import butterknife.BindView;
-import butterknife.OnClick;
 
 /**
- * author : smh
- * date   : 2020/9/2 14:05
- * desc   :安卓11存储权限适配
- * <p>
- * https://www.jianshu.com/p/e94cea26e213
- *
- *
- * 下载到 /storage/emulated/0/1645681571700.exe
- *
- *
+ * @Author smh
+ * @Date 2022/2/24 13:47
  */
-public class writePermiss extends BaseActivity {
+public class shaheActivity extends BaseActivity {
     @BindView(R.id.tv_next)
     TextView textView;
     private String path = "https://down.360safe.com/360ap/360freeap_beta_setup_freewifi.exe";
-    private String saveFilePath;
     String fileName;
+    File file;
     @Override
     public int getLayoutId() {
         return R.layout.test_activity_test;
@@ -53,48 +43,61 @@ public class writePermiss extends BaseActivity {
     @Override
     public void init(Bundle savedInstanceState) {
         textView.setOnClickListener(new View.OnClickListener() {
+
             // 不适配 Android 11 可以这样写
-            //.permission(Permission.Group.STORAGE)
+//            .permission(Permission.Group.STORAGE)
             // 适配 Android 11 需要这样写，这里无需再写 Permission.Group.STORAGE
+//            外部存储权限（特殊权限，需要 Android 11 及以上）
             @Permissions(Permission.MANAGE_EXTERNAL_STORAGE)
             @Override
             public void onClick(View view) {
-                writeFiles();
+                L.e("开始写文件");
+                fileName = System.currentTimeMillis() + ".exe";
+                fenqu();
+//                bufenqu();
+                method1();
             }
         });
     }
 
-    private void writeFiles() {
-        L.e("开始写文件");
-//         如果是放到外部存储目录下则需要适配分区存储
-            String fileName = "EasyHttp.png";
-            File file;
+    /**
+     * 放到外部存储的应用专属目录则不需要适配分区存储特性
+     */
+    private void bufenqu() {
+        ///storage/emulated/0/Android/data/com.smh.szyproject/files/Download/微信 8.0.15.apk
+        file = new File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "微信 8.0.15.apk");
+    }
+
+    /**
+     * 适配分区存储
+     *
+     * https://www.yht7.com/news/13427
+     */
+    private void fenqu(){
+        String fileName = "微信 8.0.15.apk";
             Uri outputUri;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 // 适配 Android 10 分区存储特性
                 ContentValues values = new ContentValues();
                 // 设置显示的文件名
-                values.put(MediaStore.Images.Media.DISPLAY_NAME, fileName);
+                values.put(MediaStore.Downloads.DISPLAY_NAME, fileName);
                 // 生成一个新的 uri 路径
-                outputUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                outputUri = getContentResolver().insert(MediaStore.Downloads.EXTERNAL_CONTENT_URI, values);
                 file = new FileContentResolver(getContentResolver(), outputUri, fileName);
             } else {
-                file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), fileName);
+                file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
             }
 
-
-        method1();
     }
 
 
-    //xutils带进度条的
+
     private void method1() {
         L.e("开始下载");
         RequestParams params = new RequestParams(path);
-        params.setSaveFilePath(saveFilePath);
+        params.setSaveFilePath(file.getAbsolutePath());
         params.setAutoRename(false);
         params.setAutoResume(false);
-//        x.http().get(params, new Callback.CommonCallback<File>() {
         x.http().get(params, new Callback.ProgressCallback<File>() {
             @Override
             public void onWaiting() {
@@ -103,7 +106,7 @@ public class writePermiss extends BaseActivity {
 
             @Override
             public void onStarted() {
-
+                L.e("开始下载：" +file.getAbsolutePath());
             }
 
             @Override

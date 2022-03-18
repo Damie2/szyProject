@@ -11,9 +11,10 @@
         android:id="@+id/mTablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/white"
-
+        app:tabBackground="@android:color/transparent"
         app:tabTextColor="@color/user_blue_A"
         app:tabMinWidth="40px"
         app:tabIndicatorFullWidth="false"

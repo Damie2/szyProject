@@ -125,7 +125,7 @@
 <!--            android:name=".test.LoupeView.LoupeViewActivity"-->
 <!--        android:name=".test.fingerprint.FingerLoginActivity"-->
         <activity
-            android:name=".test.test.ttestActivity"
+            android:name=".test.fragment.RYmainAddFragment.MainAddActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>

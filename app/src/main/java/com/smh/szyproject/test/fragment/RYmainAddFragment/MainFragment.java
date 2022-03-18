@@ -48,6 +48,9 @@ public class MainFragment extends BaseFragment {
         mTablayout.setPadding(mTablayout.getPaddingLeft(), AppUtils.getStateBarHeight(getContext()), mTablayout.getPaddingRight(), mTablayout.getPaddingBottom());
         mTablayout.setSelectedTabIndicatorColor(Color.RED);
         mTablayout.setupWithViewPager(vp_content);
+
+
+
         list.add("北京");
         list.add("河北");
         list.add("河南");

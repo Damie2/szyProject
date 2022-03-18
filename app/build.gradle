@@ -208,7 +208,7 @@ repositories {
 //看异常，就用我 gradlew  assembleDebug  --stacktrace
 
 
-//gradlew processTencentDebugManifest --stacktrace，意思是如果明确指知道是哪个task有错误，比如processTencentDebugManifest
+//gradlew processTencentDebugResources --stacktrace，意思是如果明确指知道是哪个task有错误，比如processTencentDebugManifest
 dependencies {
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -522,6 +522,15 @@ dependencies {
 
     // 添加 神策埋点 Sensors Analytics SDK 依赖
     implementation 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:5.1.0'
+
+    // Shape 框架：https://github.com/getActivity/ShapeView
+    implementation 'com.github.getActivity:ShapeView:6.2'
+
+    implementation ('com.github.qiujayen:sticky-layoutmanager:1.0.1') {
+        exclude group: 'com.android.support'
+    }
+
+
 
 //    什么都没改
 //    20Mb
