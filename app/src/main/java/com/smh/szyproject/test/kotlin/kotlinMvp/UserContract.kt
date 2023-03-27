@@ -12,4 +12,5 @@ interface UserContract {
     interface IUserPresenter{
         fun addUser(name:String)
     }
+
 }

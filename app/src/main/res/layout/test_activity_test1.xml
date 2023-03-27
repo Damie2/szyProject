@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:onClick="tv_next"
             android:textSize="30sp"
-            android:text="点我测试" />
+            android:text="开启模拟位置" />
 
 
         <Button

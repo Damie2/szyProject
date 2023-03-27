@@ -37,6 +37,7 @@ import com.smh.szyproject.other.utils.ToastUtils;
 import com.smh.szyproject.test.blockcanary.AppBlockCanaryContext;
 import com.squareup.leakcanary.LeakCanary;
 
+import org.greenrobot.eventbus.EventBus;
 import org.xutils.x;
 
 import java.util.List;
@@ -91,7 +92,9 @@ public class  MyApplication extends Application implements LifecycleOwner{
         CrashHandler.getInstance(this);
         initNetManager();
         initSDK();
+        EventBus.getDefault().register(this);
     }
+
 
 
 
